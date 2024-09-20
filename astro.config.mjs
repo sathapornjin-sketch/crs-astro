@@ -1,4 +1,4 @@
-import { defineConfig, passthroughImageService } from 'astro/config';
+import { defineConfig, passthroughImageService } from "astro/config";
 
 import tailwind from "@astrojs/tailwind";
 
@@ -8,5 +8,12 @@ export default defineConfig({
   image: {
     service: passthroughImageService(),
   },
-  integrations: [tailwind()]
+  integrations: [tailwind()],
+  vite: {
+    server: {
+      watch: {
+        ignored: ["./wordpress/**"],
+      },
+    },
+  },
 });
