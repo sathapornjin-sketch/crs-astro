@@ -1,4 +1,5 @@
 {
   "liveSassCompile.settings.excludeList": ["/src/**"],
-  "editor.wordWrapColumn": 160
+  "editor.wordWrapColumn": 160,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -9,10 +9,10 @@ importers:
   .:
     dependencies:
       '@astrojs/tailwind':
-        specifier: ^5.1.0
+        specifier: ^5.1.1
         version: 5.1.1(astro@4.15.8(@types/node@22.5.5)(rollup@4.22.2)(sass@1.79.2)(typescript@5.6.2))(tailwindcss@3.4.12)
       astro:
-        specifier: ^4.0.6
+        specifier: ^4.15.8
         version: 4.15.8(@types/node@22.5.5)(rollup@4.22.2)(sass@1.79.2)(typescript@5.6.2)
       astro-icon:
         specifier: ^0.8.2
@@ -21,14 +21,14 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0
       dayjs:
-        specifier: ^1.11.11
+        specifier: ^1.11.13
         version: 1.11.13
       tailwindcss:
-        specifier: ^3.4.3
+        specifier: ^3.4.12
         version: 3.4.12
     devDependencies:
       sass:
-        specifier: ^1.69.5
+        specifier: ^1.79.2
         version: 1.79.2
 
 packages:
