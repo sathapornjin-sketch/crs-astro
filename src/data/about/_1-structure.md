@@ -1,5 +1,5 @@
 ---
-title: โครงสร้างไฟล์
+title: _โครงสร้างไฟล์
 slug: structure
 ---
 
