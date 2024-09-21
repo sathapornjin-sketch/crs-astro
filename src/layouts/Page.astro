@@ -5,12 +5,12 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout
-  title={frontmatter.title}
-  description={frontmatter.description}
-  bodyclass='width-sm bg-th-bg-2 dark:bg-th-bg-2-dark'
+	title={frontmatter.title}
+	description={frontmatter.description}
+	bodyclass="width-sm bg-th-bg-2 dark:bg-th-bg-2-dark"
 >
-  <article>
-    <h1>{frontmatter.title}</h1>
-    <slot />
-  </article>
+	<article>
+		<h1>{frontmatter.title}</h1>
+		<slot />
+	</article>
 </Layout>

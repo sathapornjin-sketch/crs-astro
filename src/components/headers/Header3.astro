@@ -6,27 +6,24 @@ const SiteTitle = 'ไทยยูไอ 03';
 ---
 
 <header
-  id='head'
-  class='sticky lg:relative top-0 py-4 lg:py-5 px-0 bg-th-head-bg dark:bg-th-head-bg-dark text-th-head-text dark:text-th-head-text-dark leading-[1.8rem] border-b-[3px] lg:border-b-0 border-solid border-th-nav-bg dark:border-th-nav-bg-dark'
+	id="head"
+	class="sticky top-0 border-b-[3px] border-solid border-th-nav-bg bg-th-head-bg px-0 py-4 leading-[1.8rem] text-th-head-text dark:border-th-nav-bg-dark dark:bg-th-head-bg-dark dark:text-th-head-text-dark lg:relative lg:border-b-0 lg:py-5"
 >
-  <div
-    class='w-full max-w-th-width-lg mx-auto px-4 md:px-5 flex items-center gap-4'
-  >
-    <a
-      href='/'
-      class='text-[1.6rem] lg:text-[2.4rem] dark:text-th-link-1-dark leading-[1.919rem] md:leading-[2.88rem]'
-      title='Home'
-    >
-      <strong>{SiteTitle}</strong>
-    </a>
-    <small
-      class='hidden lg:block pt-[0.18rem] text-[0.9rem] leading-[1.081rem] opacity-80'
-      >ตัวอย่างเทมเพลตเว็บภาษาไทยในรูปแบบ Astro</small
-    >
-    <div class='flex gap-4 pr-20 lg:pr-0 items-center ml-auto'>
-      <ButtonMode />
-      <ButtonSize />
-    </div>
-  </div>
+	<div class="mx-auto flex w-full max-w-th-width-lg items-center gap-4 px-4 md:px-5">
+		<a
+			href="/"
+			class="text-[1.6rem] leading-[1.919rem] dark:text-th-link-1-dark md:leading-[2.88rem] lg:text-[2.4rem]"
+			title="Home"
+		>
+			<strong>{SiteTitle}</strong>
+		</a>
+		<small class="hidden pt-[0.18rem] text-[0.9rem] leading-[1.081rem] opacity-80 lg:block"
+			>ตัวอย่างเทมเพลตเว็บภาษาไทยในรูปแบบ Astro</small
+		>
+		<div class="ml-auto flex items-center gap-4 pr-20 lg:pr-0">
+			<ButtonMode />
+			<ButtonSize />
+		</div>
+	</div>
 </header>
 <Nav />

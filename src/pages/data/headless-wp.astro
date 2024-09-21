@@ -7,39 +7,37 @@ const description = 'ตัวอย่างการนำบทความ�
 ---
 
 <Layout title={title} description={description}>
-  <h1>{title}</h1>
-  <p>
-    ตัวอย่างการนำบทความจากเว็บ WordPress โดยเรียกผ่าน
-    <a href='https://developer.wordpress.org/rest-api/' target='_blank'
-      >WordPress REST API</a
-    >
-    แบบ
-    <a
-      href='https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/'
-    >
-      Custom Endpoints
-    </a>
-  </p>
-  <p>
-    เช่น เว็บไซต์ <strong>i.thaiui.com</strong> ที่ทำการติดตั้งธีม
-    <strong>
-      <a href='https://github.com/SeedWebs/root' target='_blank'>Root</a>
-    </strong>
-    จะมี Custom Endpoints ที่เรียกข้อมูลจาก WordPress ที่อยู่ที่
-    <code class='font-monospace'>
-      <a href='https://i.thaiui.com/wp-json/root/v1/dessert' target='_blank'>
-        https://i.thaiui.com/wp-json/root/v1/dessert
-      </a>
-    </code>
-  </p>
-  <p>นำข้อมูลมาแสดงดังนี้</p>
-  <br />
-  <h2>ตัวอย่างขนมไทย</h2>
+	<h1>{title}</h1>
+	<p>
+		ตัวอย่างการนำบทความจากเว็บ WordPress โดยเรียกผ่าน
+		<a href="https://developer.wordpress.org/rest-api/" target="_blank">WordPress REST API</a>
+		แบบ
+		<a
+			href="https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/"
+		>
+			Custom Endpoints
+		</a>
+	</p>
+	<p>
+		เช่น เว็บไซต์ <strong>i.thaiui.com</strong> ที่ทำการติดตั้งธีม
+		<strong>
+			<a href="https://github.com/SeedWebs/root" target="_blank">Root</a>
+		</strong>
+		จะมี Custom Endpoints ที่เรียกข้อมูลจาก WordPress ที่อยู่ที่
+		<code class="font-monospace">
+			<a href="https://i.thaiui.com/wp-json/root/v1/dessert" target="_blank">
+				https://i.thaiui.com/wp-json/root/v1/dessert
+			</a>
+		</code>
+	</p>
+	<p>นำข้อมูลมาแสดงดังนี้</p>
+	<br />
+	<h2>ตัวอย่างขนมไทย</h2>
 
-  <div
-    class='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[30px] mb-[30px] before:hidden after:hidden'
-  >
-    <!-- {
+	<div
+		class="mb-[30px] grid grid-cols-2 gap-[30px] before:hidden after:hidden md:grid-cols-3 lg:grid-cols-4"
+	>
+		<!-- {
       posts.map((post) => (
         <a
           class='card bg-th-bg-1 dark:bg-th-bg-1-dark rounded-th-rounded-2 shadow-th-shadow-1 overflow-hidden border-[6px] border-solid border-th-bg-1 dark:border-th-bg-1-dark duration-300 ease-in-out text-th-text-1 dark:text-th-text-1-dark hover:cursor-pointer hover:scale-[1.06] hover:shadow-th-shadow-2 hover:border-[10px] hover:border-solid hover:border-th-bg-1 dark:hover:border-th-bg-1-dark hover:text-th-text-1 dark:hover:text-th-text-1-dark'
@@ -54,5 +52,5 @@ const description = 'ตัวอย่างการนำบทความ�
         </a>
       ))
     } -->
-  </div>
+	</div>
 </Layout>

@@ -11,33 +11,27 @@ const { title, thumbnail, link, date, category } = Astro.props;
 ---
 
 <article>
-  <div class='relative pt-[52.5%] overflow-hidden'>
-    <a href={link} class='block'>
-      <Image
-        src={thumbnail}
-        classes='absolute left-0 top-0 w-full h-full object-cover'
-        alt={title}
-      />
-    </a>
-  </div>
-  <div class='flex flex-1 flex-col gap-2'>
-    <h3 class='mt-6 mb-0 text-xl font-normal'>
-      <a
-        href={link}
-        set:html={title}
-        class='text-th-text-4 dark:text-th-text-4-dark'
-      />
-    </h3>
-    {
-      (category || date) && (
-        <span class='flex gap-2 text-sm text-th-text-6'>
-          {category && <span>{category.name}</span>}
-          {category && date && <span>•</span>}
-          {date && (
-            <span>{dayjs(date).locale('th').utc().format('DD MMM BB')}</span>
-          )}
-        </span>
-      )
-    }
-  </div>
+	<div class="relative overflow-hidden pt-[52.5%]">
+		<a href={link} class="block">
+			<Image
+				src={thumbnail}
+				classes="absolute left-0 top-0 w-full h-full object-cover"
+				alt={title}
+			/>
+		</a>
+	</div>
+	<div class="flex flex-1 flex-col gap-2">
+		<h3 class="mb-0 mt-6 text-xl font-normal">
+			<a href={link} set:html={title} class="text-th-text-4 dark:text-th-text-4-dark" />
+		</h3>
+		{
+			(category || date) && (
+				<span class="flex gap-2 text-sm text-th-text-6">
+					{category && <span>{category.name}</span>}
+					{category && date && <span>•</span>}
+					{date && <span>{dayjs(date).locale('th').utc().format('DD MMM BB')}</span>}
+				</span>
+			)
+		}
+	</div>
 </article>

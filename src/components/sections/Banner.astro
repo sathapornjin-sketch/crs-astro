@@ -3,11 +3,6 @@ import Image from '../ui/Image.astro';
 const { src } = Astro.props;
 ---
 
-<section class='max-w-screen w-screen mx-[calc(-50vw_+_50%)]'>
-  <Image
-    src={src}
-    classes='w-screen'
-    alt='CRS'
-    loading='eager'
-  />
+<section class="max-w-screen mx-[calc(-50vw_+_50%)] w-screen">
+	<Image src={src} classes="w-screen" alt="CRS" loading="eager" />
 </section>

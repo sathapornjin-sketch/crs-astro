@@ -5,20 +5,20 @@ const className = `grid lg:grid-cols-8 gap-8 lg:gap-6 max-w-4xl mx-auto ${classe
 ---
 
 {
-  items && (
-    <div class='mx-[calc(-50vw_+_50%)] py-6 bg-th-bg-4 dark:bg-th-bg-4-dark -mb-4 md:-mb-5 lg:-mb-6 xl:-mb-[30px]'>
-      <section class={className}>
-        {items.map((i) => (
-          <div class='block text-center'>
-            <Icon
-              name={i.icon}
-              width='38px'
-              height='38px'
-              class='mx-auto dark:fill-white dark:stroke-white dark:text-white'
-            />
-          </div>
-        ))}
-      </section>
-    </div>
-  )
+	items && (
+		<div class="mx-[calc(-50vw_+_50%)] -mb-4 bg-th-bg-4 py-6 dark:bg-th-bg-4-dark md:-mb-5 lg:-mb-6 xl:-mb-[30px]">
+			<section class={className}>
+				{items.map((i) => (
+					<div class="block text-center">
+						<Icon
+							name={i.icon}
+							width="38px"
+							height="38px"
+							class="mx-auto dark:fill-white dark:stroke-white dark:text-white"
+						/>
+					</div>
+				))}
+			</section>
+		</div>
+	)
 }

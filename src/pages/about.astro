@@ -1,29 +1,29 @@
 ---
-import Layout from "../layouts/Layout_Sidebar.astro";
-import Side from "../components/about/Side.astro";
+import Layout from '../layouts/Layout_Sidebar.astro';
+import Side from '../components/about/Side.astro';
 export async function getStaticPaths() {
-  const posts = await Astro.glob("../data/about/*.md");
-  return posts.map((post) => {
-    return {
-      params: { slug: post.frontmatter.slug },
-      props: { ...post },
-    };
-  });
+	const posts = await Astro.glob('../data/about/*.md');
+	return posts.map((post) => {
+		return {
+			params: { slug: post.frontmatter.slug },
+			props: { ...post },
+		};
+	});
 }
-const title = "เกี่ยวกับวิทยาลัย";
-const description = "เกี่ยวกับวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล";
+const title = 'เกี่ยวกับวิทยาลัย';
+const description = 'เกี่ยวกับวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล';
 ---
 
 <Layout title={title} description={description}>
-  <aside slot="aside" class="order-2 md:order-1">
-    <Side />
-  </aside>
-  <h1 class="mt-0">เกี่ยวกับวิทยาลัย</h1>
-  <p>เร็ว ๆ นี้</p>
+	<aside slot="aside" class="order-2 md:order-1">
+		<Side />
+	</aside>
+	<h1 class="mt-0">เกี่ยวกับวิทยาลัย</h1>
+	<p>เร็ว ๆ นี้</p>
 </Layout>
 
 <script>
-  if (typeof window !== "undefined") {
-    window.location.href = "/about/history";
-  }
+	if (typeof window !== 'undefined') {
+		window.location.href = '/about/history';
+	}
 </script>

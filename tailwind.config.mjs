@@ -6,7 +6,7 @@ export default {
 			fontFamily: {
 				'th-body': '"Noto Sans Thai", "Noto Sans", sans-serif',
 				'th-heading': '"Noto Sans Thai", "Noto Sans", sans-serif',
-				'monospace': 'monospace',
+				monospace: 'monospace',
 			},
 			colors: {
 				'th-color-1': '#0c4da2',
@@ -79,17 +79,17 @@ export default {
 				'th-rounded-2': '5px',
 			},
 			backgroundImage: {
-        'slogan': "url('/img/bg-slogan.jpg')",
-      }
+				slogan: "url('/img/bg-slogan.jpg')",
+			},
 		},
 	},
 	plugins: [
 		function ({ addVariant }) {
-      addVariant('width-sm', '.width-sm &')
-			addVariant('has-sub', '.has-sub &')
-			addVariant('size-m', '.size-m &')
-			addVariant('size-l', '.size-l &')
-    }
+			addVariant('width-sm', '.width-sm &');
+			addVariant('has-sub', '.has-sub &');
+			addVariant('size-m', '.size-m &');
+			addVariant('size-l', '.size-l &');
+		},
 	],
 	darkMode: 'class',
-}
+};

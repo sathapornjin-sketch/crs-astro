@@ -3,34 +3,27 @@ import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.scss';
-const {
-  title,
-  description,
-  bodyclass = '',
-  cover = '/cover.png',
-} = Astro.props;
+const { title, description, bodyclass = '', cover = '/cover.png' } = Astro.props;
 ---
 
-<html lang='th' class='font-th-body overflow-x-hidden w-full'>
-  <head>
-    <meta charset='utf-8' />
-    <!-- <link rel='icon' type='image/svg+xml' href='/favicon.svg' /> -->
-    <link rel="icon" type="image/png" href="/img/mu-logo.png" />
-    <meta name='viewport' content='width=device-width, initial-scale=1' />
-    <meta name='description' content={description} />
-    <meta property='og:image' content={cover} />
-    <title>{title}</title>
-    <ViewTransitions />
-  </head>
-  <body
-    class={'relative flex flex-col size-m:text-[22px] size-l:text-[32px] text-th-text-1 dark:text-th-text-1-dark' +
-      (bodyclass ? ` ${bodyclass}` : ' bg-th-bg-2 dark:bg-th-bg-2-dark')}
-  >
-    <a class='skip-link _sr' href='#content'
-      >Skip to content - ข้ามไปที่เนื้อหา</a
-    >
-    <Header />
-    <slot />
-    <Footer />
-  </body>
+<html lang="th" class="w-full overflow-x-hidden font-th-body">
+	<head>
+		<meta charset="utf-8" />
+		<!-- <link rel='icon' type='image/svg+xml' href='/favicon.svg' /> -->
+		<link rel="icon" type="image/png" href="/img/mu-logo.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<meta property="og:image" content={cover} />
+		<title>{title}</title>
+		<ViewTransitions />
+	</head>
+	<body
+		class={'relative flex flex-col size-m:text-[22px] size-l:text-[32px] text-th-text-1 dark:text-th-text-1-dark' +
+			(bodyclass ? ` ${bodyclass}` : ' bg-th-bg-2 dark:bg-th-bg-2-dark')}
+	>
+		<a class="skip-link _sr" href="#content">Skip to content - ข้ามไปที่เนื้อหา</a>
+		<Header />
+		<slot />
+		<Footer />
+	</body>
 </html>
