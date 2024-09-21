@@ -21,7 +21,7 @@ const className = `grid ${classes} pl-0`;
                 .medium_large.source_url
             }
             alt={i._embedded['wp:featuredmedia'].alt_text}
-            link={`/${i.slug}`}
+            link={`/posts/${i.slug}`}
             date={i.date}
             category={i._embedded['wp:term'] && i._embedded['wp:term'][0][0]}
           />
