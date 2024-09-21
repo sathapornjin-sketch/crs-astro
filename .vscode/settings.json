@@ -1,5 +1,6 @@
 {
   "liveSassCompile.settings.excludeList": ["/src/**"],
   "editor.wordWrapColumn": 160,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "tailwindCSS.experimental.configFile": "tailwind.config.mjs"
 }
