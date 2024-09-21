@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const res = await fetch('https://i.thaiui.com/wp-json/root/v1/dessert');
-const posts = await res.json();
+// const res = await fetch('https://i.thaiui.com/wp-json/root/v1/dessert');
+// const posts = await res.json();
 const title = 'Headless WordPress';
 const description = 'ตัวอย่างการนำบทความจาก Headless WordPress มาแสดง';
 ---
@@ -39,7 +39,7 @@ const description = 'ตัวอย่างการนำบทความ�
   <div
     class='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[30px] mb-[30px] before:hidden after:hidden'
   >
-    {
+    <!-- {
       posts.map((post) => (
         <a
           class='card bg-th-bg-1 dark:bg-th-bg-1-dark rounded-th-rounded-2 shadow-th-shadow-1 overflow-hidden border-[6px] border-solid border-th-bg-1 dark:border-th-bg-1-dark duration-300 ease-in-out text-th-text-1 dark:text-th-text-1-dark hover:cursor-pointer hover:scale-[1.06] hover:shadow-th-shadow-2 hover:border-[10px] hover:border-solid hover:border-th-bg-1 dark:hover:border-th-bg-1-dark hover:text-th-text-1 dark:hover:text-th-text-1-dark'
@@ -53,6 +53,6 @@ const description = 'ตัวอย่างการนำบทความ�
           />
         </a>
       ))
-    }
+    } -->
   </div>
 </Layout>
