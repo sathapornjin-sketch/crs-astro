@@ -3,10 +3,10 @@ import Icon from 'astro-icon';
 import '../styles/nav.scss';
 
 const nav = [
-	{
-		name: 'หน้าแรก',
-		link: '/',
-	},
+	{ 
+    name: 'หน้าแรก', 
+    link: '/' 
+  },
 	{
 		name: 'เกี่ยวกับวิทยาลัย',
 		link: '/about',
@@ -23,6 +23,22 @@ const nav = [
 				name: 'วิสัยทัศน์ พันธกิจ ค่านิยม',
 				link: '/about/vision',
 			},
+			{
+				name: 'อำนาจและหน้าที่',
+				link: '/',
+			},
+			{
+				name: 'โครงสร้าง',
+				link: '/',
+			},
+			{
+				name: 'คณะผู้บริหาร',
+				link: '/',
+			},
+			{
+				name: 'บุคคลากร',
+				link: '/',
+			},
 		],
 	},
 	{
@@ -38,29 +54,48 @@ const nav = [
 				link: '/',
 			},
 			{
-				name: 'อาจารย์',
+				name: 'ข้อมูลสำหรับนักศึกษา',
+				link: '/',
+			},
+			{
+				name: 'อาจารย์ประจำ',
 				link: '/',
 			},
 		],
 	},
 	{
-		name: 'การศึกษา',
-		link: '/about',
+		name: 'อาจารย์/เจ้าหน้าที่',
+		link: '/',
 		sub: [
 			{
-				name: 'หลักสูตร',
-				link: '/about/syllabus',
-			},
-			{
-				name: 'TCAS',
-				link: '/',
-			},
-			{
-				name: 'อาจารย์',
+				name: 'สวัสดิการ',
 				link: '/',
 			},
 		],
 	},
+	{
+		name: 'ติดต่อ/ร้องเรียน',
+		link: '/',
+		sub: [
+			{
+				name: 'ติดต่อ',
+				link: '/',
+			},
+			{
+				name: 'ร้องเรียน',
+				link: '/',
+			},
+		],
+	},
+	{ 
+    name: 'ITA', 
+    link: '/' 
+  },
+	{
+		name: 'พระบัณฑิตอาสา',
+		link: '/',
+	},
+  /*
 	{
 		name: 'ตัวอย่างชิ้นส่วน',
 		link: '/element/',
@@ -101,10 +136,7 @@ const nav = [
 			},
 		],
 	},
-	{
-		name: 'พระบัณฑิตอาสา',
-		link: '/',
-	},
+  */
 ];
 ---
 
