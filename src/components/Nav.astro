@@ -1,56 +1,239 @@
 ---
 import Icon from 'astro-icon';
 import '../styles/nav.scss';
+
 const nav = [
-  { name: 'หน้าแรก', link: '/' },
-  { name: 'เกี่ยวกับวิทยาลัย', link: '/about' ,
-    sub: [
-      { name: 'ประวัติวิทยาลัย', link: '/about/history' },
-      { name: 'หลักสูตร', link: '/about/syllabus' },
-      { name: 'วิสัยทัศน์ พันธกิจ ค่านิยม', link: '/about/vision' },
-      { name: 'อำนาจและหน้าที่', link: '/' },
-      { name: 'โครงสร้าง', link: '/' },
-      { name: 'คณะผู้บริหาร', link: '/' },
-      { name: 'บุคคลากร', link: '/' },
-    ],
+	{ 
+    name: 'หน้าแรก', 
+    link: '/' 
   },
-   { name: 'การศึกษา', link: '/about' ,
-    sub: [
-      { name: 'หลักสูตร', link: '/about/syllabus' },
-      { name: 'TCAS', link: '/' },
-      { name: 'ข้อมูลสำหรับนักศึกษา', link: '/' },
-      { name: 'อาจารย์ประจำ', link: '/' },
-    ],
+	{
+		name: 'เกี่ยวกับวิทยาลัย',
+		link: '/about',
+		sub: [
+			{
+				name: 'ประวัติวิทยาลัย',
+				link: '/about/history',
+			},
+			{
+				name: 'หลักสูตร',
+				link: '/about/syllabus',
+			},
+			{
+				name: 'วิสัยทัศน์ พันธกิจ ค่านิยม',
+				link: '/about/vision',
+			},
+			{
+				name: 'อำนาจและหน้าที่',
+				link: '/',
+			},
+			{
+				name: 'โครงสร้าง',
+				link: '/',
+			},
+			{
+				name: 'คณะผู้บริหาร',
+				link: '/',
+			},
+			{
+				name: 'บุคคลากร',
+				link: '/',
+			},
+		],
+	},
+	{
+		name: 'การศึกษา',
+		link: '/about',
+		sub: [
+			{
+				name: 'หลักสูตร',
+				link: '/about/syllabus',
+			},
+			{
+				name: 'TCAS',
+				link: '/',
+			},
+			{
+				name: 'ข้อมูลสำหรับนักศึกษา',
+				link: '/',
+			},
+			{
+				name: 'อาจารย์ประจำ',
+				link: '/',
+			},
+		],
+	},
+	{
+		name: 'อาจารย์/เจ้าหน้าที่',
+		link: '/',
+		sub: [
+			{
+				name: 'สวัสดิการ',
+				link: '/',
+			},
+		],
+	},
+	{
+		name: 'ติดต่อ/ร้องเรียน',
+		link: '/',
+		sub: [
+			{
+				name: 'ติดต่อ',
+				link: '/',
+			},
+			{
+				name: 'ร้องเรียน',
+				link: '/',
+			},
+		],
+	},
+	{ 
+    name: 'ITA', 
+    link: '/' 
   },
-   { name: 'อาจารย์/เจ้าหน้าที่', link: '/' ,
-    sub: [
-      { name: 'สวัสดิการ', link: '/' }, 
-    ],
-  },
-   { name: 'ติดต่อ/ร้องเรียน', link: '/' 
-  sub: [
-      { name: 'ติดต่อ', link: '/' },
-      { name: 'ร้องเรียน', link: '/' },
-    ],
-  },
-    { name: 'ITA', link: '/' },
-  { name: 'ตัวอย่างชิ้นส่วน', link: '/element/' ,
-    sub: [
-      { name: 'ตัวอย่างส่วนหัว', link: '/element/headers/' },
-      { name: 'ตัวอย่างฟอนต์ไทย', link: '/element/fonts/' },
-      { name: 'ตัวอย่างเนื้อหา', link: '/element/contents/' },
-      { name: 'ตัวอย่างส่วนท้าย', link: '/element/footers/' },
-    ],
-  },
-  {
-    name: 'ตัวอย่างแหล่งข้อมูล',
-    link: '/data/',
-    sub: [
-      { name: 'Basic WordPress', link: '/data/wp/' },
-      { name: 'Headless WordPress', link: '/data/headless-wp/' },
-      { name: 'Google Sheets', link: '/data/sheets/' },
-    ],
-  },
+	{
+		name: 'ตัวอย่างชิ้นส่วน',
+		link: '/element/',
+		sub: [
+			{
+				name: 'ตัวอย่างส่วนหัว',
+				link: '/element/headers/',
+			},
+			{
+				name: 'ตัวอย่างฟอนต์ไทย',
+				link: '/element/fonts/',
+			},
+			{
+				name: 'ตัวอย่างเนื้อหา',
+				link: '/element/contents/',
+			},
+			{
+				name: 'ตัวอย่างส่วนท้าย',
+				link: '/element/footers/',
+			},
+		],
+	},
+	{
+		name: 'ตัวอย่างแหล่งข้อมูล',
+		link: '/data/',
+		sub: [
+			{
+				name: 'Basic WordPress',
+				link: '/data/wp/',
+			},
+			{
+				name: 'Headless WordPress',
+				link: '/data/headless-wp/',
+			},
+			{
+				name: 'Google Sheets',
+				link: '/data/sheets/',
+			},
+		],
+	},
+
+	{
+		name: 'หน้าแรก',
+		link: '/',
+	},
+	{
+		name: 'เกี่ยวกับวิทยาลัย',
+		link: '/about',
+		sub: [
+			{
+				name: 'ประวัติวิทยาลัย',
+				link: '/about/history',
+			},
+			{
+				name: 'หลักสูตร',
+				link: '/about/syllabus',
+			},
+			{
+				name: 'วิสัยทัศน์ พันธกิจ ค่านิยม',
+				link: '/about/vision',
+			},
+		],
+	},
+	{
+		name: 'การศึกษา',
+		link: '/about',
+		sub: [
+			{
+				name: 'หลักสูตร',
+				link: '/about/syllabus',
+			},
+			{
+				name: 'TCAS',
+				link: '/',
+			},
+			{
+				name: 'อาจารย์',
+				link: '/',
+			},
+		],
+	},
+	{
+		name: 'การศึกษา',
+		link: '/about',
+		sub: [
+			{
+				name: 'หลักสูตร',
+				link: '/about/syllabus',
+			},
+			{
+				name: 'TCAS',
+				link: '/',
+			},
+			{
+				name: 'อาจารย์',
+				link: '/',
+			},
+		],
+	},
+	{
+		name: 'ตัวอย่างชิ้นส่วน',
+		link: '/element/',
+		sub: [
+			{
+				name: 'ตัวอย่างส่วนหัว',
+				link: '/element/headers/',
+			},
+			{
+				name: 'ตัวอย่างฟอนต์ไทย',
+				link: '/element/fonts/',
+			},
+			{
+				name: 'ตัวอย่างเนื้อหา',
+				link: '/element/contents/',
+			},
+			{
+				name: 'ตัวอย่างส่วนท้าย',
+				link: '/element/footers/',
+			},
+		],
+	},
+	{
+		name: 'ตัวอย่างแหล่งข้อมูล',
+		link: '/data/',
+		sub: [
+			{
+				name: 'Basic WordPress',
+				link: '/data/wp/',
+			},
+			{
+				name: 'Headless WordPress',
+				link: '/data/headless-wp/',
+			},
+			{
+				name: 'Google Sheets',
+				link: '/data/sheets/',
+			},
+		],
+	},
+	{
+		name: 'พระบัณฑิตอาสา',
+		link: '/',
+	},
 ];
 ---
 
