@@ -3,6 +3,6 @@ title: โครงสร้าง
 slug: organization
 ---
 
-โครงสร้าง วิทยาลัยศาสนศึกษา
+## โครงสร้างวิทยาลัยศาสนศึกษา
 
-![pdf width="1.5em" height="1.5em" ](/img/research/pdf.png)
+[<img width="32" height="32" src="/img/research/pdf.png" alt="pdf" />](#)
