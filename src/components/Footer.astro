@@ -96,15 +96,17 @@ const socialIcons = [
 						วิทยาลัยศาสนศึกษา<br /><small>มหาวิทยาลัยมหิดล</small>
 					</h2>
 				</div>
-				<p class="mb-0 max-w-[430px] pt-6">
-					วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล
-					<br />
-					999 ตำบลศาลายา อำเภอพุทธมณฑล จังหวัดนครปฐม 73170
-					<br />
-					Tel. (02) 800-2630-9 Fax. (02) 800-2659
-					<br />
-					E-mail : crs@mahidol.ac.th
-				</p>
+				<div class="mb-0 max-w-[430px] pt-6">
+					<div>วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล</div>
+					<div>999 ตำบลศาลายา อำเภอพุทธมณฑล จังหวัดนครปฐม 73170</div>
+					<div>Tel. (02) 800-2630-9 Fax. (02) 800-2659</div>
+					<div>
+						E-mail : <a
+							href="mailto:crs@mahidol.ac.th"
+							class="text-white hover:text-th-nav-text hover:opacity-80">crs@mahidol.ac.th</a
+						>
+					</div>
+				</div>
 			</div>
 			<div class="basis-2/4 pt-6 lg:basis-[unset] lg:pt-0">
 				{
@@ -112,7 +114,10 @@ const socialIcons = [
 						<ul class="m-0 p-0">
 							{mainMenus.map((i) => (
 								<li>
-									<a href={i.link} class="leading-7 text-white hover:text-white">
+									<a
+										href={i.link}
+										class="leading-7 text-white hover:text-th-nav-text hover:opacity-80"
+									>
 										{i.name}
 									</a>
 								</li>
@@ -127,7 +132,10 @@ const socialIcons = [
 						<ul class="m-0 p-0">
 							{subMenus.map((i) => (
 								<li>
-									<a href={i.link} class="block leading-7 text-white hover:text-white">
+									<a
+										href={i.link}
+										class="block leading-7 text-white hover:text-th-nav-text hover:opacity-80"
+									>
 										{i.name}
 									</a>
 								</li>
