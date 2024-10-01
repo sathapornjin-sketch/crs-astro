@@ -84,22 +84,19 @@ const socialIcons = [
 			<div class="basis-full lg:basis-[unset]">
 				<div class="flex items-center">
 					<div class="flex h-16 w-16 items-center justify-center rounded-full bg-white text-center">
-						<!-- <Icon
-              name='logo-light'
-              width='2em'
-              height='2em'
-              class='text-center'
-            /> -->
+						<!-- <Icon name="logo-light" width="2em" height="2em" class="text-center" /> -->
 						<Image src="/img/mu-logo.png" alt="logo" classes="aspect-square" />
 					</div>
-					<h2 class="mb-0 ml-5 text-3xl font-normal">
-						วิทยาลัยศาสนศึกษา<br /><small>มหาวิทยาลัยมหิดล</small>
-					</h2>
+					<div class="mb-0 ml-5 text-3xl font-normal">
+						<div>วิทยาลัยศาสนศึกษา</div>
+						<div class="text-xl">มหาวิทยาลัยมหิดล</div>
+					</div>
 				</div>
 				<div class="mb-0 max-w-[430px] pt-6">
 					<div>วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล</div>
 					<div>999 ตำบลศาลายา อำเภอพุทธมณฑล จังหวัดนครปฐม 73170</div>
-					<div>Tel. (02) 800-2630-9 Fax. (02) 800-2659</div>
+					<div>Tel. (02) 800-2630-9</div>
+					<div>Fax. (02) 800-2659</div>
 					<div>
 						E-mail : <a
 							href="mailto:crs@mahidol.ac.th"
@@ -144,20 +141,35 @@ const socialIcons = [
 					)
 				}
 			</div>
-			<div class="basis-full pt-6 lg:basis-[unset] lg:pt-0">
-				{
-					socialIcons && (
-						<ul class="m-0 mt-1 flex gap-3 p-0">
-							{socialIcons.map((i) => (
-								<li>
-									<a href={i.link} class="text-white" aria-label={`Go to ${i.icon}`}>
-										<Icon name={i.icon} width="24px" height="24px" />
-									</a>
-								</li>
-							))}
-						</ul>
-					)
-				}
+			<div>
+				<div class="basis-full pt-6 lg:basis-[unset] lg:pt-0">
+					{
+						socialIcons && (
+							<ul class="m-0 mt-1 flex gap-3 p-0">
+								{socialIcons.map((i) => (
+									<li>
+										<a
+											href={i.link}
+											class="text-white hover:text-th-nav-text hover:opacity-80"
+											aria-label={`Go to ${i.icon}`}
+										>
+											<Icon name={i.icon} width="24px" height="24px" />
+										</a>
+									</li>
+								))}
+							</ul>
+						)
+					}
+				</div>
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15498.694265972106!2d100.3186385!3d13.7985415!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2938fadcb950f%3A0x9ff2f12100df190a!2z4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii4Lio4Liy4Liq4LiZ4Lio4Li24LiB4Lip4LiyIOC4oeC4q-C4suC4p-C4tOC4l-C4ouC4suC4peC4seC4ouC4oeC4q-C4tOC4lOC4pQ!5e0!3m2!1sth!2sth!4v1727777451458!5m2!1sth!2sth"
+					width="250"
+					height="200"
+					style="border:0;"
+					allowfullscreen=""
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					class="mt-4"></iframe>
 			</div>
 		</div>
 	</div>
