@@ -5,6 +5,6 @@ slug: organization
 
 ## โครงสร้างวิทยาลัยศาสนศึกษา
 
-[<img width="850" height="1200" src="/img/research/MUCRS_Structure.jpg" alt="MUCRS_Structure" />](#)
+![MUCRS Structure](/img/about/MUCRS_Structure.jpg)
 
-[<img width="32" height="32" src="/img/research/pdf.png" alt="pdf" />](src/data/research/MUCRS_Structure.pdf)โครงสร้างวิทยาลัยศาสนศึกษา
+[<img width="32" height="32" src="/assets/icons/pdf.png" alt="pdf" />](/assets/docs/MUCRS_Structure.pdf)
