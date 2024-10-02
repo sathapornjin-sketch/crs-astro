@@ -16,6 +16,11 @@ const { title, description, bodyclass = '', cover = '/cover.png' } = Astro.props
 		<meta property="og:image" content={cover} />
 		<title>{title}</title>
 		<ViewTransitions />
+
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css"
+		/>
 	</head>
 	<body
 		class={'relative flex flex-col size-m:text-[22px] size-l:text-[32px] text-th-text-1 dark:text-th-text-1-dark' +
@@ -25,5 +30,9 @@ const { title, description, bodyclass = '', cover = '/cover.png' } = Astro.props
 		<Header />
 		<slot />
 		<Footer />
+
+		<script>
+			import '../scripts/cookieconsent-config.js';
+		</script>
 	</body>
 </html>
