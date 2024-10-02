@@ -1,6 +1,7 @@
 ---
-import Layout from '../layouts/Layout_Sidebar.astro';
-import Side from '../components/about/Side.astro';
+import Layout from '../../layouts/Layout_Sidebar.astro';
+import Side from '../../components/about/Side.astro';
+
 export async function getStaticPaths() {
 	const posts = await Astro.glob('../data/about/*.md');
 	return posts.map((post) => {
@@ -10,6 +11,7 @@ export async function getStaticPaths() {
 		};
 	});
 }
+
 const title = 'เกี่ยวกับวิทยาลัย';
 const description = 'เกี่ยวกับวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล';
 ---

@@ -1,10 +1,10 @@
 ---
 import Layout from '../../layouts/Layout_Sidebar.astro';
-import Side from '../../components/about/Side.astro';
+import Side from '../../components/education/Side.astro';
 import '../../styles/page.scss';
 
 export async function getStaticPaths() {
-	const posts = await Astro.glob('../../data/about/*.md');
+	const posts = await Astro.glob('../../data/education/*.md');
 	return posts.map((post) => {
 		return {
 			params: { slug: post.frontmatter.slug },
