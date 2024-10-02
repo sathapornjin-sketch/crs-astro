@@ -1,9 +1,7 @@
 ---
-title: โครงสร้าง
+title: โครงสร้างองค์กร
 slug: organization
 ---
-
-## โครงสร้างวิทยาลัยศาสนศึกษา
 
 ![MUCRS Structure](/img/about/MUCRS_Structure.jpg)
 
