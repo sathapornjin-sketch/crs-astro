@@ -58,18 +58,11 @@ CookieConsent.run({
 							linkedCategory: 'necessary',
 						},
 						{
-							title: 'คุกกี้เพื่อการวิเคราะห์ <span class="on-i"></span>
-										<span class="off-i"></span>',
+							title: 'คุกกี้เพื่อการวิเคราะห์',
 							description:
-								'คุกกี้เพื่อการวิเคราะห์/เพื่อประสิทธิภาพ คุกกี้เหล่านี้ช่วยให้เราจดจำและนับจำนวนผู้เข้าชมเว็บไซต์และทราบว่าผู้เข้าชมไปยังหน้าต่างๆ ในเว็บไซต์อย่างไร สิ่งนี้จะช่วยให้เราปรับปรุงการทำงานของเว็บไซต์ให้ดียิ่งขึ้นได้ในอนาคต ตัวอย่างเช่น ทำให้ผู้ใช้งานพบสิ่งที่ต้องการเข้าถึงได้ง่ายขึ้น',
-							linkedCategory: 'necessary',
+								'คุกกี้เพื่อการวิเคราะห์/เพื่อประสิทธิภาพ คุกกี้เหล่านี้ช่วยให้เราจดจำและนับจำนวนผู้เข้าชมเว็บไซต์และทราบว่าผู้เข้าชมไปยังหน้าต่าง ๆ ในเว็บไซต์อย่างไร สิ่งนี้จะช่วยให้เราปรับปรุงการทำงานของเว็บไซต์ให้ดียิ่งขึ้นได้ในอนาคต ตัวอย่างเช่น ทำให้ผู้ใช้งานพบสิ่งที่ต้องการเข้าถึงได้ง่ายขึ้น',
+							linkedCategory: 'analytics',
 						},
-						// {
-						// 	title: 'Analytics Cookies',
-						// 	description:
-						// 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-						// 	linkedCategory: 'analytics',
-						// },
 						// {
 						// 	title: 'More information',
 						// 	description:
