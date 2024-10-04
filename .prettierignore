@@ -4,3 +4,6 @@ test/fixtures/**/*.astro
 pnpm-lock.yaml
 .github
 .changeset
+
+wordpress/wp_data
+wordpress/db_data
