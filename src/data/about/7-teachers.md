@@ -1,5 +1,5 @@
 ---
-title: อาจารย์ประจำ
+title: คณาจารย์
 slug: teachers
 ---
 
