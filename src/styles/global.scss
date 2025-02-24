@@ -1,8 +1,8 @@
 @charset "utf-8";
-@import 'fonts';
-@import 'var';
-@import 'reset';
-@import 'ini';
+@use 'fonts';
+@use 'var';
+@use 'reset';
+@use 'ini';
 
 h1 {
 	margin-top: 1.5em;
