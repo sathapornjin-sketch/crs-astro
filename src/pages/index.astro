@@ -1,13 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import YoutubeVideo from '@/components/ui/YoutubeVideo.astro';
 import Banner from '../components/sections/Banner.astro';
-import Title1 from '../components/sections/Title1.astro';
 import Features from '../components/sections/Features.astro';
-import Slogan from '../components/sections/Slogan.astro';
-import Posts from '../components/sections/Posts.astro';
 import Hero from '../components/sections/Hero.astro';
-import Title2 from '../components/sections/Title2.astro';
 import Logos from '../components/sections/Logos.astro';
+import Slogan from '../components/sections/Slogan.astro';
+import Title1 from '../components/sections/Title1.astro';
+import Title2 from '../components/sections/Title2.astro';
+import Layout from '../layouts/Layout.astro';
 
 // const res = await fetch('https://seedx.seeddemo.com/wp-json/wp/v2/posts?per_page=3&_embed');
 // const posts = await res.json();
@@ -24,10 +24,7 @@ const metadata = {
 	bodyclass="bg-white dark:bg-th-bg-2-dark"
 >
 	<Banner />
-	<Title1
-		title="รอบรั้วศาสนศึกษา"
-		description="Lorem ipsum dolor sit amet, consectetur adipiscing elited do eiusmod tempor incididunt ut labore et dolore magna"
-	/>
+	<Title1 title="ศาสนศึกษา" description="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล" />
 	<Features
 		classes="md:grid-cols-3 mb-20"
 		items={[
@@ -53,63 +50,68 @@ const metadata = {
 		]}
 	/>
 	<Slogan
-		title="สร้างสรรค์นวัตกรรมอย่างไม่หยุดยั้ง"
-		description="ด้วยวิสัยทัศน์พันธกิจบูรณาการนวัตกรรมเทคโนโลยีดิจิทัล"
+		title="หลักสูตรที่เปิดสอน / การรับสมัครเข้าเรียน"
+		description="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล"
 	/>
 	<!-- <Posts classes="md:grid-cols-3 gap-8 mb-20" title="ข่าวประชาสัมพันธ์" items={posts} /> -->
 	<Hero
 		title="Lorem ipsum dolor sit amet,"
 		description="Lorem ipsum dolor sit amet, consectetur adipiscing elited do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 	/>
-	<Title2 title="นวัตกรรมต้นแบบ" description="ตัวอย่างไอคอนเพื่อนำเสนอจุดเด่นองค์กร" />
+	<Title2 title="รอบรั้วศาสนศึกษา" description="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล" />
+
+	<div class="mx-auto mb-20">
+		<YoutubeVideo videoId="c0c0davT2Ec" />
+	</div>
+
 	<Features
 		classes="grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mb-20"
 		items={[
 			{
 				icon: 'icon-1',
-				title: 'ต่อยอดจากงานวิจัยและพัฒนา',
+				title: 'CRS Course',
 				description:
 					'นวัตกรรมเป็นหัวข้อหลักในการศึกษา ด้านเศรษฐศาสตร์ ธุรกิจ เทคโนโลยี สังคมศาสตร์ และวิศวกรรม',
 			},
 			{
 				icon: 'icon-2',
-				title: 'ได้รับการรับรองจากสถาบัน',
+				title: 'CRS Seminar',
 				description:
 					'นวัตกรรมเป็นหัวข้อหลักในการศึกษา ด้านเศรษฐศาสตร์ ธุรกิจ เทคโนโลยี สังคมศาสตร์ และวิศวกรรม',
 			},
 			{
 				icon: 'icon-3',
-				title: 'คำนึงถึงสิ่งแวดล้อม',
+				title: 'CRS for Students',
 				description:
 					'นวัตกรรมเป็นหัวข้อหลักในการศึกษา ด้านเศรษฐศาสตร์ ธุรกิจ เทคโนโลยี สังคมศาสตร์ และวิศวกรรม',
 			},
 			{
 				icon: 'icon-4',
-				title: 'สำหรับผู้ใช้งานทุกระดับ',
+				title: 'News',
 				description:
 					'นวัตกรรมเป็นหัวข้อหลักในการศึกษา ด้านเศรษฐศาสตร์ ธุรกิจ เทคโนโลยี สังคมศาสตร์ และวิศวกรรม',
 			},
 			{
 				icon: 'icon-5',
-				title: 'เสริมสร้างสมรรถนะ',
+				title: 'Activities',
 				description:
 					'นวัตกรรมเป็นหัวข้อหลักในการศึกษา ด้านเศรษฐศาสตร์ ธุรกิจ เทคโนโลยี สังคมศาสตร์ และวิศวกรรม',
 			},
 			{
 				icon: 'icon-6',
-				title: 'ดีไซน์ในทุกรายละเอียด',
+				title: 'ทำบุญเดือนเกิด',
 				description:
 					'นวัตกรรมเป็นหัวข้อหลักในการศึกษา ด้านเศรษฐศาสตร์ ธุรกิจ เทคโนโลยี สังคมศาสตร์ และวิศวกรรม',
 			},
 			{
 				icon: 'icon-7',
-				title: 'อัตลักษณ์ทางชีวภาพ',
+				title: 'เร็ว ๆ นี้',
 				description:
 					'นวัตกรรมเป็นหัวข้อหลักในการศึกษา ด้านเศรษฐศาสตร์ ธุรกิจ เทคโนโลยี สังคมศาสตร์ และวิศวกรรม',
 			},
 			{
 				icon: 'icon-8',
-				title: 'พลวัตแห่งการเติบโต',
+				title: 'เร็ว ๆ นี้',
 				description:
 					'นวัตกรรมเป็นหัวข้อหลักในการศึกษา ด้านเศรษฐศาสตร์ ธุรกิจ เทคโนโลยี สังคมศาสตร์ และวิศวกรรม',
 			},
