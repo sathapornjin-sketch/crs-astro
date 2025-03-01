@@ -1,8 +1,7 @@
 ---
-import Image from '../ui/Image.astro';
-const { src } = Astro.props;
+import Carousel from '@/components/ui/Carousel.svelte';
 ---
 
 <section class="max-w-screen mx-[calc(-50vw_+_50%)] w-screen">
-	<Image src={src} classes="w-screen" alt="CRS" loading="eager" />
+	<Carousel client:load />
 </section>
