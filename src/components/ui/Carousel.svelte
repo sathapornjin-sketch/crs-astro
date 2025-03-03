@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	let slides = [
-		{ id: 'slide1', src: '/img/banner/banner-1.png', alt: 'CRS Banner' },
-		{ id: 'slide2', src: '/img/banner/banner-no-gift.png', alt: 'CRS No Gift Policy' },
-		{ id: 'slide4', src: '/img/banner/banner-oit.png', alt: 'CRS OIT' },
-		{ id: 'slide3', src: '/img/banner/banner-dorm.png', alt: 'CRS Dorm' },
+		{ id: 'slide1', src: '/img/banner/bn1.png', alt: 'Updating Website' },
+		{ id: 'slide2', src: '/img/banner/bn2.png', alt: 'CRS Banner' },
+		{ id: 'slide3', src: '/img/banner/ITA_2025.png', alt: 'CRS ITA' },
+		{ id: 'slide4', src: '/img/banner/NAMTHON_2025.png', alt: 'CRS Dorm' },
+		{ id: 'slide5', src: '/img/banner/NO_Gift_2025.png', alt: 'CRS No Gift Policy' },
 	];
 
 	let currentSlide = 0;
@@ -21,18 +20,18 @@
 		currentSlide = slides.findIndex((slide) => slide.id === href.slice(1));
 	};
 
-	const startAutoSlide = () => {
-		setInterval(() => {
+	$effect(() => {
+		const autoSlideInterval = setInterval(() => {
 			currentSlide = (currentSlide + 1) % slides.length;
 			const carousel = document.querySelector('.carousel');
 			const target = carousel.querySelector<HTMLDivElement>(`#${slides[currentSlide].id}`)!;
 			const left = target.offsetLeft;
 			carousel.scrollTo({ left: left, behavior: 'smooth' });
 		}, 10000); // Change slide every 10 seconds
-	};
 
-	onMount(() => {
-		startAutoSlide();
+		return () => {
+			clearInterval(autoSlideInterval);
+		};
 	});
 </script>
 
