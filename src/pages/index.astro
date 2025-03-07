@@ -52,10 +52,12 @@ const metadata = {
 		]}
 	/>
 
-	<Slogan
-		title="หลักสูตรที่เปิดสอน / การรับสมัครเข้าเรียน"
-		description="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล"
-	/>
+	<a href="/education/syllabus">
+		<Slogan
+			title="หลักสูตรที่เปิดสอน / การรับสมัครเข้าเรียน"
+			description="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล"
+		/></a
+	>
 
 	<!-- <Posts classes="md:grid-cols-3 gap-8 mb-20" title="ข่าวประชาสัมพันธ์" items={posts} /> -->
 	<!-- <Hero
@@ -70,7 +72,7 @@ const metadata = {
 	</div>
 
 	<Features
-		classes="grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mb-20"
+		classes="grid-cols-1 md:grid-cols-3 mb-20"
 		items={[
 			{
 				icon: 'icon-1',
@@ -90,6 +92,18 @@ const metadata = {
 				description:
 					'นวัตกรรมเป็นหัวข้อหลักในการศึกษา ด้านเศรษฐศาสตร์ ธุรกิจ เทคโนโลยี สังคมศาสตร์ และวิศวกรรม',
 			},
+		]}
+	/>
+
+	<Title2 title="CRS Update" description="ติดตามข่าวสารล่าสุดก่อนใคร" />
+
+	<div class="mb-20 flex w-full items-center justify-center">
+		<FacebookPage />
+	</div>
+
+	<Features
+		classes="grid-cols-1 md:grid-cols-3 mb-20"
+		items={[
 			{
 				icon: 'icon-4',
 				title: 'News',
@@ -108,24 +122,8 @@ const metadata = {
 				description:
 					'นวัตกรรมเป็นหัวข้อหลักในการศึกษา ด้านเศรษฐศาสตร์ ธุรกิจ เทคโนโลยี สังคมศาสตร์ และวิศวกรรม',
 			},
-			{
-				icon: 'icon-7',
-				title: 'เร็ว ๆ นี้',
-				description:
-					'นวัตกรรมเป็นหัวข้อหลักในการศึกษา ด้านเศรษฐศาสตร์ ธุรกิจ เทคโนโลยี สังคมศาสตร์ และวิศวกรรม',
-			},
-			{
-				icon: 'icon-8',
-				title: 'เร็ว ๆ นี้',
-				description:
-					'นวัตกรรมเป็นหัวข้อหลักในการศึกษา ด้านเศรษฐศาสตร์ ธุรกิจ เทคโนโลยี สังคมศาสตร์ และวิศวกรรม',
-			},
 		]}
 	/>
-
-	<div class="mb-20 flex w-full items-center justify-center">
-		<FacebookPage />
-	</div>
 
 	<Logos
 		classes="grid-cols-4 mb-0 py-8"
