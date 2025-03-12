@@ -49,17 +49,11 @@ export const nav = [
 	},
 	{
 		name: 'นักศึกษาปัจจุบัน',
-		link: '/',
+		link: '/internal/students',
 	},
 	{
-		name: 'อาจารย์/เจ้าหน้าที่',
-		link: '/',
-		sub: [
-			{
-				name: 'สวัสดิการ',
-				link: '/',
-			},
-		],
+		name: 'อาจารย์-เจ้าหน้าที่',
+		link: '/internal/personnel',
 	},
 	{
 		name: 'ติดต่อเรา',
