@@ -12,21 +12,21 @@
     "format:fix": "prettier --write ."
   },
   "dependencies": {
-    "@astrojs/svelte": "^7.0.5",
+    "@astrojs/svelte": "^7.0.6",
     "@astrojs/tailwind": "^6.0.0",
-    "astro": "^5.3.1",
+    "astro": "^5.5.2",
     "astro-icon": "^0.8.2",
     "astro-iconify": "^1.2.0",
     "dayjs": "^1.11.13",
-    "svelte": "^5.20.5",
+    "svelte": "^5.23.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
     "daisyui": "^4.12.24",
-    "prettier": "^3.5.2",
+    "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "sass": "^1.85.0"
+    "sass": "^1.85.1"
   }
 }
