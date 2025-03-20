@@ -1,6 +1,5 @@
 ---
 import Slogan from '@/components/sections/Slogan.astro';
-import Title1 from '@/components/sections/Title1.astro';
 import Layout from '@/layouts/Layout.astro';
 
 const title = 'ติดต่อ / ร้องเรียน';
@@ -9,5 +8,61 @@ const description = 'ร้องเรียนเรื่องทั่ว�
 
 <Layout title={title} description={description}>
 	<Slogan title={title} description={description} />
-	<Title1 title="เร็ว ๆ นี้" />
+
+	<div class="mx-auto mb-16 text-center">
+		<p class="text-xl font-semibold">ติดต่อคณบดีวิทยาลัยศาสนศึกษา</p>
+	</div>
+
+	<form id="form" class="mx-auto mb-10 max-w-xl space-y-4">
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">ชื่อ-นามสกุล</legend>
+			<input id="name" type="text" class="input w-full" placeholder="กรุณาพิมพ์ที่นี่" required />
+		</fieldset>
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">เรื่องร้องเรียน</legend>
+			<input
+				id="subject"
+				type="text"
+				class="input w-full"
+				placeholder="กรุณาพิมพ์ที่นี่"
+				required
+			/>
+		</fieldset>
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">รายละเอียด</legend>
+			<textarea id="detail" class="textarea w-full" placeholder="กรุณาพิมพ์ที่นี่" required
+			></textarea>
+		</fieldset>
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">โทรศัพท์</legend>
+			<input id="tel" type="tel" class="input w-full" placeholder="กรุณาพิมพ์ที่นี่" required />
+		</fieldset>
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">อีเมล</legend>
+			<input id="email" type="email" class="input w-full" placeholder="กรุณาพิมพ์ที่นี่" required />
+		</fieldset>
+		<div class="!mt-6">
+			<button type="submit" class="btn btn-primary w-full">ส่งข้อมูล</button>
+		</div>
+	</form>
 </Layout>
+
+<script is:inline>
+	document.getElementById('form').addEventListener('submit', (e) => {
+		e.preventDefault();
+
+		const name = document.querySelector('#name').value;
+		const subject = document.querySelector('#subject').value;
+		const detail = document.querySelector('#detail').value;
+		const phone = document.querySelector('#tel').value;
+		const email = document.querySelector('#email').value;
+
+		const emailTo = 'deancr@mahidol.ac.th';
+		const emailSubject = `[ร้องเรียน] ${subject}`;
+		const emailBody = `ชื่อ-นามสกุล : ${name}\n\nเรื่องร้องเรียน : ${subject}\n\nรายละเอียด :\n${detail}\n\nโทรศัพท์ : ${phone}\n\nอีเมล : ${email}`;
+
+		const mailto = `mailto:${emailTo}?subject=${emailSubject}&body=${emailBody}`;
+
+		open(encodeURI(mailto));
+	});
+</script>
