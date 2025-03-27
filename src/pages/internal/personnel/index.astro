@@ -1,6 +1,5 @@
 ---
 import Slogan from '@/components/sections/Slogan.astro';
-import Title1 from '@/components/sections/Title1.astro';
 import Layout from '@/layouts/Layout.astro';
 
 const title = 'อาจารย์ - เจ้าหน้าที่';
@@ -9,5 +8,43 @@ const description = 'ข้อมูลสำหรับอาจารย์�
 
 <Layout title={title} description={description}>
 	<Slogan title={title} description={description} />
-	<Title1 title="เร็ว ๆ นี้" />
+
+	<div class="mx-auto mb-8 text-center">
+		<p class="text-2xl font-semibold">MUCRS</p>
+	</div>
+	<div class="mx-auto mb-10 max-w-xl space-y-5 text-center text-2xl">
+		<a
+			class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
+			href="#"
+		>
+			ข้อมูลสำหรับอาจารย์
+		</a>
+		<a
+			class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
+			href="https://sites.google.com/view/mucrs-staff?usp=sharing"
+			target="_blank"
+		>
+			ข้อมูลสำหรับเจ้าหน้าที่
+		</a>
+	</div>
+
+	<div class="mx-auto mb-8 mt-12 text-center">
+		<p class="text-2xl font-semibold">MU</p>
+	</div>
+	<div class="mx-auto mb-10 max-w-xl space-y-5 text-center text-2xl">
+		<a
+			class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
+			href="https://op.mahidol.ac.th/ra/research_fund/"
+			target="_blank"
+		>
+			แหล่งทุนวิจัย
+		</a>
+		<a
+			class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
+			href="https://mahidol.ac.th/th/staff/"
+			target="_blank"
+		>
+			บุคลากรควรรู้
+		</a>
+	</div>
 </Layout>
