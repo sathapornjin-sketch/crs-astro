@@ -17,7 +17,8 @@ const mainMenus = [
 	},
 	{
 		name: 'ข่าวประชาสัมพันธ์',
-		link: '#',
+		link: 'https://www.facebook.com/CrsMahidol',
+		isExternal: true,
 	},
 	{
 		name: 'บทความ',
@@ -29,6 +30,7 @@ const subMenus = [
 	{
 		name: 'ร่วมงานกับเรา',
 		link: 'https://muhr.mahidol.ac.th/E-Recruitment/',
+		isExternal: true,
 	},
 	{
 		name: 'คลังภาพกิจกรรม',
@@ -113,6 +115,7 @@ const socialIcons = [
 								<li>
 									<a
 										href={i.link}
+										target={i.isExternal ? '_blank' : '_self'}
 										class="leading-7 text-white hover:text-th-nav-text hover:opacity-80"
 									>
 										{i.name}
@@ -131,6 +134,7 @@ const socialIcons = [
 								<li>
 									<a
 										href={i.link}
+										target={i.isExternal ? '_blank' : '_self'}
 										class="block leading-7 text-white hover:text-th-nav-text hover:opacity-80"
 									>
 										{i.name}

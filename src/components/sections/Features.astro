@@ -8,7 +8,7 @@ const className = `grid gap-y-8 ${classes} pl-0 text-center`;
 	items && (
 		<section class={className}>
 			{items.map((i) => (
-				<a href={i.link} class="hover:scale-105">
+				<a href={i.link} class="hover:scale-105" target={i.isExternal ? '_blank' : '_self'}>
 					<div class="mx-auto max-w-60">
 						<Icon name={i.icon} class="mx-auto h-[60px] w-auto" />
 						<h2 class="mb-2 mt-6 text-lg font-normal text-th-text-3 dark:text-th-text-3-dark">
