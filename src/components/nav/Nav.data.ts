@@ -24,12 +24,12 @@ export const nav = [
 				link: '/about/executives',
 			},
 			{
-				name: 'บุคลากร',
-				link: '/about/personnel',
-			},
-			{
 				name: 'คณาจารย์',
 				link: '/about/teachers',
+			},
+			{
+				name: 'เจ้าหน้าที่ฝ่ายสนับสนุน',
+				link: '/about/staff',
 			},
 		],
 	},
