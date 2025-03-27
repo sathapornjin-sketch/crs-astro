@@ -64,8 +64,8 @@ export const nav = [
 				link: '/contact',
 			},
 			{
-				name: 'ร้องเรียนทั่วไป',
-				link: '/contact/complaint',
+				name: 'สายตรงคณบดี',
+				link: '/contact/dean',
 			},
 			{
 				name: 'ร้องเรียนการทุจริต',
