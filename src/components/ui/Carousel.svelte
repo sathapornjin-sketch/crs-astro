@@ -61,7 +61,7 @@
 	{#each slides as slide, index}
 		<div id={slide.id} class="carousel-item relative w-full">
 			{#if slide.link}
-				<a href={slide.link.url} target={slide.link.isExternal ? '_blank' : '_self'} class="w-full">
+				<a href={slide.link.url} target={slide.link.isExternal ? '_blank' : '_self'} class="w-full h-full">
 					<img src={slide.src} class="w-full aspect-[3/1]" alt={slide.alt} />
 				</a>
 			{:else}
