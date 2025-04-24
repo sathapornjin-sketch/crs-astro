@@ -1,8 +1,9 @@
 ---
 import Side from '@/components/about/Side.astro';
+import PersonnelCard from '@/components/ui/PersonnelCard.astro';
 import Layout from '@/layouts/Layout_Sidebar.astro';
-import Papa from 'papaparse';
 import fs from 'fs/promises';
+import Papa from 'papaparse';
 
 const csvPath = 'src/data/about/personnel/teachers_data.csv';
 const csvData = await fs.readFile(csvPath, 'utf-8');
@@ -30,20 +31,14 @@ const description = 'เจ้าหน้าที่ฝ่ายสนับ�
 		<div class="mb-2 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{
 				teachers.map((teacher) => (
-					<div class="dark:shadow-th-shadow-1-dark rounded-th-rounded-2 bg-th-bg-1 p-4 shadow-th-shadow-1 dark:bg-th-bg-1-dark">
-						<div class="mb-3 aspect-[3/4] overflow-hidden rounded-th-rounded-2">
-							<img
-								src={`/img/personnel/${teacher.image}`}
-								alt={teacher.name_th}
-								class="h-full w-full object-cover"
-							/>
-						</div>
-						<h2 class="mb-1 text-lg font-bold">{teacher.name_th}</h2>
-						<p class="text-sm text-gray-600 dark:text-gray-400">{teacher.position_th}</p>
-						<a href={`mailto:${teacher.email}`} class="text-th-link-1 dark:text-th-link-1-dark">
-							{teacher.email}
-						</a>
-					</div>
+					<PersonnelCard
+						nameTh={teacher.name_th}
+						nameEn={teacher.name_en}
+						positionTh={teacher.position_th}
+						positionEn={teacher.position_en}
+						email={teacher.email}
+						image={`/img/personnel/${teacher.image}`}
+					/>
 				))
 			}
 		</div>

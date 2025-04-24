@@ -1,8 +1,9 @@
 ---
 import Side from '@/components/about/Side.astro';
+import PersonnelCard from '@/components/ui/PersonnelCard.astro';
 import Layout from '@/layouts/Layout_Sidebar.astro';
-import Papa from 'papaparse';
 import fs from 'fs/promises';
+import Papa from 'papaparse';
 
 const csvPath = 'src/data/about/personnel/executives_data.csv';
 const csvData = await fs.readFile(csvPath, 'utf-8');
@@ -30,20 +31,14 @@ const description = 'ผู้บริหารวิทยาลัยศา�
 		<div class="mb-2 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{
 				executives.map((executive) => (
-					<div class="dark:shadow-th-shadow-1-dark rounded-th-rounded-2 bg-th-bg-1 p-4 shadow-th-shadow-1 dark:bg-th-bg-1-dark">
-						<div class="mb-3 aspect-[3/4] overflow-hidden rounded-th-rounded-2">
-							<img
-								src={`/img/personnel/${executive.image}`}
-								alt={executive.name_th}
-								class="h-full w-full object-cover"
-							/>
-						</div>
-						<h2 class="mb-1 text-lg font-bold">{executive.name_th}</h2>
-						<p class="text-sm text-gray-600 dark:text-gray-400">{executive.position_th}</p>
-						<a href={`mailto:${executive.email}`} class="text-th-link-1 dark:text-th-link-1-dark">
-							{executive.email}
-						</a>
-					</div>
+					<PersonnelCard
+						nameTh={executive.name_th}
+						nameEn={executive.name_en}
+						positionTh={executive.position_th}
+						positionEn={executive.position_en}
+						email={executive.email}
+						image={`/img/personnel/${executive.image}`}
+					/>
 				))
 			}
 		</div>
