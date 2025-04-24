@@ -16,8 +16,8 @@ const executives = Papa.parse<{
 	image: string;
 }>(csvData, { header: true }).data;
 
-const title = 'ผู้บริหาร';
-const description = 'ผู้บริหารวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล';
+const title = 'คณะผู้บริหาร';
+const description = 'คณะผู้บริหารของวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล';
 ---
 
 <Layout title={title} description={description}>

@@ -1,5 +1,5 @@
 ---
-title: ผู้บริหาร
+title: คณะผู้บริหาร
 slug: executives
 ---
 

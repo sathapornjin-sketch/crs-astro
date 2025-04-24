@@ -16,8 +16,8 @@ const teachers = Papa.parse<{
 	image: string;
 }>(csvData, { header: true }).data;
 
-const title = 'เจ้าหน้าที่ฝ่ายสนับสนุน';
-const description = 'เจ้าหน้าที่ฝ่ายสนับสนุนวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล';
+const title = 'คณาจารย์';
+const description = 'คณาจารย์ของวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล';
 ---
 
 <Layout title={title} description={description}>

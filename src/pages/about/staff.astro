@@ -16,8 +16,8 @@ const staffs = Papa.parse<{
 	image: string;
 }>(csvData, { header: true }).data;
 
-const title = 'คณาจารย์';
-const description = 'คณาจารย์วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล';
+const title = 'เจ้าหน้าที่ฝ่ายสนับสนุน';
+const description = 'เจ้าหน้าที่ฝ่ายสนับสนุนของวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล';
 ---
 
 <Layout title={title} description={description}>
@@ -31,7 +31,7 @@ const description = 'คณาจารย์วิทยาลัยศาส�
 		<div class="mb-2 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{
 				staffs.map((staff) => (
-				<PersonnelCard
+					<PersonnelCard
 						nameTh={staff.name_th}
 						nameEn={staff.name_en}
 						positionTh={staff.position_th}
