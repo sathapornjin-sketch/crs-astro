@@ -1,0 +1,51 @@
+---
+import Side from '@/components/about/Side.astro';
+import Layout from '@/layouts/Layout_Sidebar.astro';
+import Papa from 'papaparse';
+import fs from 'fs/promises';
+
+const csvPath = 'src/data/about/personnel/staff_data.csv';
+const csvData = await fs.readFile(csvPath, 'utf-8');
+const staffs = Papa.parse<{
+	name_th: string;
+	name_en: string;
+	position_th: string;
+	position_en: string;
+	email: string;
+	image: string;
+}>(csvData, { header: true }).data;
+
+const title = 'คณาจารย์';
+const description = 'คณาจารย์วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล';
+---
+
+<Layout title={title} description={description}>
+	<aside slot="aside" class="order-2 md:order-1">
+		<Side />
+	</aside>
+	<article>
+		<h1 class="mt-0">{title}</h1>
+		<p class="mb-6">{description}</p>
+
+		<div class="mb-2 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+			{
+				staffs.map((staff) => (
+					<div class="dark:shadow-th-shadow-1-dark rounded-th-rounded-2 bg-th-bg-1 p-4 shadow-th-shadow-1 dark:bg-th-bg-1-dark">
+						<div class="mb-3 aspect-[3/4] overflow-hidden rounded-th-rounded-2">
+							<img
+								src={`/img/personnel/${staff.image}`}
+								alt={staff.name_th}
+								class="h-full w-full object-cover"
+							/>
+						</div>
+						<h2 class="mb-1 text-lg font-bold">{staff.name_th}</h2>
+						<p class="text-sm text-gray-600 dark:text-gray-400">{staff.position_th}</p>
+						<a href={`mailto:${staff.email}`} class="text-th-link-1 dark:text-th-link-1-dark">
+							{staff.email}
+						</a>
+					</div>
+				))
+			}
+		</div>
+	</article>
+</Layout>
