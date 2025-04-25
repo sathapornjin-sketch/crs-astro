@@ -17,8 +17,8 @@ const { nameTh, nameEn, positionTh, positionEn, email, image } = Astro.props;
 	<div class="mb-3 aspect-[3/4] overflow-hidden rounded-th-rounded-2">
 		<img src={image} alt={nameTh} class="h-full w-full object-cover" />
 	</div>
-	<h4 class="mb-1 text-lg font-bold">{nameTh}</h4>
-	<p class="text-gray-600 dark:text-gray-400">{positionTh}</p>
+	<h2 class="mb-1 text-lg font-bold size-m:text-2xl size-l:text-4xl">{nameTh || nameEn}</h2>
+	<p class="text-gray-600 dark:text-gray-400">{positionTh || positionEn}</p>
 	<a href={`mailto:${email}`} class="text-sm text-th-link-1 dark:text-th-link-1-dark">
 		{email}
 	</a>
