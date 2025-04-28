@@ -48,51 +48,53 @@ const description = 'Open Data Integrity and Transparency Assessment (OIT)';
 		University-Integrity and Transparency Assessment: MU-ITA) ประจำปีงบประมาณ พ.ศ.2568
 	</div>
 
-	{
-		Object.entries(groupedItems).map(([category, items]) => (
-			<>
-				<h2 class="mb-1 mt-12">{category}</h2>
-				<div class="mb-5">{catDescriptions[category]}</div>
-				<div class="space-y-1">
-					{items.map((item) => {
-						const links = item.link_url.split('\n');
-						return (
-							<Collapse title={`${item.id} | ${item.subject}`}>
-								{links.map((link, index) => {
-									const isExternalLink = link.startsWith('http');
-									return (
-										<>
-											{link ? (
-												<>
-													{links.length > 1 ? (
-														<a
-															href={link}
-															target={isExternalLink ? '_blank' : '_self'}
-															class="link"
-														>
-															<li>รายการที่ {index + 1}</li>
-														</a>
-													) : (
-														<a
-															href={link}
-															target={isExternalLink ? '_blank' : '_self'}
-															class="link"
-														>
-															ดูรายละเอียด
-														</a>
-													)}
-												</>
-											) : (
-												'เร็ว ๆ นี้'
-											)}
-										</>
-									);
-								})}
-							</Collapse>
-						);
-					})}
-				</div>
-			</>
-		))
-	}
+	<div class="mb-10">
+		{
+			Object.entries(groupedItems).map(([category, items]) => (
+				<>
+					<h2 class="mb-1 mt-12">{category}</h2>
+					<div class="mb-5">{catDescriptions[category]}</div>
+					<div class="space-y-1">
+						{items.map((item) => {
+							const links = item.link_url.split('\n');
+							return (
+								<Collapse title={`${item.id} | ${item.subject}`}>
+									{links.map((link, index) => {
+										const isExternalLink = link.startsWith('http');
+										return (
+											<>
+												{link ? (
+													<>
+														{links.length > 1 ? (
+															<a
+																href={link}
+																target={isExternalLink ? '_blank' : '_self'}
+																class="link"
+															>
+																<li>รายการที่ {index + 1}</li>
+															</a>
+														) : (
+															<a
+																href={link}
+																target={isExternalLink ? '_blank' : '_self'}
+																class="link"
+															>
+																ดูรายละเอียด
+															</a>
+														)}
+													</>
+												) : (
+													'เร็ว ๆ นี้'
+												)}
+											</>
+										);
+									})}
+								</Collapse>
+							);
+						})}
+					</div>
+				</>
+			))
+		}
+	</div>
 </Layout>
