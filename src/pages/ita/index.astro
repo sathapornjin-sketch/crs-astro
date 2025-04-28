@@ -12,7 +12,7 @@ interface ItaCsvSchema {
 	link_url: string;
 }
 
-const csvPath = 'src/data/ita/ita_2025_data.csv';
+const csvPath = 'src/data/ita/ITA-2025_data.csv';
 const csvData = await fs.readFile(csvPath, 'utf-8');
 const items = Papa.parse<ItaCsvSchema>(csvData, { header: true }).data;
 
