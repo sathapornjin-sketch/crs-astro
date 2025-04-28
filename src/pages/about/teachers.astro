@@ -5,16 +5,18 @@ import Layout from '@/layouts/Layout_Sidebar.astro';
 import fs from 'fs/promises';
 import Papa from 'papaparse';
 
-const csvPath = 'src/data/about/personnel/teachers_data.csv';
-const csvData = await fs.readFile(csvPath, 'utf-8');
-const teachers = Papa.parse<{
+interface PersonnelCsvSchema {
 	name_th: string;
 	name_en: string;
 	position_th: string;
 	position_en: string;
 	email: string;
 	image: string;
-}>(csvData, { header: true }).data;
+}
+
+const csvPath = 'src/data/about/personnel/teachers_data.csv';
+const csvData = await fs.readFile(csvPath, 'utf-8');
+const teachers = Papa.parse<PersonnelCsvSchema>(csvData, { header: true }).data;
 
 const title = 'คณาจารย์';
 const description = 'คณาจารย์ของวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล';
