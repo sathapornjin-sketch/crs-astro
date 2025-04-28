@@ -2,6 +2,38 @@
 import Slogan from '@/components/sections/Slogan.astro';
 import Collapse from '@/components/ui/Collapse.astro';
 import Layout from '@/layouts/Layout.astro';
+import fs from 'fs/promises';
+import Papa from 'papaparse';
+
+interface ItaCsvSchema {
+	id: string;
+	category: string;
+	subject: string;
+	link_url: string;
+}
+
+const csvPath = 'src/data/ita/ita_2025_data.csv';
+const csvData = await fs.readFile(csvPath, 'utf-8');
+const items = Papa.parse<ItaCsvSchema>(csvData, { header: true }).data;
+
+const groupedItems: Record<string, ItaCsvSchema[]> = items.reduce((acc, item) => {
+	if (!acc[item.category]) acc[item.category] = [];
+	acc[item.category].push(item);
+	return acc;
+}, {});
+
+const catDescriptions: Record<string, string> = {
+	ข้อมูลพื้นฐาน: 'ข้อมูลพื้นฐาน ได้แก่ ข้อมูลพื้นฐาน การประชาสัมพันธ์ และการปฏิสัมพันธ์ข้อมูล',
+	การบริหารงานและการใช้จ่ายงบประมาณ:
+		'การบริหารงานและการใช้จ่ายงบประมาณ ได้แก่ แผนการดำเนินงานและงบประมาณ การปฏิบัติงาน และการให้บริการและการติดต่อประสานงาน',
+	การจัดซื้อจัดจ้าง: 'การจัดซื้อจัดจ้าง ได้แก่ การจัดซื้อจัดจ้างหรือการจัดหาพัสดุ',
+	การบริหารและพัฒนาทรัพยากรบุคคล:
+		'การบริหารและพัฒนาทรัพยากรบุคคล ได้แก่ แผนการบริหารทรัพยากรบุคคล การดำเนินการตามแผนการบริหารทรัพยากรบุคคล และการขับเคลื่อนจริยธรรม',
+	การส่งเสริมความโปร่งใส:
+		'การส่งเสริมความโปร่งใส ได้แก่ การจัดการเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ และการเปิดโอกาสให้เกิดการมีส่วนร่วม',
+	การป้องกันการทุจริต:
+		'ประกอบด้วย การดำเนินการเพื่อป้องกันการทุจริตประเด็นสินบน การส่งเสริมคุณธรรมและความโปร่งใส',
+};
 
 const title = 'การเปิดเผยข้อมูลสาธารณะ';
 const description = 'Open Data Integrity and Transparency Assessment (OIT)';
@@ -16,106 +48,51 @@ const description = 'Open Data Integrity and Transparency Assessment (OIT)';
 		University-Integrity and Transparency Assessment: MU-ITA) ประจำปีงบประมาณ พ.ศ.2568
 	</div>
 
-	<h2 class="mb-1 mt-12">ข้อมูลพื้นฐาน</h2>
-	<div class="mb-5">
-		ข้อมูลพื้นฐาน ได้แก่ ข้อมูลพื้นฐาน การประชาสัมพันธ์ และการปฏิสัมพันธ์ข้อมูล
-	</div>
-	<div class="space-y-1">
-		<Collapse title="O1 | โครงสร้าง"> เร็ว ๆ นี้ </Collapse>
-		<Collapse title="O2 | ข้อมูลผู้บริหาร"> เร็ว ๆ นี้ </Collapse>
-		<Collapse title="O3 | ข้อมูลการติดต่อ"> เร็ว ๆ นี้ </Collapse>
-		<Collapse title="O4 | การประชาสัมพันธ์"> เร็ว ๆ นี้ </Collapse>
-	</div>
-
-	<h2 class="mb-1 mt-12">การบริหารงานและการใช้จ่ายงบประมาณ</h2>
-	<div class="mb-5">
-		การบริหารงานและการใช้จ่ายงบประมาณ ได้แก่ แผนการดำเนินงานและงบประมาณ การปฏิบัติงาน
-		และการให้บริการและการติดต่อประสานงาน
-	</div>
-	<div class="space-y-1">
-		<Collapse title="O5 | แผนยุทธศาสตร์หรือแผนพัฒนาหน่วยงาน"> เร็ว ๆ นี้ </Collapse>
-		<Collapse title="O6 | แผนและความก้าวหน้าในการดำเนินงานและการใช้งบประมาณประจำปี">
-			เร็ว ๆ นี้
-		</Collapse>
-		<Collapse title="O7 | รายงานผลการดำเนินงานประจำปี"> เร็ว ๆ นี้ </Collapse>
-		<Collapse title="O8 | คู่มือหรือแนวทางการปฏิบัติงานของเจ้าหน้าที่"> เร็ว ๆ นี้ </Collapse>
-		<Collapse title="O9 | คู่มือหรือแนวทางการให้บริการสำหรับผู้รับบริการหรือผู้มาติดต่อ">
-			เร็ว ๆ นี้
-		</Collapse>
-		<Collapse title="O10 | E-Service"> เร็ว ๆ นี้ </Collapse>
-		<Collapse title="O11 | ข้อมูลสถิติการให้บริการ"> เร็ว ๆ นี้ </Collapse>
-	</div>
-
-	<h2 class="mb-1 mt-12">การจัดซื้อจัดจ้าง</h2>
-	<div class="mb-5">การจัดซื้อจัดจ้าง ได้แก่ การจัดซื้อจัดจ้างหรือการจัดหาพัสดุ</div>
-	<div class="space-y-1">
-		<Collapse
-			title="O12 | รายการการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ และความก้าวหน้าการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ"
-		>
-			เร็ว ๆ นี้
-		</Collapse>
-		<Collapse title="O13 | รายงานผลการจัดซื้อจัดจ้างหรือการจัดหาพัสดุประจำปี">
-			เร็ว ๆ นี้
-		</Collapse>
-	</div>
-
-	<h2 class="mb-1 mt-12">การบริหารและพัฒนาทรัพยากรบุคคล</h2>
-	<div class="mb-5">
-		การบริหารและพัฒนาทรัพยากรบุคคล ได้แก่ แผนการบริหารทรัพยากรบุคคล
-		การดำเนินการตามแผนการบริหารทรัพยากรบุคคล และการขับเคลื่อนจริยธรรม
-	</div>
-	<div class="space-y-1">
-		<Collapse title="O14 | แผนการบริหารและพัฒนาทรัพยากรบุคคล"> เร็ว ๆ นี้ </Collapse>
-		<Collapse title="O15 | รายงานผลการบริหารและพัฒนาทรัพยากรบุคคลประจำปี"> เร็ว ๆ นี้ </Collapse>
-		<Collapse title="O16 | ประมวลจริยธรรมสำหรับเจ้าหน้าที่ของรัฐ"> เร็ว ๆ นี้ </Collapse>
-	</div>
-
-	<h2 class="mb-1 mt-12">การส่งเสริมความโปร่งใส</h2>
-	<div class="mb-5">
-		การส่งเสริมความโปร่งใส ได้แก่ การจัดการเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ
-		และการเปิดโอกาสให้เกิดการมีส่วนร่วม
-	</div>
-	<div class="mb-10 space-y-1">
-		<Collapse title="O17 | แนวปฏิบัติการจัดการเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ">
-			เร็ว ๆ นี้
-		</Collapse>
-		<Collapse title="O18 | ช่องทางแจ้งเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ">
-			เร็ว ๆ นี้
-		</Collapse>
-		<Collapse title="O19 | ข้อมูลสถิติเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ">
-			เร็ว ๆ นี้
-		</Collapse>
-		<Collapse title="O20 | การเปิดโอกาสให้เกิดการมีส่วนร่วม"> เร็ว ๆ นี้ </Collapse>
-	</div>
-
-	<h2 class="mb-1 mt-12">การป้องกันการทุจริต</h2>
-	<div class="mb-5">
-		ประกอบด้วย การดำเนินการเพื่อป้องกันการทุจริตประเด็นสินบน การส่งเสริมคุณธรรมและความโปร่งใส
-	</div>
-	<div class="mb-10 space-y-1">
-		<Collapse title="O21 | ประกาศเจตนารมณ์นโยบาย No Gift Policy จากการปฏิบัติหน้าที่">
-			เร็ว ๆ นี้
-		</Collapse>
-		<Collapse title="O22 | รายงานการรับทรัพย์สินหรือประโยชน์อื่นใดโดยธรรมจรรยา">
-			เร็ว ๆ นี้
-		</Collapse>
-		<Collapse
-			title="O23 | การประเมินความเสี่ยงที่อาจเกิดการให้/รับสินบนจากการดำเนินงานตามภารกิจของหน่วยงาน"
-		>
-			เร็ว ๆ นี้
-		</Collapse>
-		<Collapse
-			title="O24 | รายงานผลการดำเนินการเพื่อจัดการความเสี่ยงการทุจริตและประพฤติมิชอบประจำปี"
-		>
-			เร็ว ๆ นี้
-		</Collapse>
-		<Collapse title="O25 | แผนปฏิบัติการป้องกันการทุจริต"> เร็ว ๆ นี้ </Collapse>
-		<Collapse title="O26 | รายงานผลการดำเนินการป้องกันการทุจริตประจำปี"> เร็ว ๆ นี้ </Collapse>
-		<Collapse title="O27 | มาตรการส่งเสริมคุณธรรมและความโปร่งใสภายในหน่วยงาน">
-			เร็ว ๆ นี้
-		</Collapse>
-		<Collapse title="O28 | รายงานผลการดำเนินการเพื่อส่งเสริมคุณธรรมและความโปร่งใสภายในหน่วยงาน">
-			เร็ว ๆ นี้
-		</Collapse>
-	</div>
+	{
+		Object.entries(groupedItems).map(([category, items]) => (
+			<>
+				<h2 class="mb-1 mt-12">{category}</h2>
+				<div class="mb-5">{catDescriptions[category]}</div>
+				<div class="space-y-1">
+					{items.map((item) => {
+						const links = item.link_url.split('\n');
+						return (
+							<Collapse title={`${item.id} | ${item.subject}`}>
+								{links.map((link, index) => {
+									const isExternalLink = link.startsWith('http');
+									return (
+										<>
+											{link ? (
+												<>
+													{links.length > 1 ? (
+														<a
+															href={link}
+															target={isExternalLink ? '_blank' : '_self'}
+															class="link"
+														>
+															<li>รายการที่ {index + 1}</li>
+														</a>
+													) : (
+														<a
+															href={link}
+															target={isExternalLink ? '_blank' : '_self'}
+															class="link"
+														>
+															ดูรายละเอียด
+														</a>
+													)}
+												</>
+											) : (
+												'เร็ว ๆ นี้'
+											)}
+										</>
+									);
+								})}
+							</Collapse>
+						);
+					})}
+				</div>
+			</>
+		))
+	}
 </Layout>
