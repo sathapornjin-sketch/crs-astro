@@ -1,12 +1,12 @@
 id,category,subject,link_url
-O1,ข้อมูลพื้นฐาน,โครงสร้าง,/about/organization/
-O2,ข้อมูลพื้นฐาน,ข้อมูลผู้บริหาร,/about/teachers/
+O1,ข้อมูลพื้นฐาน,โครงสร้าง,/assets/docs/ita/โครงสร้างและอำนาจหน้าที่หรือภารกิจ.pdf
+O2,ข้อมูลพื้นฐาน,ข้อมูลผู้บริหาร,/about/executives/
 O3,ข้อมูลพื้นฐาน,ข้อมูลการติดต่อ,/contact/
 O4,ข้อมูลพื้นฐาน,การประชาสัมพันธ์,https://www.facebook.com/CrsMahidol
-O5,การบริหารงานและการใช้จ่ายงบประมาณ,แผนยุทธศาสตร์หรือแผนพัฒนาหน่วยงาน,https://drive.google.com/drive/folders/1Sfip6Tu-aoFRsTJMj1q30w5SUR9im0bg?usp=sharing
-O6,การบริหารงานและการใช้จ่ายงบประมาณ,แผนและความก้าวหน้าในการดำเนินงานและการใช้งบประมาณประจำปี พ.ศ. 2568,https://drive.google.com/drive/folders/1a6GMLRLfB2uyL2pBh6d4WlJQDXGRZI3h?usp=sharing
-O7,การบริหารงานและการใช้จ่ายงบประมาณ,รายงานผลการดำเนินงานประจำปี 67,https://drive.google.com/file/d/1mR97lYxrmWvWILFhg0zY3lR04n3TRPvX/view?usp=sharing
-O8,การบริหารงานและการใช้จ่ายงบประมาณ,คู่มือหรือแนวทางการปฏิบัติงานของเจ้าหน้าที่,https://drive.google.com/drive/folders/1GBIY30You8YMj8-ju23-ZrBlaZEn0ufY?usp=sharing
+O5,การบริหารงานและการใช้จ่ายงบประมาณ,แผนยุทธศาสตร์หรือแผนพัฒนาหน่วยงาน,/assets/docs/ita/o5_1_(23).pdf
+O6,การบริหารงานและการใช้จ่ายงบประมาณ,แผนและความก้าวหน้าในการดำเนินงานและการใช้งบประมาณประจำปี พ.ศ. 2568,/assets/docs/ita/o06_1_(123).pdf
+O7,การบริหารงานและการใช้จ่ายงบประมาณ,รายงานผลการดำเนินงานประจำปี 67,/assets/docs/ita/ผลการดำเนินงานตามแผนดำเนินงานประจำปี67.pdf
+O8,การบริหารงานและการใช้จ่ายงบประมาณ,คู่มือหรือแนวทางการปฏิบัติงานของเจ้าหน้าที่,/assets/docs/ita/workflow_การเบิกจ่ายเงินสดย่อย.pdf
 O9,การบริหารงานและการใช้จ่ายงบประมาณ,คู่มือหรือแนวทางการขอรับบริการสำหรับผู้รับบริการหรือผู้มาติดต่อ,"https://www.li.mahidol.ac.th/borrowing/
 https://op.mahidol.ac.th/sa/wp-content/uploads/2018/documents/other/dss.pdf
 https://www.li.mahidol.ac.th/flip-book/flip-turn.html
@@ -18,24 +18,24 @@ https://op.mahidol.ac.th/sa/studentloan-form/
 https://op.mahidol.ac.th/sa/scholarsupport/
 https://op.mahidol.ac.th/sa/studentsoldier/
 https://op.mahidol.ac.th/sa/wp-content/uploads/2018/documents/other/20190611_health.pdf
-https://drive.google.com/file/d/1aeJOxhRK7-HSNCdc9l74bTGPOB5PaPGG/view?usp=sharing"
+/assets/docs/ita/คู่มือหอพัก(1).pdf"
 O10,การบริหารงานและการใช้จ่ายงบประมาณ,E-service,"/internal/students/
-https://drive.google.com/file/d/1A61kbaHv-KY4UVEB_TpsdACMtlPgAKS9/view?usp=sharing"
-O11,การบริหารงานและการใช้จ่ายงบประมาณ,ข้อมูลสถิติการให้บริการ,https://drive.google.com/drive/folders/1HJx_G8uiheeJWYVUHVKOqsUtAmm1Hfoq?usp=sharing
-O12,การจัดซื้อจัดจ้าง,รายการการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ และความก้าวหน้าการจัดซื้อจ้าง,https://docs.google.com/spreadsheets/d/194H4MvcO-YmIz1gaAPEcyWlSg9_VtsRN/edit?usp=sharing&ouid=116146591254257287377&rtpof=true&sd=true
-O13,การจัดซื้อจัดจ้าง,รายงานผลการจัดซื้อจัดจ้าง พัสดุ ประจำปี พ.ศ.2567,https://docs.google.com/spreadsheets/d/1ibeELSESnod8Mw56eooeU0kpSbAnL1wa/edit?usp=sharing&ouid=116146591254257287377&rtpof=true&sd=true
-O14,การบริหารและพัฒนาทรัพยากรบุคคล,แผนการบริหารและพัฒนาทรัพยากรบุคคล,https://drive.google.com/file/d/1_9MR6ft-asXgclZ5pnL4IjcmkfI0gBVe/view?usp=sharing
-O15,การบริหารและพัฒนาทรัพยากรบุคคล,รายงานผลการบริหารและพัฒนาทรัพยากรบุคคลประจำปี พ.ศ.2567,https://drive.google.com/drive/folders/1l7GhVMDaJlNuWNpAJGv4GPZR7IDZhgFB?usp=sharing
-O16,การบริหารและพัฒนาทรัพยากรบุคคล,ประมวลจริยธรรมและการขับเคลื่อนจริยธรรม,https://drive.google.com/drive/folders/1bZNbtvxZ5GgAqoONw5LZ_kCAd233p8dc?usp=sharing
-O17,การส่งเสริมความโปร่งใส,แนวปฏิบัติการจัดการเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ,https://drive.google.com/file/d/1b5bv9GUMLNntGAnTX1PFiaUYKL9OVuEd/view?usp=sharing
-O18,การส่งเสริมความโปร่งใส,ช่องทางแจ้งเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ,/contact/whistleblower/
-O19,การส่งเสริมความโปร่งใส,ข้อมูลสถิติเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ,https://drive.google.com/file/d/16I6eI7Cdt_JL5dWn2EJVewjzkOxn3iSw/view?usp=sharing
-O20,การส่งเสริมความโปร่งใส,การเปิดโอกาสให้เกิดการมีส่วนร่วม,https://drive.google.com/drive/folders/1yriGYMrFtst1J5mqorFuvI82QPFdfmna?usp=sharing
-O21,การป้องกันการทุจริต,ประกาศเจตนารมณ์และการสร้างวัฒนธรรม ตามนโยบาย No gift Policy จากการปฏิบัติหน้าที่,https://drive.google.com/drive/folders/1S39dN3oO8Dd_ZcA7BbeEnBDPV-Tnp8bj?usp=sharing
-O22,การป้องกันการทุจริต,รายงานการรับทรัพย์สินหรือประโยชน์อื่นใดโดยธรรมจรรยา,https://drive.google.com/file/d/100QajjYU0c1S1F23vla23yHys3c5grCJ/view?usp=sharing
-O23,การป้องกันการทุจริต,การประเมินความเสี่ยงที่อาจเกิดการให้รับสินบนจากการดำเนินงานตามภารกิจของหน่วยงาน ประจำปี พ.ศ.2568,https://drive.google.com/file/d/1rNZzoTPf7Dr4HFGvzoI_6yiRLjiCff65/view?usp=sharing
-O24,การป้องกันการทุจริต,รายงานผลการดำเนินการเพื่อจัดการความเสี่ยงการทุจริต และประพฤติมิชอบประจำปี,https://drive.google.com/drive/folders/1I7RX1KOddPhV27ji9Wgw8WPX7ZqrSjT9?usp=sharing
-O25,การป้องกันการทุจริต,แผนปฏิบัติการป้องกันการทุจริต,https://drive.google.com/drive/folders/1KxZuNbvhH4UusWz4MOWcqcF6GAZgqhxG?usp=sharing
-O26,การป้องกันการทุจริต,รายงานผลการดำเนินการป้องกันการทุจริตประจำปี,https://drive.google.com/file/d/1_tKEHkJANT_m5V2AqrDHAhkW8etgnfyb/view?usp=sharing
-O27,การป้องกันการทุจริต,มาตรการส่งเสริมคุณธรรมและความโปร่งใสภายในหน่วยงาน,https://drive.google.com/file/d/1uIR2JdEGHcZaL5-9UvQYWDf3ACtF1FPY/view?usp=sharing
-O28,การป้องกันการทุจริต,รายงานผลการดำเนินการเพื่อส่งเสริมคุณธรรมและความโปร่งใสภายในหน่วยงาน,https://drive.google.com/file/d/1GjSMbC9x-F2U9JRd71zzMJH74hwWeE2T/view?usp=sharing
+/assets/docs/ita/o10.pdf"
+O11,การบริหารงานและการใช้จ่ายงบประมาณ,ข้อมูลสถิติการให้บริการ,/assets/docs/ita/o11_1.pdf
+O12,การจัดซื้อจัดจ้าง,รายการการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ และความก้าวหน้าการจัดซื้อจ้าง,/assets/docs/ita/ITA-o12.xlsx
+O13,การจัดซื้อจัดจ้าง,รายงานผลการจัดซื้อจัดจ้าง พัสดุ ประจำปี พ.ศ.2567,/assets/docs/ita/ITA-o13.xlsx
+O14,การบริหารและพัฒนาทรัพยากรบุคคล,แผนการบริหารและพัฒนาทรัพยากรบุคคล,/assets/docs/ita/o14.pdf
+O15,การบริหารและพัฒนาทรัพยากรบุคคล,รายงานผลการบริหารและพัฒนาทรัพยากรบุคคลประจำปี พ.ศ.2567,/assets/docs/ita/o5_1_(1).pdf
+O16,การบริหารและพัฒนาทรัพยากรบุคคล,ประมวลจริยธรรมและการขับเคลื่อนจริยธรรม,/assets/docs/ita/Do's&Don'ts.pdf
+O17,การส่งเสริมความโปร่งใส,แนวปฏิบัติการจัดการเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ,/assets/docs/ita/แนวทางการดำเนินงานต่อเรื่องร้องเรียน.pdf
+O18,การส่งเสริมความโปร่งใส,ช่องทางแจ้งเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ,
+O19,การส่งเสริมความโปร่งใส,ข้อมูลสถิติเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ,/assets/docs/ita/ข้อมูลเชิงสถิติเรื่องร้องเรียนการทุจริต.pdf
+O20,การส่งเสริมความโปร่งใส,การเปิดโอกาสให้เกิดการมีส่วนร่วม,/assets/docs/ita/กิจกรรมการมีส่วนร่วม.pdf
+O21,การป้องกันการทุจริต,ประกาศเจตนารมณ์และการสร้างวัฒนธรรม ตามนโยบาย No Gift Policy จากการปฏิบัติหน้าที่,/assets/docs/ita/NoGiftPolicy.pdf
+O22,การป้องกันการทุจริต,รายงานการรับทรัพย์สินหรือประโยชน์อื่นใดโดยธรรมจรรยา,/assets/docs/ita/รายงานการรับทรัพย์สินหรือประโยชน์อื่นใด.pdf
+O23,การป้องกันการทุจริต,การประเมินความเสี่ยงที่อาจเกิดการให้รับสินบนจากการดำเนินงานตามภารกิจของหน่วยงาน ประจำปี พ.ศ.2568,/assets/docs/ita/การประเมินความเสี่ยงการทุจริตในประเด็นที่เกี่ยวข้องกับสินบน.pdf
+O24,การป้องกันการทุจริต,รายงานผลการดำเนินการเพื่อจัดการความเสี่ยงการทุจริต และประพฤติมิชอบประจำปี,/assets/docs/ita/o24.pdf
+O25,การป้องกันการทุจริต,แผนปฏิบัติการป้องกันการทุจริต,/assets/docs/ita/แผนปฏิบัติการป้องกันการทุจริต68.pdf
+O26,การป้องกันการทุจริต,รายงานผลการดำเนินการป้องกันการทุจริตประจำปี,/assets/docs/ita/รายงานผลการดำเนินงาน2567.pdf
+O27,การป้องกันการทุจริต,มาตรการส่งเสริมคุณธรรมและความโปร่งใสภายในหน่วยงาน,/assets/docs/ita/รายงานการวิเคราะห์ผลการประเมินคุณธรรมและความโปร่งใส2025.pdf
+O28,การป้องกันการทุจริต,รายงานผลการดำเนินการเพื่อส่งเสริมคุณธรรมและความโปร่งใสภายในหน่วยงาน,/assets/docs/ita/o5_1_(23).pdf
