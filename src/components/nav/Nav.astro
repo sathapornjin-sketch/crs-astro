@@ -5,40 +5,84 @@ import '@/styles/nav.scss';
 import { nav } from './Nav.data';
 ---
 
-<input type='checkbox' id='nav-open' class="absolute top-0 left-0 opacity-0" name='nav-open' aria-label='Toggle Mobile Menu' />
-<div class='th-nav z-[900] bg-th-nav-bg dark:bg-th-nav-bg-dark text-th-nav-text lg:p-0 lg:sticky lg:top-0'>
-  <div class='w-full max-w-th-width-lg mx-auto px-4 md:px-5'>
-    <label class='nav-toggle flex lg:hidden items-center gap-1.5 fixed top-[1em] right-4 px-1.5 py-0.5 text-th-head-text dark:text-th-head-text-dark border-[1.5px] border-solid border-th-head-text dark:border-th-head-text-dark rounded-th-rounded-1' for='nav-open'>
-      <Icon name='menu' height='24' /><span class="text-base">เมนู</span>
-    </label>
-    <nav class="nav-content invisible opacity-0 w-[280px] absolute top-0 h-dvh right-0 z-[900] shadow-th-shadow-2 translate-x-full bg-th-nav-bg dark:bg-th-nav-bg-dark p-0 pt-[60px] text-[1.125em] lg:translate-x-0 lg:opacity-100 lg:visible lg:bg-none lg:shadow-none lg:w-[unset] lg:relative lg:top-[unset] lg:right-[unset] lg:h-[unset] lg:p-[unset] lg:overflow-visible">
-      <label class='close flex lg:hidden items-center gap-1.5 rounded-th-rounded-1 border-[1.5px] border-solid px-1.5 py-[3px] absolute top-[1em] right-4' for='nav-open'>
-        <Icon name='close' class="p-0.5" height='24' /><span class="text-base whitespace-nowrap">ปิดเมนู</span>
-      </label>
-      <ul class="py-0 pr-4 pl-6 m-0 h-full overflow-auto lg:p-0 lg:height-[unset] lg:flex lg:flex-wrap lg:gap-y-0 lg:gap-x-[1.5em] lg:overflow-visible">
-        {
-          nav.map((n) => (
-            <li class={(n.sub ? ('list-none px-0 py-2 flex flex-wrap items-center min-h-10 w-full relative lg:w-auto lg:min-h-[54px] has-sub lg:pr-6 group') : 'list-none px-0 py-2 flex flex-wrap items-center min-h-10 w-full relative lg:w-auto lg:min-h-[54px]')}>
-              <a href={n.link} class="text-th-nav-text hover:text-th-nav-text hover:opacity-80" rel='prefetch'>
-                {n.name}
-              </a>
-              {n.sub && (
-                <span class="i-down absolute top-[0.5em] right-0 p-1.5 ml-auto leading-[0] border border-solid rounded-th-rounded-1 cursor-pointer z-[1] lg:border-none lg:top-[calc(50%_-_11px)]">
-                  <Icon name="dropdown" class="pointer-events-none duration-300 ease group-hover:lg:scale-y-[-1] group-hover:lg:opacity-80" height="10" width="10" />
-                </span>
-                <ul class='sub-menu invisible opacity-0 p-0 m-0 h-0 w-full overflow-hidden transition-[0.4s] ease-out text-[0.8em] lg:text-left lg:top-full lg:-left-4 lg:absolute lg:z-10 lg:h-0 lg:bg-th-nav-bg dark:lg:bg-th-nav-bg-dark lg:min-w-[180px] lg:w-max lg:max-w-[400px] lg:overflow-hidden group-hover:lg:visible group-hover:lg:overflow-visible group-hover:lg:h-auto group-hover:lg:opacity-100 group-hover:lg:pt-4 group-hover:lg:px-0 group-hover:lg:pb-2.5 group-hover:lg:translate-y-[-10px] group-hover:lg:z-[1]'>
-                  {n.sub.map((s) => (
-                    <li class="list-none px-0 py-2 flex flex-wrap items-center min-h-10 w-full lg:w-auto lg:min-h-[unset]">
-                      <a href={s.link} class="text-th-nav-text hover:text-th-nav-text hover:opacity-80 lg:block lg:py-0 lg:px-4">{s.name}</a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))
-        }
-      </ul>
-      <label class='bg flex lg:hidden items-center gap-1.5 absolute h-full w-screen right-full top-0 bg-black/50' for='nav-open'></label>
-    </nav>
-  </div>
+<input
+	type="checkbox"
+	id="nav-open"
+	class="absolute left-0 top-0 opacity-0"
+	name="nav-open"
+	aria-label="Toggle Mobile Menu"
+/>
+<div
+	class="th-nav z-[900] bg-th-nav-bg text-th-nav-text dark:bg-th-nav-bg-dark lg:sticky lg:top-0 lg:p-0"
+>
+	<div class="mx-auto w-full max-w-th-width-lg px-4 md:px-5">
+		<label
+			class="nav-toggle fixed right-4 top-[1.2rem] flex items-center gap-1.5 rounded-th-rounded-1 border-[1.5px] border-solid border-th-head-text px-1.5 py-0.5 text-th-head-text dark:border-th-head-text-dark dark:text-th-head-text-dark lg:hidden"
+			for="nav-open"
+		>
+			<Icon name="menu" height="24" /><span class="text-base">เมนู</span>
+		</label>
+		<nav
+			class="nav-content invisible fixed right-0 top-0 z-[900] h-dvh w-[280px] translate-x-full bg-th-nav-bg p-0 pt-[60px] text-[1.125em] opacity-0 shadow-th-shadow-2 dark:bg-th-nav-bg-dark lg:visible lg:relative lg:right-[unset] lg:top-[unset] lg:h-[unset] lg:w-[unset] lg:translate-x-0 lg:overflow-visible lg:bg-none lg:p-[unset] lg:opacity-100 lg:shadow-none"
+		>
+			<label
+				class="close absolute right-4 top-[1em] flex items-center gap-1.5 rounded-th-rounded-1 border-[1.5px] border-solid px-1.5 py-[3px] lg:hidden"
+				for="nav-open"
+			>
+				<Icon name="close" class="p-0.5" height="24" /><span class="whitespace-nowrap text-base"
+					>ปิดเมนู</span
+				>
+			</label>
+			<ul
+				class="lg:height-[unset] m-0 h-full overflow-auto py-0 pl-6 pr-4 lg:flex lg:flex-wrap lg:gap-x-[1.5em] lg:gap-y-0 lg:overflow-visible lg:p-0"
+			>
+				{
+					nav.map((n) => (
+						<li
+							class={
+								n.sub
+									? 'has-sub group relative flex min-h-10 w-full list-none flex-wrap items-center px-0 py-2 lg:min-h-[54px] lg:w-auto lg:pr-6'
+									: 'relative flex min-h-10 w-full list-none flex-wrap items-center px-0 py-2 lg:min-h-[54px] lg:w-auto'
+							}
+						>
+							<a
+								href={n.link}
+								class="text-th-nav-text hover:text-th-nav-text hover:opacity-80"
+								rel="prefetch"
+							>
+								{n.name}
+							</a>
+							{n.sub && (
+								<>
+									<span class="i-down absolute right-0 top-[0.5em] z-[1] ml-auto cursor-pointer rounded-th-rounded-1 border border-solid p-1.5 leading-[0] lg:top-[calc(50%_-_11px)] lg:border-none">
+										<Icon
+											name="dropdown"
+											class="ease pointer-events-none duration-300 group-hover:lg:scale-y-[-1] group-hover:lg:opacity-80"
+											height="10"
+											width="10"
+										/>
+									</span>
+									<ul class="sub-menu invisible m-0 h-0 w-full overflow-hidden p-0 text-[0.8em] opacity-0 transition-[0.4s] ease-out lg:absolute lg:-left-4 lg:top-full lg:z-10 lg:h-0 lg:w-max lg:min-w-[180px] lg:max-w-[400px] lg:overflow-hidden lg:bg-th-nav-bg lg:text-left group-hover:lg:visible group-hover:lg:z-[1] group-hover:lg:h-auto group-hover:lg:translate-y-[-10px] group-hover:lg:overflow-visible group-hover:lg:px-0 group-hover:lg:pb-2.5 group-hover:lg:pt-4 group-hover:lg:opacity-100 dark:lg:bg-th-nav-bg-dark">
+										{n.sub.map((s) => (
+											<li class="flex min-h-10 w-full list-none flex-wrap items-center px-0 py-2 lg:min-h-[unset] lg:w-auto">
+												<a
+													href={s.link}
+													class="text-th-nav-text hover:text-th-nav-text hover:opacity-80 lg:block lg:px-4 lg:py-0"
+												>
+													{s.name}
+												</a>
+											</li>
+										))}
+									</ul>
+								</>
+							)}
+						</li>
+					))
+				}
+			</ul>
+			<label
+				class="bg absolute right-full top-0 flex h-full w-screen items-center gap-1.5 bg-black/50 lg:hidden"
+				for="nav-open"></label>
+		</nav>
+	</div>
 </div>
