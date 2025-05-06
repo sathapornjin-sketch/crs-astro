@@ -27,6 +27,7 @@
 		},
 		{ id: 'slide5', src: '/img/banner/NO_Gift_2025.png', alt: 'CRS No Gift Policy' },
 		{ id: 'slide6', src: '/img/banner/EIT_2025.jpg', alt: 'EIT 2025' },
+		{ id: 'slide7', src: '/img/banner/EIT_new.png', alt: 'EIT 2025' },
 	];
 
 	let currentSlide = 0;
@@ -61,7 +62,11 @@
 	{#each slides as slide, index}
 		<div id={slide.id} class="carousel-item relative w-full">
 			{#if slide.link}
-				<a href={slide.link.url} target={slide.link.isExternal ? '_blank' : '_self'} class="w-full h-full">
+				<a
+					href={slide.link.url}
+					target={slide.link.isExternal ? '_blank' : '_self'}
+					class="w-full h-full"
+				>
 					<img src={slide.src} class="w-full aspect-[3/1]" alt={slide.alt} />
 				</a>
 			{:else}
