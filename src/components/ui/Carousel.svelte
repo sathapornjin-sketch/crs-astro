@@ -1,10 +1,15 @@
 <script lang="ts">
-	const slides: {
+	interface Slide {
 		id: string;
 		src: string;
 		alt: string;
-		link?: { url: string; isExternal: boolean };
-	}[] = [
+		link?: {
+			url: string;
+			isExternal: boolean;
+		};
+	}
+
+	const slides: Slide[] = [
 		// { id: 'slide1', src: '/img/banner/bn1.png', alt: 'Updating Website' },
 		{ id: 'slide2', src: '/img/banner/bn2.png', alt: 'CRS Banner' },
 		{
