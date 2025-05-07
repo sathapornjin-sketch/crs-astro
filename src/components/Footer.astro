@@ -2,14 +2,25 @@
 import Icon from 'astro-icon';
 import Image from './ui/Image.astro';
 
-const mainMenus = [
+interface MenuItem {
+	name: string;
+	link: string;
+	isExternal?: boolean;
+}
+
+interface SocialIcon {
+	icon: string;
+	link: string;
+}
+
+const mainMenus: MenuItem[] = [
 	{
 		name: 'หน้าแรก',
 		link: '/',
 	},
 	{
 		name: 'เกี่ยวกับวิทยาลัย',
-		link: '/about/history',
+		link: '/about',
 	},
 	{
 		name: 'เกี่ยวกับโครงการ',
@@ -26,7 +37,7 @@ const mainMenus = [
 	},
 ];
 
-const subMenus = [
+const subMenus: MenuItem[] = [
 	{
 		name: 'ร่วมงานกับเรา',
 		link: 'https://muhr.mahidol.ac.th/E-Recruitment/',
@@ -54,7 +65,7 @@ const subMenus = [
 	},
 ];
 
-const socialIcons = [
+const socialIcons: SocialIcon[] = [
 	{
 		icon: 'facebook',
 		link: 'https://www.facebook.com/CrsMahidol',

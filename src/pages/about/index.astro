@@ -14,6 +14,9 @@ export async function getStaticPaths() {
 
 const title = 'เกี่ยวกับวิทยาลัย';
 const description = 'เกี่ยวกับวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล';
+
+// Interim redirect to first page of about section
+return Astro.rewrite('/about/history');
 ---
 
 <Layout title={title} description={description}>
@@ -23,9 +26,3 @@ const description = 'เกี่ยวกับวิทยาลัยศา�
 	<h1 class="mt-0">เกี่ยวกับวิทยาลัย</h1>
 	<p>เร็ว ๆ นี้</p>
 </Layout>
-
-<script>
-	// if (typeof window !== 'undefined') {
-	// 	window.location.href = '/about/history';
-	// }
-</script>

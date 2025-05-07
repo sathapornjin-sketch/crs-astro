@@ -1,11 +1,17 @@
-export const nav = [
+interface NavItem {
+	name: string;
+	link: string;
+	sub?: NavItem[];
+}
+
+export const nav: NavItem[] = [
 	{
 		name: 'หน้าแรก',
 		link: '/',
 	},
 	{
 		name: 'เกี่ยวกับวิทยาลัย',
-		link: '/about/history',
+		link: '/about',
 		sub: [
 			{
 				name: 'ประวัติวิทยาลัย',
