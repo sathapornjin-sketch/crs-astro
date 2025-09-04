@@ -1,0 +1,32 @@
+---
+import Slogan from '@/components/sections/Slogan.astro';
+import Layout from '@/layouts/Layout.astro';
+
+const title = 'ข่าวสาร';
+const description = 'ประกาศ ข่าวสาร และกิจกรรมต่าง ๆ';
+---
+
+<Layout title={title} description={description}>
+	<Slogan title={title} description={description} />
+
+	<div class="mx-auto mb-8 text-center">
+		<p class="text-2xl font-semibold">ประกาศ</p>
+	</div>
+	<div class="mb-20 flex w-full items-center justify-center">
+		<iframe
+			src="https://drive.google.com/file/d/1qdeDzWqtV9RW_9vRb_jA7negsWH4PDAn/preview"
+			width="640"
+			height="720"
+			allow="autoplay"></iframe>
+	</div>
+
+	<div class="mx-auto mb-10 max-w-xl space-y-5 text-center text-2xl">
+		<a
+			class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
+			href="https://www.facebook.com/CrsMahidol"
+			target="_blank"
+		>
+			ติดตามข่าวสารเพิ่มเติม
+		</a>
+	</div>
+</Layout>
