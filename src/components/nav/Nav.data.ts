@@ -50,7 +50,7 @@ export const nav: NavItem[] = [
 			{
 				name: 'TCAS',
 				link: '/education/tcas',
-			},
+			},			
 		],
 	},
 	{

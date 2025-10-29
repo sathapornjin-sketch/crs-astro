@@ -1,0 +1,66 @@
+---
+import Layout from '@/layouts/Layout_Sidebar.astro';
+import Side from '@/components/about/Side.astro';
+
+const thaiFaculty = [
+  { name: "ผู้ช่วยศาสตราจารย์ \n ดร.ไพเราะ มากเจริญ", engName: "Asst. Prof. Dr.Pairor Makcharoen", position: "อาจารย์", role: "Lecturer", email: "pairor.mak@mahidol.edu", img: "/img/personnel/ผู้ช่วยศาสตราจารย์ ดร.ไพเราะ มากเจริญ.png" },
+  { name: "ผู้ช่วยศาสตราจารย์ \n ดร.สมบูรณ์ วัฒนะ", engName: "Asst. Prof. Dr.Somboon Watana", position: "อาจารย์", role: "Lecturer", email: "somboon.wat@mahidol.ac.th", img: "/img/personnel/ผู้ช่วยศาสตราจารย์ ดร.สมบูรณ์ วัฒนะ.png" },
+  { name: "ผู้ช่วยศาสตราจารย์ \n ดร.สุทธพร รัตนกุล", engName: "Asst. Prof. Dr.Sudthaporn Ratanakul", position: "อาจารย์", role: "Lecturer", email: "ajarn_sr_eng_1_2@yahoo.com", img: "/img/personnel/ผู้ช่วยศาสตราจารย์ ดร.สุทธพร รัตนกุล.png" },
+  { name: "อาจารย์ ดร.กฤต พิริยธัชกุล", engName: "Dr.Grit Phiriyatachagul", position: "อาจารย์", role: "Lecturer", email: "grit.pir@mahidol.ac.th", img: "/img/personnel/อาจารย์ ดร.กฤต พิริยธัชกุล.png" },
+  { name: "อาจารย์ ดร.จิราธร ชาติศิริ", engName: "Dr.Jirathorn Chatisiri", position: "อาจารย์", role: "Lecturer", email: "jirathorn.cha@mahidol.ac.th", img: "/img/personnel/อาจารย์ ดร.จิราธร ชาติศิริ.png" },
+  { name: "อาจารย์ ดร.บุญมี พวงเพชร", engName: "Dr.Boonmee Poungpet", position: "อาจารย์", role: "Lecturer", email: "boonmee.pou@mahidol.ac.th", img: "/img/personnel/อาจารย์ ดร.บุญมี พวงเพชร.png" },
+  { name: "อาจารย์ ดร.พิบูลย์ ชุมพลไพศาล", engName: "Dr.Phibul Choomponpaisal", position: "อาจารย์", role: "Lecturer", email: "phibul.cho@mahidol.ac.th", img: "/img/personnel/อาจารย์ ดร.พิบูลย์ ชุมพลไพศาล.png" },
+  { name: "อาจารย์ ดร.สุชาดา ศรีเศรษฐวรกุล", engName: "Dr.Suchada Srisetthaworakul", position: "อาจารย์", role: "Lecturer", email: "suchada.Srs@mahidol.ac.th", img: "/img/personnel/อาจารย์ ดร.สุชาดา ศรีเศรษฐวรกุล.png" },
+  { name: "อาจารย์ ธัญญลักษณ์ ทวีกาญจน์", engName: "Miss Thanyalak Taveekarn", position: "ผู้ช่วยอาจารย์", role: "", email: "thanyalak.tav@mahidol.ac.th", img: "/img/personnel/นางสาวธัญญลักษณ์ ทวีกาญจน์.png" }
+];
+
+const foreignFaculty = [
+  { name: "Assoc. Prof. Dr.Milos Hubina", engName: "Assoc. Prof. Dr.Milos Hubina", position: "อาจารย์", role: "Lecturer", email: "milos.Hub@mahidol.ac.th", img: "/img/personnel/Assoc. Prof. Dr.Milos Hubina.png" },
+  { name: "Asst. Prof. Dr.John Naley Johnston", engName: "Dr.John Naley Johnston", position: "อาจารย์", role: "Lecturer", email: "johnnaley.joh@mahidolac.th", img: "/img/personnel/Dr.John Naley Johnston.png" },
+  { name: "Dr.Alisher Sharipov", engName: "Dr.Alisher Sharipov", position: "ผู้เชี่ยวชาญชาวต่างประเทศ", role: "", email: "alisher.sha@mahidol.ac.th", img: "/img/personnel/Dr.Alisher Sharipov.png" },
+  { name: "Dr.Anna Marta Mackowiak", engName: "Dr.Anna Marta Mackowiak", position: "อาจารย์", role: "Lecturer", email: "anna.mac@mahidol.ac.th", img: "/img/personnel/Dr.Anna Marta Mackowiak.png" },
+  { name: "Dr.Francesco Bianchini", engName: "Dr.Francesco Bianchini", position: "ผู้เชี่ยวชาญชาวต่างประเทศ", role: "", email: "francesco.bia@mahidol.ac.th", img: "/img/personnel/Dr.Francesco Bianchini.png" },
+  { name: "Dr.Francis Chan Sze Ming", engName: "Dr.Francis Chan Sze Ming", position: "อาจารย์", role: "Lecturer", email: "francis.cha@mahidol.ac.th", img: "/img/personnel/Dr.Francis Chan Sze Ming.png" },
+  { name: "Dr.Maxim Voroshilov", engName: "Dr.Maxim Voroshilov", position: "อาจารย์", role: "Lecturer", email: "maxim.vor@mahidol.ac.th", img: "/img/personnel/Dr.Maxim Voroshilov.png" },
+  { name: "Dr.Sanjoy Barua Chowdhury", engName: "Dr.Sanjoy Barua Chowdhury", position: "อาจารย์", role: "Lecturer", email: "sanjoybarua.chy@mahidol.ac.th", img: "/img/personnel/Dr.Sanjoy Barua Chowdhury.png" },
+];
+---
+
+<Layout title="คณาจารย์" description="">
+  <aside slot="aside" class="order-2 md:order-1">
+		<Side />
+	</aside>
+  <article class="px-4">
+    <h1 class="text-3xl font-bold mt-0 mb-6 text-left">คณาจารย์ไทย</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mb-12">
+      {thaiFaculty.map(p => (
+        <div class="w-64 rounded-2xl border bg-white shadow hover:shadow-lg transition overflow-hidden">
+          <div class="w-full h-80 bg-white flex items-center justify-center">
+            <img src={p.img} alt={p.name} class="w-full h-full object-contain" />
+          </div>
+          <div class="p-3 text-center">
+            <h3 class="text-base font-semibold mb-1 break-words whitespace-pre-line">{p.name}</h3>
+            <p class="text-sm text-gray-600 mb-1">{p.position}</p>
+            <a href={`mailto:${p.email}`} class="text-xs text-blue-600 hover:underline">{p.email}</a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <h1 class="text-3xl font-bold mt-0 mb-6 text-left">คณาจารย์ต่างประเทศ</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+      {foreignFaculty.map(p => (
+        <div class="w-64 rounded-2xl border bg-white shadow hover:shadow-lg transition overflow-hidden">
+          <div class="w-full h-80 bg-white flex items-center justify-center">
+            <img src={p.img} alt={p.name} class="w-full h-full object-contain" />
+          </div>
+          <div class="p-3 text-center">
+            <h3 class="text-base font-semibold mb-1 break-words whitespace-pre-line">{p.name}</h3>
+            <p class="text-sm text-gray-600 mb-1">{p.position}</p>
+            <a href={`mailto:${p.email}`} class="text-xs text-blue-600 hover:underline">{p.email}</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </article>
+</Layout>

@@ -1,48 +1,123 @@
 ---
-import Side from '@/components/about/Side.astro';
-import PersonnelCard from '@/components/ui/PersonnelCard.astro';
 import Layout from '@/layouts/Layout_Sidebar.astro';
-import fs from 'fs/promises';
-import Papa from 'papaparse';
+import Side from '@/components/about/Side.astro';
 
-interface PersonnelCsvSchema {
-	name_th: string;
-	name_en: string;
-	position_th: string;
-	position_en: string;
-	email: string;
-	image: string;
-}
-
-const csvPath = 'src/data/about/personnel/staff_data.csv';
-const csvData = await fs.readFile(csvPath, 'utf-8');
-const staffs = Papa.parse<PersonnelCsvSchema>(csvData, { header: true }).data;
-
-const title = 'เจ้าหน้าที่ฝ่ายสนับสนุน';
-const description = 'เจ้าหน้าที่ฝ่ายสนับสนุนของวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล';
+const personnelSections = [
+  {
+    title: "งานบริหารทั่วไป",
+    people: [
+      { name: "นายก้องภพ รอดยูร", position: "เจ้าหน้าที่บริหารงานทั่วไป", email: "monchai.rod@mahidol.ac.th", img: "/img/personnel/นายก้องภพ รอดยูร.png" },
+      { name: "นางสาวอภิญญา เทียนชุมพันธ์", position: "นักวิชาการพัฒนาคุณภาพ", email: "apinya.the@mahidol.ac.th", img: "/img/personnel/นางสาวอภิญญา เทียนชุมพันธ์.png" },
+      { name: "นางสาวภารุจีร์ ภูมิไกล", position: "เจ้าหน้าที่บริหารงานทั่วไป", email: "parujee.pha@mahidol.ac.th", img: "/img/personnel/นางสาวภารุจีร์ ภูมิไกล.png" },
+      { name: "นายสถาพร จริงสุระ", position: "นักวิชาการคอมพิวเตอร์", email: "sathaporn.jin@mahidol.ac.th", img: "/img/personnel/นายสถาพร จริงสุระ.png" },
+      { name: "นายชูพงษ์ จูตะวิริยะสกุล", position: "นักวิชาการศึกษา", email: "chupong.jut@mahidol.ac.th", img: "/img/personnel/นายชูพงษ์ จูตะวิริยะสกุล.png" }
+    ]
+  }, 
+  {
+    title: "งานประชาสัมพันธ์และสื่อสารองค์กร / งานบริการวิชาการ",
+    people: [
+      { name: "นางสาวกรุณา เกิดศุข", position: "นักประชาสัมพันธ์", email: "karuna.ker@mahidol.ac.th", img: "/img/personnel/นางสาวกรุณา เกิดศุข.png" },
+      { name: "นางสาววรกานต์ จงแจ่ม", position: "นักวิชาการศึกษา", email: "warakarn.jong@mahidol.ac.th", img: "/img/personnel/นางสาววรกานต์ จงแจ่ม.png" },
+      { name: "นางสาวณิชธร ศิริธรรม", position: "นักวิชาการเงินและบัญชี", email: "nichathorn.sir@mahidol.ac.th", img: "/img/personnel/นางสาวณิชธร ศิริธรรม.png" },
+    ],
+    extraMarginTop: true
+  },
+  {
+    title: "งานการศึกษาและกิจการนักศึกษา / งานห้องสมุด",
+    people: [
+      { name: "นางสาวดารภัค เย็นใจ", position: "นักวิชาการศึกษา", email: "daraphak.yen@mahidol.ac.th", img: "/img/personnel/นางสาวดารภัค เย็นใจ.png" },
+      { name: "นางสาวรดามณี ธนวัฒนสิริ", position: "นักวิชาการศึกษา", email: "radamanee.tan@mahidol.ac.th", img: "/img/personnel/นางสาวรดามณี ธนวัฒนสิริ.png" },
+      { name: "นางสาวณัฐฐา ฤทธิ์สำเร็จ", position: "นักวิชาการศึกษา", email: "nuttha.rit@mahidol.ac.th", img: "/img/personnel/นางสาวณัฐฐา ฤทธิ์สำเร็จ.png" },
+      { name: "นายเสริมวิทย์ มีขำ", position: "นักวิชาการศึกษา (บัณฑิตศึกษา)", email: "sermwit.mee@mahidol.ac.th", img: "/img/personnel/นายเสริมวิทย์ มีขำ.png" },
+      { name: "นางสาวสุภาภรณ์ ชูช่วย", position: "นักวิชาการศึกษา", email: "supaporn.chy@mahidol.ac.th", img: "/img/personnel/นางสาวสุภาภรณ์ ชูช่วย.png" },
+      { name: "นางสาวนภาพร ทรงประสิทธิ์", position: "บรรณารักษ์", email: "napaporn.sog@mahidol.ac.th", img: "/img/personnel/นางสาวนภาพร ทรงประสิทธิ์.png" },
+    ],
+    extraMarginTop: true
+  },
+  {
+    title: "งานคลังและงบประมาณ",
+    people: [
+      { name: "นางสาวภาษิตา จุลสำโรง", position: "นักวิชาการเงินและบัญชี\n(หัวหน้างานคลังและงบประมาณ)", email: "phasita.jus@mahidol.ac.th", img: "/img/personnel/นางสาวภาษิตา จุลสำโรง.png" },
+      { name: "นางสาวจุฑามาศ สมเชื้อ", position: "นักวิชาการเงินและบัญชี", email: "juthamas.som@mahidol.ac.th", img: "/img/personnel/นางสาวจุฑามาศ สมเชื้อ.png" },
+      { name: "นางสาวเบญจวรรณ ปรีชา", position: "นักวิชาการเงินและบัญชี", email: "benjawan.pree@mahidol.ac.th", img: "/img/personnel/นางสาวเบญจวรรณ ปรีชา.png" },
+      { name: "นางสาววนิดา วัดเสนาะ", position: "นักวิชาการพัสดุ", email: "wanida.was@mahidol.ac.th", img: "/img/personnel/นางสาววนิดา วัดเสนาะ.png" },
+      { name: "นายธนิศร สนสกุล", position: "นักวิเคราะห์นโยบายและแผน", email: "tanisorn.son@mahidol.edu", img: "/img/personnel/นายธนิศร สนสกุล.png" },
+    ],
+    extraMarginTop: true
+  },
+  {
+    title: "งานทรัพยากรบุคคล",
+    people: [
+      { name: "นายคัมภีร์ แจ่มนิยม", position: "นักทรัพยากรบุคคล", email: "khampee.jam@mahidol.ac.th", img: "/img/personnel/นายคัมภีร์ แจ่มนิยม.png" },
+    ],
+    extraMarginTop: true
+  },
+  {
+    title: "งานสำนักงานอาคารและบริการ",
+    people: [
+    { name: "นางสาวกรุณา เกิดศุข", position: "(ผู้ควบคุมงาน)", email: "karuna.ker@mahidol.ac.th", img: "/img/personnel/นางสาวกรุณา เกิดศุข.png" },
+	  { name: "นางสาวกมลฉัตร รกไพร", position: "พนักงานประกอบอาหาร (ระดับ ส1)", email: "kamonchat.rok@mahidol.ac.th", img: "/img/personnel/นางสาวกมลฉัตร รกไพร.png" },
+	  { name: "นางประทุม เยเสริม", position: "พนักงานประกอบอาหาร (ระดับ ส1)", email: "pratum.yes@mahidol.ac.th", img: "/img/personnel/นางประทุม เยเสริม.jpg" },
+	  { name: "นางสาวมลเทียน ทับศิริ", position: "พนักงานบริการ", email: "monthean.tap@mahidol.ac.th", img: "/img/personnel/นางสาวมลเทียน ทับศิริ.png" },
+	  { name: "นายปรีชา เพลินจิตร", position: "คนสวน", email: "preecha.ple@mahidol.ac.th", img: "/img/personnel/นายปรีชา เพลินจิตร.jpg" },
+    ],
+    extraMarginTop: true
+  },
+  {
+    title: "งานกายภาพและโสตทัศนูปกรณ์",
+    people: [
+    { name: "นายธีรศักดิ์ สอาดฤทธิ์", position: "พนักงานบริการ", email: "theerasak.sar@mahidol.ac.th", img: "/img/personnel/นายธีรศักดิ์ สอาดฤทธิ์.png" },
+	  { name: "นายสมเกียรติ ทองแจ้ง", position: "พนักงานขับรถยนต์", email: "som_peam@hotmail.co.th", img: "/img/personnel/นายสมเกียรติ ทองแจ้ง.png" },
+	  { name: "นายปรเมธ เผือกทอง", position: "ช่างเทคนิค", email: "pormat.pue@mahidol.ac.th", img: "/img/personnel/นายปรเมธ เผือกทอง.png" },
+    ],
+    extraMarginTop: true
+  },
+  {
+    title: "งานหอพักน้ำทองสิกขาลัย",
+    people: [
+    { name: "นายแสงทอง รกไพร", position: "คนสวน", email: "sangthong.rok@mahidol.ac.th", img: "/img/personnel/นายแสงทอง รกไพร.png" },
+	  { name: "นายเด๊ฟ ทองอินทร์", position: "คนสวน", email: "dep.tho@mahidol.ac.th", img: "/img/personnel/นายเด๊ฟ ทองอินทร์.png" },
+    ],
+    extraMarginTop: true
+  }
+];
 ---
 
-<Layout title={title} description={description}>
-	<aside slot="aside" class="order-2 md:order-1">
+<Layout title="สำนักงานคณบดี" description="เจ้าหน้าที่ฝ่ายบริหารทั่วไป">
+  <aside slot="aside" class="order-2 md:order-1">
 		<Side />
 	</aside>
-	<article>
-		<h1 class="mt-0">{title}</h1>
-		<p class="mb-6">{description}</p>
 
-		<div class="mb-2 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-			{
-				staffs.map((staff) => (
-					<PersonnelCard
-						nameTh={staff.name_th}
-						nameEn={staff.name_en}
-						positionTh={staff.position_th}
-						positionEn={staff.position_en}
-						email={staff.email}
-						image={`/img/personnel/${staff.image}`}
-					/>
-				))
-			}
-		</div>
-	</article>
+  <article class="px-4">
+    <h1 class="text-3xl font-bold mt-0">สำนักงานคณบดี</h1>
+
+    {personnelSections.map(section => (
+      <>
+        <h2 class={`text-2xl font-semibold mb-4 text-gray-700 ${section.extraMarginTop ? 'mt-12' : 'mt-6'}`}>
+  {section.title}
+</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {section.people.map(p => (
+            <div class="rounded-2xl border bg-white shadow hover:shadow-lg transition overflow-hidden w-full">
+              {/* กรอบภาพขนาดเท่ากัน */}
+              <div class="w-full aspect-[4/5] overflow-hidden rounded-t-2xl bg-white flex items-center justify-center">
+                <img 
+                   src={p.img} 
+                   alt={p.name} 
+                   class={`max-h-full max-w-full object-contain ${p.name === 'นางสาววรกานต์ จงแจ่ม' ? 'scale-110' : ''}`} 
+                  />
+            </div>
+              <div class="p-4 text-center">
+                <h3 class="text-lg font-semibold mb-1">{p.name}</h3>
+                {/* แปลง \n เป็นบรรทัดใหม่ */}
+                <p class="text-gray-600 mb-1" set:html={p.position.replace(/\n/g, '<br>')}></p>
+                <a href={`mailto:${p.email}`} class="text-blue-600 hover:underline text-sm">{p.email}</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </>
+    ))}
+  </article>
 </Layout>

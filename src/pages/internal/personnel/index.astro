@@ -12,21 +12,98 @@ const description = 'ข้อมูลสำหรับอาจารย์�
 	<div class="mx-auto mb-8 text-center">
 		<p class="text-2xl font-semibold">MUCRS</p>
 	</div>
+	<!-- -->
+
+	
 	<div class="mx-auto mb-10 max-w-xl space-y-5 text-center text-2xl">
-		<a
-			class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
-			href="https://sites.google.com/view/crsacademicsstaff"
-			target="_blank"
-		>
-			ข้อมูลสำหรับอาจารย์
-		</a>
+		<a href="#"
+   onclick="
+let d=document.createElement('div');
+d.innerHTML=`
+  <div style='display:flex;flex-direction:column;gap:10px;'>
+    <p style='font-weight:bold;margin:0;'>รหัสผ่าน</p>
+    <input type=password id=pw style='padding:8px;border-radius:5px;border:1px solid #ccc;outline:none;'>
+    <div style='display:flex;justify-end;gap:5px;'>
+      <button id='okBtn' style='padding:5px 10px;background:#4CAF50;color:#fff;border:none;border-radius:5px;cursor:pointer;'>ตกลง</button>
+      <button id='cancelBtn' style='padding:5px 10px;background:#f44336;color:#fff;border:none;border-radius:5px;cursor:pointer;'>ยกเลิก</button>
+    </div>
+  </div>
+`;
+d.style='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.3);z-index:1000;';
+document.body.appendChild(d);
+
+function checkPW(){
+  if(pw.value==='crslecturer'){
+    window.open('https://sites.google.com/view/crsacademicsstaff','_blank');
+  } else {
+    alert('รหัสผ่านไม่ถูกต้อง');
+  }
+  d.remove();
+}
+
+document.getElementById('okBtn').onclick=checkPW;
+document.getElementById('cancelBtn').onclick=function(){d.remove();};
+document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter') checkPW();});
+
+return false;"
+   class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300">
+ข้อมูลสำหรับอาจารย์
+</a>
+
+		
+
+<!--<a href="#" onclick="if(prompt('ใส่รหัสผ่าน')==='1234')window.open('https://sites.google.com/view/mucrs-staff?usp=sharing','_blank');else alert('รหัสผ่านไม่ถูกต้อง')"
+   class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300">
+  ข้อมูลสำหรับเจ้าหน้าที่
+</a>-->
+
+<!--ใส่รหัสผ่านก่อนเข้า Link -->
+<a href="#"
+   onclick="
+let d=document.createElement('div');
+d.innerHTML=`
+  <div style='display:flex;flex-direction:column;gap:10px;'>
+    <p style='font-weight:bold;margin:0;'>รหัสผ่าน</p>
+    <input type=password id=pw style='padding:8px;border-radius:5px;border:1px solid #ccc;outline:none;'>
+    <div style='display:flex;justify-end;gap:5px;'>
+      <button id='okBtn' style='padding:5px 10px;background:#4CAF50;color:#fff;border:none;border-radius:5px;cursor:pointer;'>ตกลง</button>
+      <button id='cancelBtn' style='padding:5px 10px;background:#f44336;color:#fff;border:none;border-radius:5px;cursor:pointer;'>ยกเลิก</button>
+    </div>
+  </div>
+`;
+d.style='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.3);z-index:1000;';
+document.body.appendChild(d);
+
+function checkPW(){
+  if(pw.value==='crsstaff'){
+    window.open('https://sites.google.com/view/mucrs-staff?usp=sharing','_blank');
+  } else {
+    alert('รหัสผ่านไม่ถูกต้อง');
+  }
+  d.remove();
+}
+
+document.getElementById('okBtn').onclick=checkPW;
+document.getElementById('cancelBtn').onclick=function(){d.remove();};
+document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter') checkPW();});
+
+return false;"
+   class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300">
+ข้อมูลสำหรับเจ้าหน้าที่
+</a>
+<!--ใส่รหัสผ่านก่อนเข้า Link -->
+
+
+
+		<!-- 
 		<a
 			class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
 			href="https://sites.google.com/view/mucrs-staff?usp=sharing"
 			target="_blank"
 		>
 			ข้อมูลสำหรับเจ้าหน้าที่
-		</a>
+		</a> 
+		-->
 	</div>
 
 	<div class="mx-auto mb-8 mt-12 text-center">

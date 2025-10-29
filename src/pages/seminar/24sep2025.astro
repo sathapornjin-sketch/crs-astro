@@ -1,0 +1,86 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "การบรรยายวิชาการระดับนานาชาติในหัวข้อ “Sacred Things and Democracy in Thailand” โดยความร่วมมือกับมูลนิธิไทย";
+const date = "24 กันยายน 2568";
+const description = "";
+const gallery = [
+  "/img/seminar/24sep2025/24sep2025-1.jpg",
+  "/img/seminar/24sep2025/24sep2025-2.jpg",
+  "/img/seminar/24sep2025/24sep2025-3.jpg",
+  "/img/seminar/24sep2025/24sep2025-4.jpg",
+  "/img/seminar/24sep2025/24sep2025-5.jpg",
+  "/img/seminar/24sep2025/24sep2025-6.jpg",
+
+ ];
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>
+    <p>
+วิทยาลัยศาสนศึกษา ม.มหิดล จัดบรรยายวิชาการนานาชาติ โดยความร่วมมือกับมูลนิธิไทย 
+วันที่ 24 กันยายน 2568 เวลา 16.00 น. (ตามเวลาประเทศไทย) วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล โดยความร่วมมือกับมูลนิธิไทย (Thailand Foundation) ได้จัดการบรรยายวิชาการระดับนานาชาติในหัวข้อ “Sacred Things and Democracy in Thailand” ภายใต้กิจกรรม MU-CRS Seminar on Contemporary Religious Studies ผ่านระบบออนไลน์ Webex
+การบรรยายในครั้งนี้ได้รับเกียรติจาก Assoc. Prof. Dr. Tomas Larsson, Department of Politics and International Studies (POLIS), University of Cambridge เป็นวิทยากรรับเชิญ
+โดยมี Assoc. Prof. Dr. Milos Hubina เป็นผู้กล่าวเปิดงาน และ เป็นผู้ดำเนินรายการ การจัดกิจกรรมในครั้งนี้สอดคล้องกับ เป้าหมายการพัฒนาที่ยั่งยืน (SDGs) โดยเฉพาะ
+SDG 4 การศึกษาที่เท่าเทียม (Quality Education) — ด้วยการส่งเสริมการเข้าถึงองค์ความรู้ระดับนานาชาติ และการเรียนรู้ตลอดชีวิต
+SDG 17 ความร่วมมือเพื่อการพัฒนาที่ยั่งยืน (Partnerships for the Goals) — ผ่านความร่วมมือระหว่างวิทยาลัยศาสนศึกษากับมูลนิธิไทย ซึ่งเป็นตัวอย่างของการสร้างเครือข่ายวิชาการเพื่อขับเคลื่อนการศึกษาระดับสากล
+✨ วิทยาลัยศาสนศึกษาขอขอบคุณมูลนิธิไทยสำหรับการสนับสนุน และหวังเป็นอย่างยิ่งว่าจะได้ดำเนินกิจกรรมร่วมกันอย่างต่อเนื่องเพื่อสร้างผลกระทบเชิงบวกต่อสังคมและการศึกษาต่อไป
+<br><br>
+CRS, Mahidol University, Hosts International Academic Lecture in Collaboration with Thailand Foundation
+On September 24, 2025, at 4:00 PM (Thailand time), the College of Religious Studies (CRS), Mahidol University, in partnership with the Thailand Foundation, hosted an international academic lecture on “Sacred Things and Democracy in Thailand.” The event was part of the MU-CRS Seminar on Contemporary Religious Studies series and was conducted online via Webex.
+The distinguished guest speaker for this lecture was Assoc. Prof. Dr. Tomas Larsson from the Department of Politics and International Studies (POLIS) at the University of Cambridge. Assoc. Prof. Dr. Milos Hubina delivered the opening remarks and served as the moderator for the event.
+This event aligns with the United Nations Sustainable Development Goals (SDGs), particularly:
+SDG 4: Quality Education — by promoting access to international knowledge and fostering lifelong learning.
+SDG 17: Partnerships for the Goals — through the collaboration between the College of Religious Studies and the Thailand Foundation, which exemplifies the creation of academic networks to drive global education.
+The College of Religious Studies extends its sincere gratitude to the Thailand Foundation for its support and looks forward to continuing this partnership to create a positive impact on society and education.
+    </p>
+
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>

@@ -11,18 +11,49 @@
 
 	const slides: Slide[] = [
 		// { id: 'slide1', src: '/img/banner/bn1.png', alt: 'Updating Website' },
-		{ id: 'slide2', src: '/img/banner/bn2.png', alt: 'CRS Banner' },
+		{
+			id: 'slide0',src: '/img/banner/siri.png',alt: 'siri',			
+		},
+		{
+			id: 'slide1',
+			src: '/img/banner/1บุคลากรมหิดล-กลไก.jpg',
+			alt: '1บุคลากรมหิดล-กลไก',
+			link: {
+				url: 'https://ethicsreport.ocsc.go.th/Answer/RPT0000004/8a7c2c51-2029-41b6-a3d3-2c1f5236773c',
+				isExternal: true,
+			},
+		},
+		{
+			id: 'slide2',
+			src: '/img/banner/2บุคลากรมหิดล-มาตรฐาน.jpg',
+			alt: '2บุคลากรมหิดล-มาตรฐาน',
+			link: {
+				url: 'https://ethicsreport.ocsc.go.th/Answer/RPT0000004/a442b82f-aa06-4517-b11e-ca4aaabde023',
+				isExternal: true,
+			},
+		},
 		{
 			id: 'slide3',
-			src: '/img/banner/ITA_2025.png',
-			alt: 'CRS ITA',
+			src: '/img/banner/3ประชาชน ผู้รับบริการ.jpg',
+			alt: '3ประชาชน ผู้รับบริการ',
 			link: {
-				url: '/ita',
-				isExternal: false,
+				url: 'https://ethicsreport.ocsc.go.th/Answer/RPT0000005/b9cbf65a-53d5-4ce1-879e-9c1bd527a000',
+				isExternal: true,
 			},
 		},
 		{
 			id: 'slide4',
+			src: '/img/banner/tcas69.png',
+			alt: 'TCAS2569',
+			link: {
+				url: 'https://crs.mahidol.ac.th/education/tcas',
+				isExternal: true,
+			},
+		},
+		{ id: 'slide5', src: '/img/banner/bn2.png', alt: 'CRS Banner' },
+		
+		{
+			id: 'slide6',
 			src: '/img/banner/NAMTHON_2025.png',
 			alt: 'CRS Dorm',
 			link: {
@@ -30,9 +61,9 @@
 				isExternal: true,
 			},
 		},
-		{ id: 'slide5', src: '/img/banner/NO_Gift_2025.png', alt: 'CRS No Gift Policy' },
-		{ id: 'slide6', src: '/img/banner/EIT_2025.jpg', alt: 'EIT 2025' },
-		{ id: 'slide7', src: '/img/banner/EIT_new.png', alt: 'EIT 2025' },
+		{ id: 'slide7', src: '/img/banner/NO_Gift_2025.png', alt: 'CRS No Gift Policy' },
+		//{ id: 'slide6', src: '/img/banner/tcas2568.jpg', alt: 'TCAS2568' },
+		//{ id: 'slide7', src: '/img/banner/EIT_new.png', alt: 'EIT 2025' },		
 	];
 
 	let currentSlide = 0;
@@ -55,7 +86,7 @@
 			const target = carousel.querySelector<HTMLDivElement>(`#${slides[currentSlide].id}`)!;
 			const left = target.offsetLeft;
 			carousel.scrollTo({ left: left, behavior: 'smooth' });
-		}, 10000); // Change slide every 10 seconds
+		}, 15000); // Change slide every 15 seconds
 
 		return () => {
 			clearInterval(autoSlideInterval);

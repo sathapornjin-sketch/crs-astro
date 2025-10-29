@@ -1,0 +1,82 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "พิธีทำบุญเดือนเกิด ประจำเดือนกรกฏาคม 2568";
+const date = "18 กรกฎาคม 2568";
+const description = "";
+const gallery = [
+  "/img/birth/jul2025/18jul2025-1.jpg",
+  "/img/birth/jul2025/18jul2025-2.jpg",
+  "/img/birth/jul2025/18jul2025-3.jpg",
+  "/img/birth/jul2025/18jul2025-4.jpg",
+  "/img/birth/jul2025/18jul2025-5.jpg",
+  "/img/birth/jul2025/18jul2025-6.jpg",
+  "/img/birth/jul2025/18jul2025-7.jpg",
+  "/img/birth/jul2025/18jul2025-8.jpg",
+  "/img/birth/jul2025/18jul2025-9.jpg",
+  "/img/birth/jul2025/18jul2025-10.jpg",
+  "/img/birth/jul2025/18jul2025-11.jpg",
+  "/img/birth/jul2025/18jul2025-12.jpg",
+ ];
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>
+    <p>
+18 กรกฎาคม 2568 วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล จัดพิธี ทำบุญเดือนเกิดประจำเดือนกรกฎาคม เพื่อเสริมสิริมงคลแก่ประชาคมมหิดลและผู้ที่เกิดในเดือนนี้ ณ ลานประติมากรรมดอกกันภัย อาคารศูนย์การเรียนรู้ มหาวิทยาลัยมหิดล
+ในพิธีได้รับเกียรติจาก ผศ.ดร.สุวภัทร กิตติบัญชากุล รองผู้อำนวยการสถาบันโภชนาการ เป็นประธานในงาน พร้อมกล่าวอวยพรแก่ผู้ที่เกิดในเดือนนี้
+โดยมี อ.ดร.สุชาดา ศรีเศรษฐวรกุล รองคณบดีฝ่ายการศึกษาและกิจการนักศึกษา วิทยาลัยศาสนศึกษา เป็นผู้แทนวิทยาลัยศาสนศึกษา มอบของที่ระลึกแก่เจ้าภาพ และสถาบันโภชนาการได้ร่วมมอบปัจจัยทำบุญเป็นจำนวน 3,000 บาท เพื่อสมทบทุนส่วนกลาง
+วิทยาลัยศาสนศึกษา ขออาราธนาคุณพระศรีรัตนตรัยและสิ่งศักดิ์สิทธิ์ทั้งหลาย ดลบันดาลให้ทุกท่านประสบแต่ความสุข ความเจริญ และขอขอบคุณทุกท่านที่มาร่วมบุญในครั้งนี้
+เตรียมพบกับพิธีทำบุญเดือนเกิดครั้งต่อไป! วันศุกร์ที่ 29 สิงหาคม 2568 โดยมี คณะเทคนิคการแพทย์ มหาวิทยาลัยมหิดล เป็นเจ้าภาพ
+โครงการนี้ยังสอดคล้องกับเป้าหมายการพัฒนาอย่างยั่งยืน SDG 11 เมืองและชุมชนยั่งยืน เสริมสร้างความเป็นสิริมงคลและสายสัมพันธ์อันดีในประชาคมมหิดล
+    </p>
+
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>

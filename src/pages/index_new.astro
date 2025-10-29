@@ -1,0 +1,162 @@
+---
+import YoutubeVideo from '@/components/plugins/YoutubeVideo.astro';
+import Banner from '@/components/sections/Banner.astro';
+import Features from '@/components/sections/Features.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Logos from '@/components/sections/Logos.astro';
+import Slogan from '@/components/sections/Slogan.astro';
+import Title1 from '@/components/sections/Title1.astro';
+import Title2 from '@/components/sections/Title2.astro';
+import Layout from '@/layouts/Layout.astro';
+import FacebookPage from '@/components/plugins/FacebookPage.astro';
+import News from '@/components/sections/News.astro';
+import Calendar from '@/components/sections/Calendar.astro';
+
+// const res = await fetch('https://seedx.seeddemo.com/wp-json/wp/v2/posts?per_page=3&_embed');
+// const posts = await res.json();
+
+const metadata = {
+	title: 'วิทยาลัยศาสนศึกษา – มหาวิทยาลัยมหิดล',
+	description: 'College of Religious Studies, Mahidol University',
+};
+---
+
+<Layout
+	title={metadata.title}
+	description={metadata.description}
+	bodyclass="bg-white dark:bg-th-bg-2-dark"
+>
+	<Banner />
+
+	<Title2 title="ศาสนศึกษา" description="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล" />
+	<Features
+		classes="md:grid-cols-3 mb-20"
+		items={[
+			{
+				icon: 'icon-1',
+				title: 'ประวัติความเป็นมา',
+				description: 'เป็นวิทยาลัยศาสนศึกษาแห่งแรกของประเทศไทย และเป็นหน่วยงานในมหาวิทยาลัยมหิดล',
+				link: '/about/history',
+			},
+			{
+				icon: 'icon-2',
+				title: 'Mission / Vision',
+				description:
+					'เป็นสถาบันชั้นนำในภูมิภาคอาเซียนและระดับนานาชาติ ในด้านการศึกษา วิจัย และให้บริการแก่สังคม ด้านศาสนศึกษา',
+				link: '/about/vision',
+			},
+			{
+				icon: 'icon-3',
+				title: 'มูลนิธิน้ำทองฯ / หอพักน้ำทองฯ',
+				description: 'หอพักน้ำทองสิกขาลัย วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล',
+				link: 'https://www.facebook.com/CRSNamthong',
+				isExternal: true,
+			},
+		]}
+	/>
+
+	<a href="/education/syllabus">
+		<Slogan
+			title="หลักสูตรที่เปิดสอน / การรับสมัครเข้าเรียน"
+			description="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล"
+		/>
+	</a>
+
+	<!-- <Posts classes="md:grid-cols-3 gap-8 mb-20" title="ข่าวประชาสัมพันธ์" items={posts} /> -->
+	<!-- <Hero
+		title="Lorem ipsum dolor sit amet,"
+		description="Lorem ipsum dolor sit amet, consectetur adipiscing elited do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+	/> -->
+
+	<Title2 title="รอบรั้วศาสนศึกษา" description="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล" />
+
+<div class="flex justify-center gap-8 mb-20">
+  <!--
+	<div class="mx-auto">
+    <YoutubeVideo videoId="c0c0davT2Ec" />
+  </div>
+-->
+  
+
+  </div>
+
+
+
+  
+   <!-- <News />--> <!--เรียกใช้ section ข่าว -->
+   <!--<Calendar /> --> <!--เรียกใช้ section Calendar -->
+
+
+
+	<Features
+		classes="grid-cols-1 md:grid-cols-3 mb-20"
+		items={[
+			{
+				icon: 'icon-1',
+				title: 'CRS Course',
+				link: 'https://crs.mahidol.ac.th/education/syllabus',				
+				description: '',
+			},
+			{
+				icon: 'icon-2',
+				title: 'CRS Seminar',
+				link: 'https://crs.mahidol.ac.th/seminar',	
+				description: '',
+			},
+			{
+				icon: 'icon-4',
+				title: 'CRS for Students',
+				link: 'https://crs.mahidol.ac.th/students',	
+				description: '',
+			},
+		]}
+	/>
+
+	<Title2 title="CRS Update" description="ติดตามข่าวสารล่าสุดก่อนใคร" />
+
+	<!-- <div class="mb-20 flex w-full items-center justify-center">
+		<FacebookPage />
+	</div>-->
+
+	<Features
+		classes="grid-cols-1 md:grid-cols-3 mb-20"
+		items={[
+			{
+				icon: 'icon-3',
+				title: 'News',
+				description: '',
+				link: '/news',
+				isExternal: false,
+			},
+			{
+				icon: 'icon-5',
+				title: 'Activities',
+				description: '',
+				link: 'https://crs.mahidol.ac.th/activities',
+				isExternal: true,
+			},
+			{
+				icon: 'icon-6',
+				title: 'ทำบุญเดือนเกิด',
+				description: '',
+				link: 'https://crs.mahidol.ac.th/birth',
+				isExternal: true,
+			},
+		]}
+	/>
+
+
+	<!-- <Logos
+		classes="grid-cols-4 mb-0 py-8"
+		items={[
+			{ icon: 'logo-1' },
+			{ icon: 'logo-2' },
+			{ icon: 'logo-3' },
+			{ icon: 'logo-4' },
+			{ icon: 'logo-5' },
+			{ icon: 'logo-6' },
+			{ icon: 'logo-7' },
+			{ icon: 'logo-8' },
+		]}
+	/> -->
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Side from '@/components/about/Side.astro';
+import PersonnelCard from '@/components/ui/PersonnelCard.astro';
+import Layout from '@/layouts/Layout_Sidebar.astro';
+import fs from 'fs/promises';
+import Papa from 'papaparse';
+
+interface PersonnelCsvSchema {
+	name_th: string;
+	name_en: string;
+	position_th: string;
+	position_en: string;
+	email: string;
+	image: string;
+}
+
+const csvPath = 'src/data/about/personnel/staff_data.csv';
+const csvData = await fs.readFile(csvPath, 'utf-8');
+const staffs = Papa.parse<PersonnelCsvSchema>(csvData, { header: true }).data;
+
+const title = 'เจ้าหน้าที่ฝ่ายสนับสนุน';
+const description = 'เจ้าหน้าที่ฝ่ายสนับสนุนของวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล';
+---
+
+<Layout title={title} description={description}>
+	<aside slot="aside" class="order-2 md:order-1">
+		<Side />
+	</aside>
+	<article>
+		<h1 class="mt-0">{title}</h1>
+		<p class="mb-6">{description}</p>
+		<div class="mb-2 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+			{
+				staffs.map((staff) => (
+					<PersonnelCard
+						nameTh={staff.name_th}
+						nameEn={staff.name_en}
+						positionTh={staff.position_th}
+						positionEn={staff.position_en}
+						email={staff.email}
+						image={`/img/personnel/${staff.image}`}
+					/>
+				))
+			}
+		</div>
+	</article>
+</Layout>
+

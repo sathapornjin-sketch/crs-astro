@@ -1,0 +1,78 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "ขอแสดงความยินดีกับบัณฑิตศิลปศาสตรบัณฑิต สาขาศาสนศึกษารุ่นที่ 25";
+const date = "10 ตุลาคม 2568";
+const description = "";
+const gallery = [
+  "/img/students/oct2025/10oct2025/10oct2025-1.jpg",
+  "/img/students/oct2025/10oct2025/10oct2025-2.jpg",
+  "/img/students/oct2025/10oct2025/10oct2025-3.jpg",
+  "/img/students/oct2025/10oct2025/10oct2025-4.jpg",
+  "/img/students/oct2025/10oct2025/10oct2025-5.jpg",
+ ];
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>
+    <p>จากรั้วและครอบครัวของวิทยาลัยศาสนศึกษาที่เคยเป็นบ้านแห่งการเรียนรู้ ความเข้าใจ และความอบอุ่นของหัวใจ
+วันนี้...บัณฑิตของเรากำลังก้าวออกไปสู่โลกกว้างด้วยหัวใจที่เต็มไปด้วยศรัทธา ปัญญา และความกล้าที่จะเติบโตในเส้นทางของตนเอง ทุกคนคือความภูมิใจของครอบครัว CRSขอให้ความดี ความหมาย และแสงแห่งปัญญานำทางให้ชีวิตงอกงามในทุกที่ที่ก้าวไป 
+วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ขอแสดงความยินดีกับบัณฑิตศิลปศาสตรบัณฑิต สาขาศาสนศึกษารุ่นที่ 25 ทุกคนด้วยความภาคภูมิใจอย่างยิ่ง 
+<br>
+From the gates and the family of the College of Religious Studies,once a home of learning, understanding, and heartfelt warmth —
+Today, our graduates step beyond these familiar groundswith faith, wisdom, and the courage to grow in their own paths 
+Each of you will always be our pride and part of the CRS family.May your journey be guided by goodness, meaning, and the light of wisdom 
+College of Religious Studies, Mahidol UniversityCongratulations to all graduates of the Bachelor of Arts in Religious Studies
+(GEN 25) — we are deeply proud of you all
+    </p>
+
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          key={index}
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onClick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>

@@ -1,0 +1,154 @@
+---
+const news = [
+  {
+    title: "ประกาศรับสมัครงาน",
+    date: "",
+    image: "/img/news/mu-logo.png",
+    link: "https://muhr.mahidol.ac.th/E-Recruitment/",
+  },
+  {
+    title: "เกณฑ์การรับสมัครนักศึกษาผ่านระบบ TCAS ประจำปีการศึกษา 2569",
+    date: "",
+    image: "/img/news/mu-logo.png",
+    link: "https://crs.mahidol.ac.th/education/tcas/",
+  },
+  {
+    title: "การจัดซื้อจัดจ้าง",
+    date: "",
+    image: "/img/news/mu-logo.png",
+    link: "https://www.gprocurement.go.th/new_index.html",
+  },
+ 
+];
+---
+
+<section class="mb-20 px-4 md:px-8 lg:px-16">
+  <h2 class="text-center text-2xl md:text-3xl font-bold mb-4 text-gray-800">
+    ข่าวประชาสัมพันธ์
+  </h2>
+  
+
+  <div class="relative">
+    <!-- ปุ่มเลื่อนซ้าย -->
+    <button
+      id="prevBtn"
+      class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-300 rounded-full p-2"
+    >
+      &#8592;
+    </button>
+
+    <!-- container scroll -->
+    <div id="newsContainer" class="flex overflow-x-auto scroll-smooth gap-6 pb-4">
+      {news.map((item) => (
+<a
+  href={item.link}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="flex-shrink-0 w-72 sm:w-80 md:w-96 bg-white border rounded-xl shadow hover:shadow-lg transition flex flex-col items-center"
+>
+  <img
+    src={item.image}
+    alt={item.title}
+    class="w-32 h-32 object-contain p-4 mx-auto"
+  />
+  <div class="p-4 flex flex-col flex-grow text-center">
+    <h3 class="text-base md:text-lg font-medium text-gray-800 mb-1 line-clamp-2">
+      {item.title}
+    </h3>
+    {item.date && <p class="text-sm text-gray-500 mt-auto">{item.date}</p>}
+  </div>
+</a>
+
+      ))}
+    </div>
+<!-- ฝังวิดีโอจาก Facebook -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ข่าวประชาสัมพันธ์ CRs Mahidol</title>
+  <style>
+    .video-container {
+      display: flex;
+      justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+      gap: 20px; /* ระยะห่างระหว่างวิดีโอ */
+      flex-wrap: wrap; /* ถ้าหน้าจอแคบ จะขึ้นบรรทัดใหม่อัตโนมัติ */
+    }
+
+    iframe {
+      border: none;
+      overflow: hidden;
+      width: 267px;
+      height: 476px;
+    }
+  </style>
+</head>
+<br>
+<body>
+
+  <h2 style="text-align:center;">CRS</h2>
+  <div class="video-container">
+    <iframe 
+      src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fweb.facebook.com%2FCrsMahidol%2Fvideos%2F826948173084284%2F&show_text=false&width=267&t=0"
+      allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+    </iframe>
+
+    <iframe 
+      src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fweb.facebook.com%2FCrsMahidol%2Fvideos%2F1130768985833453%2F&show_text=false&width=267&t=0"
+      allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+    </iframe>
+
+    <iframe 
+      src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fweb.facebook.com%2FCrsMahidol%2Fvideos%2F1706646160723975%2F&show_text=true&width=267&t=0"
+      allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+    </iframe>
+<!-- ฝังวิดีโอจาก Google Drive -->
+    <!--<iframe
+  src="https://drive.google.com/file/d/1v3UGy3bUGi6urOjm2x0E-j_wkVXo5uF6/view?usp=sharing"
+  width="640"
+  height="480"
+  allow="autoplay; encrypted-media"
+  frameborder="0">-->
+</iframe>
+<!-- ฝังวิดีโอจาก Google Drive -->
+  </div>
+</body>
+</html>
+<!-- ฝังวิดีโอจาก Facebook -->
+
+<!-- ปุ่มเลื่อนขวา -->
+    <button
+      id="nextBtn"
+      class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-300 rounded-full p-2"
+    >
+      &#8594;
+    </button>
+  </div>
+
+  <div class="text-center mt-6">
+    <a
+      href="/news"
+      class="inline-block px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm md:text-base"
+    >
+      ดูข่าวทั้งหมด
+    </a>
+  </div>
+</section>
+
+<script type="module">
+  const container = document.getElementById('newsContainer');
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const scrollAmount = 320; // กำหนดระยะเลื่อน 1 ข่าว
+
+  nextBtn.addEventListener('click', () => {
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+
+  prevBtn.addEventListener('click', () => {
+    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+</script>
