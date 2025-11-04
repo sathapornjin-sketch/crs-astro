@@ -11,9 +11,9 @@
 
 	const slides: Slide[] = [
 		// { id: 'slide1', src: '/img/banner/bn1.png', alt: 'Updating Website' },
-		{
-			id: 'slide0',src: '/img/banner/siri.png',alt: 'siri',			
-		},
+		//{
+			//id: 'slide0',src: '/img/banner/siri.png',alt: 'siri',			
+		//},
 		{
 			id: 'slide1',
 			src: '/img/banner/1บุคลากรมหิดล-กลไก.jpg',

@@ -1,0 +1,76 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "วิทยาลัยศาสนศึกษาจัดพิธีน้อมรำลึกในพระมหากรุณาธิคุณ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง";
+const date = "29 ตุลาคม 2568";
+const description = "คณะผู้บริหาร คณาจารย์ บุคลากร และนักศึกษาวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล พร้อมใจกันจัดพิธีถวายความอาลัยและน้อมรำลึกในพระมหากรุณาธิคุณแด่ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง";
+const gallery = [
+  "/img/activities/oct2025/29oct2025-2/29oct2025-2-1.jpg",
+  "/img/activities/oct2025/29oct2025-2/29oct2025-2-2.jpg",
+  "/img/activities/oct2025/29oct2025-2/29oct2025-2-3.jpg",
+  "/img/activities/oct2025/29oct2025-2/29oct2025-2-4.jpg",
+  "/img/activities/oct2025/29oct2025-2/29oct2025-2-5.jpg",
+  "/img/activities/oct2025/29oct2025-2/29oct2025-2-6.jpg",
+  "/img/activities/oct2025/29oct2025-2/29oct2025-2-7.jpg",
+  "/img/activities/oct2025/29oct2025-2/29oct2025-2-8.jpg",
+     ];
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>
+    
+
+    <p>วิทยาลัยศาสนศึกษาจัดพิธีน้อมรำลึกในพระมหากรุณาธิคุณ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง
+​วันที่ 29 ตุลาคม 2568 คณะผู้บริหาร คณาจารย์ บุคลากร และนักศึกษาวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล พร้อมใจกันจัดพิธีถวายความอาลัยและน้อมรำลึกในพระมหากรุณาธิคุณแด่ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง ณ บริเวณโถงชั้น 1 อาคารวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล
+​พิธีเริ่มขึ้นในเวลา 11.00 น. โดยคณะผู้บริหาร คณาจารย์ บุคลากร และนักศึกษา ได้ร่วมยืนสงบนิ่งเพื่อถวายความอาลัยเป็นเวลา 1 นาที เบื้องหน้าพระบรมฉายาลักษณ์ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง อย่างพร้อมเพรียงกัน เพื่อร่วมแสดงความอาลัยและสำนึกในพระมหากรุณาธิคุณอันหาที่สุดมิได้ที่ทรงมีต่อพสกนิกรชาวไทย
+</p>
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>
+</Layout>
