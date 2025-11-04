@@ -11,6 +11,7 @@ import Layout from '@/layouts/Layout.astro';
 import FacebookPage from '@/components/plugins/FacebookPage.astro';
 import News from '@/components/sections/News.astro';
 import Calendar from '@/components/sections/Calendar.astro';
+import ยนย from '@/components/sections/Calendar.astro';
 
 // const res = await fetch('https://seedx.seeddemo.com/wp-json/wp/v2/posts?per_page=3&_embed');
 // const posts = await res.json();
@@ -188,13 +189,7 @@ const metadata = {
 
       <img src="/img/popup/siri.png"
            style="display:block;max-width:95vw;width:1200px;height:auto;">
-    </div>
-
-    <!-- เนื้อหาเว็บ -->
-    <main style="padding:120px 1rem 1rem;">
-      <h1>หน้าเว็บหลัก</h1>
-      <p>เนื้อหาเว็บไซต์อยู่ที่นี่...</p>
-    </main>
+    </div>    
 
     <script is:inline>
       const popup = document.getElementById("popup");

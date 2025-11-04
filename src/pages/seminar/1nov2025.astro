@@ -1,0 +1,89 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "CRS Lecturer Represents Mahidol University at the International Academic Seminar on Pali-Chinese Buddhist Studies";
+const date = "1 พฤศจิกายน 2568";
+const description = "";
+const gallery = [
+  "/img/seminar/1nov2025/1nov2025-1.jpg",
+  "/img/seminar/1nov2025/1nov2025-2.jpg",
+  "/img/seminar/1nov2025/1nov2025-3.jpg",
+  "/img/seminar/1nov2025/1nov2025-4.jpg",
+  "/img/seminar/1nov2025/1nov2025-5.jpg",
+  "/img/seminar/1nov2025/1nov2025-6.jpg",
+  "/img/seminar/1nov2025/1nov2025-7.jpg",
+  "/img/seminar/1nov2025/1nov2025-8.jpg",
+  "/img/seminar/1nov2025/1nov2025-9.jpg", 
+  
+ ];
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>
+    <p>
+CRS Lecturer Represents Mahidol University at the International Academic Seminar on Pali-Chinese Buddhist Studies
+From November 1 to 2, 2025, Dr. Sanjoy Barua Chowdhury, lecturer of the College of Religious Studies (CRS) of Mahidol University (MU), 
+joined the first International Academic Seminar on Pali-Chinese Buddhist Studies, which was hosted by Mahachulalongkornrajavidyalaya University (MCU) and Fo Guang Shan Thaihua Temple of Thailand. As a representative from the College of Religious Studies (CRS) of Mahidol University (MU), Dr. Sanjoy Barua Chowdhury collaborates with the faculties of the International Buddhist Studies College (IBSC) of Mahachulalongkornrajavidyalaya University (MCU) to evaluate graduate students' academic papers in this symposium.
+    </p>
+
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img 
+  id="lb-img" 
+  src="" 
+  style="
+    max-width:80%;
+    max-height:80vh;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(0,0,0,0.6);
+    object-fit:contain;
+    background:#000;
+  " 
+/>
+
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>

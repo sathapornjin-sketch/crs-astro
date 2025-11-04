@@ -1,15 +1,16 @@
 ---
-const { title, description } = Astro.props;
+const { title, description, bgImage = "/img/bg-slogan.jpg" } = Astro.props;
 ---
 
-<section class="mx-[calc(-50vw_+_50%)] mb-20 flex h-[340px] items-center bg-slogan bg-cover">
+<section
+	class="mx-[calc(-50vw_+_50%)] mb-20 flex h-[340px] items-center bg-cover bg-center"
+	style={`background-image: url('${bgImage}')`}
+>
 	<div class="mx-auto w-full max-w-th-width-lg px-4 md:px-5">
-		<h2
-			class="mb-3 text-center text-3xl font-normal text-white dark:text-th-text-3-dark md:text-left"
-		>
+		<h2 class="mb-3 text-center text-3xl font-normal text-white md:text-left">
 			{title}
 		</h2>
-		<p class="mb-0 text-center text-white dark:text-th-text-4-dark md:text-left">
+		<p class="mb-0 text-center text-white md:text-left">
 			{description}
 		</p>
 	</div>
