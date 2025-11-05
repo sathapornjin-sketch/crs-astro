@@ -41,15 +41,7 @@
 				isExternal: true,
 			},
 		},
-		{
-			id: 'slide4',
-			src: '/img/banner/tcas69.png',
-			alt: 'TCAS2569',
-			link: {
-				url: 'https://crs.mahidol.ac.th/education/tcas',
-				isExternal: true,
-			},
-		},
+		
 		{ id: 'slide5', src: '/img/banner/bn2.png', alt: 'CRS Banner' },
 		
 		{

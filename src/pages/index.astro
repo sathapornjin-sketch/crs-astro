@@ -11,8 +11,7 @@ import Layout from '@/layouts/Layout.astro';
 import FacebookPage from '@/components/plugins/FacebookPage.astro';
 import News from '@/components/sections/News.astro';
 import Calendar from '@/components/sections/Calendar.astro';
-import ยนย from '@/components/sections/Calendar.astro';
-
+import Popup from '@/components/sections/Popup.astro';
 // const res = await fetch('https://seedx.seeddemo.com/wp-json/wp/v2/posts?per_page=3&_embed');
 // const posts = await res.json();
 
@@ -30,6 +29,7 @@ const metadata = {
 	bodyclass="bg-white dark:bg-th-bg-2-dark"
 >
 	<Banner />
+	<Popup />
 
 	<Title2 title="ศาสนศึกษา" description="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล" />
 	<Features
@@ -148,70 +148,7 @@ const metadata = {
 		]}
 	/>
 
-<html>
-  <body style="margin:0;">
-    <!-- ชั้นเบลอพื้นหลัง -->
-    <div id="overlay" style="
-      position:fixed;
-      inset:0;
-      backdrop-filter:blur(2px);
-      background:rgba(0,0,0,0.4);
-      z-index:9998;
-      display:none;
-    "></div>
 
-    <!-- popup ลอยด้านบน -->
-    <div id="popup" style="
-      position:fixed;
-      top:20px;
-      left:50%;
-      transform:translateX(-50%);
-      z-index:9999;
-      background:#fff;
-      border-radius:16px;
-      box-shadow:0 6px 20px rgba(0,0,0,.35);
-      overflow:hidden;
-      display:none;
-    ">
-      <button id="close" style="
-        position:absolute;
-        top:6px;
-        right:8px;
-        font-size:22px;
-        background:rgba(0,0,0,.5);
-        color:#fff;
-        border:none;
-        border-radius:50%;
-        width:34px;
-        height:34px;
-        cursor:pointer;
-      ">✕</button>
-
-      <img src="/img/popup/siri.png"
-           style="display:block;max-width:95vw;width:1200px;height:auto;">
-    </div>    
-
-    <script is:inline>
-      const popup = document.getElementById("popup");
-      const overlay = document.getElementById("overlay");
-      const close = document.getElementById("close");
-
-      window.addEventListener("load", () => {
-        popup.style.display = "block";
-        overlay.style.display = "block";
-      });
-
-      close.onclick = () => {
-        popup.style.display = "none";
-        overlay.style.display = "none";
-      };
-      overlay.onclick = () => {
-        popup.style.display = "none";
-        overlay.style.display = "none";
-      };
-    </script>
-  </body>
-</html>
 
 	<!-- <Logos
 		classes="grid-cols-4 mb-0 py-8"

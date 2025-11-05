@@ -1,0 +1,96 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "การบรรยายวิชาการระดับนานาชาติใน“Doctrine of Non-self and Rebirth in Early Buddhism”ภายใต้กิจกรรม MU-CRS Seminar on Contemporary Religious Studies";
+const date = "4 พฤศจิกายน 2568";
+const description = "";
+const gallery = [
+  "/img/seminar/4nov2025/4nov2025-1.jpg",
+  "/img/seminar/4nov2025/4nov2025-2.jpg",
+  "/img/seminar/4nov2025/4nov2025-3.jpg",
+  "/img/seminar/4nov2025/4nov2025-4.jpg",
+  "/img/seminar/4nov2025/4nov2025-5.jpg",   
+  
+ ];
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>
+    <p>
+วิทยาลัยศาสนศึกษา ม.มหิดล จัดบรรยายวิชาการนานาชาติ โดยความร่วมมือกับมูลนิธิไทย 
+วันอังคารที่ 4 พฤศจิกายน 2568 เวลา 14.00 น. (ตามเวลาประเทศไทย) วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล โดยความร่วมมือกับมูลนิธิไทย (Thailand Foundation) ได้จัดการบรรยายวิชาการระดับนานาชาติใน“Doctrine of Non-self and Rebirth in Early Buddhism”ภายใต้กิจกรรม MU-CRS Seminar on Contemporary Religious Studies ผ่านระบบออนไลน์ Webex
+การบรรยายในครั้งนี้ได้รับเกียรติจาก Dr. Amrita Nanda, Lecturer, Centre of Buddhist Studies, The University of Hongkong เป็นวิทยากรรับเชิญ
+โดยมี Dr. Sanjoy Barua Chowdhury เป็นผู้กล่าวเปิดงาน และ เป็นผู้ดำเนินรายการ การจัดกิจกรรมในครั้งนี้สอดคล้องกับ เป้าหมายการพัฒนาที่ยั่งยืน (SDGs) โดยเฉพาะ
+SDG 4 การศึกษาที่เท่าเทียม (Quality Education) — ด้วยการส่งเสริมการเข้าถึงองค์ความรู้ระดับนานาชาติ และการเรียนรู้ตลอดชีวิต
+SDG 17 ความร่วมมือเพื่อการพัฒนาที่ยั่งยืน (Partnerships for the Goals) — ผ่านความร่วมมือระหว่างวิทยาลัยศาสนศึกษากับมูลนิธิไทย ซึ่งเป็นตัวอย่างของการสร้างเครือข่ายวิชาการเพื่อขับเคลื่อนการศึกษาระดับสากลวิทยาลัยศาสนศึกษาขอขอบคุณมูลนิธิไทยสำหรับการสนับสนุน และหวังเป็นอย่างยิ่งว่าจะได้ดำเนินกิจกรรมร่วมกันอย่างต่อเนื่องเพื่อสร้างผลกระทบเชิงบวกต่อสังคมและการศึกษาต่อไป
+<br>
+College of Religious Studies, Mahidol University, in Collaboration with Thailand Foundation Holds International Academic Lecture 
+On November 4, 2025 (Tuesday) 14:00 (Thailand Time), the College of Religious Studies, Mahidol University, organized, in collaboration with the Thailand Foundation, an international academic lecture entitled “Doctrine of Non-self and Rebirth in Early Buddhism” as part of the MU-CRS Seminar on Contemporary Religious Studies, conducted online via Webex.
+The lecture was honored to feature Dr. Amrita Nanda, Lecturer, Centre of Buddhist Studies, The University of Hongkong as the guest speaker, with Dr. Sanjoy Barua Chowdhury delivering the opening remarks and serving as moderator.
+This event aligns with the Sustainable Development Goals (SDGs):
+SDG 4 Quality Education — by promoting access to international knowledge and lifelong learning.
+SDG 17 Partnerships for the Goals — through the collaboration between the College of Religious Studies and the Thailand Foundation, serving as a model of building academic networks to advance global education.
+The College of Religious Studies sincerely thanks the Thailand Foundation for its support and looks forward to continuing this collaboration to generate positive impacts on society and education.
+    </p>
+
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img 
+  id="lb-img" 
+  src="" 
+  style="
+    max-width:80%;
+    max-height:80vh;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(0,0,0,0.6);
+    object-fit:contain;
+    background:#000;
+  " 
+/>
+
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>
