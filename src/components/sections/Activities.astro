@@ -1,0 +1,120 @@
+<section id="activities" class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-blue-800 mb-10 text-center">กิจกรรม</h2>
+
+    <div id="activities-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
+
+    <!-- Pagination -->
+    <div class="flex justify-center mt-10 space-x-2" id="pagination"></div>
+  </div>
+</section>
+
+<script>
+  const activities = [
+    {
+      title: "วิทยาลัยศาสนศึกษาจัดพิธีน้อมรำลึกในพระมหากรุณาธิคุณ...",
+      description: "...",
+      date: "29 ตุลาคม 2568",
+      slug: "29oct2025-2",
+      image: "/img/activities/oct2025/29oct2025-2/29oct2025-2-2.jpg"
+    },
+    {
+      title: "กิจกรรม “From Minor to Mastery...",
+      description: "...",
+      date: "29 ตุลาคม 2568",
+      slug: "29oct2025-1",
+      image: "/img/activities/oct2025/29oct2025-1/29oct2025-1-2.jpg"
+    },
+    {
+      title: "วันนวมินทรมหาราช...",
+      description: "...",
+      date: "8 ตุลาคม 2568",
+      slug: "8oct2025",
+      image: "/img/activities/oct2025/8oct2025/8oct2025-1.jpg"
+    },
+    {
+      title: "ซ้อมรับปริญญาบัตร...",
+      description: "...",
+      date: "4 ตุลาคม 2568",
+      slug: "4oct2025",
+      image: "/img/activities/oct2025/4oct2025/2.jpg"
+    },
+    {
+      title: "งานวันคล้ายวันสถาปนาสำนักงานพระพุทธศาสนา...",
+      description: "...",
+      date: "3 ตุลาคม 2568",
+      slug: "3oct2025",
+      image: "/img/activities/oct2025/3oct2025/1.jpg"
+    },
+    {
+      title: "วันคล้ายวันสถาปนาสถาบันแห่งชาติเพื่อการพัฒนาเด็กและครอบครัว...",
+      description: "...",
+      date: "2 ตุลาคม 2568",
+      slug: "2oct2025",
+      image: "/img/activities/oct2025/2oct2025-1.jpg"
+    },
+    {
+      title: "พิธีวางพวงมาลา วันมหิดล...",
+      description: "...",
+      date: "24 กันยายน 2568",
+      slug: "24sep2025",
+      image: "/img/activities/sep2025/24sep2025-1.jpg"
+    }
+  ];
+
+  const itemsPerPage = 3;
+  let currentPage = 1;
+
+  // แปลงวันที่ไทย → Date
+  const months = { "มกราคม":"01","กุมภาพันธ์":"02","มีนาคม":"03","เมษายน":"04","พฤษภาคม":"05","มิถุนายน":"06","กรกฎาคม":"07","สิงหาคม":"08","กันยายน":"09","ตุลาคม":"10","พฤศจิกายน":"11","ธันวาคม":"12"};
+  function parseDate(d){ 
+    const [day,month,year] = d.split(" "); 
+    return new Date(`${parseInt(year)-543}-${months[month]}-${day}`); 
+  }
+
+  // เรียงจากใหม่ → เก่า
+  activities.sort((a,b)=>parseDate(b.date)-parseDate(a.date));
+
+  // ฟังก์ชัน render
+  function renderActivities(page) {
+    const start = (page-1)*itemsPerPage;
+    const end = start+itemsPerPage;
+    const paginated = activities.slice(start,end);
+
+    const container = document.getElementById("activities-container");
+    container.innerHTML = paginated.map(act=>`
+      <a href="/activities/${act.slug}/" class="group block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <img src="${act.image}" alt="${act.title}" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="p-6">
+          <p class="text-sm text-gray-500 mb-2">${act.date}</p>
+          <h3 class="text-lg font-semibold text-blue-800 mb-2 leading-snug">${act.title}</h3>
+          <p class="text-gray-600 text-sm mb-3 line-clamp-3">${act.description}</p>
+          <span class="inline-block text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  function renderPagination() {
+    const totalPages = Math.ceil(activities.length/itemsPerPage);
+    const pagination = document.getElementById("pagination");
+    pagination.innerHTML = '';
+
+    for(let i=1;i<=totalPages;i++){
+      const btn = document.createElement("button");
+      btn.textContent = i;
+      btn.className = `px-4 py-2 rounded-lg ${i===currentPage?'bg-blue-700 text-white':'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
+      btn.addEventListener("click", ()=>{
+        currentPage=i;
+        renderActivities(currentPage);
+        renderPagination();
+        window.scrollTo({top: document.getElementById('activities').offsetTop-20, behavior:'smooth'});
+      });
+      pagination.appendChild(btn);
+    }
+  }
+
+  // โหลดครั้งแรก
+  renderActivities(currentPage);
+  renderPagination();
+</script>

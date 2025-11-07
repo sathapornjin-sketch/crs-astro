@@ -7,122 +7,190 @@ const description = 'ข้อมูลสำหรับอาจารย์�
 ---
 
 <Layout title={title} description={description}>
-	<Slogan title={title} description={description} />
+  <Slogan title={title} description={description} />
 
-	<div class="mx-auto mb-8 text-center">
-		<p class="text-2xl font-semibold">MUCRS</p>
-	</div>
-	<!-- -->
+  <div class="mx-auto mb-8 text-center">
+    <p class="text-2xl font-semibold">MUCRS</p>
+  </div>
 
-	
-	<div class="mx-auto mb-10 max-w-xl space-y-5 text-center text-2xl">
-		<a href="#"
-   onclick="
-let d=document.createElement('div');
-d.innerHTML=`
-  <div style='display:flex;flex-direction:column;gap:10px;'>
-    <p style='font-weight:bold;margin:0;'>รหัสผ่าน</p>
-    <input type=password id=pw style='padding:8px;border-radius:5px;border:1px solid #ccc;outline:none;'>
-    <div style='display:flex;justify-end;gap:5px;'>
-      <button id='okBtn' style='padding:5px 10px;background:#4CAF50;color:#fff;border:none;border-radius:5px;cursor:pointer;'>ตกลง</button>
-      <button id='cancelBtn' style='padding:5px 10px;background:#f44336;color:#fff;border:none;border-radius:5px;cursor:pointer;'>ยกเลิก</button>
-    </div>
+  <div class="mx-auto mb-10 max-w-xl space-y-5 text-center text-2xl">
+    <!-- ปุ่มข้อมูลสำหรับอาจารย์ -->
+    <a href="#"
+onclick="
+let old=document.getElementById('pwOverlay');
+if(old) old.remove();
+
+const overlay=document.createElement('div');
+overlay.id='pwOverlay';
+overlay.style.cssText=`
+  position:fixed;inset:0;background:rgba(0,0,0,0.4);
+  display:flex;align-items:center;justify-content:center;
+  z-index:10000;
+`;
+
+const box=document.createElement('div');
+box.style.cssText=`
+  background:#fff;padding:20px;border-radius:10px;
+  width:90%;max-width:320px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  text-align:center;position:absolute;left:50%;
+  transform:translateX(-50%);
+`;
+box.innerHTML=`
+  <p style='font-weight:bold;margin:0 0 10px;'>รหัสผ่าน (ข้อมูลสำหรับอาจารย์)</p>
+  <input type='password' id='pwInput' style='width:100%;padding:8px;border:1px solid #ccc;border-radius:5px;outline:none;'>
+  <div style='display:flex;justify-content:flex-end;gap:8px;margin-top:12px;'>
+    <button id='okBtn' style='padding:6px 12px;background:#4CAF50;color:#fff;border:none;border-radius:5px;'>ตกลง</button>
+    <button id='cancelBtn' style='padding:6px 12px;background:#f44336;color:#fff;border:none;border-radius:5px;'>ยกเลิก</button>
   </div>
 `;
-d.style='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.3);z-index:1000;';
-document.body.appendChild(d);
 
-function checkPW(){
-  if(pw.value==='crslecturer'){
-    window.open('https://sites.google.com/view/crsacademicsstaff','_blank');
-  } else {
-    alert('รหัสผ่านไม่ถูกต้อง');
-  }
-  d.remove();
+overlay.appendChild(box);
+document.body.appendChild(overlay);
+
+// ปรับตำแหน่งให้อยู่กลางจอขณะคีย์บอร์ดเด้งขึ้น
+function adjustBox(){
+  const vv=window.visualViewport;
+  box.style.top=(vv.height/2 + vv.offsetTop)+'px';
+}
+if(window.visualViewport){
+  window.visualViewport.addEventListener('resize',adjustBox);
+  window.visualViewport.addEventListener('scroll',adjustBox);
+  adjustBox();
 }
 
-document.getElementById('okBtn').onclick=checkPW;
-document.getElementById('cancelBtn').onclick=function(){d.remove();};
-document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter') checkPW();});
+overlay.addEventListener('click',e=>{
+  if(e.target===overlay){
+    cleanup();
+  }
+});
 
-return false;"
-   class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300">
+const pwInput=box.querySelector('#pwInput');
+const okBtn=box.querySelector('#okBtn');
+const cancelBtn=box.querySelector('#cancelBtn');
+
+function cleanup(){
+  if(window.visualViewport){
+    window.visualViewport.removeEventListener('resize',adjustBox);
+    window.visualViewport.removeEventListener('scroll',adjustBox);
+  }
+  overlay.remove();
+}
+
+function checkPW(){
+  if(pwInput.value==='crslecturer'){
+    window.open('https://sites.google.com/view/crsacademicsstaff','_blank');
+  }else{
+    alert('รหัสผ่านไม่ถูกต้อง');
+  }
+  cleanup();
+}
+
+okBtn.onclick=checkPW;
+cancelBtn.onclick=cleanup;
+pwInput.addEventListener('keydown',e=>{if(e.key==='Enter') checkPW();});
+
+return false;
+"
+class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300">
 ข้อมูลสำหรับอาจารย์
 </a>
 
-		
+    <!-- ปุ่มข้อมูลสำหรับเจ้าหน้าที่ -->
+    <a href="#"
+onclick="
+let old=document.getElementById('pwOverlay');
+if(old) old.remove();
 
-<!--<a href="#" onclick="if(prompt('ใส่รหัสผ่าน')==='1234')window.open('https://sites.google.com/view/mucrs-staff?usp=sharing','_blank');else alert('รหัสผ่านไม่ถูกต้อง')"
-   class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300">
-  ข้อมูลสำหรับเจ้าหน้าที่
-</a>-->
+const overlay=document.createElement('div');
+overlay.id='pwOverlay';
+overlay.style.cssText=`
+  position:fixed;inset:0;background:rgba(0,0,0,0.4);
+  display:flex;align-items:center;justify-content:center;
+  z-index:10000;
+`;
 
-<!--ใส่รหัสผ่านก่อนเข้า Link -->
-<a href="#"
-   onclick="
-let d=document.createElement('div');
-d.innerHTML=`
-  <div style='display:flex;flex-direction:column;gap:10px;'>
-    <p style='font-weight:bold;margin:0;'>รหัสผ่าน</p>
-    <input type=password id=pw style='padding:8px;border-radius:5px;border:1px solid #ccc;outline:none;'>
-    <div style='display:flex;justify-end;gap:5px;'>
-      <button id='okBtn' style='padding:5px 10px;background:#4CAF50;color:#fff;border:none;border-radius:5px;cursor:pointer;'>ตกลง</button>
-      <button id='cancelBtn' style='padding:5px 10px;background:#f44336;color:#fff;border:none;border-radius:5px;cursor:pointer;'>ยกเลิก</button>
-    </div>
+const box=document.createElement('div');
+box.style.cssText=`
+  background:#fff;padding:20px;border-radius:10px;
+  width:90%;max-width:320px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  text-align:center;position:absolute;left:50%;
+  transform:translateX(-50%);
+`;
+box.innerHTML=`
+  <p style='font-weight:bold;margin:0 0 10px;'>รหัสผ่าน (ข้อมูลสำหรับเจ้าหน้าที่)</p>
+  <input type='password' id='pwInput' style='width:100%;padding:8px;border:1px solid #ccc;border-radius:5px;outline:none;'>
+  <div style='display:flex;justify-content:flex-end;gap:8px;margin-top:12px;'>
+    <button id='okBtn' style='padding:6px 12px;background:#4CAF50;color:#fff;border:none;border-radius:5px;'>ตกลง</button>
+    <button id='cancelBtn' style='padding:6px 12px;background:#f44336;color:#fff;border:none;border-radius:5px;'>ยกเลิก</button>
   </div>
 `;
-d.style='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.3);z-index:1000;';
-document.body.appendChild(d);
 
-function checkPW(){
-  if(pw.value==='crsstaff'){
-    window.open('https://sites.google.com/view/mucrs-staff?usp=sharing','_blank');
-  } else {
-    alert('รหัสผ่านไม่ถูกต้อง');
-  }
-  d.remove();
+overlay.appendChild(box);
+document.body.appendChild(overlay);
+
+function adjustBox(){
+  const vv=window.visualViewport;
+  box.style.top=(vv.height/2 + vv.offsetTop)+'px';
+}
+if(window.visualViewport){
+  window.visualViewport.addEventListener('resize',adjustBox);
+  window.visualViewport.addEventListener('scroll',adjustBox);
+  adjustBox();
 }
 
-document.getElementById('okBtn').onclick=checkPW;
-document.getElementById('cancelBtn').onclick=function(){d.remove();};
-document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter') checkPW();});
+overlay.addEventListener('click',e=>{
+  if(e.target===overlay){
+    cleanup();
+  }
+});
 
-return false;"
-   class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300">
+const pwInput=box.querySelector('#pwInput');
+const okBtn=box.querySelector('#okBtn');
+const cancelBtn=box.querySelector('#cancelBtn');
+
+function cleanup(){
+  if(window.visualViewport){
+    window.visualViewport.removeEventListener('resize',adjustBox);
+    window.visualViewport.removeEventListener('scroll',adjustBox);
+  }
+  overlay.remove();
+}
+
+function checkPW(){
+  if(pwInput.value==='crsstaff'){
+    window.open('https://sites.google.com/view/mucrs-staff?usp=sharing','_blank');
+  }else{
+    alert('รหัสผ่านไม่ถูกต้อง');
+  }
+  cleanup();
+}
+
+okBtn.onclick=checkPW;
+cancelBtn.onclick=cleanup;
+pwInput.addEventListener('keydown',e=>{if(e.key==='Enter') checkPW();});
+
+return false;
+"
+class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300">
 ข้อมูลสำหรับเจ้าหน้าที่
 </a>
-<!--ใส่รหัสผ่านก่อนเข้า Link -->
+  </div>
 
+  <div class="mx-auto mb-8 mt-12 text-center">
+    <p class="text-2xl font-semibold">MU</p>
+  </div>
 
+  <div class="mx-auto mb-10 max-w-xl space-y-5 text-center text-2xl">
+    <a class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
+      href="https://op.mahidol.ac.th/ra/research_fund/" target="_blank">
+      แหล่งทุนวิจัย
+    </a>
 
-		<!-- 
-		<a
-			class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
-			href="https://sites.google.com/view/mucrs-staff?usp=sharing"
-			target="_blank"
-		>
-			ข้อมูลสำหรับเจ้าหน้าที่
-		</a> 
-		-->
-	</div>
-
-	<div class="mx-auto mb-8 mt-12 text-center">
-		<p class="text-2xl font-semibold">MU</p>
-	</div>
-	<div class="mx-auto mb-10 max-w-xl space-y-5 text-center text-2xl">
-		<a
-			class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
-			href="https://op.mahidol.ac.th/ra/research_fund/"
-			target="_blank"
-		>
-			แหล่งทุนวิจัย
-		</a>
-		<a
-			class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
-			href="https://mahidol.ac.th/th/staff/"
-			target="_blank"
-		>
-			บุคลากรควรรู้
-		</a>
-	</div>
+    <a class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
+      href="https://mahidol.ac.th/th/staff/" target="_blank">
+      บุคลากรควรรู้
+    </a>
+  </div>
 </Layout>

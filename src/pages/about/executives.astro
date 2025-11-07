@@ -6,7 +6,7 @@ const personnelSections = [
   {
     title: "ผู้บริหาร",
     people: [
-      { name: "ผู้ช่วยศาสตราจารย์ ดร.ไพเราะ มากเจริญ", position: "คณบดีวิทยาลัยศาสนศึกษา", email: "pairor.mak@mahidol.edu", img: "/img/personnel/ผู้ช่วยศาสตราจารย์ ดร.ไพเราะ มากเจริญ.png" },
+      { name: "ผู้ช่วยศาสตราจารย์ ดร.ไพเราะ มากเจริญ", position: "คณบดีวิทยาลัยศาสนศึกษา", email: "pairor.mak@mahidol.edu", phone: "02-800-2656", img: "/img/personnel/ผู้ช่วยศาสตราจารย์ ดร.ไพเราะ มากเจริญ.png" },
       { name: "Assoc. Prof. Dr.Milos Hubina", position: "รองคณบดีฝ่ายวิจัยและวิเทศสัมพันธ์", email: "milos.hub@mahidol.ac.th", img: "/img/personnel/Assoc. Prof. Dr.Milos Hubina.png" },
       { name: "อาจารย์ ดร.สุชาดา ศรีเศรษฐวรกุล", position: "รองคณบดีฝ่ายการศึกษาและกิจการนักศึกษา", email: "suchada.srs@mahidol.ac.th", img: "/img/personnel/อาจารย์ ดร.สุชาดา ศรีเศรษฐวรกุล.png" },
       { name: "อาจารย์ ดร.จิราธร ชาติศิริ", position: "ผู้ช่วยคณบดีฝ่ายการศึกษาและกิจการนักศึกษา", email: "jirathorn.cha@mahidol.ac.th", img: "/img/personnel/อาจารย์ ดร.จิราธร ชาติศิริ.png" },
@@ -30,10 +30,21 @@ const personnelSections = [
       <img src={personnelSections[0].people[0].img} alt={personnelSections[0].people[0].name} class="max-h-full max-w-full object-contain" />
     </div>
     <div class="p-4 text-center">
-      <h3 class="text-base font-semibold mb-1 whitespace-nowrap overflow-hidden text-ellipsis">{personnelSections[0].people[0].name}</h3>
-      <p class="text-gray-600 mb-1">{personnelSections[0].people[0].position}</p>
-      <a href={`mailto:${personnelSections[0].people[0].email}`} class="text-blue-600 hover:underline text-sm">{personnelSections[0].people[0].email}</a>
-    </div>
+  <h3 class="text-base font-semibold mb-1 whitespace-nowrap overflow-hidden text-ellipsis">
+    {personnelSections[0].people[0].name}
+  </h3>
+
+  <p class="text-gray-600 mb-1">{personnelSections[0].people[0].position}</p>
+
+  {personnelSections[0].people[0].phone && (
+    <p class="text-gray-600 mb-1 text-sm">{personnelSections[0].people[0].phone}</p>
+  )}
+
+  <a href={`mailto:${personnelSections[0].people[0].email}`} class="text-blue-600 hover:underline text-sm">
+    {personnelSections[0].people[0].email}
+  </a>
+</div>
+
   </div>
 </div>
 

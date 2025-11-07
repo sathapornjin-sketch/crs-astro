@@ -9,9 +9,9 @@ import Title1 from '@/components/sections/Title1.astro';
 import Title2 from '@/components/sections/Title2.astro';
 import Layout from '@/layouts/Layout.astro';
 import FacebookPage from '@/components/plugins/FacebookPage.astro';
-import News from '@/components/sections/News.astro';
+import Activities from '@/components/sections/Activities.astro';
 import Calendar from '@/components/sections/Calendar.astro';
-import Popup from '@/components/sections/Popup.astro';
+//import Popup from '@/components/sections/Popup.astro';
 // const res = await fetch('https://seedx.seeddemo.com/wp-json/wp/v2/posts?per_page=3&_embed');
 // const posts = await res.json();
 
@@ -29,7 +29,9 @@ const metadata = {
 	bodyclass="bg-white dark:bg-th-bg-2-dark"
 >
 	<Banner />
-	<Popup />	
+<!--<Popup />-->
+	<Activities />
+		
 	
 
 	<Title2 title="ศาสนศึกษา" description="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล" />
@@ -58,13 +60,14 @@ const metadata = {
 			},
 		]}
 	/>
-
+<!--
 	<a href="/education/syllabus">
 		<Slogan
 			title="หลักสูตรที่เปิดสอน / การรับสมัครเข้าเรียน"
 			description="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล"
 		/>
 	</a>
+		-->
 
 	<!-- <Posts classes="md:grid-cols-3 gap-8 mb-20" title="ข่าวประชาสัมพันธ์" items={posts} /> -->
 	<!-- <Hero
