@@ -1,0 +1,113 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "ดร. พิบูลย์ ชุมพลไพศาล อาจารย์ประจำวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ร่วมบรรยายในโครงการ Expatriate Orientation Program ครั้งที่ 7 (EOP7) ในหัวข้อ “Buddhist Mindset and the Thai Way of Life";
+const date = "19 พฤศจิกายน 2568";
+const description = "";
+const gallery = [
+  "/img/activities/nov2025/19nov2025/19nov2025-1.jpg",
+  "/img/activities/nov2025/19nov2025/19nov2025-2.jpg",
+  "/img/activities/nov2025/19nov2025/19nov2025-3.jpg",
+  "/img/activities/nov2025/19nov2025/19nov2025-4.jpg",
+  "/img/activities/nov2025/19nov2025/19nov2025-5.jpg",
+  "/img/activities/nov2025/19nov2025/19nov2025-6.jpg",
+  "/img/activities/nov2025/19nov2025/19nov2025-7.jpg",
+  "/img/activities/nov2025/19nov2025/19nov2025-8.jpg",  
+]
+ 
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>
+    อาจารย์จากวิทยาลัยศาสนศึกษา ม.มหิดล
+ร่วมบรรยายในโครงการ Expatriate Orientation Program ครั้งที่ 7 (EOP7)
+
+ดร. พิบูลย์ ชุมพลไพศาล
+อาจารย์ประจำวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล
+ได้รับเชิญเป็นวิทยากรบรรยายในหัวข้อ “Buddhist Mindset and the Thai Way of Life"
+
+ในการบรรยายครั้งนี้ ภายใต้โครงการ Expatriate Orientation Program ครั้งที่ 7
+จัดโดยมูลนิธิไทย ระหว่างวันที่ 12–13 พฤศจิกายน 2568
+มีวัตถุประสงค์เพื่อเสริมสร้างความเข้าใจด้านประวัติศาสตร์ สังคม วัฒนธรรม และค่านิยมไทย
+ให้แก่ชาวต่างชาติที่อาศัยและทำงานในประเทศไทย
+โดยมีคณะทูตานุทูต ผู้แทนภาครัฐ–เอกชน และผู้ประกอบการต่างชาติร่วมเข้าร่วมอย่างคับคั่ง
+
+วิทยาลัยศาสนศึกษาขอขอบคุณมูลนิธิไทยที่ได้เปิดโอกาสให้คณาจารย์ของเรา
+ร่วมถ่ายทอดองค์ความรู้ด้านพุทธศาสนา เพื่อสร้างความเข้าใจข้ามวัฒนธรรมในระดับสากล
+
+#MahidolCRS #FaithAndCommunity #CRSforGlobalEngagement
+
+CRS Lecturer Invited to Speak at the Expatriate Orientation Program 7 (EOP7)
+Dr. Phibul Chumponpaisal,
+Lecturer at the College of Religious Studies, Mahidol University,
+was invited as a speaker on the topic:
+“Buddhist Mindset and the Thai Way of Life"
+
+The session took place during the Expatriate Orientation Program 7,
+organized by the Thailand Foundation on 12–13 November 2025,
+with the aim of strengthening cultural understanding among expatriates living and working in Thailand.
+The event was well attended by diplomats, government representatives, private-sector delegates, and international business leaders.
+
+The College of Religious Studies extends appreciation to the Thailand Foundation
+for the opportunity to contribute to global cultural dialogue and enhance cross-cultural understanding
+through Buddhist insights.
+
+🔗 Learn more about the program: Thailand Foundation – EOP
+https://thailandfoundation.or.th/th/thai-studies-exchange-programs/orientation-program/expatriate-orientation-program/
+
+#MahidolCRS #FaithAndCommunity #CRSforGlobalEngagement
+#EOP7 #ThailandFoundation
+https://www.facebook.com/share/p/1DCjVF3ep6/
+
+    <p>
+</p>
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>
+</Layout>

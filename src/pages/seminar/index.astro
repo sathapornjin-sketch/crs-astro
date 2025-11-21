@@ -5,23 +5,28 @@ import Slogan from '@/components/sections/Slogan.astro';
 const title = 'การสัมมนาและบรรยายทางวิชาการ MU-CRS Seminar and Lecture';
 const description = 'วิทยาลัยศาสนศึกษา';
 
-// 🔹 กลุ่มสัมมนา
+// 🔹 กลุ่มสัมมนา (ยังไม่ใช้)
 const seminar = [
   {
-    title: "",   
+    title: "",
     description: "",
     date: "",
     slug: "",
     image: "/img/seminar/"
   },
-  
-  
 ];
 
 // 🔹 กลุ่มการบรรยาย applied
-const lecture = [
+const lecture = [ 
   {
-    title: "การบรรยายวิชาการระดับนานาชาติใน“Doctrine of Non-self and Rebirth in Early Buddhism”ภายใต้กิจกรรม MU-CRS Seminar on Contemporary Religious Studies",
+    title: "การบรรยายวิชาการนานาชาติในหัวข้อ Empress Wu Zetian and Her Faith in the Maitreya Bodhisattva ภายใต้กิจกรรม MU-CRS Seminar on Contemporary Religious Studies",
+    description: "",
+    date: "19 พฤศจิกายน 2568",
+    slug: "19nov2025",
+    image: "/img/seminar/nov2025/19nov2025/19nov2025-1.jpg"
+  }, 
+  {
+    title: "การบรรยายวิชาการระดับนานาชาติใน “Doctrine of Non-self and Rebirth in Early Buddhism”ภายใต้กิจกรรม MU-CRS Seminar on Contemporary Religious Studies",
     description: "",
     date: "4 พฤศจิกายน 2568",
     slug: "4nov2025",
@@ -42,7 +47,7 @@ const lecture = [
     image: "/img/seminar/29oct2025/29oct2025-1.jpg"
   },
   {
-    title: "หัวข้อ Sacred Things and Democracy in Thailand โดยความร่วมมือกับมูลนิธิไทย",   
+    title: "หัวข้อ Sacred Things and Democracy in Thailand โดยความร่วมมือกับมูลนิธิไทย",
     description: "",
     date: "24 กันยายน 2568",
     slug: "24sep2025",
@@ -54,44 +59,34 @@ const lecture = [
     date: "25 กรกฏาคม 2568",
     slug: "25jul2025lecture",
     image: "/img/seminar/25jul2025/25jul2025-1.jpg"
-  },  
+  },
+];
+
+// 🔹 กลุ่มอบรม Training (เพิ่มใหม่)
+const training = [
+  {
+    title: "อบรมโครงการ “ตามรอยคัมภีร์ กรุงศรีอยุธยา” ศึกษาเรียนรู้เรื่องประวัติศาสตร์กรุงศรีอยุธยาและคัมภีร์ใบลาน ครั้งที่ 2 ในหัวข้อ ความเชื่อ ศาสนา และมรดกทางปัญญาและคัมภีร์ใบลานในกรุงศรีอยุธยา",
+    description: "",
+    date: "16 พฤศจิกายน 2568",
+    slug: "16nov2025",
+    image: "/img/seminar/nov2025/16nov2025/16nov2025-1.jpg"
+  },
+  {
+    title: "อบรมโครงการ ตามรอยคัมภีร์ กรุงศรีอยุธยา ศึกษาเรียนรู้เรื่องประวัติศาสตร์กรุงศรีอยุธยาและคัมภีร์ใบลาน ครั้งที่ 1 ในหัวข้อ รากฐานและความรุ่งเรืองของอาณาจักรอยุธยา",
+    description: "",
+    date: "8 พฤศจิกายน 2568",
+    slug: "8nov2025",
+    image: "/img/seminar/nov2025/8nov2025/8nov2025-1.jpg"
+  },
 ];
 ---
 
 <Layout title={title} description={description}>
   <Slogan title={title} description={description} />
 
-  <!-- 🔸 ส่วนสัมมนา Seminar-->
-  <!-- <h2>การสัมมนา</h2>
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-top:20px;">
-    {seminar.map(article => (
-      <a href={`/seminar/${article.slug}`} target="_blank" rel="noopener noreferrer"
-         style="
-           display:flex; flex-direction:column;
-           text-decoration:none; color:inherit;
-           border:1px solid #ccc; border-radius:8px;
-           overflow:hidden; background:#fff;
-           transition: transform 0.3s, box-shadow 0.3s;
-         "
-         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
-         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 0 0 rgba(0,0,0,0)';"
-      >
-        <img src={article.image} alt={article.title}
-             style="width:100%; height:200px; object-fit:cover; transition: transform 0.3s;"
-             onmouseover="this.style.transform='scale(1.05)'"
-             onmouseout="this.style.transform='scale(1)'"
-        />
-        <div style="padding:10px;">
-          <h3 style="margin:0;">{article.title}</h3>
-          <p style="margin:5px 0 0; font-size:0.9rem; color:#555;">{article.date}</p>
-          <p style="margin:5px 0 0; font-size:0.9rem;">{article.description}</p>
-        </div>
-      </a>
-    ))}
-  </div>
--->
-  <!-- 🔸 ส่วนการบรรยาย lecture-->
-  <h2 style="margin-top:40px;">การบรรยายทางวิชาการระดับนานาชาติ </h2>
+  <!-- 🔸 ส่วนการบรรยาย -->
+  <h2 style="margin-top:40px;">การบรรยายทางวิชาการระดับนานาชาติ</h2>
+
   <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-top:20px;">
     {lecture.map(article => (
       <a href={`/seminar/${article.slug}`} target="_blank" rel="noopener noreferrer"
@@ -118,4 +113,35 @@ const lecture = [
       </a>
     ))}
   </div>
+
+  <!-- 🔸 ส่วนการอบรม / Training -->
+  <h2 style="margin-top:40px;">บริการวิชาการ/การอบรม </h2>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-top:20px;">
+    {training.map(article => (
+      <a href={`/seminar/${article.slug}`} target="_blank" rel="noopener noreferrer"
+         style="
+           display:flex; flex-direction:column;
+           text-decoration:none; color:inherit;
+           border:1px solid #ccc; border-radius:8px;
+           overflow:hidden; background:#fff;
+           transition: transform 0.3s, box-shadow 0.3s;
+         "
+         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
+         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 0 0 rgba(0,0,0,0)';"
+      >
+        <img src={article.image} alt={article.title}
+             style="width:100%; height:200px; object-fit:cover; transition: transform 0.3s;"
+             onmouseover="this.style.transform='scale(1.05)'"
+             onmouseout="this.style.transform='scale(1)'"
+        />
+        <div style="padding:10px;">
+          <h3 style="margin:0;">{article.title}</h3>
+          <p style="margin:5px 0 0; font-size:0.9rem; color:#555;">{article.date}</p>
+          <p style="margin:5px 0 0; font-size:0.9rem;">{article.description}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+
 </Layout>

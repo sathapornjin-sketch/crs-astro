@@ -9,9 +9,13 @@ import Title1 from '@/components/sections/Title1.astro';
 import Title2 from '@/components/sections/Title2.astro';
 import Layout from '@/layouts/Layout.astro';
 import FacebookPage from '@/components/plugins/FacebookPage.astro';
+import Information from '@/components/sections/Information.astro';
+import Congratulation from '@/components/sections/Congratulation.astro';
 import Activities from '@/components/sections/Activities.astro';
-import Calendar from '@/components/sections/Calendar.astro';
-//import Popup from '@/components/sections/Popup.astro';
+import Seminar from '@/components/sections/Seminar.astro';
+//import Calendar from '@/components/sections/Calendar.astro';
+
+import Popup from '@/components/sections/Popup.astro';
 // const res = await fetch('https://seedx.seeddemo.com/wp-json/wp/v2/posts?per_page=3&_embed');
 // const posts = await res.json();
 
@@ -29,8 +33,11 @@ const metadata = {
 	bodyclass="bg-white dark:bg-th-bg-2-dark"
 >
 	<Banner />
-<!--<Popup />-->
+    <Popup />
+	<Information />
+	<Congratulation />
 	<Activities />
+	<Seminar />
 		
 	
 
@@ -39,20 +46,20 @@ const metadata = {
 		classes="md:grid-cols-3 mb-20"
 		items={[
 			{
-				icon: 'icon-1',
+				icon: 'history',
 				title: 'ประวัติความเป็นมา',
 				description: 'เป็นวิทยาลัยศาสนศึกษาแห่งแรกของประเทศไทย และเป็นหน่วยงานในมหาวิทยาลัยมหิดล',
 				link: '/about/history',
 			},
 			{
-				icon: 'icon-2',
+				icon: 'mission',
 				title: 'Mission / Vision',
 				description:
-					'เป็นสถาบันชั้นนำในภูมิภาคอาเซียนและระดับนานาชาติ ในด้านการศึกษา วิจัย และให้บริการแก่สังคม ด้านศาสนศึกษา',
+					'เป็นสถาบันชั้นนำระดับนานาชาติด้านศาสนศึกษา ที่บูรณาการศาสนา จริยธรรม และความรู้สมัยใหม่ เพื่อขับเคลื่อนสังคมสู่ความยั่งยืนในโลกแห่งการเปลี่ยนแปลงบนรากฐานแห่งคุณธรรม',
 				link: '/about/vision',
 			},
 			{
-				icon: 'icon-3',
+				icon: 'dorm',
 				title: 'มูลนิธิน้ำทองฯ / หอพักน้ำทองฯ',
 				description: 'หอพักน้ำทองสิกขาลัย วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล',
 				link: 'https://www.facebook.com/CRSNamthong',

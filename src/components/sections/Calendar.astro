@@ -1,12 +1,68 @@
----
-const id = "c_a74b2a5df693cfc7e8a7ae9ee47cc6dbf6633c8a5e0bf7c9d6b18882e1849156@group.calendar.google.com";
----
+<section id="congratulation" class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-blue-800 mb-10 text-center">ข่าวประชาสัมพันธ์</h2>
 
-<iframe
-  src={`https://calendar.google.com/calendar/embed?src=${id}&ctz=Asia%2FBangkok`}
-  style="border:0"
-  width="400"
-  height="300"
-  frameborder="0"
-  scrolling="no"
-/>
+    <!-- รายการข่าว -->
+    <div id="congratulation-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
+
+    <!-- แถบ Pagination -->
+    <div class="flex justify-center mt-10 space-x-2" id="congratulation-pagination"></div>
+  </div>
+</section>
+
+<script>
+const information = [
+  {
+    title: "การบรรยายในหัวข้อ Empress Wu Zetian and Her Faith in the Maitreya Bodhisattva ในวันพุธที่ 19 พฤศจิกายน 2568 เวลา 14.00 น.",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid02RFxk4Mfavty9D4rAmXB9uengMF46gMkWf7dkohTNfsNHK4FZJp5FTnFdcNuaQmUfl",
+    image: "img/information/nov2025/EmpressWuZetian.jpg"
+  },
+  {
+    title: "ขอแสดงความยินดีกับ <br>ดร. พิบูลย์ ชมพลไพศาล ในโอกาสตีพิมพ์บทความทางวิชาการเรื่อง Phra Lakkhaṇa Dhamma",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0f2Q1n3nwqBDs8QKM6TJVJjQ6pFvWSg6ry7UPvEoXDeZvEEdTzM3LgAw7FCwSSnHal",
+    image: "img/information/nov2025/congra_phibul.jpg"
+  },
+  {
+    title: "ขอแสดงความยินดีแด่อาจารย์ประจำวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดลในโอกาสที่มีบทความตีพิมพ์ในหนังสือ The Oxford Handbook of Lived Buddhism (Oxford University Press, 2025)",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid02kfhY1TUSZXgCHVaEafU76KDj1wsMMPG6vLvvm4CQfbVVnvXJz7Be2GTPszcf4BYsl",
+    image: "img/information/nov2025/congra_rachelle_sanjoy.jpg"
+  }  
+];
+
+let itemsPerPage = 3;
+let currentPage = 1;
+
+function renderInformation(page) {
+  const start = (page-1)*itemsPerPage;
+  const container = document.getElementById("congratulation-container");
+  container.innerHTML = information.slice(start, start + itemsPerPage).map(item => `
+    <a href="${item.link}" target="_blank" class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+      <div class="relative w-full h-56">
+        <img src="${item.image}" class="absolute inset-0 w-full h-full object-cover"/>
+      </div>
+      <div class="p-4">
+        <h3 class="text-lg md:text-xl font-semibold text-blue-800 leading-snug mb-2">${item.title}</h3>
+        <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
+      </div>
+    </a>
+  `).join('');
+}
+
+function renderPagination() {
+  const totalPages = Math.ceil(information.length / itemsPerPage);
+  const pagination = document.getElementById("congratulation-pagination");
+  pagination.innerHTML = '';
+  for(let i=1;i<=totalPages;i++){
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.className = `px-4 py-2 rounded-lg ${i===currentPage?'bg-blue-700 text-white':'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
+    btn.onclick = () => { currentPage=i; renderInformation(currentPage); renderPagination(); };
+    pagination.appendChild(btn);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  renderInformation(currentPage);
+  renderPagination();
+});
+</script>

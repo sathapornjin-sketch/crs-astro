@@ -5,23 +5,53 @@ import Slogan from '@/components/sections/Slogan.astro';
 const title = 'นักศึกษา';
 const description = 'วิทยาลัยศาสนศึกษา';
 
+// ข่าวกิจกรรม
 const articles = [
-   {
+  {
     title: "รับปริญญาบัตร วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ประจำปีการศึกษา 2567",   
     description: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ขอแสดงความยินดีกับบัณฑิตศิลปศาสตรบัณฑิต สาขาศาสนศึกษารุ่นที่ 25",
     date: "10 ตุลาคม 2568",
     slug: "10oct2025",
     image: "/img/students/oct2025/10oct2025/10oct2025-1.jpg"
   },
+];
 
+// วิดีโอประชาสัมพันธ์
+const videos = [
+  {
+    title: "รับปริญญา ประจำปีการศึกษา 2567",
+    description: "",   
+    src: "https://drive.google.com/file/d/1v3UGy3bUGi6urOjm2x0E-j_wkVXo5uF6/preview"
+  },
+  {
+    title: "CRS Vibes",
+    description: "",   
+    src: "https://drive.google.com/file/d/1rNzLM2nMh8VpzOIyS2LGlsUZVl8HJXpt/preview"
+  },
+  {
+    title: "โครงการแนะนำรายวิชาโท",
+    description: "",   
+    src: "https://drive.google.com/file/d/1tq4Gj0AfKXJHGu3SfYy8r4bM3UhhH_38/preview"
+  },
+  {
+    title: "TCAS รอบ 1/1 ปี 2569 ตอนที่ 1",
+    description: "",
+    src: "https://drive.google.com/file/d/1TKHQGAUGqxa9wdLpwEDZkCNTeeHv3hJ7/preview"
+  },
+  {
+    title: "TCAS รอบ 1/1 ปี 2569 ตอนที่ 2",
+    description: "",    
+    src: "https://drive.google.com/file/d/1l3JB_nrZE8XdKb9t1_siRs1jYoykmgKP/preview"
+  },
+  
 ];
 ---
 
 <Layout title={title} description={description}>
   <Slogan title={title} description={description} />
 
+  <!-- ข่าวและกิจกรรม -->
   <h2>ข่าวและกิจกรรม</h2>
-
   <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-top:20px;">
     {articles.map(article => (
       <a href={`/students/${article.slug}`} target="_blank" rel="noopener noreferrer"
@@ -48,16 +78,33 @@ const articles = [
           <p style="margin:5px 0 0; font-size:0.9rem; color:#555;">{article.date}</p>
           <p style="margin:5px 0 0; font-size:0.9rem;">{article.description}</p>
         </div>
-        <div>
-
-         
-
-        </div>
-
-        
       </a>
     ))}
-    <!-- <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FCrsMahidol%2Fposts%2Fpfbid0krH3dqn46gwqWUZFNimUqtWFi8GtWb5pWWtb5Pym4A7dxSq2iqtn92KA3VPjpK4yl&show_text=true&width=500" width="500" height="668" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>-->
-    
   </div>
+
+  <!-- วิดีโอจาก Google Drive แยกเป็น section ด้านล่าง -->
+  <section style="margin-top:40px;">
+    <h2>คลิปวีดีโอประชาสัมพันธ์และกิจกรรมของนักศึกษา</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-top:20px;">
+      {videos.map(video => (
+        <div style="display:flex; flex-direction:column; border:1px solid #ccc; border-radius:8px; overflow:hidden; background:#fff;">
+          <iframe
+            src={video.src}
+            width="100%"
+            height="200"
+            allow="autoplay"
+            allowfullscreen
+            style="border:0;"
+          ></iframe>
+          <div style="padding:10px;">
+            <h3 style="margin:0; font-size:1rem;">{video.title}</h3>
+            <p style="margin:5px 0 0; font-size:0.85rem; color:#555;">{video.date}</p>
+            <p style="margin:5px 0 0; font-size:0.85rem;">{video.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
 </Layout>

@@ -1,0 +1,63 @@
+<section id="Information" class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-blue-800 mb-10 text-center">ข่าวประชาสัมพันธ์</h2>
+
+    <!-- รายการข่าว -->
+    <div id="information-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
+
+    <!-- แถบ Pagination -->
+    <div class="flex justify-center mt-10 space-x-2" id="information-pagination"></div>
+  </div>
+</section>
+
+<script>
+const information = [
+  {
+    title: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ประกาศ เปิดรับสมัครงาน ตำแหน่ง นักวิชาการศึกษา จำนวน 1 อัตรา",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid02BfaQCi5A4rQJV7VgjqdruqgXT9gMSo7uCDMWRPwdJfgSeckC8XcLvbv4sPSphqhMl",
+    image: "img/information/nov2025/hiring_education.jpg"
+  },
+  {
+    title: "การบรรยายในหัวข้อ Empress Wu Zetian and Her Faith in the Maitreya Bodhisattva ในวันพุธที่ 19 พฤศจิกายน 2568 เวลา 14.00 น.",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid02RFxk4Mfavty9D4rAmXB9uengMF46gMkWf7dkohTNfsNHK4FZJp5FTnFdcNuaQmUfl",
+    image: "img/information/nov2025/EmpressWuZetian.jpg"
+  },  
+];
+
+let itemsPerPage = 3;
+let currentPage = 1;
+
+function renderInformation(page) {
+  const start = (page-1)*itemsPerPage;
+  const container = document.getElementById("information-container");
+  container.innerHTML = information.slice(start, start + itemsPerPage).map(item => `
+    <a href="${item.link}" target="_blank" class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+      <div class="relative w-full h-56">
+        <img src="${item.image}" class="absolute inset-0 w-full h-full object-cover"/>
+      </div>
+      <div class="p-4">
+        <h3 class="text-lg md:text-xl font-semibold text-blue-800 leading-snug mb-2">${item.title}</h3>
+        <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
+      </div>
+    </a>
+  `).join('');
+}
+
+function renderPagination() {
+  const totalPages = Math.ceil(information.length / itemsPerPage);
+  const pagination = document.getElementById("information-pagination");
+  pagination.innerHTML = '';
+  for(let i=1;i<=totalPages;i++){
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.className = `px-4 py-2 rounded-lg ${i===currentPage?'bg-blue-700 text-white':'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
+    btn.onclick = () => { currentPage=i; renderInformation(currentPage); renderPagination(); };
+    pagination.appendChild(btn);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  renderInformation(currentPage);
+  renderPagination();
+});
+</script>

@@ -1,0 +1,91 @@
+<section id="congratulation" class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-blue-800 mb-10 text-center">ผลงานตีพิมพ์บทความและรางวัล</h2>
+
+    <!-- รายการข่าว -->
+    <div id="congratulation-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
+
+    <!-- แถบ Pagination -->
+    <div class="flex justify-center mt-10 space-x-2" id="congratulation-pagination"></div>
+  </div>
+</section>
+
+<script>
+const information = [
+  {
+    title: "ขอแสดงความยินดี กับ <br>Dr. John Naley Johnston ในโอกาสเผยแพร่บทความวิจัยร่วมเรื่อง “Making Merit, Making Waste: Environmental Sustainability of Buddhist Offerings in Contemporary Thailand”",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid06AMnLwiguk6WjicThxpN8raPTqKbF3ZEQvnH5NtLU6vz2sjNLaqrA2g2Zh5fmeyHl",
+    image: "img/information/nov2025/congra_john_20nov2025.jpg"
+  },
+  {
+    title: "ขอแสดงความยินดีกับ <br>ดร. พิบูลย์ ชมพลไพศาล ในโอกาสตีพิมพ์บทความทางวิชาการเรื่อง Phra Lakkhaṇa Dhamma",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0f2Q1n3nwqBDs8QKM6TJVJjQ6pFvWSg6ry7UPvEoXDeZvEEdTzM3LgAw7FCwSSnHal",
+    image: "img/information/nov2025/congra_phibul.jpg"
+  },
+  {
+    title: "ขอแสดงความยินดีแด่อาจารย์ประจำวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดลในโอกาสที่มีบทความตีพิมพ์ในหนังสือ The Oxford Handbook of Lived Buddhism (Oxford University Press, 2025)",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid02kfhY1TUSZXgCHVaEafU76KDj1wsMMPG6vLvvm4CQfbVVnvXJz7Be2GTPszcf4BYsl",
+    image: "img/information/nov2025/congra_rachelle_sanjoy.jpg"
+  },   
+  {
+    title: "ขอแสดงความยินดี แด่ผู้ช่วยศาสตราจารย์ ดร.สมบูรณ์ วัฒนะ และอาจารย์ ดร.กฤต พิริยรัชกุล ​ในโอกาสผ่านการประเมินระดับคุณภาพการจัดการเรียนการสอน ตามกรอบมาตรฐานวิชาชีพมหาวิทยาลัยมหิดล Mahidol University Professional Standards Framework (MUSPF) ระดับ 2 ",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0kzhk5whPXpB32AGFxMf3WSibqeicRZyWporbPkpBsyfQjxtTf5vDDMDKHRrRoibgl",
+    image: "img/information/nov2025/congra_krit_somboon.jpg",
+    contain: true  //
+  } 
+];
+
+let itemsPerPage = 3;
+let currentPage = 1;
+
+function renderInformation(page) {
+  const start = (page-1)*itemsPerPage;
+  const container = document.getElementById("congratulation-container");
+  container.innerHTML = information.slice(start, start + itemsPerPage).map((item, index) => {
+    
+    // กำหนด style สำหรับรูปแต่ละ item
+    let divClasses = "relative w-full h-56 flex items-center justify-center bg-gray-100";
+let imgClasses = "max-h-full max-w-full object-contain";
+
+
+    if(index === 2){ 
+      
+      divClasses += " justify-start"; 
+      imgClasses = "max-h-full max-w-full object-contain"; // 
+    } else {
+      imgClasses += " object-cover"; 
+    }
+
+    return `
+      <a href="${item.link}" target="_blank" class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+        <div class="${divClasses}">
+          <img src="${item.image}" class="${imgClasses}"/>
+        </div>
+        <div class="p-4">
+          <h3 class="text-lg md:text-xl font-semibold text-blue-800 leading-snug mb-2">${item.title}</h3>
+          <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
+        </div>
+      </a>
+    `;
+  }).join('');
+}
+
+
+function renderPagination() {
+  const totalPages = Math.ceil(information.length / itemsPerPage);
+  const pagination = document.getElementById("congratulation-pagination");
+  pagination.innerHTML = '';
+  for(let i=1;i<=totalPages;i++){
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.className = `px-4 py-2 rounded-lg ${i===currentPage?'bg-blue-700 text-white':'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
+    btn.onclick = () => { currentPage=i; renderInformation(currentPage); renderPagination(); };
+    pagination.appendChild(btn);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  renderInformation(currentPage);
+  renderPagination();
+});
+</script>
