@@ -13,7 +13,16 @@
 		// { id: 'slide1', src: '/img/banner/bn1.png', alt: 'Updating Website' },
 		//{
 			//id: 'slide0',src: '/img/banner/siri.png',alt: 'siri',			
-		//},	
+		//},
+		{
+			id: 'slide',
+			src: '/img/banner/tcas1-2-2569banner.png',
+			alt: 'tcas1-2-2569banner',
+			link: {
+				url: 'https://crs.mahidol.ac.th/education/tcas',
+				isExternal: true,
+			},
+		},	
 		{
 			id: 'slide1',
 			src: '/img/banner/1บุคลากรมหิดล-กลไก.jpg',

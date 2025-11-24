@@ -10,8 +10,13 @@
   </div>
 </section>
 
-<script>
+<script>  
 const information = [
+  {
+    title: "ขอเชิญลงทะเบียนเข้าร่วมกิจกรรมทัศนศึกษาโครงการ “ตามรอยคัมภีร์ กรุงศรีอยุธยา” ศึกษาเรียนรู้เรื่องประวัติศาสตร์กรุงศรีอยุธยาและคัมภีร์ใบลานทัศนศึกษา “ตามรอยคัมภีร์ กรุงศรีอยุธยา” ณ จังหวัดพระนครศรีอยุธยา วันเสาร์ที่ 20 ธันวาคม พ.ศ. 2568",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0VpuwB1nc1vf9XJaFHKfpBb1h6tyWT7YVUKU81QfqFb1NQehF8YmeMV38mEeL1zkQl",
+    image: "img/activities/nov2025/new_Ayutthaya.jpg"
+  },
   {
     title: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ประกาศ เปิดรับสมัครงาน ตำแหน่ง นักวิชาการศึกษา จำนวน 1 อัตรา",
     link: "https://www.facebook.com/CrsMahidol/posts/pfbid02BfaQCi5A4rQJV7VgjqdruqgXT9gMSo7uCDMWRPwdJfgSeckC8XcLvbv4sPSphqhMl",
@@ -28,13 +33,18 @@ let itemsPerPage = 3;
 let currentPage = 1;
 
 function renderInformation(page) {
-  const start = (page-1)*itemsPerPage;
+  const start = (page - 1) * itemsPerPage;
   const container = document.getElementById("information-container");
+
   container.innerHTML = information.slice(start, start + itemsPerPage).map(item => `
-    <a href="${item.link}" target="_blank" class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
-      <div class="relative w-full h-56">
-        <img src="${item.image}" class="absolute inset-0 w-full h-full object-cover"/>
+    <a href="${item.link}" target="_blank"
+       class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+
+      <!-- 🔥 กรอบเดิม h-56 และย่อภาพให้พอดีเต็มกรอบ -->
+      <div class="relative w-full h-56 flex items-center justify-center bg-white overflow-hidden">
+        <img src="${item.image}" class="max-w-full max-h-full object-contain"/>
       </div>
+
       <div class="p-4">
         <h3 class="text-lg md:text-xl font-semibold text-blue-800 leading-snug mb-2">${item.title}</h3>
         <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
@@ -47,16 +57,17 @@ function renderPagination() {
   const totalPages = Math.ceil(information.length / itemsPerPage);
   const pagination = document.getElementById("information-pagination");
   pagination.innerHTML = '';
-  for(let i=1;i<=totalPages;i++){
+
+  for (let i = 1; i <= totalPages; i++) {
     const btn = document.createElement("button");
     btn.textContent = i;
-    btn.className = `px-4 py-2 rounded-lg ${i===currentPage?'bg-blue-700 text-white':'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
-    btn.onclick = () => { currentPage=i; renderInformation(currentPage); renderPagination(); };
+    btn.className = `px-4 py-2 rounded-lg ${i === currentPage ? 'bg-blue-700 text-white' : 'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
+    btn.onclick = () => { currentPage = i; renderInformation(currentPage); renderPagination(); };
     pagination.appendChild(btn);
   }
 }
 
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
   renderInformation(currentPage);
   renderPagination();
 });

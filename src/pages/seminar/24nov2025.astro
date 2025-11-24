@@ -1,0 +1,105 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล เผยแพร่ความรู้สู่สากล และสร้างความร่วมมือระดับนานาชาติ ณ ประเทศสโลวักเกียและสาธารณรัฐเช็ก";
+const date = "24 พฤศจิกายน 2568";
+const description = "";
+const gallery = [
+  "/img/seminar/nov2025/24nov2025/24nov2025-1.jpg",
+  "/img/seminar/nov2025/24nov2025/24nov2025-2.jpg",
+  "/img/seminar/nov2025/24nov2025/24nov2025-3.jpg",
+  "/img/seminar/nov2025/24nov2025/24nov2025-4.jpg",
+  "/img/seminar/nov2025/24nov2025/24nov2025-5.jpg",
+  ];
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>
+    <p>
+วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล เผยแพร่ความรู้สู่สากล และสร้างความร่วมมือระดับนานาชาติ เมื่อเดือนพฤศจิกายนที่ผ่านมา Assoc. Prof. Dr. Milos Hubina รองคณบดีฝ่ายวิจัยและวิเทศสัมพันธ์ วิทยาลัยศาสนศึกษา ได้เดินทางไปปฏิบัติภารกิจทางวิชาการ ณ ประเทศสโลวักเกียและสาธารณรัฐเช็ก ภารกิจสำคัญประกอบด้วย
+• บรรยายวิชาการ ณ University of Pardubice
+• แลกเปลี่ยนองค์ความรู้ด้านศาสนา ณ Comenius University
+• เยี่ยมชมและหารือความร่วมมือกับ DEKK Institute
+ศูนย์วิจัยชั้นนำด้าน Social Cohesion เพื่อผลักดันความร่วมมือด้านการวิจัยกับวิทยาลัย ภายใต้แพลตฟอร์ม
+Applied Study of Religion
+กิจกรรมครั้งนี้สะท้อนบทบาทของวิทยาลัยศาสนศึกษาในการสร้างเครือข่ายวิชาการระดับนานาชาติ และขยายองค์ความรู้ด้านศาสนาในบริบทสังคมร่วมสมัย
+DEKK Institute: https://www.dekk.institute/
+CRS-MU ขอขอบคุณ Assoc. Prof. Dr. Milos Hubina ที่เป็นตัวแทนวิทยาลัยในการสร้างสานความร่วมมือด้านวิชาการระดับสากล และหวังว่าจะมีผลลัพธ์ที่เป็นรูปธรรมในอนาคตอันใกล้นี้ 
+#CRSMahidol #MahidolUniversity #ReligiousStudies #AcademicCollaboration #GlobalNetwork #AppliedStudyOfReligion
+<br><br>
+CRS-MU Expanding Global Academic Collaboration in Europe
+In November this year,
+Assoc. Prof. Dr. Milos Hubinan, Deputy Dean for Research and International Relations of the College of Religious Studies, Mahidol University, visited Slovakia and the Czech Republic for an academic mission.
+Key activities included
+• Providing an academic lecture at University of Pardubice
+• An academic knowledge exchange at Comenius University
+• A courtesy visit to the DEKK Institute,
+a leading research center on Social Cohesion,
+to discuss potential joint research projects with CRS under the Applied Study of Religion platform
+This visit underscores CRS-MU’s commitment to strengthening international partnerships and fostering global engagement in the study of religion and society.
+DEKK Institute: https://www.dekk.institute/
+We sincerely thank Assoc. Prof. Dr. Milos Hubina for representing CRS-MU and paving the way for future international collaborations. We look forward to further meaningful academic initiatives together. 
+#CRSMahidol #MahidolUniversity #ReligiousStudies #InternationalPartnership #GlobalAcademicNetwork #AppliedStudyOfReligion
+    </p>
+
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img 
+  id="lb-img" 
+  src="" 
+  style="
+    max-width:80%;
+    max-height:80vh;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(0,0,0,0.6);
+    object-fit:contain;
+    background:#000;
+  " 
+/>
+
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>
