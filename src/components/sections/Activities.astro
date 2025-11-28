@@ -13,6 +13,29 @@
 <script>
   const activities = [ 
     {
+    title: "วิทยาลัยศาสนศึกษา ส่งน้ำใจช่วยเหลือผู้ประสบภัยน้ำท่วมภาคใต้",   
+    description: "ในวันที่ 28 พฤศจิกายน 2568 Assoc. Prof. Dr. Milos Hubina รองคณบดีฝ่ายวิจัยและวิเทศสัมพันธ์ พร้อมด้วยบุคลากรและนักศึกษาของวิทยาลัยฯ ได้บริจาคเงินจำนวน 5,400 บาท ผ่านมูลนิธิมหาวิทยาลัยมหิดลในพระราชูปถัมภ์",
+    date: "28 พฤศจิกายน 2568",
+    slug: "28nov2025-2",
+    image: "/img/activities/nov2025/28nov2025/infor_southflood28nov2025.jpg"
+    },
+    {
+    title: "พิธีทำบุญเดือนเกิด ประจำเดือนพฤศจิกายน 2568",
+    description: "",
+    date: "28 พฤศจิกายน 2568",
+    slug: "28nov2025",
+    image: "/img/birth/nov2025/28nov2025birth-1.jpg",
+    isBirth: true, 
+    link: "birth/28nov2025" // ลิงก์เฉพาะ
+  },
+    {
+    title: "วิทยาลัยศาสนศึกษา ร่วมฉลอง 50 ปี ความสัมพันธ์ไทย-จีน และ 10 ปี โครงการจัดการเรียนการสอนภาษาและวัฒนธรรมไทยสำหรับนักศึกษาจีน",   
+    description: "อาจารย์ ดร.จิราธร ชาติศิริ รักษาการแทนรองคณบดีฝ่ายการศึกษาและกิจการนักศึกษา วิทยาลัยศาสนศึกษา ได้เข้าร่วมงาน 50 ปี ความสัมพันธ์ไทย-จีน และ 10 ปี โครงการจัดการเรียนการสอนภาษาและวัฒนธรรมไทยสำหรับนักศึกษาจีน",
+    date: "27 พฤศจิกายน 2568",
+    slug: "27nov2025",
+    image: "/img/activities/nov2025/27nov2025/27nov2025-2.jpg"
+    },
+    {
       title: "ดร. พิบูลย์ ชุมพลไพศาล อาจารย์ประจำวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ร่วมบรรยายในโครงการ Expatriate Orientation Program ครั้งที่ 7 (EOP7) ในหัวข้อ “Buddhist Mindset and the Thai Way of Life",
       description: "",
       date: "19 พฤศจิกายน 2568",
@@ -99,19 +122,21 @@
     const paginated = activities.slice(start,end);
 
     const container = document.getElementById("activities-container");
-    container.innerHTML = paginated.map(act=>`
-      <a href="/activities/${act.slug}/" target="_blank"
-         class="group block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-        <img src="${act.image}" alt="${act.title}" 
-             class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" />
-        <div class="p-6">
-          <p class="text-sm text-gray-500 mb-2">${act.date}</p>
-          <!-- ❌ ไม่มี line-clamp / ไม่ตัดคำ -->
-          <h3 class="text-lg font-semibold text-blue-800 mb-2 leading-snug whitespace-normal">${act.title}</h3>
-          <span class="inline-block text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
-        </div>
-      </a>
-    `).join('');
+    container.innerHTML = paginated.map(act => {
+  const href = act.isBirth ? act.link : `/activities/${act.slug}/`;
+  return `
+    <a href="${href}" target="_blank"
+       class="group block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+      <img src="${act.image}" alt="${act.title}" 
+           class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" />
+      <div class="p-6">
+        <p class="text-sm text-gray-500 mb-2">${act.date}</p>
+        <h3 class="text-lg font-semibold text-blue-800 mb-2 leading-snug whitespace-normal">${act.title}</h3>
+        <span class="inline-block text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
+      </div>
+    </a>
+  `;
+}).join('');
   }
 
   function renderPagination() {
