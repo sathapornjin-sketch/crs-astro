@@ -5,7 +5,14 @@ import Slogan from '@/components/sections/Slogan.astro';
 const title = 'ข่าวและกิจกรรม';
 const description = 'วิทยาลัยศาสนศึกษา';
 
-const articles = [ 
+const articles = [
+  {
+    title: "พิธีทำบุญตักบาตรบำเพ็ญกุศลถวายเป็นพระราชกุศล เนื่องในวันคล้ายวันพระราชสมภพพระบาทสมเด็จพระบรมชนกาธิเบศร มหาภูมิพลอดุลยเดชมหาราช บรมนาถบพิตร วันชาติ และวันพ่อแห่งชาติ",   
+    description: "",
+    date: "1 ธันวาคม 2568",
+    slug: "dec2025/1dec2025",
+    image: "/img/activities/dec2025/1dec2025/1dec2025-cover.jpg"
+  }, 
   {
     title: "วิทยาลัยศาสนศึกษา ร่วมฉลอง 50 ปี ความสัมพันธ์ไทย-จีน และ 10 ปี โครงการจัดการเรียนการสอนภาษาและวัฒนธรรมไทยสำหรับนักศึกษาจีน",   
     description: "อาจารย์ ดร.จิราธร ชาติศิริ รักษาการแทนรองคณบดีฝ่ายการศึกษาและกิจการนักศึกษา วิทยาลัยศาสนศึกษา ได้เข้าร่วมงาน 50 ปี ความสัมพันธ์ไทย-จีน และ 10 ปี โครงการจัดการเรียนการสอนภาษาและวัฒนธรรมไทยสำหรับนักศึกษาจีน",
@@ -114,7 +121,7 @@ const articles = [
 
         
         <div style="padding:10px;">
-          <h3 style="margin:0;">{article.title}</h3>
+          <h4 style="margin:0;">{article.title}</h4>
           <p style="margin:5px 0 0; font-size:0.9rem; color:#555;">{article.date}</p>
           <p style="margin:5px 0 0; font-size:0.9rem;">{article.description}</p>
         </div>
