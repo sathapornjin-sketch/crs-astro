@@ -26,6 +26,10 @@ export const nav: NavItem[] = [
 				link: '/about/organization',
 			},
 			{
+				name: 'นำเนียบคณบดี',
+				link: '/about/dean_list',
+			},
+			{
 				name: 'คณะผู้บริหาร',
 				link: '/about/executives',
 			},

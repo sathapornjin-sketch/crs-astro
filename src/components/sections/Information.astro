@@ -11,7 +11,13 @@
 </section>
 
 <script>  
-const information = [ 
+const information = [
+  {
+    title: "เปิดรับสมัครแล้ว TCAS รอบ 1/2 – Portfolio วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล จำนวนรับ 64 ที่นั่ง (รวม 3 โครงการ)",
+    type: "video", 
+    src: "https://drive.google.com/file/d/1szHl9hy7vBTja9Bxi3OXAiDuR1M0LS-0/preview",
+    link: "https://crs.mahidol.ac.th/education/tcas/"
+  },
   {
     title: "ขอเชิญทุกท่านร่วมถวายทุนภัตตาหารเพลและทุนการศึกษาแด่พระนักศึกษาของวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล",
     link: "https://www.facebook.com/CrsMahidol/posts/pfbid02fZdyd2G92LV5i35TXpctMjkDFjEvt5KEuLNmo38HBZzdFMN8szb41tUd1qhu2TDXl",
@@ -46,21 +52,45 @@ function renderInformation(page) {
   const start = (page - 1) * itemsPerPage;
   const container = document.getElementById("information-container");
 
-  container.innerHTML = information.slice(start, start + itemsPerPage).map(item => `
-    <a href="${item.link}" target="_blank"
-       class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+  container.innerHTML = information.slice(start, start + itemsPerPage).map(item => {
 
-      <!-- 🔥 กรอบเดิม h-56 และย่อภาพให้พอดีเต็มกรอบ -->
-      <div class="relative w-full h-56 flex items-center justify-center bg-white overflow-hidden">
-        <img src="${item.image}" class="max-w-full max-h-full object-contain"/>
-      </div>
+    if (item.type === "video" && item.src) {
+      return `
+        <div class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+          <div class="relative w-full h-56 bg-black overflow-hidden">
+            <iframe
+              src="${item.src}"
+              class="w-full h-full"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>
+          </div>
 
-      <div class="p-4">
-        <h3 class="text-lg md:text-xl font-semibold text-blue-800 leading-snug mb-2">${item.title}</h3>
-        <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
-      </div>
-    </a>
-  `).join('');
+          <div class="p-4">
+            <h3 class="text-lg md:text-xl font-semibold text-blue-800 leading-snug mb-2">
+              ${item.title}
+            </h3>
+            ${item.link ? `<a href="${item.link}" target="_blank" class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</a>` : ""}
+          </div>
+        </div>
+      `;
+    }
+
+    // ข่าวแบบภาพ
+    return `
+      <a href="${item.link}" target="_blank"
+         class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+        <div class="relative w-full h-56 flex items-center justify-center bg-white overflow-hidden">
+          <img src="${item.image || ''}" class="max-w-full max-h-full object-contain"/>
+        </div>
+
+        <div class="p-4">
+          <h3 class="text-lg md:text-xl font-semibold text-blue-800 leading-snug mb-2">${item.title}</h3>
+          <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
+        </div>
+      </a>
+    `;
+  }).join('');
 }
 
 function renderPagination() {
