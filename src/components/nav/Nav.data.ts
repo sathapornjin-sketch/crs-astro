@@ -26,7 +26,7 @@ export const nav: NavItem[] = [
 				link: '/about/organization',
 			},
 			{
-				name: 'นำเนียบคณบดี',
+				name: 'ทำเนียบคณบดี',
 				link: '/about/dean_list',
 			},
 			{

@@ -1,0 +1,60 @@
+---
+import Layout from '@/layouts/Layout_Sidebar.astro';
+import Side from '@/components/about/Side.astro';
+
+const directors = [
+  { name: "อาจารย์อาวุโส1", term: "", img: "/img/human.png" },
+  { name: "อาจารย์อาวุโส2", term: "", img: "/img/human.png" },
+  { name: "อาจารย์อาวุโส3", term: "", img: "/img/human.png" },
+];
+
+const title = "อาจารย์อาวุโส วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล";
+const description = "";
+---
+
+<Layout title={title} description={description}>
+  <aside slot="aside" class="order-2 md:order-1">
+    <Side />
+  </aside>
+
+ <article style="max-width:1200px; margin:40px auto; padding:0 20px;">
+    <h1 style="text-align:center; margin-bottom:20px; font-size:2rem; color:#004080;">{title}</h1>
+
+    <div style="
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap:40px;
+      justify-items:center;
+      width:100%;
+    ">
+      {directors.map(d => (
+        <div style="
+          width:100%;
+          max-width:300px;
+          text-align:center;
+          border:1px solid #ddd;
+          border-radius:10px;
+          box-shadow:0 4px 12px rgba(0,0,0,0.1);
+          overflow:hidden;
+          transition: transform 0.2s, box-shadow 0.2s;
+        ">
+          
+          <div style="width:100%; padding-top:100%; position:relative; background:#ffffff;">
+            <img src={d.img} alt={d.name} style="
+              position:absolute;
+              top:0;
+              left:0;
+              width:100%;
+              height:100%;
+              object-fit:contain;
+            " />
+          </div>
+
+          <h3 style="margin:10px 0 5px; font-size:1.1rem; color:#003366;" set:html={d.name}></h3>
+          <p style="font-size:0.9rem; color:#555; margin-bottom:10px;" set:html={d.term}></p>
+        </div>
+      ))}
+    </div>
+</article>
+
+</Layout>
