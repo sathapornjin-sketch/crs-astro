@@ -15,15 +15,6 @@
 			//id: 'slide0',src: '/img/banner/siri.png',alt: 'siri',			
 		//},
 		{
-			id: 'slide',
-			src: '/img/banner/dec2025/5dec_banner.png',
-			alt: '',
-			link: {
-				url: '',
-				isExternal: true,
-			},
-		},	
-		{
 			id: 'slide0',
 			src: '/img/banner/TCAS1-2_2569banner.jpg',
 			alt: 'TCAS1-2_2569banner',
