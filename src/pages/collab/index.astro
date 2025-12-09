@@ -1,0 +1,45 @@
+---
+import Slogan from '@/components/sections/Slogan.astro';
+import Collapse from '@/components/ui/Collapse.astro';
+import Layout from '@/layouts/Layout.astro';
+import fs from 'fs/promises';
+import Papa from 'papaparse';
+
+const title = 'เครือข่ายความร่วมมือ';
+const description = '';
+---
+
+<Layout title={title} description={description}>
+  <Slogan title={title} description={description} />
+
+  <section class="mb-16 text-center text-lg">
+    เครือข่ายความร่วมมือทางวิชาการของวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล
+  </section>
+
+  <!-- กล่องรวมข้อมูลแบบการ์ด -->
+  <section class="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 md:grid-cols-2 lg:grid-cols-3">
+    <div class="rounded-2xl bg-white p-6 shadow-md transition hover:shadow-lg">
+      <h3 class="mb-3 text-xl font-semibold">ความร่วมมือภายในประเทศ</h3>
+      <p class="text-gray-600">รายชื่อสถาบัน องค์กร และภาคีต่าง ๆ ที่ร่วมมือกับวิทยาลัยภายในประเทศไทย</p>
+    </div>
+
+    <div class="rounded-2xl bg-white p-6 shadow-md transition hover:shadow-lg">
+      <h3 class="mb-3 text-xl font-semibold">ความร่วมมือต่างประเทศ</h3>
+      <p class="text-gray-600">ข้อมูลการทำงานร่วมกับสถาบันต่างประเทศ โครงการแลกเปลี่ยน และกิจกรรมร่วม</p>
+    </div>
+
+    <div class="rounded-2xl bg-white p-6 shadow-md transition hover:shadow-lg">
+      <h3 class="mb-3 text-xl font-semibold">โครงการร่วม (Projects)</h3>
+      <p class="text-gray-600">งานวิจัย กิจกรรม และโครงการที่ดำเนินร่วมกับหน่วยงานภายนอก</p>
+    </div>
+  </section>
+
+   <section class="mx-auto mt-16 max-w-4xl px-6">
+    <Collapse title="ข้อมูล">
+      <div class="space-y-4 text-gray-700">
+        <p>รายละเอียด</p>
+        
+      </div>
+    </Collapse>
+  </section>
+</Layout>

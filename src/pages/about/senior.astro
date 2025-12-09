@@ -3,9 +3,10 @@ import Layout from '@/layouts/Layout_Sidebar.astro';
 import Side from '@/components/about/Side.astro';
 
 const directors = [
-  { name: "อาจารย์อาวุโส1", term: "", img: "/img/human.png" },
-  { name: "อาจารย์อาวุโส2", term: "", img: "/img/human.png" },
-  { name: "อาจารย์อาวุโส3", term: "", img: "/img/human.png" },
+  { name: "ศาสตราจารย์เกียรติคุณ <br> คุณหญิงสุริยา รัตนกุล", term: "", img: "/img/personnel/senior/1.suriya.png", cv: "https://drive.google.com/file/d/1wkjfosbrkZ-l9Fc-ooPmbMe9EQzedHlN/view?usp=drive_link" },
+  { name: "ผู้ช่วยศาสตราจารย์ <br>ฐานิสร์ ชาครัตพงศ์", term: "", img: "/img/personnel/senior/2.thanit.png", cv: "https://drive.google.com/file/d/1PlUjtT-5vL-iVwtRlN81MjZIlATzMq9i/view?usp=drive_link" },
+  { name: "รองศาสตราจารย์ <br>ดร.พินิจ รัตนกุล", term: "", img: "/img/personnel/dean_list/1Pinit_Ratanakul_nobg.jpg", cv: "https://drive.google.com/file/d/1EKCU7oLUmKL9L3i78ykyEMhJ3zDX0bFv/view?usp=drive_link" },
+  { name: "รองศาสตราจารย์ <br>ดร.วาทินีบุญชะลักษี", term: "", img: "/img/personnel/dean_list/4wathinee_nobg.jpg", cv: "https://drive.google.com/file/d/1MOMj8MCcZEbnfWWUEV_sA3fuaXXSKibQ/view?usp=drive_link" },
 ];
 
 const title = "อาจารย์อาวุโส วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล";
@@ -17,7 +18,7 @@ const description = "";
     <Side />
   </aside>
 
- <article style="max-width:1200px; margin:40px auto; padding:0 20px;">
+  <article style="max-width:1200px; margin:40px auto; padding:0 20px;">
     <h1 style="text-align:center; margin-bottom:20px; font-size:2rem; color:#004080;">{title}</h1>
 
     <div style="
@@ -38,7 +39,6 @@ const description = "";
           overflow:hidden;
           transition: transform 0.2s, box-shadow 0.2s;
         ">
-          
           <div style="width:100%; padding-top:100%; position:relative; background:#ffffff;">
             <img src={d.img} alt={d.name} style="
               position:absolute;
@@ -52,9 +52,17 @@ const description = "";
 
           <h3 style="margin:10px 0 5px; font-size:1.1rem; color:#003366;" set:html={d.name}></h3>
           <p style="font-size:0.9rem; color:#555; margin-bottom:10px;" set:html={d.term}></p>
+
+          <!-- ลิงก์ CV -->
+          <a href={d.cv} target="_blank" style="
+            display:inline-block;
+            margin-bottom:15px;
+            font-size:0.9rem;
+            color:#0066cc;
+            text-decoration:;
+          ">CV</a>
         </div>
       ))}
     </div>
-</article>
-
+  </article>
 </Layout>

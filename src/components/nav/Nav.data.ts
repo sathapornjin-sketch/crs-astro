@@ -26,6 +26,14 @@ export const nav: NavItem[] = [
 				link: '/about/organization',
 			},
 			{
+				name: 'อาจารย์อาวุโส',
+				link: '/about/senior',
+			},
+			{
+				name: 'In Memory',
+				link: '/about/inmemory',
+			},
+			{
 				name: 'ทำเนียบคณบดี',
 				link: '/about/dean_list',
 			},
