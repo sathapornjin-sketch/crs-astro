@@ -2,106 +2,162 @@
   <div class="max-w-6xl mx-auto px-6">
     <h2 class="text-3xl font-bold text-black mb-10 text-center">ผลงานตีพิมพ์บทความและรางวัล</h2>
 
-    <!-- รายการข่าว -->
-    <div id="congratulation-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
+    <!-- รายการ -->
+    <div id="congrats-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
 
-    <!-- แถบ Pagination -->
-    <div class="flex justify-center mt-10 space-x-2" id="congratulation-pagination"></div>
+    <!-- Pagination -->
+    <div class="flex justify-center mt-10 space-x-2" id="congrats-pagination"></div>
   </div>
 </section>
 
 <script>
-const information = [
+/* --------------------------------
+   ข้อมูล (คงครบทุกอัน ไม่ตัด)
+---------------------------------- */
+const congratulations = [
   {
-    title: "ขอแสดงความยินดีกับ อาจารย์ ดร.กฤต  พิริยธัชกุล ได้รับการตีพิมพ์บทความวิจัยในวารสารระดับนานาชาติ Higher Education Studies เรื่อง New Religious Studies: Innovations in Higher Education Learning Management for the 21st Century, Learning from Foreign Religious Studies Methods",
-    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0224PsqQD2KE8qXQfGbV2T7J9ZWz39qXQdATM4oY42pk7HVLP5tr9V2otCj2AbiuLhl",
+    title: "ขอแสดงความยินดี แด่อาจารย์ ดร .บุญมี พวงเพชร ในโอกาสผ่านการประเมินระดับคุณภาพการจัดการเรียนการสอนตามกรอบมาตรฐานวิชาชีพมหาวิทยาลัยมหิดล Mahidol University Professional Standards Framework (MUSPF) ระดับ 2 ",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid02WyYGnbMBMvoP7eiSeS57wDkxdU8Vzy4cA98gb55ZZQAWos8cJVgriQNdUNeVskx6l",
+    date: "11 ธันวาคม 2568",
+    image: "img/congra/dec2025/congra_boonmee_mupsf2_11dec2025.jpg"
+  },
+  {
+    title: "ขอแสดงความยินดีกับ อาจารย์ ดร.กฤต พิริยธัชกุล ได้รับการตีพิมพ์บทความวิจัยในวารสารระดับนานาชาติ Higher Education Studies เรื่อง New Religious Studies: Innovations in Higher Education Learning Management for the 21st Century, Learning from Foreign Religious Studies Methods",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid035hB6Q9d6iM1gzpuza1XsQWt1jwfaBeJdHuTL8hqX4hbiz3U6EaaQnqmPUP1wy6tPl",
+    date: "2 ธันวาคม 2568",
     image: "img/information/dec2025/congra_krit_2dec2025.jpg"
   },
   {
     title: "ขอแสดงความยินดีกับ อาจารย์พิบูลย์ ชุมพลไพศาล ได้รับการตีพิมพ์ผลงานบทความวิจัยในวารสารนานาชาติชั้นนำ Cogent Arts & Humanities (Taylor & Francis) เรื่อง “King Phrom’s sacred biography through time: reshaping Yonok–Lanna political Buddhist identity in Siam and Lao”",
-    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0niK7eRNGMVfw8exeDEaXc4TudB6tfpMqkm5FjhMHSgseQy3nHWMjVY1zgkgYz4dMl",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0nKVcjMan5WnCXu4jpRzvGmk9m5NtUaYBCcTVGZgtexpmwswRAKbE4zoA4HhMpFuRl",
+    date: "1 ธันวาคม 2568",
     image: "img/information/dec2025/congra_pibul_1dec2025.jpg"
   },
-
   {
-    title: "ขอแสดงความยินดีกับ Dr. Eng Jin Ooi อดีตอาจารย์ประจำ College of Religious Studies, Mahidol University ได้รับการตีพิมพ์ในวารสารระดับนานาชาติ Q1 (Scopus-indexed)โดย Cambridge University Press",
-    link: "https://www.facebook.com/CrsMahidol/posts/pfbid02go4V76aYW2cxmcp7Z1JpjX2vrVcudK9RBt1x5fqkuQUtezaRnpfaLfECxgZfoEJvl",
+    title: "ขอแสดงความยินดีกับ Dr. Eng Jin Ooi อดีตอาจารย์ประจำ College of Religious Studies, Mahidol University ได้รับการตีพิมพ์ในวารสารระดับนานาชาติ Q1 (Scopus-indexed) โดย Cambridge University Press",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0cp6Jx5vgjxgY9m9eKroUXthiPKZtCeZhscTx72Y6YgfRY3XoFeEoxDKWgn9GnZGHl",
+    date: "22 พฤศจิกายน 2568",
     image: "img/information/nov2025/congra_EngJinOoi22nov2025.jpg"
   },
   {
-    title: "ขอแสดงความยินดี กับ <br>Dr. John Naley Johnston ในโอกาสเผยแพร่บทความวิจัยร่วมเรื่อง “Making Merit, Making Waste: Environmental Sustainability of Buddhist Offerings in Contemporary Thailand”",
-    link: "https://www.facebook.com/CrsMahidol/posts/pfbid06AMnLwiguk6WjicThxpN8raPTqKbF3ZEQvnH5NtLU6vz2sjNLaqrA2g2Zh5fmeyHl",
+    title: "ขอแสดงความยินดีกับ Dr. John Naley Johnston ในโอกาสเผยแพร่บทความวิจัยร่วมเรื่อง “Making Merit, Making Waste: Environmental Sustainability of Buddhist Offerings in Contemporary Thailand”",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid05rgK5TivBeSyepLzATS9FWzkuc9EzABuxjbj1uspAxjv5aua1vFngU9Af7GhiwBSl",
+    date: "20 พฤศจิกายน 2568",
     image: "img/information/nov2025/congra_john_20nov2025.jpg"
   },
   {
-    title: "ขอแสดงความยินดีกับ <br>ดร. พิบูลย์ ชมพลไพศาล ในโอกาสตีพิมพ์บทความทางวิชาการเรื่อง Phra Lakkhaṇa Dhamma",
-    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0f2Q1n3nwqBDs8QKM6TJVJjQ6pFvWSg6ry7UPvEoXDeZvEEdTzM3LgAw7FCwSSnHal",
+    title: "ขอแสดงความยินดีกับ ดร. พิบูลย์ ชมพลไพศาล ในโอกาสตีพิมพ์บทความทางวิชาการเรื่อง Phra Lakkhaṇa Dhamma",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid02iMVm5KDFVquxzV9kSaohycahkrNM1D1zqhnX1eVowZnJznzXcPYRXNNGQesu5dS8l",
+    date: "18 พฤศจิกายน 2568",
     image: "img/information/nov2025/congra_phibul.jpg"
   },
   {
-    title: "ขอแสดงความยินดีแด่อาจารย์ประจำวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดลในโอกาสที่มีบทความตีพิมพ์ในหนังสือ The Oxford Handbook of Lived Buddhism (Oxford University Press, 2025)",
-    link: "https://www.facebook.com/CrsMahidol/posts/pfbid02kfhY1TUSZXgCHVaEafU76KDj1wsMMPG6vLvvm4CQfbVVnvXJz7Be2GTPszcf4BYsl",
+    title: "ขอแสดงความยินดีแด่อาจารย์ประจำวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ในโอกาสที่มีบทความตีพิมพ์ในหนังสือ The Oxford Handbook of Lived Buddhism (Oxford University Press, 2025)",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0gbiPCtLZXoCYNu5Rq3CmZLwy8BRxLqKrzoFvbocx1mX9yXwFwi1XRFkWVhCKE912l",
+    date: "15 พฤศจิกายน 2568",
     image: "img/information/nov2025/congra_rachelle_sanjoy.jpg"
-  },   
+  },
   {
-    title: "ขอแสดงความยินดี แด่ผู้ช่วยศาสตราจารย์ ดร.สมบูรณ์ วัฒนะ และอาจารย์ ดร.กฤต พิริยรัชกุล ​ในโอกาสผ่านการประเมินระดับคุณภาพการจัดการเรียนการสอน ตามกรอบมาตรฐานวิชาชีพมหาวิทยาลัยมหิดล Mahidol University Professional Standards Framework (MUSPF) ระดับ 2 ",
-    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0kzhk5whPXpB32AGFxMf3WSibqeicRZyWporbPkpBsyfQjxtTf5vDDMDKHRrRoibgl",
-    image: "img/information/nov2025/congra_krit_somboon.jpg",
-    contain: true  //
-  } 
+    title: "ขอแสดงความยินดี แด่ผู้ช่วยศาสตราจารย์ ดร.สมบูรณ์ วัฒนะ และอาจารย์ ดร.กฤต พิริยรัชกุล ​ในโอกาสผ่านการประเมินระดับคุณภาพการจัดการเรียนการสอน ตามกรอบมาตรฐานวิชาชีพมหาวิทยาลัยมหิดล Mahidol University Professional Standards Framework (MUSPF) ระดับ 2",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid02pom1wrgu2CYUYckFRuJ5kQsVFr2aTbWmBLpModuJ6dLjgg6EinHcJ8SsVf1DTGNsl",
+    date: "10 พฤศจิกายน 2568",
+    image: "img/information/nov2025/congra_krit_somboon.jpg"
+  }
 ];
 
-let itemsPerPage = 3;
-let currentPage = 1;
+/* -------------------------
+   Sort by date (ใหม่ → เก่า)
+-------------------------- */
+const months = {
+  "มกราคม":"01","กุมภาพันธ์":"02","มีนาคม":"03","เมษายน":"04","พฤษภาคม":"05",
+  "มิถุนายน":"06","กรกฎาคม":"07","สิงหาคม":"08","กันยายน":"09","ตุลาคม":"10",
+  "พฤศจิกายน":"11","ธันวาคม":"12"
+};
 
-function renderInformation(page) {
-  const start = (page-1)*itemsPerPage;
-  const container = document.getElementById("congratulation-container");
-  container.innerHTML = information.slice(start, start + itemsPerPage).map((item, index) => {
-    
-    // กำหนด style สำหรับรูปแต่ละ item
-    let divClasses = "relative w-full h-56 flex items-center justify-center bg-gray-100";
-let imgClasses = "max-h-full max-w-full object-contain";
-
-
-    if(index === 2){ 
-      
-      divClasses += " justify-start"; 
-      imgClasses = "max-h-full max-w-full object-contain"; // 
-    } else {
-      imgClasses += " object-cover"; 
-    }
-
-    return `
-      <a href="${item.link}" target="_blank" class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
-        <div class="${divClasses}">
-          <img src="${item.image}" class="${imgClasses}"/>
-        </div>
-        <div class="p-4">
-          <h3 class="text-lg md:text-m font-semibold text-black leading-snug mb-2">${item.title}</h3>
-          <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
-        </div>
-      </a>
-    `;
-  }).join('');
+function parseDate(d){
+  const parts = d.split(" ");
+  return new Date(`${parts[2] - 543}-${months[parts[1]]}-${parts[0]}`);
 }
 
+congratulations.sort((a,b)=> parseDate(b.date) - parseDate(a.date));
 
-function renderPagination() {
-  const totalPages = Math.ceil(information.length / itemsPerPage);
-  const pagination = document.getElementById("congratulation-pagination");
+/* -------------------------
+   Pagination
+-------------------------- */
+let congratsPerPage = 3;
+let congratsPage = 1;
+
+/* -------------------------
+   Render list
+-------------------------- */
+function renderCongrats(page) {
+  const start = (page - 1) * congratsPerPage;
+  const container = document.getElementById("congrats-container");
+  if (!container) return;
+
+  container.innerHTML = congratulations.slice(start, start + congratsPerPage)
+    .map(item => `
+      <a href="${item.link}" target="_blank"
+         class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+
+        <div class="relative w-full h-56 flex items-center justify-center bg-white overflow-hidden">
+          <img src="${item.image}" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="p-4">
+          <p class="text-sm text-gray-500 mb-2">${item.date}</p>
+          <h4 class="text-lg font-semibold text-black leading-snug mb-2">${item.title}</h4>
+          <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
+        </div>
+
+      </a>
+    `).join('');
+}
+
+/* -------------------------
+   Render pagination buttons
+-------------------------- */
+function renderCongratsPagination() {
+  const totalPages = Math.ceil(congratulations.length / congratsPerPage);
+  const pagination = document.getElementById("congrats-pagination");
+  if (!pagination) return;
+
   pagination.innerHTML = '';
-  for(let i=1;i<=totalPages;i++){
+
+  for (let i = 1; i <= totalPages; i++) {
     const btn = document.createElement("button");
     btn.textContent = i;
-    btn.className = `px-4 py-2 rounded-lg ${i===currentPage?'bg-blue-700 text-white':'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
-    btn.onclick = () => { currentPage=i; renderInformation(currentPage); renderPagination(); };
+
+    btn.className =
+      `px-4 py-2 rounded-lg ${i === congratsPage
+        ? 'bg-blue-700 text-white'
+        : 'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
+
+    btn.onclick = () => {
+      congratsPage = i;
+      renderCongrats(congratsPage);
+      renderCongratsPagination();
+    };
+
     pagination.appendChild(btn);
   }
 }
 
-document.addEventListener("DOMContentLoaded", ()=>{
-  renderInformation(currentPage);
-  renderPagination();
+/* -------------------------
+   Init (เหมือน activities 100%)
+-------------------------- */
+function initCongratsSection() {
+  renderCongrats(congratsPage);
+  renderCongratsPagination();
+}
+
+/* โหลดเมื่อ back-forward */
+window.addEventListener("pageshow", () => {
+  initCongratsSection();
+});
+
+/* โหลดเมื่อเปลี่ยนหน้าแบบ client-side */
+document.addEventListener("astro:page-load", () => {
+  initCongratsSection();
 });
 </script>

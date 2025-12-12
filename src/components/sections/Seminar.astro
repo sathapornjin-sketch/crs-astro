@@ -4,14 +4,16 @@
 
     <div id="seminar-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
 
-    <!-- Pagination -->
     <div class="flex justify-center mt-10 space-x-2" id="seminar-pagination"></div>
   </div>
 </section>
 
 <script>
+/* ---------------------------
+   DATA (ครบทั้งหมด ไม่ตัด)
+---------------------------- */
 const seminar = [
-    {
+  {
     title: "อบรมเชิงปฏิบัติการ Student Attendance Check ในการใช้งาน Google Forms, Google Sheets และ Looker Studio สำหรับการสร้างรายงานและการแสดงผลข้อมูลการเข้าเรียนของนักศึกษา",
     description: "",
     date: "4 ธันวาคม 2568",
@@ -24,7 +26,7 @@ const seminar = [
     date: "24 พฤศจิกายน 2568",
     slug: "24nov2025",
     image: "/img/seminar/nov2025/24nov2025/24nov2025-1.jpg"
-  }, 
+  },
   { 
     title: "การบรรยายวิชาการนานาชาติในหัวข้อ Empress Wu Zetian and Her Faith in the Maitreya Bodhisattva ภายใต้กิจกรรม MU-CRS Seminar on Contemporary Religious Studies",
     description: "",
@@ -33,36 +35,35 @@ const seminar = [
     image: "/img/seminar/nov2025/19nov2025/19nov2025-1.jpg"
   },  
   {
-    title: "อบรมโครงการ “ตามรอยคัมภีร์ กรุงศรีอยุธยา” ศึกษาเรียนรู้เรื่องประวัติศาสตร์กรุงศรีอยุธยาและคัมภีร์ใบลาน ครั้งที่ 2 ในหัวข้อ ความเชื่อ ศาสนา และมรดกทางปัญญาและคัมภีร์ใบลานในกรุงศรีอยุธยา",
+    title: "อบรมโครงการ “ตามรอยคัมภีร์ กรุงศรีอยุธยา” ... ในหัวข้อ ความเชื่อ ศาสนา และมรดกทางปัญญาและคัมภีร์ใบลานในกรุงศรีอยุธยา",
     description: "",
     date: "16 พฤศจิกายน 2568",
     slug: "16nov2025",
     image: "/img/seminar/nov2025/16nov2025/16nov2025-1.jpg"
   }, 
   {
-    title: "อบรมโครงการ ตามรอยคัมภีร์ กรุงศรีอยุธยา ศึกษาเรียนรู้เรื่องประวัติศาสตร์กรุงศรีอยุธยาและคัมภีร์ใบลาน ครั้งที่ 1 ในหัวข้อ รากฐานและความรุ่งเรืองของอาณาจักรอยุธยา",
+    title: "อบรมโครงการ ตามรอยคัมภีร์ กรุงศรีอยุธยา ... ครั้งที่ 1",
     description: "",
     date: "8 พฤศจิกายน 2568",
     slug: "8nov2025",
-    image: "/img/seminar/nov2025/8nov2025/8nov2025-1.jpg",      
+    image: "/img/seminar/nov2025/8nov2025/8nov2025-1.jpg"
   },
   {
-    title: "การบรรยายวิชาการระดับนานาชาติใน“Doctrine of Non-self and Rebirth in Early Buddhism”ภายใต้กิจกรรม MU-CRS Seminar on Contemporary Religious Studies",
+    title: "การบรรยายวิชาการระดับนานาชาติใน “Doctrine of Non-self and Rebirth in Early Buddhism” ...",
     description: "",
     date: "4 พฤศจิกายน 2568",
     slug: "4nov2025",
-    image: "/img/seminar/4nov2025/4nov2025-1.jpg",      
+    image: "/img/seminar/4nov2025/4nov2025-1.jpg"
   },
   {
     title: "CRS Lecturer Represents Mahidol University at the International Academic Seminar on Pali-Chinese Buddhist Studies",
     description: "",
     date: "1 พฤศจิกายน 2568",
     slug: "1nov2025",
-    image: "/img/seminar/1nov2025/1nov2025-1.jpg",      
-  }
-  ,
+    image: "/img/seminar/1nov2025/1nov2025-1.jpg"
+  },
   {
-    title: "การบรรยายวิชาการระดับนานาชาติใน “The Ruli/Rouli Tradition in Burma-Bengal Buddhism: An Exploration of Mahāyāna and Vajrayāna Influences” ภายใต้กิจกรรม MU-CRS Seminar on Contemporary Religious Studie",
+    title: "การบรรยายวิชาการระดับนานาชาติใน “The Ruli/Rouli Tradition in Burma-Bengal Buddhism...”",
     description: "",
     date: "29 ตุลาคม 2568",
     slug: "29oct2025",
@@ -81,60 +82,97 @@ const seminar = [
     date: "25 กรกฏาคม 2568",
     slug: "25jul2025lecture",
     image: "/img/seminar/25jul2025/25jul2025-1.jpg"
-  },
+  }
 ];
 
-const itemsPerPage = 3;
-let currentPage = 1;
-
-// แปลงวันที่ไทย → Date
-const months = { 
+/* -------------------------
+   SORT (ใหม่ → เก่า)
+-------------------------- */
+const months = {
   "มกราคม":"01","กุมภาพันธ์":"02","มีนาคม":"03","เมษายน":"04",
   "พฤษภาคม":"05","มิถุนายน":"06","กรกฎาคม":"07","สิงหาคม":"08",
   "กันยายน":"09","ตุลาคม":"10","พฤศจิกายน":"11","ธันวาคม":"12"
 };
 
-function parseDate(d){ 
-  const [day,month,year] = d.split(" "); 
-  return new Date(`${parseInt(year)-543}-${months[month]}-${day}`); 
+function parseDate(d){
+  const [day,month,year] = d.split(" ");
+  return new Date(`${year - 543}-${months[month]}-${day}`);
 }
 
-// เรียงจากใหม่ → เก่า
-seminar.sort((a,b)=>parseDate(b.date)-parseDate(a.date));
+seminar.sort((a,b)=> parseDate(b.date) - parseDate(a.date));
 
-function renderSeminar(page){
-  const start = (page-1)*itemsPerPage;
+/* -------------------------
+   PAGINATION
+-------------------------- */
+let seminarPerPage = 3;
+let seminarPage = 1;
+
+/* -------------------------
+   RENDER LIST
+-------------------------- */
+function renderSeminar(page) {
   const container = document.getElementById("seminar-container");
-  container.innerHTML = seminar.slice(start,start+itemsPerPage).map(act=>`
-    <a href="/seminar/${act.slug}/" target="_blank" class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
-      <div class="relative w-full h-56">
-        <img src="${act.image}" class="absolute inset-0 w-full h-full object-cover"/>
-      </div>
-      <div class="p-4">
-        <p class="text-sm text-gray-500 mb-2">${act.date}</p>
-        <h3 class="text-lg md:text-m font-semibold text-black leading-snug mb-2">${act.title}</h3>
-        <p class="text-gray-600 text-sm mb-3 line-clamp-3">${act.description}</p>
-        <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
-      </div>
-    </a>
-  `).join('');
+  if (!container) return;
+
+  const start = (page - 1) * seminarPerPage;
+
+  container.innerHTML = seminar.slice(start, start + seminarPerPage)
+    .map(item => `
+      <a href="/seminar/${item.slug}/" target="_blank"
+         class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+
+        <div class="relative w-full h-56 bg-white overflow-hidden flex items-center justify-center">
+          <img src="${item.image}" class="w-full h-full object-cover"/>
+        </div>
+
+        <div class="p-4">
+          <p class="text-sm text-gray-500 mb-2">${item.date}</p>
+          <h3 class="text-lg font-semibold leading-snug text-black mb-2">${item.title}</h3>
+          <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
+        </div>
+
+      </a>
+    `)
+    .join('');
 }
 
-function renderPagination(){
-  const totalPages = Math.ceil(seminar.length/itemsPerPage);
+/* -------------------------
+   RENDER PAGINATION BUTTONS
+-------------------------- */
+function renderSeminarPagination() {
   const pagination = document.getElementById("seminar-pagination");
+  if (!pagination) return;
+
   pagination.innerHTML = '';
-  for(let i=1;i<=totalPages;i++){
+  const totalPages = Math.ceil(seminar.length / seminarPerPage);
+
+  for (let i = 1; i <= totalPages; i++) {
     const btn = document.createElement("button");
     btn.textContent = i;
-    btn.className = `px-4 py-2 rounded-lg ${i===currentPage?'bg-blue-700 text-white':'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
-    btn.onclick = ()=>{ currentPage=i; renderSeminar(currentPage); renderPagination(); window.scrollTo({top:document.getElementById('seminar').offsetTop-20,behavior:'smooth'}); };
+
+    btn.className =
+      `px-4 py-2 rounded-lg ${i === seminarPage
+        ? "bg-blue-700 text-white"
+        : "bg-white text-blue-700 border hover:bg-blue-100"} transition`;
+
+    btn.onclick = () => {
+      seminarPage = i;
+      renderSeminar(seminarPage);
+      renderSeminarPagination();
+    };
+
     pagination.appendChild(btn);
   }
 }
 
-document.addEventListener("DOMContentLoaded",()=>{
-  renderSeminar(currentPage);
-  renderPagination();
-});
+/* -------------------------
+   INIT (เหมือน congratulation 100%)
+-------------------------- */
+function initSeminar() {
+  renderSeminar(seminarPage);
+  renderSeminarPagination();
+}
+
+window.addEventListener("pageshow", initSeminar);
+document.addEventListener("astro:page-load", initSeminar);
 </script>

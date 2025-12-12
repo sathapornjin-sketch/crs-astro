@@ -1,0 +1,99 @@
+---
+import Slogan from '@/components/sections/Slogan.astro';
+import Collapse from '@/components/ui/Collapse.astro';
+import Layout from '@/layouts/Layout.astro';
+import fs from 'fs/promises';
+import Papa from 'papaparse';
+
+const title = 'ห้องสมุดแพทย์หญิงคุณอรวรรณ คุณวิศาล วิทยาลัยศาสนศึกษา';
+const description = '';
+---
+
+<Layout title={title} description={description}>
+  <Slogan title={title} description={description} />
+
+  <!-- SECTION: Introduction -->
+  <section class="mb-16 text-center text-xl font-semibold">
+    ห้องสมุดแพทย์หญิงคุณอรวรรณ คุณวิศาล
+    <p class="mt-4 text-base font-normal text-gray-700">
+       เพื่อสนับสนุนการเรียน การสอน และการวิจัย
+    </p>
+  </section>
+
+  <!-- SECTION: Services -->
+  <section class="max-w-5xl mx-auto mb-20">
+    <h2 class="text-2xl font-bold mb-6">บริการของห้องสมุด</h2>
+    <ul class="grid md:grid-cols-2 gap-6 text-gray-800">
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">การยืม–คืน และต่ออายุหนังสือ</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">บริการสืบค้นสารสนเทศ</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">บริการห้องศึกษากลุ่ม</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">บริการสแกน/ถ่ายเอกสาร</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">บริการให้คำปรึกษางานวิจัย (Ask a Librarian)</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">บริการยืมระหว่างห้องสมุด (Interlibrary Loan)</li>
+    </ul>
+  </section>
+
+  <!-- SECTION: Resources -->
+  <section class="max-w-5xl mx-auto mb-20">
+    <h2 class="text-2xl font-bold mb-6">ทรัพยากรสารสนเทศ</h2>
+    <ul class="grid md:grid-cols-2 gap-6 text-gray-800">
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">ฐานข้อมูลออนไลน์ (Online Databases)</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">e-Journals</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">e-Books</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">หนังสือ/วารสารใหม่</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">งานวิจัย/วิทยานิพนธ์</li>
+    </ul>
+  </section>
+
+  <!-- SECTION: OPAC Search -->
+  <section class="bg-blue-50 py-16 mb-20">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-4">ระบบสืบค้นหนังสือ (OPAC)</h2>
+      <p class="text-gray-700 mb-6">
+        เข้าสู่ระบบสืบค้นรายการหนังสือ วารสาร และสื่อการเรียนรู้ทั้งหมดของห้องสมุด
+      </p>
+      <a
+        href="#"
+        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+      >
+        เปิด OPAC
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION: Policies -->
+  <section class="max-w-5xl mx-auto mb-20">
+    <h2 class="text-2xl font-bold mb-6">กฎระเบียบและข้อปฏิบัติ</h2>
+    <ul class="space-y-4 text-gray-800">
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">นโยบายการยืม–คืน</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">ค่าปรับและการทดแทนหนังสือ</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">ข้อกำหนดการใช้พื้นที่ห้องสมุด</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">นโยบายข้อมูลส่วนบุคคล (PDPA)</li>
+    </ul>
+  </section>
+
+  <!-- SECTION: Guides -->
+  <section class="max-w-5xl mx-auto mb-20">
+    <h2 class="text-2xl font-bold mb-6">คู่มือและสื่อการเรียนรู้</h2>
+    <ul class="space-y-4 text-gray-800">
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">วิธีใช้ห้องสมุด</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">วิธีใช้ฐานข้อมูลออนไลน์</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">คู่มือการเขียนบรรณานุกรม (APA / Chicago / MLA)</li>
+      <li class="p-4 bg-gray-50 rounded-xl shadow-sm">คู่มือวิจัยเบื้องต้น</li>
+    </ul>
+  </section>
+
+  <!-- SECTION: Contact -->
+  <section class="bg-gray-100 py-16">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl font-bold mb-6">ติดต่อห้องสมุด</h2>
+      <div class="space-y-3 text-gray-800">
+        <p>ที่ตั้ง: วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล</p>
+        <p>อีเมล: licr@mahidol.ac.th</p>
+        <p>โทร: 02-800-2659</p>
+        <p>เวลาเปิดทำการ จัันทร์-ศุกร์ 08.30 – 16.30 น.</p>
+      </div>
+    </div>
+  </section>
+
+</Layout>

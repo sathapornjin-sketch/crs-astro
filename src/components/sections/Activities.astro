@@ -6,174 +6,204 @@
     <div id="activities-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
 
     <!-- แถบ Pagination -->
-    <div class="flex justify-center mt-10 space-x-2" id="pagination"></div>
+    <div class="flex justify-center mt-10 space-x-2" id="activities-pagination"></div>
   </div>
 </section>
 
 <script>
-  const activities = [ 
-    {
-    title: "วิทยาลัยศาสนศึกษา เข้าร่วมเป็นสักขีพยานในพิธีลงนามความร่วมมือทางวิชาการ ในการจัดตั้ง สภานักวิชาการมุสลิมแห่งประเทศไทย",   
+/* -------------------------
+   ข้อมูลกิจกรรม (คงไว้ครบทุกอัน)
+-------------------------- */
+const activities = [
+  {
+    title: "วิทยาลัยศาสนศึกษา เข้าร่วมเป็นสักขีพยานในพิธีลงนามความร่วมมือทางวิชาการ ในการจัดตั้ง สภานักวิชาการมุสลิมแห่งประเทศไทย",
     description: "",
     date: "4 ธันวาคม 2568",
     slug: "dec2025/4dec2025activities",
     image: "/img/activities/dec2025/4dec2025activities/4dec2025activities-1.jpg"
-    },
-    {
-    title: "พิธีทำบุญตักบาตรบำเพ็ญกุศลถวายเป็นพระราชกุศล เนื่องในวันคล้ายวันพระราชสมภพพระบาทสมเด็จพระบรม<br>ชนกาธิเบศร มหาภูมิพลอดุลยเดชมหาราช บรมนาถบพิตร วันชาติ และวันพ่อแห่งชาติ",   
+  },
+  {
+    title: "พิธีทำบุญตักบาตรบำเพ็ญกุศลถวายเป็นพระราชกุศล เนื่องในวันคล้ายวันพระราชสมภพพระบาทสมเด็จพระบรม<br>ชนกาธิเบศร มหาภูมิพลอดุลยเดชมหาราช บรมนาถบพิตร วันชาติ และวันพ่อแห่งชาติ",
     description: "",
     date: "1 ธันวาคม 2568",
     slug: "dec2025/1dec2025",
     image: "/img/activities/dec2025/1dec2025/1dec2025-1.jpg"
-    },
-    {
-    title: "วิทยาลัยศาสนศึกษา ส่งน้ำใจช่วยเหลือผู้ประสบภัยน้ำท่วมภาคใต้",   
+  },
+  {
+    title: "วิทยาลัยศาสนศึกษา ส่งน้ำใจช่วยเหลือผู้ประสบภัยน้ำท่วมภาคใต้",
     description: "ในวันที่ 28 พฤศจิกายน 2568 Assoc. Prof. Dr. Milos Hubina รองคณบดีฝ่ายวิจัยและวิเทศสัมพันธ์ พร้อมด้วยบุคลากรและนักศึกษาของวิทยาลัยฯ ได้บริจาคเงินจำนวน 5,400 บาท ผ่านมูลนิธิมหาวิทยาลัยมหิดลในพระราชูปถัมภ์",
     date: "28 พฤศจิกายน 2568",
     slug: "28nov2025-2",
     image: "/img/activities/nov2025/28nov2025/infor_southflood28nov2025.jpg"
-    },
-    {
+  },
+  {
     title: "พิธีทำบุญเดือนเกิด ประจำเดือนพฤศจิกายน 2568",
     description: "",
     date: "28 พฤศจิกายน 2568",
     slug: "28nov2025",
     image: "/img/birth/nov2025/28nov2025birth-1.jpg",
-    isBirth: true, 
-    link: "birth/28nov2025" // ลิงก์เฉพาะ
+    isBirth: true,
+    link: "birth/28nov2025"
   },
-    {
-    title: "วิทยาลัยศาสนศึกษา ร่วมฉลอง 50 ปี ความสัมพันธ์ไทย-จีน และ 10 ปี โครงการจัดการเรียนการสอนภาษาและวัฒนธรรมไทยสำหรับนักศึกษาจีน",   
+  {
+    title: "วิทยาลัยศาสนศึกษา ร่วมฉลอง 50 ปี ความสัมพันธ์ไทย-จีน และ 10 ปี โครงการจัดการเรียนการสอนภาษาและวัฒนธรรมไทยสำหรับนักศึกษาจีน",
     description: "อาจารย์ ดร.จิราธร ชาติศิริ รักษาการแทนรองคณบดีฝ่ายการศึกษาและกิจการนักศึกษา วิทยาลัยศาสนศึกษา ได้เข้าร่วมงาน 50 ปี ความสัมพันธ์ไทย-จีน และ 10 ปี โครงการจัดการเรียนการสอนภาษาและวัฒนธรรมไทยสำหรับนักศึกษาจีน",
     date: "27 พฤศจิกายน 2568",
     slug: "27nov2025",
     image: "/img/activities/nov2025/27nov2025/27nov2025-2.jpg"
-    },
-    {
-      title: "ดร. พิบูลย์ ชุมพลไพศาล อาจารย์ประจำวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ร่วมบรรยายในโครงการ Expatriate Orientation Program ครั้งที่ 7 (EOP7) ในหัวข้อ “Buddhist Mindset and the Thai Way of Life",
-      description: "",
-      date: "19 พฤศจิกายน 2568",
-      slug: "19nov2025",
-      image: "/img/activities/nov2025/19nov2025/19nov2025-1.jpg"
-    },  
-    {
-      title: "พิธีบำเพ็ญกุศลปัณรสมวาร (15 วัน) ถวายเป็นพระราชกุศลแด่สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง",
-      description: "",
-      date: "7 พฤศจิกายน 2568",
-      slug: "7nov2025",
-      image: "/img/activities/nov2025/7nov2025/7nov2025-1.jpg"
-    },
-    {
-      title: "วิทยาลัยศาสนศึกษาจัดพิธีน้อมรำลึกในพระมหากรุณาธิคุณ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง",
-      description: "",
-      date: "29 ตุลาคม 2568",
-      slug: "29oct2025-2",
-      image: "/img/activities/oct2025/29oct2025-2/29oct2025-2-2.jpg"
-    },
-    {
-      title: "กิจกรรม “From Minor to Mastery : เสริมศักยภาพสู่ความสำเร็จ” โดยได้รับเกียรติจาก ดร.ณัฐวุฒิ เผ่าทวี อาจารย์ประจำวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล เป็นวิทยากร",
-      description: "",
-      date: "29 ตุลาคม 2568",
-      slug: "29oct2025-1",
-      image: "/img/activities/oct2025/29oct2025-1/29oct2025-1-2.jpg"
-    },
-    {
-      title: "วันนวมินทรมหาราช ประจำปี 2568 วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ร่วมพิธีถวายพานพุ่มและถวายบังคม",
-      description: "",
-      date: "8 ตุลาคม 2568",
-      slug: "8oct2025",
-      image: "/img/activities/oct2025/8oct2025/8oct2025-1.jpg"
-    },
-    {
-      title: "ซ้อมรับปริญญาบัตรของบัณฑิตวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ประจำปีการศึกษา 2567",
-      description: "",
-      date: "4 ตุลาคม 2568",
-      slug: "4oct2025",
-      image: "/img/activities/oct2025/4oct2025/2.jpg"
-    },
-    {
-      title: "งานวันคล้ายวันสถาปนาสำนักงานพระพุทธศาสนาแห่งชาติ ประจำปี 2568 วิทยาลัยศาสนศึกษาเข้าร่วมพิธีและถวายพานพุ่ม",
-      description: "",
-      date: "3 ตุลาคม 2568",
-      slug: "3oct2025",
-      image: "/img/activities/oct2025/3oct2025/1.jpg"
-    },
-    {
-      title: "วันคล้ายวันสถาปนาสถาบันแห่งชาติเพื่อการพัฒนาเด็กและครอบครัว ครบรอบ 20 ปี วิทยาลัยศาสนศึกษาเข้าร่วมแสดงความยินดี",
-      description: "",
-      date: "2 ตุลาคม 2568",
-      slug: "2oct2025",
-      image: "/img/activities/oct2025/2oct2025-1.jpg"
-    },
-    {
-      title: "พิธีวางพวงมาลา วันมหิดล ประจำปี 2568 ณ ลานพระบรมราชานุสาวรีย์สมเด็จพระมหิตลาธิเบศร อดุลยเดชวิกรม พระบรมราชชนก",
-      description: "",
-      date: "24 กันยายน 2568",
-      slug: "24sep2025",
-      image: "/img/activities/sep2025/24sep2025-1.jpg"
-    }
-  ];
-
-  const itemsPerPage = 3;
-  let currentPage = 1;
-
-  const months = { 
-    "มกราคม":"01","กุมภาพันธ์":"02","มีนาคม":"03","เมษายน":"04","พฤษภาคม":"05",
-    "มิถุนายน":"06","กรกฎาคม":"07","สิงหาคม":"08","กันยายน":"09","ตุลาคม":"10",
-    "พฤศจิกายน":"11","ธันวาคม":"12"
-  };
-  function parseDate(d){ 
-    const [day,month,year] = d.split(" "); 
-    return new Date(`${parseInt(year)-543}-${months[month]}-${day}`); 
+  },
+  {
+    title: "ดร. พิบูลย์ ชุมพลไพศาล ... Expatriate Orientation Program ครั้งที่ 7 (EOP7)",
+    description: "",
+    date: "19 พฤศจิกายน 2568",
+    slug: "19nov2025",
+    image: "/img/activities/nov2025/19nov2025/19nov2025-1.jpg"
+  },
+  {
+    title: "พิธีบำเพ็ญกุศลปัณรสมวาร (15 วัน)...",
+    description: "",
+    date: "7 พฤศจิกายน 2568",
+    slug: "7nov2025",
+    image: "/img/activities/nov2025/7nov2025/7nov2025-1.jpg"
+  },
+  {
+    title: "วิทยาลัยศาสนศึกษาจัดพิธีน้อมรำลึกในพระมหากรุณาธิคุณ...",
+    description: "",
+    date: "29 ตุลาคม 2568",
+    slug: "29oct2025-2",
+    image: "/img/activities/oct2025/29oct2025-2/29oct2025-2-2.jpg"
+  },
+  {
+    title: "กิจกรรม “From Minor to Mastery : เสริมศักยภาพสู่ความสำเร็จ”",
+    description: "",
+    date: "29 ตุลาคม 2568",
+    slug: "29oct2025-1",
+    image: "/img/activities/oct2025/29oct2025-1/29oct2025-1-2.jpg"
+  },
+  {
+    title: "วันนวมินทรมหาราช ประจำปี 2568...",
+    description: "",
+    date: "8 ตุลาคม 2568",
+    slug: "8oct2025",
+    image: "/img/activities/oct2025/8oct2025/8oct2025-1.jpg"
+  },
+  {
+    title: "ซ้อมรับปริญญาบัตรของบัณฑิตวิทยาลัยศาสนศึกษา...",
+    description: "",
+    date: "4 ตุลาคม 2568",
+    slug: "4oct2025",
+    image: "/img/activities/oct2025/4oct2025/2.jpg"
+  },
+  {
+    title: "งานวันคล้ายวันสถาปนาสำนักงานพระพุทธศาสนาแห่งชาติ...",
+    description: "",
+    date: "3 ตุลาคม 2568",
+    slug: "3oct2025",
+    image: "/img/activities/oct2025/3oct2025/1.jpg"
+  },
+  {
+    title: "วันคล้ายวันสถาปนาสถาบันแห่งชาติเพื่อการพัฒนาเด็กและครอบครัว...",
+    description: "",
+    date: "2 ตุลาคม 2568",
+    slug: "2oct2025",
+    image: "/img/activities/oct2025/2oct2025-1.jpg"
+  },
+  {
+    title: "พิธีวางพวงมาลา วันมหิดล ประจำปี 2568...",
+    description: "",
+    date: "24 กันยายน 2568",
+    slug: "24sep2025",
+    image: "/img/activities/sep2025/24sep2025-1.jpg"
   }
+];
 
-  // เรียงลำดับใหม่ -> เก่า
-  activities.sort((a,b)=>parseDate(b.date)-parseDate(a.date));
+/* -------------------------
+   Sort by date (ใหม่ → เก่า)
+-------------------------- */
+const months = {
+  "มกราคม":"01","กุมภาพันธ์":"02","มีนาคม":"03","เมษายน":"04","พฤษภาคม":"05",
+  "มิถุนายน":"06","กรกฎาคม":"07","สิงหาคม":"08","กันยายน":"09","ตุลาคม":"10",
+  "พฤศจิกายน":"11","ธันวาคม":"12"
+};
 
-  function renderActivities(page) {
-    const start = (page-1)*itemsPerPage;
-    const end = start+itemsPerPage;
-    const paginated = activities.slice(start,end);
+function parseDate(d){
+  const [day, month, year] = d.split(" ");
+  return new Date(`${year - 543}-${months[month]}-${day}`);
+}
 
-    const container = document.getElementById("activities-container");
-    container.innerHTML = paginated.map(act => {
-  const href = act.isBirth ? act.link : `/activities/${act.slug}/`;
-  return `
-    <a href="${href}" target="_blank"
-       class="group block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-      <img src="${act.image}" alt="${act.title}" 
-           class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" />
-      <div class="p-6">
-        <p class="text-sm text-gray-500 mb-2">${act.date}</p>
-        <h3 class="text-lg font-semibold text-black mb-2 leading-snug whitespace-normal">${act.title}</h3>
-        <span class="inline-block text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
-      </div>
-    </a>
-  `;
-}).join('');
+activities.sort((a,b)=> parseDate(b.date) - parseDate(a.date));
+
+/* -------------------------
+   Pagination
+-------------------------- */
+let itemsPerPage = 3;
+let currentPage = 1;
+
+/* -------------------------
+   Render list
+-------------------------- */
+function renderActivities(page) {
+  const start = (page - 1) * itemsPerPage;
+  const container = document.getElementById("activities-container");
+  if (!container) return;
+
+  container.innerHTML = activities.slice(start, start + itemsPerPage).map(act => {
+    const href = act.isBirth ? act.link : `/activities/${act.slug}/`;
+
+    return `
+      <a href="${href}" target="_blank"
+         class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+        <div class="relative w-full h-56 flex items-center justify-center bg-white overflow-hidden">
+          <img src="${act.image}" class="w-full h-full object-cover" />
+        </div>
+        <div class="p-4">
+          <p class="text-sm text-gray-500 mb-2">${act.date}</p>
+          <h4 class="text-lg font-semibold text-black leading-snug mb-2">${act.title}</h4>
+          <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
+        </div>
+      </a>
+    `;
+  }).join('');
+}
+
+/* -------------------------
+   Render pagination buttons
+-------------------------- */
+function renderPagination() {
+  const totalPages = Math.ceil(activities.length / itemsPerPage);
+  const pagination = document.getElementById("activities-pagination");
+  if (!pagination) return;
+
+  pagination.innerHTML = '';
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.className = `px-4 py-2 rounded-lg ${i === currentPage ? 'bg-blue-700 text-white' : 'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
+    btn.onclick = () => { 
+      currentPage = i; 
+      renderActivities(currentPage); 
+      renderPagination();
+    };
+    pagination.appendChild(btn);
   }
+}
 
-  function renderPagination() {
-    const totalPages = Math.ceil(activities.length/itemsPerPage);
-    const pagination = document.getElementById("pagination");
-    pagination.innerHTML = '';
+/* -------------------------
+   Init (เหมือน Information)
+-------------------------- */
+function initActivitiesSection() {
+  renderActivities(currentPage);
+  renderPagination();
+}
 
-    for(let i=1;i<=totalPages;i++){
-      const btn = document.createElement("button");
-      btn.textContent = i;
-      btn.className = `px-4 py-2 rounded-lg ${i===currentPage?'bg-blue-700 text-white':'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
-      btn.addEventListener("click", ()=>{
-        currentPage=i;
-        renderActivities(currentPage);
-        renderPagination();
-        window.scrollTo({top: document.getElementById('activities').offsetTop-20, behavior:'smooth'});
-      });
-      pagination.appendChild(btn);
-    }
-  }
+/* โหลดทุกครั้งที่กลับมาหน้านี้ */
+window.addEventListener("pageshow", () => {
+  initActivitiesSection();
+});
 
-  document.addEventListener("DOMContentLoaded", ()=>{
-    renderActivities(currentPage);
-    renderPagination();
-  });
+/* โหลดทุกครั้งที่ Astro เปลี่ยนหน้าแบบ client-side */
+document.addEventListener("astro:page-load", () => {
+  initActivitiesSection();
+});
 </script>

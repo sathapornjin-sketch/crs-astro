@@ -1,3 +1,7 @@
+---
+/* ไม่มีโค้ดฝั่ง server ที่นี่ */
+---
+
 <section id="Information" class="py-20 bg-gray-50">
   <div class="max-w-6xl mx-auto px-6">
     <h2 class="text-3xl font-bold text-black mb-10 text-center">ข่าวประชาสัมพันธ์</h2>
@@ -10,9 +14,16 @@
   </div>
 </section>
 
-<script>  
+<script>
+/* -------------------------
+   ข้อมูลข่าว
+-------------------------- */
 const information = [
-  
+  {
+    title: "การบรรยายทางวิชาการระดับนานาชาติ MU-CRS Seminar on Contemporary Religious Studies โดยความร่วมมือกับมูลนิธิไทย (Thailand Foundation) บรรยายโดย Dr. Rufin Jamey Saul Faculty Member,ในหัวข้อ “Miracles Make the World Go Around: Tracking Babosa and His Public” ในวันศุกร์ที่ 12 ธันวาคม 2568 เวลา 14.00 – 15.00 น.",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid022CUuPDjZ6FK7SWgGGGGNMbJoFxZHF21sAAg89sGuHmzcLCXCBBWsJUNhQmxGSTGjl",
+    image: "img/information/dec2025/infor_jeremy12dec2025.jpg"
+  },
   {
     title: "ประกาศประกวดราคาเช่าเครื่องคอมพิวเตอร์ ด้วยวิธีประกวดราคาอิเล็กทรอนิกส์ (e-bidding)",
     src: "https://drive.google.com/file/d/1szHl9hy7vBTja9Bxi3OXAiDuR1M0LS-0/preview",
@@ -21,7 +32,7 @@ const information = [
   },
   {
     title: "เปิดรับสมัครแล้ว TCAS รอบ 1/2 – Portfolio วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล จำนวนรับ 64 ที่นั่ง (รวม 3 โครงการ)",
-    type: "video", 
+    type: "video",
     src: "https://drive.google.com/file/d/1szHl9hy7vBTja9Bxi3OXAiDuR1M0LS-0/preview",
     link: "https://crs.mahidol.ac.th/education/tcas/"
   },
@@ -49,18 +60,24 @@ const information = [
     title: "การบรรยายในหัวข้อ Empress Wu Zetian and Her Faith in the Maitreya Bodhisattva ในวันพุธที่ 19 พฤศจิกายน 2568 เวลา 14.00 น.",
     link: "https://www.facebook.com/CrsMahidol/posts/pfbid02RFxk4Mfavty9D4rAmXB9uengMF46gMkWf7dkohTNfsNHK4FZJp5FTnFdcNuaQmUfl",
     image: "img/information/nov2025/EmpressWuZetian.jpg"
-  },  
+  }
 ];
 
+/* -------------------------
+   Pagination
+-------------------------- */
 let itemsPerPage = 3;
 let currentPage = 1;
 
+/* -------------------------
+   Render list
+-------------------------- */
 function renderInformation(page) {
   const start = (page - 1) * itemsPerPage;
   const container = document.getElementById("information-container");
+  if (!container) return;
 
   container.innerHTML = information.slice(start, start + itemsPerPage).map(item => {
-
     if (item.type === "video" && item.src) {
       return `
         <div class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
@@ -72,27 +89,22 @@ function renderInformation(page) {
               allowfullscreen
             ></iframe>
           </div>
-
           <div class="p-4">
-            <h3 class="text-lg md:text-m font-semibold text-black leading-snug mb-2">
-              ${item.title}
-            </h3>
+            <h3 class="text-lg font-semibold text-black leading-snug mb-2">${item.title}</h3>
             ${item.link ? `<a href="${item.link}" target="_blank" class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</a>` : ""}
           </div>
         </div>
       `;
     }
 
-    // ข่าวแบบภาพ
     return `
       <a href="${item.link}" target="_blank"
          class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
         <div class="relative w-full h-56 flex items-center justify-center bg-white overflow-hidden">
           <img src="${item.image || ''}" class="max-w-full max-h-full object-contain"/>
         </div>
-
         <div class="p-4">
-          <h4 class="text-lg md:text-m font-semibold text-black leading-snug mb-2">${item.title}</h4>
+          <h4 class="text-lg font-semibold text-black leading-snug mb-2">${item.title}</h4>
           <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
         </div>
       </a>
@@ -100,9 +112,14 @@ function renderInformation(page) {
   }).join('');
 }
 
+/* -------------------------
+   Render pagination buttons
+-------------------------- */
 function renderPagination() {
   const totalPages = Math.ceil(information.length / itemsPerPage);
   const pagination = document.getElementById("information-pagination");
+  if (!pagination) return;
+
   pagination.innerHTML = '';
 
   for (let i = 1; i <= totalPages; i++) {
@@ -114,8 +131,21 @@ function renderPagination() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+/* ------------------------------------------
+   ฟังก์ชันเรียกโหลดข้อมูลใหม่ทุกครั้ง
+------------------------------------------- */
+function initInformationSection() {
   renderInformation(currentPage);
   renderPagination();
+}
+
+/* โหลดทุกครั้งที่กลับมาหน้านี้ (Back button) */
+window.addEventListener("pageshow", () => {
+  initInformationSection();
+});
+
+/* โหลดทุกครั้งที่ Astro เปลี่ยนหน้าแบบ client-side */
+document.addEventListener("astro:page-load", () => {
+  initInformationSection();
 });
 </script>
