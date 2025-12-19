@@ -3,11 +3,12 @@ import Layout from '@/layouts/Layout_Sidebar.astro';
 import Side from '@/components/about/Side.astro';
 
 const directors = [
+  { name: "Prof. Dr. Violette S. Lindbeck", term: "Visiting professor for B.A. <br> College of Religious Studies <br>Mahidol University <br>(July 16, 1927-April 22, 2021) ", img: "/img/personnel/inmemory/3violette.png"},
+  { name: "Prof. Dr. George A. Lindbeck", term: "Visiting professor for B.A. <br> College of Religious Studies <br>Mahidol University<br>(March 10, 1923-January 8, 2018)", img: "/img/personnel/inmemory/4george.png"}, 
+  { name: "Prof. Dr. U Kyaw Than", term: "Visiting professor for B.A. <br>College of Religious Studies <br>Mahidol University<br>(December 1923-May 9, 2017)", img: "/img/personnel/inmemory/5kyaw.png"},
   { name: "ศาสตราจารย์พิเศษ <br>ดร.จิรโชค วีระสย", term: "อดีตอาจารย์พิเศษ สอนระดับปริญญาตรีวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล <br>(1 มีนาคม 2479-8 มิถุนายน 2562)", img: "/img/personnel/inmemory/1jirachoke.png"},
   { name: "ศาสตราจารย์ <br> ดร. เบญจา ยอดดำเนิน-แอตติกจ์", term: "อดีตอาจารย์พิเศษ สอนระดับปริญญาเอก วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ", img: "/img/personnel/inmemory/2benja.png"},
-  { name: "Prof. Dr. Violette S. Lindbeck", term: "Visiting professor for B.A. College of Religious Studies, Mahidol University <br>(July 16, 1927-April 22, 2021) ", img: "/img/personnel/inmemory/3violette.png"},
-  { name: "Prof. Dr. George A. Lindbeck", term: "Visiting professor for B.A. College of Religious Studies, Mahidol University<br>(March 10, 1923-January 8, 2018)", img: "/img/personnel/inmemory/4george.png"}, 
-  { name: "Prof. Dr. U Kyaw Than", term: "Visiting professor for B.A. College of Religious Studies, Mahidol University<br>(December 1923-May 9, 2017)", img: "/img/personnel/inmemory/5kyaw.png"},
+  
 ];
 
 
@@ -53,7 +54,7 @@ const description = "";
             " />
           </div>
 
-          <h3 style="margin:10px 0 5px; font-size:1.1rem; color:#003366;" set:html={d.name}></h3>
+          <h3 style="margin:10px 0 5px; font-size:1rem; color:#003366;" set:html={d.name}></h3>
           <p style="font-size:0.9rem; color:#555; margin-bottom:10px;" set:html={d.term}></p>
         </div>
       ))}

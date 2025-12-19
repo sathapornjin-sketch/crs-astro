@@ -2,9 +2,9 @@
 /* ไม่มีโค้ดฝั่ง server ที่นี่ */
 ---
 
-<section id="Information" class="py-20 bg-gray-50">
+<section id="Information" class="py-8 bg-gray-50">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-black mb-10 text-center">ข่าวประชาสัมพันธ์</h2>
+    <h2 class="text-2xl font-light text-black mb-10 text-center">ข่าวประชาสัมพันธ์</h2>
 
     <!-- รายการข่าว -->
     <div id="information-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
@@ -19,6 +19,12 @@
    ข้อมูลข่าว
 -------------------------- */
 const information = [
+  {
+    title: "TCAS รอบ Portfolio มาแล้ว! อยากเรียนในที่ที่ได้เปิดมุมมองและเป็นตัวเองได้ ที่นี่ วิทยาลัยศาสนศึกษา มหิดล เรียนรู้ศาสนา ความเชื่อ และโลกยุคใหม่ แบบไม่ตัดสิน เปิดใจ และเข้าใจความหลากหลาย เปิดรับสมัคร TCAS รอบ 1/2 Portfolio แล้ว ตั้งแต่ 1 ธันวาคม 2568 ถึง 8 มกราคม 2569 ",
+    type: "video",
+    src: "https://drive.google.com/file/d/1Q0nxopcLgT9gWSD53WdbST3KI3G6ZCzJ/preview",
+    link: "https://crs.mahidol.ac.th/education/tcas/"
+  },
   {
     title: "การบรรยายทางวิชาการระดับนานาชาติ MU-CRS Seminar on Contemporary Religious Studies โดย Asst. Prof. Klairung Iso ในหัวข้อ “KARMA AND CAUSATION IN THERAVĀDA BUDDHISM: RETHINKING DETERMINISM AND EXTERNAL PHENOMENA”  วันจันทร์ที่ 22 ธันวาคม 2568 เวลา 13.00 – 14.00 ผ่านระบบออนไลน์ Webex",
     link: "https://www.facebook.com/CrsMahidol/posts/pfbid02Ymqcr2Ekg2Ee537AhGENiT3PBTmMFfJTBo6MUsWVmDHHrrjocWv6MdvWoLzuLKQzl",
@@ -101,7 +107,7 @@ function renderInformation(page) {
             ></iframe>
           </div>
           <div class="p-4">
-            <h3 class="text-lg font-semibold text-black leading-snug mb-2">${item.title}</h3>
+            <h3 class="text-sm font-normal text-black leading-snug mb-2">${item.title}</h3>
             ${item.link ? `<a href="${item.link}" target="_blank" class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</a>` : ""}
           </div>
         </div>
@@ -115,7 +121,7 @@ function renderInformation(page) {
           <img src="${item.image || ''}" class="max-w-full max-h-full object-contain"/>
         </div>
         <div class="p-4">
-          <h4 class="text-lg font-semibold text-black leading-snug mb-2">${item.title}</h4>
+          <h4 class="text-sm font-normal text-black leading-snug mb-2">${item.title}</h4>
           <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
         </div>
       </a>

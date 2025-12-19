@@ -1,45 +1,70 @@
 ---
-import Slogan from '@/components/sections/Slogan.astro';
-import Collapse from '@/components/ui/Collapse.astro';
 import Layout from '@/layouts/Layout.astro';
-import fs from 'fs/promises';
-import Papa from 'papaparse';
+import Slogan from '@/components/sections/Slogan.astro';
 
-const title = 'เครือข่ายความร่วมมือ';
-const description = '';
+const title = 'การประชุมเครือข่ายความร่วมมือทางวิชาการ';
+const description = 'วิทยาลัยศาสนศึกษา';
+
+const articles = [
+  {
+    title: "วิทยาลัยศาสนศึกษา มหิดล จับมือ 4 สถาบันชั้นนำ พัฒนา หลักสูตรร่วมแบบบูรณาการเสริมสร้างความร่วมมือทางวิชาการข้ามศาสตร์ ประชุมหารือแนวทางพัฒนา หลักสูตรร่วมแบบบูรณาการ (Integrated Joint Degree) มุ่งเน้นการเชื่อมโยงองค์ความรู้ด้านศาสนา ปรัชญา มนุษยศาสตร์ เข้ากับสิทธิมนุษยชน การพัฒนาเด็ก ประชากรศาสตร์ และการพัฒนาด้านสุขภาพอาเซียน เพื่อผลิตบัณฑิตที่มีสมรรถนะรอบด้านในระดับสากล ",
+    date: "18 ธันวาคม 2568",
+    slug: "dec2025collab/18dec2025collab",
+    image: "/img/collab/dec2025/18dec2025collab/18dec2025collab-3.jpg"
+  }
+];
 ---
-
 <Layout title={title} description={description}>
   <Slogan title={title} description={description} />
 
-  <section class="mb-16 text-center text-lg">
-    เครือข่ายความร่วมมือทางวิชาการของวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล
-  </section>
+  <section style="max-width:1100px; margin:0 auto; padding:0 20px;">
+    <h2 style="margin-bottom:20px;">การประชุมเครือข่ายความร่วมมือทางวิชาการ</h2>
 
-  <!-- กล่องรวมข้อมูลแบบการ์ด -->
-  <section class="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 md:grid-cols-2 lg:grid-cols-3">
-    <div class="rounded-2xl bg-white p-6 shadow-md transition hover:shadow-lg">
-      <h3 class="mb-3 text-xl font-semibold">ความร่วมมือภายในประเทศ</h3>
-      <p class="text-gray-600">รายชื่อสถาบัน องค์กร และภาคีต่าง ๆ ที่ร่วมมือกับวิทยาลัยภายในประเทศไทย</p>
+    <div
+      style="
+        display:grid;
+        grid-template-columns:repeat(auto-fit, minmax(320px, 420px));
+        gap:24px;
+        justify-content:flex-start;
+      "
+    >
+      {articles.map(article => (
+        <a
+          href={`/collab/${article.slug}`}
+           target="_blank"
+          style="
+            display:block;
+            text-decoration:none;
+            color:inherit;
+            border:1px solid #e0e0e0;
+            border-radius:10px;
+            overflow:hidden;
+            background:#fff;
+            transition:transform .25s, box-shadow .25s;
+          "
+          onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 24px rgba(0,0,0,.12)';"
+          onmouseout="this.style.transform='none'; this.style.boxShadow='none';"
+        >
+          <img
+            src={article.image}
+            alt={article.title}
+            style="
+              width:100%;
+              height:240px;
+              object-fit:cover;
+            "
+          />
+
+          <div style="padding:14px 16px;">
+            <h3 style="margin:0; font-size:1rem; line-height:1.4; font-weight:300">
+              {article.title}
+            </h3>
+            <p style="margin-top:6px; font-size:.85rem; color:#666;">
+              {article.date}
+            </p>
+          </div>
+        </a>
+      ))}
     </div>
-
-    <div class="rounded-2xl bg-white p-6 shadow-md transition hover:shadow-lg">
-      <h3 class="mb-3 text-xl font-semibold">ความร่วมมือต่างประเทศ</h3>
-      <p class="text-gray-600">ข้อมูลการทำงานร่วมกับสถาบันต่างประเทศ โครงการแลกเปลี่ยน และกิจกรรมร่วม</p>
-    </div>
-
-    <div class="rounded-2xl bg-white p-6 shadow-md transition hover:shadow-lg">
-      <h3 class="mb-3 text-xl font-semibold">โครงการร่วม (Projects)</h3>
-      <p class="text-gray-600">งานวิจัย กิจกรรม และโครงการที่ดำเนินร่วมกับหน่วยงานภายนอก</p>
-    </div>
-  </section>
-
-   <section class="mx-auto mt-16 max-w-4xl px-6">
-    <Collapse title="ข้อมูล">
-      <div class="space-y-4 text-gray-700">
-        <p>รายละเอียด</p>
-        
-      </div>
-    </Collapse>
   </section>
 </Layout>

@@ -1,6 +1,6 @@
-<section id="activities" class="py-20 bg-gray-50">
+<section id="activities" class="py-8 bg-gray-50">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-black mb-10 text-center">กิจกรรม</h2>
+    <h2 class="text-2xl font-light text-black mb-10 text-center">กิจกรรม</h2>
 
     <!-- รายการกิจกรรม -->
     <div id="activities-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
@@ -12,9 +12,27 @@
 
 <script>
 /* -------------------------
-   ข้อมูลกิจกรรม (คงไว้ครบทุกอัน)
+   ข้อมูลกิจกรรม 
 -------------------------- */
 const activities = [
+  {
+  title: "พิธีทำบุญเดือนเกิด ประจำเดือนธันวาคม 2568",   
+    description: "",
+    date: "19 ธันวาคม 2568",
+    slug: "birth/19dec2025birth",
+    image: "/img/birth/dec2025/19dec2025birth-1.jpg",
+    isBirth: true,
+    link: "birth/19dec2025birth"
+  },
+  {
+    title: "วิทยาลัยศาสนศึกษา มหิดล จับมือ 4 สถาบันชั้นนำ พัฒนา หลักสูตรร่วมแบบบูรณาการเสริมสร้างความร่วมมือทางวิชาการข้ามศาสตร์",
+    description: "",
+    date: "18 ธันวาคม 2568",
+    slug: "collab/dec2025collab/18dec2025collab",
+    image: "/img/collab/dec2025/18dec2025collab/18dec2025collab-3.jpg",
+    isCollab: true,
+    link: "collab/dec2025collab/18dec2025collab"
+  },  
   {
     title: "วิทยาลัยศาสนศึกษาร่วมแสดงความยินดี เนื่องในงานวันคล้ายวันสถาปนาคณะศิลปศาสตร์ ครบรอบ 22 ปี",
     description: "",
@@ -81,14 +99,14 @@ const activities = [
     image: "/img/activities/nov2025/19nov2025/19nov2025-1.jpg"
   },
   {
-    title: "พิธีบำเพ็ญกุศลปัณรสมวาร (15 วัน)...",
+    title: "พิธีบำเพ็ญกุศลปัณรสมวาร (15 วัน) ถวายเป็นพระราชกุศล แด่สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง",
     description: "",
     date: "7 พฤศจิกายน 2568",
     slug: "7nov2025",
     image: "/img/activities/nov2025/7nov2025/7nov2025-1.jpg"
   },
   {
-    title: "วิทยาลัยศาสนศึกษาจัดพิธีน้อมรำลึกในพระมหากรุณาธิคุณ...",
+    title: "วิทยาลัยศาสนศึกษาจัดพิธีน้อมรำลึกในพระมหากรุณาธิคุณ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง",
     description: "",
     date: "29 ตุลาคม 2568",
     slug: "29oct2025-2",
@@ -102,35 +120,35 @@ const activities = [
     image: "/img/activities/oct2025/29oct2025-1/29oct2025-1-2.jpg"
   },
   {
-    title: "วันนวมินทรมหาราช ประจำปี 2568...",
+    title: "วันนวมินทรมหาราช ประจำปี 2568 ของมหาวิทยาลัยมหิดล",
     description: "",
     date: "8 ตุลาคม 2568",
     slug: "8oct2025",
     image: "/img/activities/oct2025/8oct2025/8oct2025-1.jpg"
   },
   {
-    title: "ซ้อมรับปริญญาบัตรของบัณฑิตวิทยาลัยศาสนศึกษา...",
+    title: "ซ้อมรับปริญญาบัตรของบัณฑิตวิทยาลัยศาสนศึกษา ประจำปีการศึกษา 2567",
     description: "",
     date: "4 ตุลาคม 2568",
     slug: "4oct2025",
     image: "/img/activities/oct2025/4oct2025/2.jpg"
   },
   {
-    title: "งานวันคล้ายวันสถาปนาสำนักงานพระพุทธศาสนาแห่งชาติ...",
+    title: "งานวันคล้ายวันสถาปนาสำนักงานพระพุทธศาสนาแห่งชาติ",
     description: "",
     date: "3 ตุลาคม 2568",
     slug: "3oct2025",
     image: "/img/activities/oct2025/3oct2025/1.jpg"
   },
   {
-    title: "วันคล้ายวันสถาปนาสถาบันแห่งชาติเพื่อการพัฒนาเด็กและครอบครัว...",
+    title: "วันคล้ายวันสถาปนาสถาบันแห่งชาติเพื่อการพัฒนาเด็กและครอบครัว",
     description: "",
     date: "2 ตุลาคม 2568",
     slug: "2oct2025",
     image: "/img/activities/oct2025/2oct2025-1.jpg"
   },
   {
-    title: "พิธีวางพวงมาลา วันมหิดล ประจำปี 2568...",
+    title: "พิธีวางพวงมาลา วันมหิดล ประจำปี 2568",
     description: "",
     date: "24 กันยายน 2568",
     slug: "24sep2025",
@@ -168,23 +186,29 @@ function renderActivities(page) {
   const container = document.getElementById("activities-container");
   if (!container) return;
 
-  container.innerHTML = activities.slice(start, start + itemsPerPage).map(act => {
-    const href = act.isBirth ? act.link : `/activities/${act.slug}/`;
+  container.innerHTML = activities
+    .slice(start, start + itemsPerPage)
+    .map(act => {
 
-    return `
-      <a href="${href}" target="_blank"
-         class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
-        <div class="relative w-full h-56 flex items-center justify-center bg-white overflow-hidden">
-          <img src="${act.image}" class="w-full h-full object-cover" />
-        </div>
-        <div class="p-4">
-          <p class="text-sm text-gray-500 mb-2">${act.date}</p>
-          <h4 class="text-lg font-semibold text-black leading-snug mb-2">${act.title}</h4>
-          <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
-        </div>
-      </a>
-    `;
-  }).join('');
+      const href = (act.isBirth || act.isCollab)
+        ? act.link
+        : `/activities/${act.slug}/`;
+
+      return `
+        <a href="${href}" target="_blank"
+           class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+          <div class="relative w-full h-56 flex items-center justify-center bg-white overflow-hidden">
+            <img src="${act.image}" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-4">
+            <p class="text-sm text-gray-500 mb-2">${act.date}</p>
+            <h4 class="text-sm font-light text-black leading-snug mb-2">${act.title}</h4>
+            <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
+          </div>
+        </a>
+      `;
+    })
+    .join('');
 }
 
 /* -------------------------
