@@ -1,0 +1,82 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "ผู้ช่วยศาสตราจารย์ ดร.ไพเราะ มากเจริญ คณบดีวิทยาลัยศาสนศึกษา ในฐานะผู้แทนมหาวิทยาลัยมหิดล เข้าร่วมกิจกรรม “สืบสานพระราชศรัทธา สักการะบูชาพระศรีศากยะทศพลญาณ ประธานพุทธมณฑลสุทรรศน์ ประจำปีงบประมาณ พ.ศ. 2569” ณ พุทธมณฑล อำเภอพุทธมณฑล จังหวัดนครปฐม";
+const date = "23 ธันวาคม 2568";
+const description = "";
+const gallery = [
+  "/img/activities/dec2025/23dec2025activities/23dec2025activities-1.jpg",
+  "/img/activities/dec2025/23dec2025activities/23dec2025activities-2.jpg",
+  "/img/activities/dec2025/23dec2025activities/23dec2025activities-3.jpg",
+  "/img/activities/dec2025/23dec2025activities/23dec2025activities-4.jpg",
+  "/img/activities/dec2025/23dec2025activities/23dec2025activities-5.jpg",
+  "/img/activities/dec2025/23dec2025activities/23dec2025activities-6.jpg",
+  "/img/activities/dec2025/23dec2025activities/23dec2025activities-7.jpg",
+  "/img/activities/dec2025/23dec2025activities/23dec2025activities-8.jpg",
+  "/img/activities/dec2025/23dec2025activities/23dec2025activities-9.jpg",
+  "/img/activities/dec2025/23dec2025activities/23dec2025activities-10.jpg",   
+]
+ 
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>   
+
+    <p>     
+วันที่ 23 ธันวาคม 2568 – ผู้ช่วยศาสตราจารย์ ดร.ไพเราะ มากเจริญ คณบดีวิทยาลัยศาสนศึกษา ในฐานะผู้แทนมหาวิทยาลัยมหิดล เข้าร่วมกิจกรรม “สืบสานพระราชศรัทธา สักการะบูชาพระศรีศากยะทศพลญาณ ประธานพุทธมณฑลสุทรรศน์ ประจำปีงบประมาณ พ.ศ. 2569” ณ พุทธมณฑล อำเภอพุทธมณฑล จังหวัดนครปฐม <br>
+กิจกรรมดังกล่าวจัดขึ้นโดยสำนักงานพระพุทธศาสนาแห่งชาติ ประกอบด้วย พิธีสักการะบูชาพระศรีศากยะทศพลญาณ ณ ลานประดิษฐานองค์พระประธานพุทธมณฑล ในเวลา 07.00 น.  พิธีเจริญพระพุทธมนต์ ณ ศาลาบำเพ็ญกุศลพุทธมณฑล ในเวลา 08.30 น. พร้อมทั้งร่วมถวายสังฆทาน (เครื่องไทยธรรม) โดยมีวัตถุประสงค์เพื่อส่งเสริมให้พุทธมณฑลเป็นศูนย์กลางการจัดกิจกรรมทางพระพุทธศาสนา
+<br><br>
+Dean of the College of Religious Studies Represents Mahidol University at the “Continuing the Royal Faith” Ceremony at Phutthamonthon<br>
+December 23, 2025 – Asst. Prof. Dr. Pairor Makcharoen, Dean of the College of Religious Studies, acting as the representative of Mahidol University, participated in the event “Continuing the Royal Faith: Paying Homage to Phra Sri Sakkaya Thotsaphonlayan, the Presiding Buddha of Phutthamonthon Suthat (Fiscal Year 2026)” at Phutthamonthon, Phutthamonthon District, Nakhon Pathom Province.<br>
+Organized by the National Office of Buddhism, the event aimed to promote Phutthamonthon as a central hub for Buddhist activities. The ceremony commenced at 07:00 hrs. with a worship ceremony paying homage to Phra Sri Sakkaya Thotsaphonlayan at the Presiding Buddha Plaza. This was followed by a Buddhist Mantra Chanting ceremony at the Merit-Making Pavilion (Sala Bamphen Kusol) at 08:30 hrs., during which the Dean also participated in the offering of Thai Dhamma offerings (Sanghathana).
+</p>
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>
+</Layout>

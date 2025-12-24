@@ -2,8 +2,8 @@
 import Slogan from '@/components/sections/Slogan.astro';
 import Layout from '@/layouts/Layout.astro';
 
-const title = 'อาจารย์ - เจ้าหน้าที่';
-const description = 'ข้อมูลสำหรับอาจารย์และเจ้าหน้าที่';
+const title = 'อาจารย์ - เจ้าหน้าที่ Lecturers & Staff';
+const description = 'Information for Lecturers and Staff.';
 ---
 
 <Layout title={title} description={description}>
@@ -37,7 +37,7 @@ box.style.cssText=`
   transform:translateX(-50%);
 `;
 box.innerHTML=`
-  <p style='font-weight:bold;margin:0 0 10px;'>รหัสผ่าน (ข้อมูลสำหรับอาจารย์)</p>
+  <p style='font-weight:bold;margin:0 0 10px;'>รหัสผ่าน (ข้อมูลสำหรับอาจารย์)<br>Enter Password (Lecturers)</p>
   <input type='password' id='pwInput' style='width:100%;padding:8px;border:1px solid #ccc;border-radius:5px;outline:none;'>
   <div style='display:flex;justify-content:flex-end;gap:8px;margin-top:12px;'>
     <button id='okBtn' style='padding:6px 12px;background:#4CAF50;color:#fff;border:none;border-radius:5px;'>ตกลง</button>
@@ -81,7 +81,7 @@ function checkPW(){
   if(pwInput.value==='crslecturer'){
     window.open('https://sites.google.com/view/crsacademicsstaff','_blank');
   }else{
-    alert('รหัสผ่านไม่ถูกต้อง');
+    alert('รหัสผ่านไม่ถูกต้อง <br Wrong password>');
   }
   cleanup();
 }
@@ -93,7 +93,7 @@ pwInput.addEventListener('keydown',e=>{if(e.key==='Enter') checkPW();});
 return false;
 "
 class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300">
-ข้อมูลสำหรับอาจารย์
+ข้อมูลสำหรับอาจารย์<br>For Lecturers 
 </a>
 
     <!-- ปุ่มข้อมูลสำหรับเจ้าหน้าที่ -->
@@ -119,7 +119,7 @@ box.style.cssText=`
   transform:translateX(-50%);
 `;
 box.innerHTML=`
-  <p style='font-weight:bold;margin:0 0 10px;'>รหัสผ่าน (ข้อมูลสำหรับเจ้าหน้าที่)</p>
+  <p style='font-weight:bold;margin:0 0 10px;'>รหัสผ่าน (ข้อมูลสำหรับเจ้าหน้าที่) <br>Enter Password (Staff)</p>
   <input type='password' id='pwInput' style='width:100%;padding:8px;border:1px solid #ccc;border-radius:5px;outline:none;'>
   <div style='display:flex;justify-content:flex-end;gap:8px;margin-top:12px;'>
     <button id='okBtn' style='padding:6px 12px;background:#4CAF50;color:#fff;border:none;border-radius:5px;'>ตกลง</button>
@@ -174,7 +174,7 @@ pwInput.addEventListener('keydown',e=>{if(e.key==='Enter') checkPW();});
 return false;
 "
 class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300">
-ข้อมูลสำหรับเจ้าหน้าที่
+ข้อมูลสำหรับเจ้าหน้าที่<br>For Staff 
 </a>
   </div>
 
@@ -185,12 +185,148 @@ class="link-hover card link flex h-20 items-center justify-center rounded-box bg
   <div class="mx-auto mb-10 max-w-xl space-y-5 text-center text-2xl">
     <a class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
       href="https://op.mahidol.ac.th/ra/research_fund/" target="_blank">
-      แหล่งทุนวิจัย
+      แหล่งทุนวิจัย <br> Research Funding
     </a>
 
-    <a class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
+    <!-- <a class="link-hover card link flex h-20 items-center justify-center rounded-box bg-base-300"
       href="https://mahidol.ac.th/th/staff/" target="_blank">
       บุคลากรควรรู้
-    </a>
+    </a>-->
   </div>
+
+
+<div style="
+  max-width:1100px;
+  margin:40px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+">
+
+  <!-- กลุ่มสวัสดิการ / HR -->  
+  <div class="section-title">
+    ทรัพยากรบุคคล <br> Human Resources
+  </div>
+  <a href="https://op.mahidol.ac.th/hr/welfare" class="hr-btn" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.icons8.com/ios-filled/100/8b6b2e/health-insurance.png" />
+    <span>สวัสดิการ<br>Welfare & Benefit</span>
+  </a>
+
+  <a href="https://op.mahidol.ac.th/hr/welfare/flexible-benefit/" class="hr-btn" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.icons8.com/ios-filled/100/8b6b2e/options.png" />
+    <span>สวัสดิการแบบยืดหยุ่น <br> Flexible Benefit</span>
+  </a>
+
+  
+  <a href="https://op.mahidol.ac.th/hr/newstaffmustknow-2" class="hr-btn" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.icons8.com/ios-filled/100/8b6b2e/document.png" />
+    <span>คู่มื่อพนักงานมหาวิทยาลัยมหิดล<br>Staff Handbook</span>
+  </a>
+
+
+  <a href="https://op.mahidol.ac.th/hr/careerpath/" class="hr-btn" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.icons8.com/ios-filled/100/8b6b2e/ladder.png" />
+    <span>ความก้าวหน้าในสายอาชีพ<br>Career advancement</span>
+  </a>
+
+  <a href="https://op.mahidol.ac.th/hr/hrdevelopment/" class="hr-btn" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.icons8.com/ios-filled/100/8b6b2e/training.png" />
+    <span>พัฒนาบุคลากร<br>Human Resource Development</span>
+  </a>
+
+  <a href="https://muhr.mahidol.ac.th/Registration" class="hr-btn" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.icons8.com/ios-filled/100/8b6b2e/classroom.png" />
+    <span>การอบรมและสัมมนา<br>Training and seminars</span>
+  </a>
+
+
+
+  <!-- หัวข้อระบบอื่น -->
+  <div class="section-title">
+    ระบบอื่น <br> Other systems
+  </div>
+
+  <!-- กลุ่มระบบ -->
+  <a href="https://muhr.mahidol.ac.th/E-Recruitment/job.php" class="hr-btn" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.icons8.com/ios-filled/100/8b6b2e/find-matching-job.png" />
+    <span>สมัครงาน<br>Recruitment</span>
+  </a>
+
+  
+
+  
+
+  <a href="https://e-payroll.mahidol.ac.th" class="hr-btn" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.icons8.com/ios-filled/100/8b6b2e/payroll.png" />
+    <span>ระบบแจ้งเงินเดือน<br>e-Payroll</span>
+  </a>
+
+  <a href="https://idp.mahidol.ac.th/adfs/oauth2/authorize/?response_type=code&client_id=8146b0df-5053-4015-92d7-683ce1aaf053&resource=ec3cf796-ee54-4422-b7e4-736b0e763ba9&redirect_uri=https%3A%2F%2Feasyleave.mahidol.ac.th%2Foauth2%2Fcallback"
+     class="hr-btn" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.icons8.com/ios-filled/100/8b6b2e/leave.png" />
+    <span>ระบบลา<br>MU Easy Leave</span>
+  </a>
+
+  <a href="https://mail.google.com/mail/u/0/" class="hr-btn" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.icons8.com/ios-filled/100/8b6b2e/new-post.png" />
+    <span>MU Web Mail</span>
+  </a>
+
+  <a href="https://kmmasterclass.mahidol.ac.th" class="hr-btn" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.icons8.com/ios-filled/100/8b6b2e/knowledge-sharing.png" />
+    <span>KM Master Class</span>
+  </a>
+
+</div>
+
+<style>
+.hr-btn{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  padding:26px 18px;
+  background:#ffffff;
+  border-radius:20px;
+  text-decoration:none;
+  color:#333;
+  font-size:1.05rem;
+  font-weight:500;
+  text-align:center;
+  box-shadow:0 14px 36px rgba(0,0,0,.08);
+  transition:all .35s ease;
+}
+.hr-btn img{
+  width:54px;
+  height:54px;
+  transition:transform .35s ease;
+}
+.hr-btn:hover{
+  background:#8b6b2e;
+  color:#fff;
+  transform:translateY(-6px);
+  box-shadow:0 24px 60px rgba(139,107,46,.35);
+}
+.hr-btn:hover img{
+  transform:scale(1.15);
+  filter:brightness(0) invert(1);
+}
+
+/* หัวข้อระบบ */
+.section-title{
+  grid-column:1 / -1;
+  font-size:1.3rem;
+  font-weight:600;
+  color:#8b6b2e;
+  padding:10px 4px 0;
+  margin-top:20px;
+  border-left:6px solid #8b6b2e;
+}
+</style>
+
+
+
+
+  
 </Layout>

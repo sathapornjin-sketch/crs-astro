@@ -1,0 +1,82 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "วิทยาลัยศาสนศึกษา เข้าร่วมการจัดสัมมนา MU Synergy: from Departments to Real World Impact ณ มหิดลสิทธาคาร";
+const date = "23 ธันวาคม 2568";
+const description = "";
+const gallery = [
+  "/img/activities/dec2025/23dec2025activities2/23dec2025activities2-1.jpg",
+  "/img/activities/dec2025/23dec2025activities2/23dec2025activities2-2.jpg",
+  "/img/activities/dec2025/23dec2025activities2/23dec2025activities2-3.jpg",
+  "/img/activities/dec2025/23dec2025activities2/23dec2025activities2-4.jpg",
+  "/img/activities/dec2025/23dec2025activities2/23dec2025activities2-5.jpg",
+  "/img/activities/dec2025/23dec2025activities2/23dec2025activities2-6.jpg",
+  "/img/activities/dec2025/23dec2025activities2/23dec2025activities2-7.jpg",
+  "/img/activities/dec2025/23dec2025activities2/23dec2025activities2-8.jpg",  
+]
+ 
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>   
+
+    <p>     
+วันที่ 23 ธันวาคม 2568 มหาวิทยาลัยมหิดล จัดการสัมมนา "MU Synergy: from Departments to Real World Impact" ณ มหิดลสิทธาคาร โดยได้รับเกียรติจาก ศ.คลินิกเกียรติคุณ นพ.ปิยะสกล สกลสัตยาทร นายกสภามหาวิทยาลัยมหิดล เป็นประธานกล่าวเปิดงาน และ ศ.นพ.ปิยะมิตร ศรีธรา อธิการบดีมหาวิทยาลัยมหิดล เป็นประธานในพิธีและนำเสนอทิศทางกลยุทธ์ของมหาวิทยาลัย<br>
+การสัมมนาครั้งนี้คณะผู้บริหารมหาวิทยาลัยมหิดลได้สื่อสารทิศทางกลยุทธ์ของมหาวิทยาลัย โดยมีวัตถุประสงค์เพื่อสื่อสาร และสร้างความเข้าใจในแนวทางการดำเนินงาน รวมถึงเปิดพื้นที่ให้เกิดการแลกเปลี่ยนเรียนรู้ และพร้อมรับฟังข้อเสนอแนะที่เป็นประโยชน์ต่อการขับเคลื่อนมหาวิทยาลัยสู่อนาคต<br>
+ในการนี้ อ.ดร.จิราธร ชาติศิริ รองคณบดีฝ่ายการศึกษาและกิจการนักศึกษา พร้อมด้วย อ.ดร.บุญมี พวงเพชร อาจารย์ประจำวิทยาลัยศาสนศึกษา ได้เข้าร่วมการสัมมนาเพื่อรับฟังนโยบายและร่วมแลกเปลี่ยนแนวทางการพัฒนา ณ มหิดลสิทธาคาร ศูนย์ประชุมและอาคารจอดรถมหิดลสิทธาคาร มหาวิทยาลัยมหิดล ศาลายา
+<br><br>
+College of Religious Studies participated in the MU Synergy Seminar: From Departments to Real-World Impact<br>
+23 December 2025, Mahidol University organized the seminar titled “MU Synergy: from Departments to Real World Impact” at Mahidol Siddhacar. The opening remarks were delivered by Piyasakol Sakolsatayadorn, Chairman of the Mahidol University Council, while the ceremony was presided over by Piyamitr Sritara, President of Mahidol University, who also presented the University’s strategic directions.<br>
+The seminar provided an opportunity for the University’s executive leadership to communicate its strategic vision, with the aim of fostering shared understanding of institutional directions, encouraging knowledge exchange, and welcoming constructive feedback to support Mahidol University’s future development.<br>
+On this occasion, Dr. Jirathorn Chartsiri, Associate Dean for Education and Student Affairs, together with Dr. Boonmee Poungpet, Lecturer at the College of Religious Studies, participated in the seminar to receive policy briefings and engage in discussions on development approaches. The seminar was held at Mahidol Siddhacar Conference Center and Parking Building, Mahidol University, Salaya Campus.
+</p>
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>
+</Layout>
