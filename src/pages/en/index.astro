@@ -9,134 +9,203 @@ import Title1 from '@/components/sections/Title1.astro';
 import Title2 from '@/components/sections/Title2.astro';
 import Layout from '@/layouts/Layout.astro';
 import FacebookPage from '@/components/plugins/FacebookPage.astro';
-import News from '@/components/sections/News.astro';
-import Calendar from '@/components/sections/Calendar.astro';
+import Information from '@/components/sections/Information.astro';
+import Congratulation from '@/components/sections/Congratulation.astro';
+import Activities from '@/components/sections/Activities.astro';
+import Seminar from '@/components/sections/Seminar.astro';
+//import Calendar from '@/components/sections/Calendar.astro';
 
+import Popup from '@/components/sections/Popup.astro';
 // const res = await fetch('https://seedx.seeddemo.com/wp-json/wp/v2/posts?per_page=3&_embed');
 // const posts = await res.json();
 
 const metadata = {
-	title: 'College of Religious Studies – Mahidol University',
+	title: 'วิทยาลัยศาสนศึกษา – มหาวิทยาลัยมหิดล',
 	description: 'College of Religious Studies, Mahidol University',
 };
+
 ---
 
 <Layout
+
 	title={metadata.title}
 	description={metadata.description}
 	bodyclass="bg-white dark:bg-th-bg-2-dark"
 >
 	<Banner />
+    <Popup />	
+	<Information />
+	<Congratulation />
+	<Activities />
+	<Seminar />
+	
+	
+	<Title2 title="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล" description="" />
 
-	<Title2 title="Religious Studies" description="College of Religious Studies, Mahidol University" />
+<section class="-mt-12 pb-12">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+
+    <a href="/about/history" class="card">
+      <img src="img/mucrshistory.png" />
+      <h4>ประวัติความเป็นมา</h4>
+    </a>
+
+    <a href="/about/vision" class="card">
+      <img src="img/mucrs_mv.png" width="180" height="180" />
+      <h4>พันธกิจและวิสัยทัศน์</h4>
+    </a>
+
+    <a href="https://www.facebook.com/CRSNamthong" target="_blank" class="card">
+      <img src="img/ntdorm.jpg" width="180" height="180"/>
+      <h4>มูลนิธิและหอพักน้ำทองสิกขาลัย</h4>
+    </a>
+
+  </div>
+</section>
+
+<style>
+.card {
+  @apply bg-white rounded-[4rem] p-10 text-center border
+         transition-all duration-300
+         hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]
+         hover:bg-gradient-to-b hover:from-white hover:to-gray-50;
+}
+
+.icon {
+  @apply w-32 h-32 mx-auto mb-6
+         transition-transform duration-300
+         group-hover:scale-110;
+}
+
+.card h4 {
+  @apply text-base font-normal text-black tracking-wide;
+}
+</style>
+
+
+
+
+
+
+
+
+	<!-- 
 	<Features
 		classes="md:grid-cols-3 mb-20"
 		items={[
 			{
-				icon: 'icon-1',
-				title: 'History',
-				description: 'The first College of Religious Studies in Thailand and part of Mahidol University.',
+				icon: 'history',
+				title: 'ประวัติความเป็นมา',
+				description: 'เป็นวิทยาลัยศาสนศึกษาแห่งแรกของประเทศไทย และเป็นหน่วยงานในมหาวิทยาลัยมหิดล',
 				link: '/about/history',
 			},
 			{
-				icon: 'icon-2',
+				icon: 'mission',
 				title: 'Mission / Vision',
 				description:
-					'A leading institution in the ASEAN region and internationally in education, research, and community service in religious studies.',
+					'เป็นสถาบันชั้นนำระดับนานาชาติด้านศาสนศึกษา ที่บูรณาการศาสนา จริยธรรม และความรู้สมัยใหม่ เพื่อขับเคลื่อนสังคมสู่ความยั่งยืนในโลกแห่งการเปลี่ยนแปลงบนรากฐานแห่งคุณธรรม',
 				link: '/about/vision',
 			},
 			{
-				icon: 'icon-3',
-				title: 'Namthong Foundation / Namthong Dormitory',
-				description: 'Namthong Dormitory, College of Religious Studies, Mahidol University.',
+				icon: 'dorm',
+				title: 'มูลนิธิน้ำทองฯ / หอพักน้ำทองฯ',
+				description: 'หอพักน้ำทองสิกขาลัย วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล',
 				link: 'https://www.facebook.com/CRSNamthong',
 				isExternal: true,
 			},
 		]}
-	/>
-
+	/>-->
+	
+<!--
 	<a href="/education/syllabus">
 		<Slogan
-			title="Offered Courses / Admission"
-			description="College of Religious Studies, Mahidol University"
+			title="หลักสูตรที่เปิดสอน / การรับสมัครเข้าเรียน"
+			description="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล"
 		/>
 	</a>
+		-->
 
-	<!-- <Posts classes="md:grid-cols-3 gap-8 mb-20" title="News" items={posts} /> -->
+	<!-- <Posts classes="md:grid-cols-3 gap-8 mb-20" title="ข่าวประชาสัมพันธ์" items={posts} /> -->
 	<!-- <Hero
 		title="Lorem ipsum dolor sit amet,"
 		description="Lorem ipsum dolor sit amet, consectetur adipiscing elited do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 	/> -->
 
-	<Title2 title="Around CRS Campus" description="College of Religious Studies, Mahidol University" />
+	<!-- <Title2 title="รอบรั้วศาสนศึกษา" description="วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล" />-->
 
-	<div class="flex justify-center gap-8 mb-20">
-		<!--
-		<div class="mx-auto">
-			<YoutubeVideo videoId="c0c0davT2Ec" />
-		</div>
-		-->
-	</div>
+<section class="pb-16">
+  <div class="max-w-7xl mx-auto px-4
+              grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3
+              gap-8">
 
-	<!-- <News />-->  <!--Use News section -->
-	<!-- <Calendar /> --> <!--Use Calendar section -->
+    <a href="https://crs.mahidol.ac.th/education/syllabus" class="card group">
+      <img src="img/mucrs_courses.png" width="220" height="220" />
+      <h4>หลักสูตร</h4>
+    </a>
 
-	<Features
-		classes="grid-cols-1 md:grid-cols-3 mb-20"
-		items={[
-			{
-				icon: 'icon-1',
-				title: 'CRS Course',
-				link: 'https://crs.mahidol.ac.th/education/syllabus',				
-				description: '',
-			},
-			{
-				icon: 'icon-2',
-				title: 'CRS Seminar',
-				link: 'https://crs.mahidol.ac.th/seminar',	
-				description: '',
-			},
-			{
-				icon: 'icon-4',
-				title: 'CRS for Students',
-				link: 'https://crs.mahidol.ac.th/students',	
-				description: '',
-			},
-		]}
-	/>
+    <a href="/news" class="card group">
+      <img src="img/mucrs_news.png" width="220" height="220" />
+      <h4>ข่าวสาร CRS</h4>
+    </a>
 
-	<Title2 title="CRS Update" description="Get the latest news first" />
+    <a href="https://crs.mahidol.ac.th/seminar" class="card group">
+      <img src="img/seminar/25jul2025/25jul2025-1.jpg" />
+      <h4>สัมมนาและบรรยายทางวิชาการ</h4>
+    </a>
 
-	<!-- <div class="mb-20 flex w-full items-center justify-center">
-		<FacebookPage />
-	</div>-->
+    <a href="https://crs.mahidol.ac.th/students" class="card group">
+      <img src="img/students/oct2025/10oct2025/10oct2025-4.jpg"/>
+      <h4>นักศึกษา CRS Students</h4>
+    </a>
 
-	<Features
-		classes="grid-cols-1 md:grid-cols-3 mb-20"
-		items={[
-			{
-				icon: 'icon-3',
-				title: 'News',
-				description: '',
-				link: '/news',
-				isExternal: false,
-			},
-			{
-				icon: 'icon-5',
-				title: 'Activities',
-				description: '',
-				link: 'https://crs.mahidol.ac.th/activities',
-				isExternal: true,
-			},
-			{
-				icon: 'icon-6',
-				title: 'Birthday Merit',
-				description: '',
-				link: 'https://crs.mahidol.ac.th/birth',
-				isExternal: true,
-			},
-		]}
-	/>
+    
+
+    <a href="https://crs.mahidol.ac.th/activities" class="card group">
+      <img src="img/activities/sep2025/24sep2025-1.jpg" />
+      <h4>กิจกรรม</h4>
+    </a>
+
+    <a href="https://crs.mahidol.ac.th/birth" class="card group">
+      <img src="img/birth/nov2025/28nov2025birth-1.jpg" />
+      <h4>ทำบุญเดือนเกิด</h4>
+    </a>
+
+  </div>
+</section>
+
+
+<style>
+.card {
+  @apply bg-white rounded-[2rem]
+         p-6 sm:p-8 md:p-10
+         text-center border
+         min-h-[220px]
+         flex flex-col items-center justify-center
+         transition-all duration-300
+         hover:-translate-y-2
+         hover:shadow-[0_18px_36px_rgba(0,0,0,0.12)];
+}
+
+.icon {
+  @apply w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20
+         mx-auto mb-4 sm:mb-6
+         transition-transform duration-300
+         group-hover:scale-110;
+}
+
+.card h4 {
+  @apply text-xs sm:text-sm
+         font-normal text-black
+         tracking-wider text-center;
+}
+
+</style>
+
+	
+
+	
+
+
 
 	<!-- <Logos
 		classes="grid-cols-4 mb-0 py-8"
@@ -151,4 +220,5 @@ const metadata = {
 			{ icon: 'logo-8' },
 		]}
 	/> -->
+	
 </Layout>
