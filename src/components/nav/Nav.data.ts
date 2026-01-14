@@ -95,4 +95,5 @@ export const nav: NavItem[] = [
 		name: 'ITA',
 		link: '/ita',
 	},
+	
 ];

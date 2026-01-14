@@ -1,0 +1,88 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ต้อนรับ ศาสตราจารย์ James Robson จากมหาวิทยาลัยฮาร์วาร์ด";
+const date = "9 มกราคม 2569";
+const description = "";
+const gallery = [
+  "/img/activities/2026/jan2026/9jan2026activities/9jan2026activities-1.jpg",
+  "/img/activities/2026/jan2026/9jan2026activities/9jan2026activities-2.jpg",
+  "/img/activities/2026/jan2026/9jan2026activities/9jan2026activities-3.jpg",
+  "/img/activities/2026/jan2026/9jan2026activities/9jan2026activities-4.jpg",
+  "/img/activities/2026/jan2026/9jan2026activities/9jan2026activities-5.jpg",
+  "/img/activities/2026/jan2026/9jan2026activities/9jan2026activities-6.jpg",
+  "/img/activities/2026/jan2026/9jan2026activities/9jan2026activities-7.jpg",
+  "/img/activities/2026/jan2026/9jan2026activities/9jan2026activities-8.jpg",
+  "/img/activities/2026/jan2026/9jan2026activities/9jan2026activities-9.jpg",
+  "/img/activities/2026/jan2026/9jan2026activities/9jan2026activities-10.jpg", 
+]
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>   
+
+    <p>   
+วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล นำโดย ผู้ช่วยศาสตราจารย์ ดร.ไพเราะ มากเจริญ คณบดีวิทยาลัยศาสนศึกษา พร้อมด้วย รองศาสตราจารย์ ดร. Milos Hubina รองคณบดีฝ่ายวิจัยและวิเทศสัมพันธ์ และคณาจารย์ของวิทยาลัย ให้การต้อนรับ ศาสตราจารย์ James Robson
+ผู้อำนวยการสถาบัน Harvard-Yenching Institute และศาสตราจารย์ประจำภาควิชาภาษาและอารยธรรมเอเชียตะวันออก มหาวิทยาลัยฮาร์วาร์ด สหรัฐอเมริกา.<br>
+ในโอกาสนี้ วิทยาลัยได้จัดกิจกรรม การสนทนาทางวิชาการ (Academic Conversation) เพื่อเปิดพื้นที่แลกเปลี่ยนองค์ความรู้ด้านศาสนา มนุษยศาสตร์ และเอเชียศึกษา ในบรรยากาศที่เป็นกันเอง<br>
+การสนทนายังครอบคลุมถึงแนวทางความร่วมมือทางวิชาการในอนาคต รวมถึงเครือข่ายนักวิชาการและโอกาสด้านทุนวิจัยและทุนแลกเปลี่ยนของ Harvard-Yenching Institute ซึ่งอาจเป็นประโยชน์ต่อคณาจารย์และนักวิจัยของวิทยาลัย. <br>
+กิจกรรมครั้งนี้สะท้อนถึงความมุ่งมั่นของวิทยาลัยศาสนศึกษาในการส่งเสริมความร่วมมือทางวิชาการระดับนานาชาติ และการสร้างบทสนทนาที่มีความหมายในสาขาศาสนศึกษาและมนุษยศาสตร์
+<br><br>
+College of Religious Studies, Mahidol University Welcomes Professor James Robson from Harvard University
+The College of Religious Studies, Mahidol University, led by Asst. Prof. Dr. Pairor Makcharoen, Dean of the College of Religious Studies, together with Assoc. Prof. Dr. Milos Hubina, Associate Dean for Research and International Relations, and CRS faculty members, warmly welcomed Professor James Robson,
+Director of the Harvard-Yenching Institute and Professor in the Department of East Asian Languages and Civilizations, Harvard University, USA.<br>
+
+On this occasion, the College hosted an Academic Conversation, providing a space for scholarly exchange on religion, humanities, and Asian studies in a collegial and informal setting.<br>
+The discussion also explored potential avenues for future academic collaboration, including scholarly networks and fellowship opportunities offered by the Harvard-Yenching Institute, which may be of interest to CRS faculty and researchers.<br>
+This academic engagement reflects the College of Religious Studies’ ongoing commitment to fostering international academic partnerships and promoting meaningful dialogue in the fields of religious studies and the humanities.
+</p>
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>
+</Layout>

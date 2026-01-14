@@ -1,0 +1,84 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "คณาจารย์วิทยาลัยศาสนศึกษาเข้ารับใบประกาศรับรองมาตรฐานคุณภาพอาจารย์ MU-PSF Level 2";
+const date = "9 มกราคม 2569";
+const description = "";
+const gallery = [
+  "/img/congra/2026/jan2026/9jan2026congra_mupsf/9jan2026congra_mupsf-1.jpg",
+  "/img/congra/2026/jan2026/9jan2026congra_mupsf/9jan2026congra_mupsf-2.jpg",
+  "/img/congra/2026/jan2026/9jan2026congra_mupsf/9jan2026congra_mupsf-3.jpg",
+  "/img/congra/2026/jan2026/9jan2026congra_mupsf/9jan2026congra_mupsf-4.jpg",
+  "/img/congra/2026/jan2026/9jan2026congra_mupsf/9jan2026congra_mupsf-5.jpg",
+  "/img/congra/2026/jan2026/9jan2026congra_mupsf/9jan2026congra_mupsf-6.jpg",
+  "/img/congra/2026/jan2026/9jan2026congra_mupsf/9jan2026congra_mupsf-7.jpg",
+  "/img/congra/2026/jan2026/9jan2026congra_mupsf/9jan2026congra_mupsf-8.jpg",
+  "/img/congra/2026/jan2026/9jan2026congra_mupsf/9jan2026congra_mupsf-9.jpg",
+  "/img/congra/2026/jan2026/9jan2026congra_mupsf/9jan2026congra_mupsf-10.jpg",  
+]
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>   
+
+    <p>   
+คณาจารย์วิทยาลัยศาสนศึกษาเข้ารับใบประกาศรับรองมาตรฐานคุณภาพอาจารย์ MU-PSF Level 2 <br>
+วันที่ 9 มกราคม 2569 คณาจารย์วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ได้แก่ ผู้ช่วยศาสตราจารย์ ดร.สมบูรณ์ วัฒนะ, อาจารย์ ดร.บุญมี พวงเพชร และอาจารย์ ดร.กฤต พิริยธัชกุล เข้ารับ ใบประกาศรับรองมาตรฐานคุณภาพอาจารย์ MU-PSF Level 2 ในงาน Mahidol University Educator Awards ณ หอประชุมมหิดลสิทธาคาร มหาวิทยาลัยมหิดล ศาลายา<br>
+งานดังกล่าวได้รับเกียรติจาก ศาสตราจารย์ นายแพทย์ปิยะมิตร ศรีธรา อธิการบดีมหาวิทยาลัยมหิดล เป็นประธานในพิธี พร้อมด้วยคณะผู้บริหารจากหลากหลายส่วนงานเข้าร่วมแสดงความยินดี โดยในโอกาสนี้ คณบดีวิทยาลัยศาสนศึกษาได้เข้าร่วมแสดงความยินดีกับคณาจารย์ทั้งสามท่าน
+ความสำเร็จครั้งนี้สะท้อนถึงความมุ่งมั่นในการพัฒนาคุณภาพการเรียนการสอน และความเป็นมืออาชีพทางวิชาการของคณาจารย์วิทยาลัยศาสนศึกษาอย่างแท้จริง 
+<br><br>
+Faculty Members of the College of Religious Studies Receive MU-PSF Level 2 Teaching Quality Certification <br>
+On 9 January 2026, faculty members of the College of Religious Studies, Mahidol University, namely Assistant Professor Dr. Somboon Wattana, Dr. Boonmee Phuangphet, and Dr. Krit Piriyarak, received the MU-PSF Level 2 Teaching Quality Certification at the Mahidol University Educator Awards ceremony, held at the Mahidol Siddhakarn Auditorium, Mahidol University, Salaya.<br>
+The ceremony was presided over by Professor Dr. Piyamitr Sritara, President of Mahidol University, and was attended by executives from various faculties and units. On this occasion, the Dean of the College of Religious Studies also joined in congratulating the three faculty members.<br>
+This achievement reflects the strong commitment to enhancing the quality of teaching and the high level of academic professionalism of the faculty members of the College of Religious Studies. 
+</p>
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>
+</Layout>
