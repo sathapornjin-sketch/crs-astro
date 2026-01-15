@@ -14,6 +14,21 @@
 ---------------------------- */
 const seminar = [
   {
+    title: "วิทยาลัยศาสนศึกษา มหิดล จับมือ 4 สถาบันชั้นนำ พัฒนา หลักสูตรร่วมแบบบูรณาการเสริมสร้างความร่วมมือทางวิชาการข้ามศาสตร์",    
+    date: "15 มกราคม 2569",
+    //slug: "dec2025/4dec2025seminar",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0AoA2BspPvBJomPfKEnViM4zg76MuRFrokDXkCbX7tLhyKd9BySToJHTnoLHzP1aKl",
+    isbirth: true,
+    image: "/img/seminar/2026/jan2026/15jan2026jointdegree/15jan2026jointdegree.jpg"
+  },
+{
+    title: "วิทยาลัยศาสนศึกษา ม.มหิดล จัดการบรรยายวิชาการระดับนานาชาติในหัวข้อ “Peṭakopadesa-aṭṭhakathā: The Theory and Practice of Modern Pali Commentary” ภายใต้กิจกรรม MU-CRS Seminar on Contemporary Religious Studie โดยความร่วมมือกับมูลนิธิไทย",
+    description: "",
+    date: "14 มกราคม 2569",
+    slug: "2026/14jan2026seminar",
+    image: "/img/seminar/2026/jan2026/14jan2026seminar-1.jpg"
+  },
+  {
     title: "วิทยาลัยศาสนศึกษา ม.มหิดล จัดการบรรยายวิชาการระดับนานาชาติในหัวข้อ KARMA AND CAUSATION IN THERAVĀDA BUDDHISM: RETHINKING DETERMINISM AND EXTERNAL PHENOMENA โดยความร่วมมือกับมูลนิธิไทย",
     description: "",
     date: "22 ธันวาคม 2568",
@@ -132,7 +147,7 @@ function renderSeminar(page) {
 
   container.innerHTML = seminar.slice(start, start + seminarPerPage)
     .map(item => `
-      <a href="/seminar/${item.slug}/" target="_blank"
+      <a href="${item.link ? item.link : `/seminar/${item.slug}/`}" target="_blank"
          class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
 
         <div class="relative w-full h-56 bg-white overflow-hidden flex items-center justify-center">

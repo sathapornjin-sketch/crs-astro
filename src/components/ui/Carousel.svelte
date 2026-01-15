@@ -23,6 +23,7 @@
 				isExternal: true,
 			},
 		},	
+		/*
 		{
 			id: 'slide1',
 			src: '/img/banner/1บุคลากรมหิดล-กลไก.jpg',
@@ -41,6 +42,7 @@
 				isExternal: true,
 			},
 		},
+		
 		{
 			id: 'slide3',
 			src: '/img/banner/3ประชาชน ผู้รับบริการ.jpg',
@@ -50,8 +52,10 @@
 				isExternal: true,
 			},
 		},
+		*/
+
 		
-		{ id: 'slide5', src: '/img/banner/bn2.png', alt: 'CRS Banner' },
+		{ id: 'slide5', src: '/img/banner/2026/Banner_student2026.png', alt: 'CRS Banner' },
 		
 		{
 			id: 'slide6',

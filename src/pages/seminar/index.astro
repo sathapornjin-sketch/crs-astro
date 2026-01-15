@@ -19,6 +19,13 @@ const seminar = [
 // 🔹 กลุ่มการบรรยาย applied
 const lecture = [
   {
+    title: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล  (Thailand Foundation) ได้จัดการบรรยายวิชาการระดับนานาชาติใน Peṭakopadesa-aṭṭhakathā: The Theory and Practice of Modern Pali Commentary ภายใต้กิจกรรม MU-CRS Seminar on Contemporary Religious Studies โดยความร่วมมือกับมูลนิธิไทย",
+    description: "",
+    date: "14 มกราคม 2569",
+    slug: "2026/14jan2026seminar",
+    image: "/img/seminar/2026/jan2026/14jan2026seminar-1.jpg"
+  },
+  {
     title: "วิทยาลัยศาสนศึกษา ม.มหิดล จัดการบรรยายวิชาการระดับนานาชาติในหัวข้อ KARMA AND CAUSATION IN THERAVĀDA BUDDHISM: RETHINKING DETERMINISM AND EXTERNAL PHENOMENA โดยความร่วมมือกับมูลนิธิไทย",
     description: "",
     date: "22 ธันวาคม 2568",
@@ -83,8 +90,16 @@ const lecture = [
   },
 ];
 
-// 🔹 กลุ่มอบรม Training (เพิ่มใหม่)
+// 🔹 กลุ่มอบรม Training (เพิ่มใหม่) ประชุม
 const training = [
+  {
+    title: "วิทยาลัยศาสนศึกษา มหิดล จับมือ 4 สถาบันชั้นนำ พัฒนา หลักสูตรร่วมแบบบูรณาการเสริมสร้างความร่วมมือทางวิชาการข้ามศาสตร์",    
+    date: "15 มกราคม 2569",
+    //slug: "dec2025/4dec2025seminar",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0AoA2BspPvBJomPfKEnViM4zg76MuRFrokDXkCbX7tLhyKd9BySToJHTnoLHzP1aKl",
+    isbirth: true,
+    image: "/img/seminar/2026/jan2026/15jan2026jointdegree/15jan2026jointdegree.jpg"
+  },
   {
     title: "อบรมเชิงปฏิบัติการ Student Attendance Check ในการใช้งาน Google Forms, Google Sheets และ Looker Studio สำหรับการสร้างรายงานและการแสดงผลข้อมูลการเข้าเรียนของนักศึกษา",
     description: "",
@@ -147,7 +162,7 @@ const training = [
 
   <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-top:20px;">
     {training.map(article => (
-      <a href={`/seminar/${article.slug}`} target="_blank" rel="noopener noreferrer"
+      <a href={article.link ? article.link : `/seminar/${article.slug}`} target="_blank" rel="noopener noreferrer"
          style="
            display:flex; flex-direction:column;
            text-decoration:none; color:inherit;
