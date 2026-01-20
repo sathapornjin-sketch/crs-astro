@@ -14,6 +14,7 @@
 		//{
 			//id: 'slide0',src: '/img/banner/siri.png',alt: 'siri',			
 		//},
+		/*
 		{
 			id: 'slide0',
 			src: '/img/banner/TCAS1-2_2569banner.jpg',
@@ -23,7 +24,7 @@
 				isExternal: true,
 			},
 		},	
-		/*
+		
 		{
 			id: 'slide1',
 			src: '/img/banner/1บุคลากรมหิดล-กลไก.jpg',
