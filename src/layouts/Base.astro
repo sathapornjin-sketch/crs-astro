@@ -4,15 +4,30 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.scss';
 const { title, description, bodyclass = '', cover = '/cover.png' } = Astro.props;
+const lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'th';
 ---
 
-<html lang="th" class="w-full overflow-x-hidden font-th-body">
+<html lang={lang} class="w-full overflow-x-hidden font-th-body">
 	<head>
 		<meta charset="utf-8" />
 		<link rel='icon' type='image/x-icon' href='/favicon.ico' />
 		<link rel="icon" type="image/png" href="/img/mu-logo.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content={description} />
+		<title>
+	{lang === 'en'
+		? title?.en ?? 'College of Religious Studies, Mahidol University'
+		: title?.th ?? 'วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล'}
+</title>
+
+<meta
+	name="description"
+	content={
+		lang === 'en'
+			? description?.en ?? 'College of Religious Studies, Mahidol University'
+			: description?.th ?? 'วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล'
+	}
+/>
+
 		<meta property="og:image" content={cover} />
 		<title>{title}</title>
 		<ViewTransitions />
@@ -24,14 +39,14 @@ const { title, description, bodyclass = '', cover = '/cover.png' } = Astro.props
 	</head>
 	<body
 		class={'relative flex flex-col size-m:text-[22px] size-l:text-[32px] text-th-text-1 dark:text-th-text-1-dark' +
-			(bodyclass ? ` ${bodyclass}` : ' bg-th-bg-2 dark:bg-th-bg-2-dark')}
+			(bodyclass ? ` ${bodyclass}` : ' bg-th-bg-2 dark:bg-th-bg-2-dark')}		
+		
 		style="filter: saturate(30%);"
 	>
 		<a class="skip-link _sr" href="#content">Skip to content - ข้ามไปที่เนื้อหา</a>
 		<Header />
 		<slot />
-		<Footer />
-
+		<Footer lang={lang} />
 		<script>
 			import '../scripts/cookieconsent-config.js';
 		</script>

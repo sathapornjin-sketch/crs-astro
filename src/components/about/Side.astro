@@ -1,33 +1,40 @@
 ---
-const pages = await Astro.glob('../../data/about/*.md');
-const path = new URL(Astro.request.url).pathname.replace(/\/$/, '').split('/');
-let a = new URL(Astro.request.url).pathname.replace(/\/$/, '');
-const current = path[2];
-const root = current === undefined ? true : false;
----
+import { aboutSideTH } from '@/data/about/th/AboutSide';
+import { aboutSideEN } from '@/data/about/en/AboutSide';
 
-<ul
-	class="divide-y overflow-hidden rounded-th-rounded-2 bg-th-bg-1 p-0 shadow-th-shadow-1 dark:bg-th-bg-1-dark"
->
-	<li class="list-none border-dashed border-th-border-2 px-4 py-2.5 dark:border-th-border-2-dark">
-		<h2 class="m-0 text-xl leading-[1.625rem]">เกี่ยวกับวิทยาลัย</h2>
-	</li>
-	{
-		pages.map((page) => (
-			<li
-				class={
-					current === page.frontmatter.slug
-						? 'active list-none border-l-[3px] border-dashed border-th-border-2 border-l-th-color-1 px-4 py-2.5 pl-[13px] font-bold dark:border-th-border-2-dark dark:border-l-th-color-1-dark'
-						: 'list-none border-dashed border-th-border-2 px-4 py-2.5 dark:border-th-border-2-dark'
-				}
-			>
-				<a
-					href={`/about/${page.frontmatter.slug}/`}
-					class="text-th-link-1 dark:text-th-link-1-dark"
-				>
-					{page.frontmatter.title}
-				</a>
-			</li>
-		))
-	}
+// ตรวจภาษาจาก URL จริง
+const pathname = Astro.url.pathname.replace(/\/$/, '');
+const isEn = pathname.startsWith('/en/');
+
+// เลือก data ตามภาษา
+const items = isEn ? aboutSideEN : aboutSideTH;
+
+// หา slug ปัจจุบัน
+// /about/history        → history
+// /en/about/history     → history
+const seg = pathname.split('/');
+const current = isEn ? seg[3] : seg[2];
+
+// base link
+const base = isEn ? '/en/about' : '/about';
+
+// title
+const title = isEn ? 'About CRS' : 'เกี่ยวกับวิทยาลัย';
+---
+<ul class="divide-y rounded-th-rounded-2 bg-th-bg-1 shadow-th-shadow-1">
+  <li class="px-4 py-2.5">
+    <h2 class="text-xl">{title}</h2>
+  </li>
+
+  {items
+    .sort((a, b) => a.order - b.order)
+    .map(i => (
+      <li
+        class={current === i.slug
+          ? 'border-l-4 border-th-primary pl-3 font-bold'
+          : 'px-4 py-2.5'}
+      >
+        <a href={`${base}/${i.slug}/`}>{i.title}</a>
+      </li>
+    ))}
 </ul>

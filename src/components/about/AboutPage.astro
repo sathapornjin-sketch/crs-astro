@@ -1,0 +1,13 @@
+---
+import Layout from '@/layouts/Layout_Sidebar.astro';
+import Side from './Side.astro';
+
+const { isEn = false } = Astro.props;
+---
+<Layout>
+  <aside slot="aside">
+    <Side isEn={isEn} />
+  </aside>
+
+  <slot />
+</Layout>

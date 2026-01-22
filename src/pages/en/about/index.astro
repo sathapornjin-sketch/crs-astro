@@ -1,0 +1,7 @@
+---
+import AboutPage from '@/components/about/AboutPage.astro';
+
+const pathname = Astro.url.pathname;
+const isEn = pathname.startsWith('/en/');
+---
+<AboutPage isEn={isEn} />

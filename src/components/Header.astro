@@ -4,8 +4,12 @@ import Nav from '@/components/nav/Nav.astro';
 import ButtonMode from './ButtonMode.astro';
 import ButtonSize from './ButtonSize.astro';
 import Image from './ui/Image.astro';
+import LanguageSwitcher from '@/components/LanguageSwitcher.astro';
 
-const SiteTitle = 'วิทยาลัยศาสนศึกษา';
+const pathname = Astro.url.pathname;
+
+// ตรวจภาษา (มาตรฐานเดียวทั้งเว็บ)
+const isEn = pathname === '/en' || pathname.startsWith('/en/');
 ---
 
 <header
@@ -13,38 +17,40 @@ const SiteTitle = 'วิทยาลัยศาสนศึกษา';
 	class="sticky top-0 z-50 border-b-[3px] border-solid border-th-nav-bg bg-th-head-bg px-0 py-4 leading-[1.8rem] text-th-head-text dark:border-th-nav-bg-dark dark:bg-th-head-bg-dark dark:text-th-head-text-dark lg:relative lg:border-b-0 lg:py-5"
 >
 	<div class="mx-auto flex w-full max-w-th-width-lg items-center gap-4 px-4 md:px-5">
+		
+		<!-- LOGO -->
 		<a
-			href="/"
+			href={isEn ? '/en/' : '/'}
 			class="flex items-center gap-[0.9rem] text-[1.5em] leading-[1.8rem] dark:text-th-link-1-dark lg:text-[2.25em]"
 			title="Home"
-			>
-			<!-- <Icon name='logo' width='1.5em' height='1.5em' /> -->
-			<Image
-  			src="/img/crs_logo_full.png"
-  				alt="logo"
- 				 classes="h-[2.4em] w-auto"
-			/>			
-		</a>
-		<small class="hidden pt-[0.5rem] text-[0.9em] opacity-80 lg:block"
-			>CRS, Mahidol University</small
 		>
+			<Image
+				src={isEn ? '/img/crs_logo_full_en.png' : '/img/crs_logo_full.png'}
+				alt="College of Religious Studies, Mahidol University"
+				classes="h-[2.4em] w-auto"
+			/>
+		</a>
+
+		<!-- TEXT LOGO (แสดงเฉพาะ Desktop) -->
+		<small class="hidden pt-[0.5rem] text-[0.9em] opacity-80 lg:block">
+			{isEn ? 'CRS, Mahidol University' : 'วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล'}
+		</small>
+
+		<!-- RIGHT CONTROLS -->
 		<div class="ml-auto flex items-center gap-4 pr-20 lg:pr-0">
 			<ButtonMode />
 			<ButtonSize />
-		</div>
-		<!--2 ภาษา 
-		<div>
-			<div style="text-align:right; font-size:14px;">
-  			<a href="?lang=th">TH</a> |
-  			<a href="?lang=en">EN</a>			
-		</div>
-		
-		2 ภาษา -->
 
+			<!-- Language switcher : Desktop only -->
+			<div class="hidden lg:flex">
+				<LanguageSwitcher />
+			</div>
 		</div>
 	</div>
 </header>
-<Nav />
+
+<!-- NAV -->
+<Nav isEn={isEn} />
 
 <script>
 	import '../scripts/nav.js';

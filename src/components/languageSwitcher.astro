@@ -1,0 +1,71 @@
+---
+const pathname = Astro.url.pathname;
+
+// normalize: ถ้าไม่ใช่ root ให้มี / ท้ายเสมอ
+const normalized =
+  pathname !== '/' && !pathname.endsWith('/')
+    ? pathname + '/'
+    : pathname;
+
+// ตรวจภาษา (EN ต้องขึ้นต้นด้วย /en/)
+const isEN = normalized === '/en/' || normalized.startsWith('/en/');
+
+// แปลงเป็น TH
+const thPath = isEN
+  ? normalized.replace(/^\/en\//, '/')
+  : normalized;
+
+// แปลงเป็น EN
+const enPath = isEN
+  ? normalized
+  : normalized === '/'
+    ? '/en/'
+    : `/en${normalized}`;
+
+// ปุ่มสลับภาษา แต่อยู่หน้าเดิม 
+//const switchTo = isEN ? thPath : enPath;
+
+// ปุ่มสลับภาษา → กลับหน้าแรกเสมอ
+const switchTo = isEN ? '/' : '/en/';
+---
+
+<!-- สลับภาษาธงชาติ-->
+<a
+  href={switchTo}
+  class="inline-flex items-center justify-center
+         px-2 py-1.5 rounded-md
+         bg-black/30 border border-white
+         hover:bg-black/40"
+>
+  {isEN ? (
+    <img
+      src="/img/flag/thflag150x150.png"
+      alt="Thai"
+      class="h-5 w-7 object-cover rounded-sm"
+    />
+  ) : (
+    <img
+      src="/img/flag/usaflag150x150.png"
+      alt="English"
+      class="h-5 w-7 object-cover rounded-sm"
+    />
+  )}
+</a>
+
+
+
+
+<!--  สลับปุ่ม TH EN 
+<a
+  href={switchTo}
+  class="inline-flex items-center justify-center
+         px-3 py-1.5 rounded-md
+         text-white font-semibold
+         bg-black/30 border border-white
+         hover:bg-black/40"
+>
+  {isEN ? 'TH' : 'EN'}
+
+
+</a>
+-->

@@ -3,7 +3,16 @@ import Icon from 'astro-icon';
 import '@/styles/nav.scss';
 
 import { nav } from './Nav.data';
+import { navEN } from './Nav.data.en';
+import LanguageSwitcher from '@/components/LanguageSwitcher.astro';
+
+const { isEn = false } = Astro.props;
+const menu = isEn ? navEN : nav;
+const uiText = isEn
+  ? { menu: 'Menu', close: 'Close' }
+  : { menu: 'เมนู', close: 'ปิดเมนู' };
 ---
+
 
 <input
 	type="checkbox"
@@ -20,24 +29,31 @@ import { nav } from './Nav.data';
 			class="nav-toggle fixed right-4 top-[1.2rem] flex items-center gap-1.5 rounded-th-rounded-1 border-[1.5px] border-solid border-th-head-text px-1.5 py-0.5 text-th-head-text dark:border-th-head-text-dark dark:text-th-head-text-dark lg:hidden"
 			for="nav-open"
 		>
-			<Icon name="menu" height="24" /><span class="text-base">เมนู</span>
+			<!--เมนู -->
+			<Icon name="menu" height="24" /><span class="text-base">{uiText.menu}</span>
 		</label>
 		<nav
 			class="nav-content invisible fixed right-0 top-0 z-[900] h-dvh w-[280px] translate-x-full bg-th-nav-bg p-0 pt-[60px] text-[1.125em] opacity-0 shadow-th-shadow-2 dark:bg-th-nav-bg-dark lg:visible lg:relative lg:right-[unset] lg:top-[unset] lg:h-[unset] lg:w-[unset] lg:translate-x-0 lg:overflow-visible lg:bg-none lg:p-[unset] lg:opacity-100 lg:shadow-none"
-		>
+		
+			>
+		
 			<label
 				class="close absolute right-4 top-[1em] flex items-center gap-1.5 rounded-th-rounded-1 border-[1.5px] border-solid px-1.5 py-[3px] lg:hidden"
-				for="nav-open"
-			>
-				<Icon name="close" class="p-0.5" height="24" /><span class="whitespace-nowrap text-base"
-					>ปิดเมนู</span
-				>
+				for="nav-open"			>
+			<!--ปิดเมนู -->
+				<Icon name="close" class="p-0.5" height="24" /><span class="whitespace-nowrap text-base">{uiText.close}</span>
 			</label>
+			<!-- Language switcher : mobile only -->
+			<div class="px-4 py-3 border-b border-white/20 lg:hidden">		
+				<LanguageSwitcher />
+			</div>
+			
+
 			<ul
 				class="lg:height-[unset] m-0 h-full overflow-auto py-0 pl-6 pr-4 lg:flex lg:flex-wrap lg:gap-x-[1.5em] lg:gap-y-0 lg:overflow-visible lg:p-0"
 			>
 				{
-					nav.map((n) => (
+					menu.map((n) => (
 						<li
 							class={
 								n.sub
@@ -83,6 +99,7 @@ import { nav } from './Nav.data';
 			<label
 				class="bg absolute right-full top-0 flex h-full w-screen items-center gap-1.5 bg-black/50 lg:hidden"
 				for="nav-open"></label>
+				
 		</nav>
 	</div>
 </div>
