@@ -1,0 +1,75 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "วิทยาลัยศาสนศึกษาร่วมแสดงความยินดี เนื่องในงานครบรอบวันคล้ายวันสถาปนา สถาบันโภชนาการ มหาวิทยาลัยมหิดล ครบรอบ 49 ปี";
+const date = "23 มกราคม 2569";
+const description = "";
+const gallery = [
+  "/img/activities/2026/jan2026/23jan2026activities/23jan2026activities-1.jpg",
+  "/img/activities/2026/jan2026/23jan2026activities/23jan2026activities-2.jpg",
+   
+  
+]
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>   
+
+    <p>   
+วันที่ 23 มกราคม 2569 อาจารย์ ดร.จิราธร ชาติศิริ รองคณบดีฝ่ายการศึกษาและกิจการนักศึกษา วิทยาลัยศาสนศึกษา ร่วมแสดงความยินดี เนื่องในงานครบรอบวันคล้ายวันสถาปนา 
+สถาบันโภชนาการ มหาวิทยาลัยมหิดล ครบรอบ 49 ปี โดยมี รองศาสตราจารย์ ดร.ชลัท  ศานติวรางคณา ผู้อำนวยการสถาบันโภชนาการ ให้การต้อนรับ ณ สถาบันโภชนาการ มหาวิทยาลัยมหิดล
+<br><br>
+College of Religious Studies extends its congratulations on the 49th anniversary of the Institute of Nutrition, Mahidol University.
+On 23 January 2026, Lecturer Dr. Jirathorn Chartsiri, Deputy Dean for Education and Student Affairs, College of Religious Studies, 
+attended the celebration ceremony on the occasion of the 49th anniversary of the establishment of the Institute of Nutrition, Mahidol University. The delegation was warmly welcomed by Associate Professor Dr. Chalat Santivarangkna, Director of the Institute of Nutrition, at the Institute of Nutrition, Mahidol University.
+</p>
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>
+</Layout>
