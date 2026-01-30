@@ -1,0 +1,79 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "พิธีบำเพ็ญกุศลสตมวาร (100 วัน) ถวายเป็นพระราชกุศล แด่ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง";
+const date = "30 มกราคม 2569";
+const description = "";
+const gallery = [
+  "/img/activities/2026/jan2026/30jan2026activities/30jan2026activities-1.jpg",
+  "/img/activities/2026/jan2026/30jan2026activities/30jan2026activities-2.jpg",
+  "/img/activities/2026/jan2026/30jan2026activities/30jan2026activities-3.jpg",
+  "/img/activities/2026/jan2026/30jan2026activities/30jan2026activities-4.jpg",
+  "/img/activities/2026/jan2026/30jan2026activities/30jan2026activities-5.jpg",
+  "/img/activities/2026/jan2026/30jan2026activities/30jan2026activities-6.jpg",
+  "/img/activities/2026/jan2026/30jan2026activities/30jan2026activities-7.jpg",
+  "/img/activities/2026/jan2026/30jan2026activities/30jan2026activities-8.jpg",  
+  ]
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>   
+
+    <p>   
+มหาวิทยาลัยมหิดล จัดพิธีบำเพ็ญกุศลสตมวาร (100 วัน) ถวายเป็นพระราชกุศล แด่ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง เพื่อน้อมสำนึกในพระมหากรุณาธิคุณและแสดงความจงรักภักดี โดยมีศาสตราจารย์ นพ.ปิยะมิตร ศรีธรา มหาวิทยาลัยมหิดล เป็นประธานในพิธี คณะผู้บริหารมหาวิทยาลัยมหิดล พร้อมด้วยผู้แทนจากส่วนงานต่างๆ ร่วมในงานพิธี <br>
+ในการนี้ อาจารย์ ดร.บุญมี พวงเพชร อาจารย์ประจำวิทยาลัย และบุคลากรของวิทยาลัยศาสนศึกษาได้ร่วมพิธีทำบุญตักบาตรถวายเป็นพระราชกุศล อย่างพร้อมเพรียงกัน ณ สำนักงานอธิการบดี มหาวิทยาลัยมหิดล ศาลายา
+<br><br>
+Merit-Making Ceremony on the 100th Day (Satamavāra) Held as a Royal Dedication in Honor of Her Majesty Queen Sirikit The Queen Mother<br>
+On January 30, 2026, Mahidol University held a merit-making ceremony to mark the 100th day (Satamavāra), dedicated as a royal tribute in honor of Her Majesty Queen Sirikit, The Queen Mother, in humble gratitude for her immense royal benevolence and as an expression of loyalty and reverence. The ceremony was presided over by Professor Dr. Piyamitr Sritara, President of Mahidol University, together with members of the University Executive Board and representatives from various faculties and units.<br>
+On this occasion, Dr. Boonmee Puangphet, a faculty member of the College of Religious Studies, along with the College’s staff, participated in the alms-giving ceremony to dedicate the merit as a royal offering. The ceremony was conducted in unity and reverence at the Office of the President, Mahidol University, Salaya Campus.
+</p>
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>
+</Layout>

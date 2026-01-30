@@ -1,0 +1,98 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล จัดประชุมหารือร่วม มมร. วางแนวคิดกรอบคุณธรรมและจริยธรรมด้านศาสนาเพื่อการประกอบวิชาชีพ";
+const date = "29 มกราคม 2569";
+const description = "";
+const gallery = [
+  "/img/seminar/2026/jan2026/29jan2026seminar/29jan2026seminar-1.jpg",
+  "/img/seminar/2026/jan2026/29jan2026seminar/29jan2026seminar-2.jpg",
+  "/img/seminar/2026/jan2026/29jan2026seminar/29jan2026seminar-3.jpg",  
+ ];
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>
+    <p>
+วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล จัดประชุมหารือร่วม มมร. วางแนวคิดกรอบคุณธรรมและจริยธรรมด้านศาสนาเพื่อการประกอบวิชาชีพ<br>
+วันพฤหัสบดีที่ 29 มกราคม 2569 เวลา 14.30 น.
+วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล จัดการประชุมออนไลน์หารือร่วมกับมหาวิทยาลัยมหามกุฎราชวิทยาลัย เพื่อแลกเปลี่ยนความคิดเห็นเชิงวิชาการเกี่ยวกับแนวทางการพัฒนากรอบคุณธรรมและจริยธรรมด้านศาสนา เพื่อใช้เป็นแนวคิดประกอบการทำงานด้านศาสนาในบริบทการประกอบวิชาชีพร่วมสมัย<br>
+การประชุมครั้งนี้มุ่งเน้นการแสวงหาจุดร่วมทางคุณค่า การเคารพความหลากหลายทางศาสนา และการพัฒนากรอบแนวคิดเชิงหลักการ โดยยังไม่เป็นการกำหนดข้อบังคับหรือมาตรการเชิงควบคุม หากเป็นการเปิดพื้นที่สนทนาเชิงวิชาการเพื่อการพัฒนาอย่างเหมาะสมในระยะต่อไป<br>
+ผู้แทนจากมหาวิทยาลัยมหามกุฎราชวิทยาลัยที่เข้าร่วมประชุม ประกอบด้วย<br>
+1) พระราชวชิรญาณเมธี, ผศ.ดร. รองอธิการบดี ด้านวิชาการและพัฒนาคุณภาพ<br>
+2) พระราชวินัยวชิรเมธี, ดร. รองอธิการบดี ด้านกรรมฐานศึกษา<br>
+3) รศ.ดร.พิภพ อุดร ที่ปรึกษามหาวิทยาลัยมหามกุฎราชวิทยาลัย<br>
+4) รศ.ดร.สุวิญ  รักสัตย์  ผู้ช่วยอธิการบดี ด้านบริหารวิชาการ<br>
+ฝ่ายวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล นำโดย ผศ.ดร. ไพเราะ มากเจริญ คณบดีวิทยาลัยศาสนศึกษา พร้อมด้วยคณะทำงานที่เกี่ยวข้องเข้าร่วมการประชุม<br>
+ทั้งนี้ ข้อคิดเห็นจากการประชุมจะถูกนำไปสังเคราะห์เพื่อใช้เป็นฐานข้อมูลเชิงวิชาการ สำหรับการพัฒนาแนวคิดและการทำงานร่วมกันในระยะถัดไป
+<br><br>
+Academic Consultation on Developing an Ethical Framework for Religious Engagement in Professional Contexts.<br>
+On Thursday, 29 January 2026, at 2:30 PM, the College of Religious Studies, Mahidol University, hosted an online academic consultation with Mahamakut Buddhist University.<br>
+The meeting aimed to exchange scholarly perspectives on the development of an ethical and moral framework for religious engagement within contemporary professional contexts. Discussions focused on shared values, respect for religious diversity, and the role of religion as a source of meaning and moral grounding in modern society. The consultation was conducted as an open academic dialogue and did not seek to establish binding regulations or enforcement mechanisms.<br>
+Representatives from Mahamakut Buddhist University included senior administrators and scholars with expertise in Buddhist studies and academic governance.
+The College of Religious Studies, Mahidol University, was represented by Asst. Prof. Dr. Pairor Makcharoen, Dean of the College of Religious Studies, together with the college’s academic working team.<br>
+Key insights from the meeting will be synthesized as academic reference materials to support further conceptual development and collaborative work in the next phase.
+
+    </p>
+
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img 
+  id="lb-img" 
+  src="" 
+  style="
+    max-width:80%;
+    max-height:80vh;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(0,0,0,0.6);
+    object-fit:contain;
+    background:#000;
+  " 
+/>
+
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>
