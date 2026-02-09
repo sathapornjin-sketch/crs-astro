@@ -1,0 +1,97 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "กิจกรรม Research Seminar ครั้งที่ 1 เวทีแลกเปลี่ยนและต่อยอดงานวิจัยของคณาจารย์วิทยาลัยศาสนศึกษา";
+const date = "5 กุมภาพันธ์ 2569";
+const description = "";
+const gallery = [
+  "/img/seminar/2026/feb2026/5feb2026seminar/5feb2026seminar-1.jpg",
+  "/img/seminar/2026/feb2026/5feb2026seminar/5feb2026seminar-2.jpg",
+  "/img/seminar/2026/feb2026/5feb2026seminar/5feb2026seminar-3.jpg",
+  "/img/seminar/2026/feb2026/5feb2026seminar/5feb2026seminar-4.jpg",
+  "/img/seminar/2026/feb2026/5feb2026seminar/5feb2026seminar-5.jpg",
+  "/img/seminar/2026/feb2026/5feb2026seminar/5feb2026seminar-6.jpg",
+  "/img/seminar/2026/feb2026/5feb2026seminar/5feb2026seminar-7.jpg",
+  "/img/seminar/2026/feb2026/5feb2026seminar/5feb2026seminar-8.jpg",
+  "/img/seminar/2026/feb2026/5feb2026seminar/5feb2026seminar-9.jpg",
+  "/img/seminar/2026/feb2026/5feb2026seminar/5feb2026seminar-10.jpg",
+  "/img/seminar/2026/feb2026/5feb2026seminar/5feb2026seminar-11.jpg",
+  "/img/seminar/2026/feb2026/5feb2026seminar/5feb2026seminar-12.jpg",  
+ ];
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>
+    <p>
+เมื่อวันที่ 4 กุมภาพันธ์ 2569 วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ได้จัด กิจกรรม Research Seminar ครั้งที่ 1 เพื่อเป็นเวทีพบปะของคณาจารย์ภายในวิทยาลัย สำหรับการแลกเปลี่ยนแนวคิดการทำวิจัย การนำเสนอผลงานวิจัยที่อยู่ระหว่างดำเนินการหรืออยู่ในขั้นวางแผน และการหารือแนวทางต่อยอดงานวิจัยไปสู่การใช้ประโยชน์จริงหรือการตีพิมพ์ทางวิชาการ <br>
+การประชุมครั้งนี้มีการนำเสนอจาก อาจารย์จำนวน 3 ท่าน พร้อมการเข้าร่วมและแลกเปลี่ยนความคิดเห็นโดย ผศ.ดร.ไพเราะ มากเจริญ คณบดีวิทยาลัยศาสนศึกษา และ Asst. Prof. Dr. Milos Hubina, Associate Dean for Research and International Relations บรรยากาศของกิจกรรมเปิดกว้าง เอื้อต่อการตั้งคำถาม การให้ข้อเสนอแนะ และการแบ่งปันประสบการณ์ อุปสรรค และความท้าทายในกระบวนการทำวิจัยของแต่ละท่าน<br>
+กิจกรรม Research Seminar มีเป้าหมายเพื่อสร้างชุมชนการเรียนรู้ทางวิชาการภายในวิทยาลัย ส่งเสริมการทำงานวิจัยอย่างต่อเนื่อง เพิ่มผลิตภาพทางวิชาการ และสร้างความเชื่อมโยงระหว่างคณาจารย์ โดยจะจัดขึ้นเป็นประจำทุกสองเดือน หรือมากกว่านั้นตามความเหมาะสม ทั้งนี้ ในการจัดกิจกรรมครั้งต่อไป วิทยาลัยมีแผนเปิดพื้นที่ให้ นักวิจัยหรือผู้ทรงคุณวุฒิจากภายนอก เข้าร่วมแลกเปลี่ยน เพื่อเสริมมุมมองใหม่ ๆ และขยายเครือข่ายความร่วมมือทางวิชาการในอนาคต
+<br><br>
+Research Seminar I Faculty Research Exchange and Development Activity<br>
+On 4 February 2026, the College of Religious Studies, Mahidol University, organized Research Seminar I as a platform for faculty members to exchange research ideas, present ongoing or planned projects, and discuss pathways toward practical application and academic publication.<br>
+The seminar featured presentations by three faculty members and was attended by Asst. Prof. Dr. Pairor Makcharoen, Dean of the College of Religious Studies, and Asst. Prof. Dr. Milos Hubina, Associate Dean for Research and International Relations. The session provided an open and constructive environment for feedback, critical questions, and the sharing of research experiences, challenges, and obstacles.<br>
+The Research Seminar aims to foster an academic learning community within the College, support continuous research development, and enhance research productivity. Future sessions may also invite external researchers or experts to participate, broadening perspectives and strengthening academic collaboration networks.
+
+    </p>
+
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img 
+  id="lb-img" 
+  src="" 
+  style="
+    max-width:80%;
+    max-height:80vh;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(0,0,0,0.6);
+    object-fit:contain;
+    background:#000;
+  " 
+/>
+
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>

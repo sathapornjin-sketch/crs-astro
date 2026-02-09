@@ -5,7 +5,7 @@ import Slogan from '@/components/sections/Slogan.astro';
 const title = 'การสัมมนาและบรรยายทางวิชาการ MU-CRS Seminar and Lecture';
 const description = 'วิทยาลัยศาสนศึกษา';
 
-// 🔹 กลุ่มสัมมนา (ยังไม่ใช้)
+// 🔹 กลุ่มการประชุม (ยังไม่ใช้)
 const seminar = [
   {
     title: "",
@@ -93,6 +93,13 @@ const lecture = [
 // 🔹 กลุ่มอบรม Training (เพิ่มใหม่) ประชุม
 const training = [
   {
+    title: "กิจกรรม Research Seminar ครั้งที่ 1 เวทีแลกเปลี่ยนและต่อยอดงานวิจัยของคณาจารย์วิทยาลัยศาสนศึกษา",
+    description: "",
+    date: "5 กุมภาพันธ์ 2569",
+    slug: "2026/5feb2026seminar",    
+    image: "/img/seminar/2026/feb2026/5feb2026seminar/5feb2026seminar-1.jpg"
+  },
+  {
     title: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล จัดประชุมหารือร่วม มมร. วางแนวคิดกรอบคุณธรรมและจริยธรรมด้านศาสนาเพื่อการประกอบวิชาชีพ",
     description: "",
     date: "29 มกราคม 2569",
@@ -166,7 +173,7 @@ const training = [
   </div>
 
   <!-- 🔸 ส่วนการอบรม / Training -->
-  <h2 style="margin-top:40px;">บริการวิชาการ/การอบรม </h2>
+  <h2 style="margin-top:40px;">บริการวิชาการ/การอบรม/ประชุม </h2>
 
   <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-top:20px;">
     {training.map(article => (
