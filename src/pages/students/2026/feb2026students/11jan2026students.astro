@@ -1,0 +1,87 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "โครงการ CRS for Students Season 4 กิจกรรมครั้งที่ 1 Inner Landscapes : ศิลปะบำบัดเพื่อการสำรวจตัวเองและดูแลสุขภาวะใจ";
+const date = "11 กุมภาพันธ์ 2569";
+const description = "";
+const gallery = [
+  "/img/students/2026/feb2026/11feb2026students/11feb2026students-1.jpg",
+  "/img/students/2026/feb2026/11feb2026students/11feb2026students-2.jpg",
+  "/img/students/2026/feb2026/11feb2026students/11feb2026students-3.jpg",
+  "/img/students/2026/feb2026/11feb2026students/11feb2026students-4.jpg",
+  "/img/students/2026/feb2026/11feb2026students/11feb2026students-5.jpg",
+  "/img/students/2026/feb2026/11feb2026students/11feb2026students-6.jpg",
+  "/img/students/2026/feb2026/11feb2026students/11feb2026students-7.jpg",
+  "/img/students/2026/feb2026/11feb2026students/11feb2026students-8.jpg",  
+ ];
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>
+    วันพุธที่ 11 กุมภาพันธ์ 2569 เวลา 13.30 - 16.30 น. วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล จัดกิจกรรม โครงการ CRS for Students Season 4 กิจกรรมครั้งที่ 1 "Inner Landscapes : ศิลปะบำบัดเพื่อการสำรวจตัวเองและดูแลสุขภาวะใจ" ณ ห้อง 307 อาคารวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล
+การบรรยายในครั้งนี้ได้รับเกียรติจาก Ms. Alisa Belotserkovskaia เป็นวิทยากรรับเชิญ โดยมี ผศ. ดร. ไพเราะ มากเจริญ คณบดีวิทยาลัยศาสนศึกษา กล่าวเปิดงาน
+และมี Dr.Maxim Voroshilov ช่วยดำเนินกิจกรรม เพื่อเชื่อมโยงเนื้อหาให้เข้ากับบริบทของผู้เข้าร่วมกิจกรรมอย่างใกล้ชิด<br>
+การจัดกิจกรรมในครั้งนี้สอดคล้องกับ เป้าหมายการพัฒนาที่ยั่งยืน (SDGs) โดยเฉพาะ<br>
+SDG 3 การมีสุขภาพและความเป็นอยู่ที่ดี (Good Health and Well-being) - ส่งเสริมการใช้ศิลปะเพื่อเยียวยาสุขภาพใจ<br>
+SDG 4 การศึกษาที่เท่าเทียม (Quality Education) — เรียนรู้ทักษะทางอารมณ์ ผ่านจากกิจกรรม โดยเป็นส่วนสำคัญของการศึกษาในยุคใหม่
+---------------------
+CRS for Students Project, Season 4 <br>
+Activity 1: “Inner Landscapes: Art Therapy for Self-Exploration and Mental Well-Being”<br>
+On Wednesday, 11 February 2026, from 1:30–4:30 PM, the College of Religious Studies, Mahidol University, organized the CRS for Students Project, Season 4, Activity 1: “Inner Landscapes: Art Therapy for Self-Exploration and Mental Well-Being,” held in Room 307, College of Religious Studies Building, Mahidol University.<br>
+This session was honored by Ms. Alisa Belotserkovskaia as the guest speaker. The opening remarks were delivered by Assistant Professor Dr. Pairor Makcharoen, Dean of the College of Religious Studies.
+Dr. Maxim Voroshilov also supported the facilitation of the activity, helping to closely connect the content with the participants’ contexts and experiences.
+This activity aligns with the Sustainable Development Goals (SDGs), particularly:<br>
+SDG 3: Good Health and Well-Being — promoting the use of art to support and heal mental well-being<br>
+SDG 4: Quality Education — fostering emotional skills through experiential activities, which are an essential component of education in the modern era
+    </p>
+
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          key={index}
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onClick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>

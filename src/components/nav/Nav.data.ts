@@ -70,6 +70,10 @@ export const nav: NavItem[] = [
 		link: '/internal/students',
 	},
 	{
+		name: 'ศิษย์เก่า',
+		link: '/alumni',
+	},
+	{
 		name: 'อาจารย์-เจ้าหน้าที่',
 		link: '/internal/personnel',
 	},
