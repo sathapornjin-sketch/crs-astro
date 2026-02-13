@@ -1,0 +1,246 @@
+---
+import Layout from '@/layouts/Layout_Sidebar.astro';
+import Side from '@/components/about/Side.astro';
+
+const thaiFaculty = [
+  { 
+    name: "Asst. Prof. Dr.Pairor Makcharoen",
+    engName: "Asst. Prof. Dr.Pairor Makcharoen",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "pairor.mak@mahidol.edu",
+    phone: "",
+    img: "/img/personnel/ผู้ช่วยศาสตราจารย์ ดร.ไพเราะ มากเจริญ.png",
+    cv: ""
+  },
+  { 
+    name: "Asst. Prof. Dr.Somboon Watana",
+    engName: "Asst. Prof. Dr.Somboon Watana",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "somboon.wat@mahidol.ac.th",
+    img: "/img/personnel/ผู้ช่วยศาสตราจารย์ ดร.สมบูรณ์ วัฒนะ.png",
+    cv: "https://drive.google.com/file/d/1EV-qbdwA_UKB8NqsDJcQaFHwu1jOp900/view?usp=drive_link"
+  },
+  { 
+    name: "Asst. Prof. Dr.Sudthaporn Ratanakul",
+    engName: "Asst. Prof. Dr.Sudthaporn Ratanakul",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "perth4532@gmail.com",
+    img: "/img/personnel/ผู้ช่วยศาสตราจารย์ ดร.สุทธพร รัตนกุล.png",
+    cv: "https://drive.google.com/file/d/1ZXsRI_Yqq5O6sLd9k4dK9gnpEd-bnc1A/view?usp=drive_link"
+  },
+  { 
+    name: "Asst. Prof. Dr.Grit Phiriyatachagul",
+    engName: "Asst. Prof. Dr.Grit Phiriyatachagul",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "grit.pir@mahidol.ac.th",
+    img: "/img/personnel/อาจารย์ ดร.กฤต พิริยธัชกุล.png",
+    cv: "https://drive.google.com/file/d/11on8UjsHsTQLP3zMnLcR9emSqA0BM3uf/view?usp=drive_link"
+  },
+  { 
+    name: "Asst. Prof. Dr.Jirathorn Chatisiri",
+    engName: "Asst. Prof. Dr.Jirathorn Chatisiri",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "jirathorn.cha@mahidol.ac.th",
+    img: "/img/personnel/อาจารย์ ดร.จิราธร ชาติศิริ.png",
+    cv: ""
+  },
+  { 
+    name: "Asst. Prof. Dr.Boonmee Poungpet",
+    engName: "Asst. Prof. Dr.Boonmee Poungpet",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "boonmee.pou@mahidol.ac.th",
+    img: "/img/personnel/อาจารย์ ดร.บุญมี พวงเพชร.png",
+    cv: "https://drive.google.com/file/d/1rWuKqrKULZnkvp2NLDeH0G7DPc4NOfOT/view?usp=drive_link"
+  },
+  { 
+    name: "Asst. Prof. Dr.Phibul Choomponpaisal",
+    engName: "Asst. Prof. Dr.Phibul Choomponpaisal",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "phibul.cho@mahidol.ac.th",
+    img: "/img/personnel/อาจารย์ ดร.พิบูลย์ ชุมพลไพศาล.png",
+    cv: "https://drive.google.com/file/d/1-fqfqNecPX9guhxapdmN3dzX2VmsOJvf/view?usp=drive_link"
+  },
+  { 
+    name: "Asst. Prof. Dr.Suchada Srisetthaworakul",
+    engName: "Asst. Prof. Dr.Suchada Srisetthaworakul",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "suchada.Srs@mahidol.ac.th",
+    img: "/img/personnel/อาจารย์ ดร.สุชาดา ศรีเศรษฐวรกุล.png",
+    cv: ""
+  },
+  { 
+    name: "Thanyalak Taveekarn",
+    engName: "Miss Thanyalak Taveekarn",
+    position: "Assistant Lecturer",
+    role: "Assistant Lecturer",
+    email: "thanyalak.tav@mahidol.ac.th",
+    img: "/img/personnel/นางสาวธัญญลักษณ์ ทวีกาญจน์.png",
+    cv: "https://drive.google.com/file/d/1-ERXoRbYNju2fPJ1CdvtTpPd2_S6EMBV/view?usp=drive_link"
+  }
+];
+
+const foreignFaculty = [
+  { 
+    name: "Assoc. Prof. Dr.Milos Hubina",
+    engName: "Assoc. Prof. Dr.Milos Hubina",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "milos.Hub@mahidol.ac.th",
+    img: "/img/personnel/Assoc. Prof. Dr.Milos Hubina.png",
+    cv: "https://drive.google.com/file/d/1IIbbOTV68I4QqhSBhtN6HG1yQy0t2WJl/view?usp=drive_link"
+  },
+  { 
+    name: "Asst. Prof. Dr.John Naley Johnston",
+    engName: "Dr.John Naley Johnston",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "johnnaley.joh@mahidol.ac.th",
+    img: "/img/personnel/Dr.John Naley Johnston.png",
+    cv: "https://drive.google.com/file/d/1zoLZZahEhGDYydGeVWJNtavys5UOYQgy/view?usp=drive_link"
+  },
+  { 
+    name: "Dr.Anna Marta Mackowiak",
+    engName: "Dr.Anna Marta Mackowiak",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "anna.mac@mahidol.ac.th",
+    img: "/img/personnel/Dr.Anna Marta Mackowiak.png",
+    cv: "https://drive.google.com/file/d/1fahBUYlit1G9FwrYhjMk4rHAjj4e9YeD/view?usp=drive_link"
+  },
+  { 
+    name: "Dr.Francis Chan Sze Ming",
+    engName: "Dr.Francis Chan Sze Ming",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "francis.cha@mahidol.ac.th",
+    img: "/img/personnel/Dr.Francis Chan Sze Ming.png",
+    cv: "https://drive.google.com/file/d/1LKf780Qigw959w4FUliv_LLNZJQHIvdi/view?usp=drive_link"
+  },
+  { 
+    name: "Dr.Maxim Voroshilov",
+    engName: "Dr.Maxim Voroshilov",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "maxim.vor@mahidol.ac.th",
+    img: "/img/personnel/Dr.Maxim Voroshilov.png",
+    cv: "https://drive.google.com/file/d/1iIe5LFsuDYLFdGTcYPi6m5XLj3Vp2Xv0/view?usp=drive_link"
+  },
+  { 
+    name: "Dr.Sanjoy Barua Chowdhury",
+    engName: "Dr.Sanjoy Barua Chowdhury",
+    position: "Lecturer",
+    role: "Lecturer",
+    email: "sanjoybarua.chy@mahidol.ac.th",
+    img: "/img/personnel/Dr.Sanjoy Barua Chowdhury.png",
+    cv: "https://drive.google.com/file/d/12dZjRapvwRpZf-j8oNT4ZDr8MrPnKbwg/view?usp=drive_link"
+  },
+  { 
+    name: "Dr.Francesco Bianchini",
+    engName: "Dr.Francesco Bianchini",
+    position: "Foreigner Expert",
+    role: "Foreigner Expert",
+    email: "francesco.bia@mahidol.ac.th",
+    img: "/img/personnel/Dr.Francesco Bianchini.png",
+    cv: "https://drive.google.com/file/d/1hhAWRmLWKGAhsgCqp2KcgokC8Sh0Zuzj/view?usp=drive_link"
+  },
+  { 
+    name: "Dr.Rachelle Saruya",
+    engName: "Dr.Rachelle Saruya",
+    position: "Foreigner Expert",
+    role: "Foreigner Expert",
+    email: "rachelle.sar@mahidol.ac.th",
+    img: "/img/personnel/Dr.Rachelle Saruya.png",
+    cv: "https://drive.google.com/file/d/1fWLd0cwhObmysSKtHLn91ZDN40NsYPrM/view?usp=drive_link"
+  },
+  { 
+    name: "Dr.Alisher Sharypau",
+    engName: "Dr.Alisher Sharypau",
+    position: "Foreigner Expert",
+    role: "Foreigner Expert",
+    email: "alisher.sha@mahidol.ac.th",
+    img: "/img/personnel/Dr.Alisher Sharipov.png",
+    cv: "https://drive.google.com/file/d/1Shlkp0N6YpTxkc6j5CAcejg6tG-lcJRX/view?usp=drive_link"
+  }
+];
+---
+
+<Layout title="คณาจารย์" description="">
+  <aside slot="aside" class="order-2 md:order-1">
+		<Side />
+	</aside>
+
+  <article class="px-4">
+    <h1 class="text-3xl font-bold mt-0 mb-6 text-left">Thai Faculty Members</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mb-12">
+      {thaiFaculty.map(p => (
+        <div class="w-64 rounded-2xl border bg-white shadow hover:shadow-lg transition overflow-hidden">
+          <div class="w-full h-80 bg-white flex items-center justify-center">
+            <img src={p.img} alt={p.name} class="w-full h-full object-contain" />
+          </div>
+          <div class="p-3 text-center">
+            <h3 class="text-base font-semibold mb-1 break-words whitespace-pre-line">{p.name}</h3>
+            <p class="text-m text-gray-600 mb-1">{p.position}</p>
+
+            {p.phone && (
+              <p class="text-sm text-gray-700 mb-1">{p.phone}</p>
+            )}
+
+            <a href={`mailto:${p.email}`} class="text-sm text-blue-600 hover:underline">
+              {p.email}
+            </a>
+
+            {p.cv && (
+              <p class="mt-1">
+                <a href={p.cv} target="_blank" class="text-sm text-green-600 hover:underline">
+                  CV
+                </a>
+              </p>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <h1 class="text-3xl font-bold mt-0 mb-6 text-left">International Faculty Members</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+      {foreignFaculty.map(p => (
+        <div class="w-64 rounded-2xl border bg-white shadow hover:shadow-lg transition overflow-hidden">
+          <div class="w-full h-80 bg-white flex items-center justify-center">
+            <img src={p.img} alt={p.name} class="w-full h-full object-contain" />
+          </div>
+          <div class="p-3 text-center">
+            <h3 class="text-base font-semibold mb-1 break-words whitespace-pre-line">{p.name}</h3>
+            <p class="text-m text-gray-600 mb-1">{p.position}</p>
+
+            {p.phone && (
+              <p class="text-sm text-gray-700 mb-1">{p.phone}</p>
+            )}
+
+            <a href={`mailto:${p.email}`} class="text-sm text-blue-600 hover:underline">
+              {p.email}
+            </a>
+
+            {p.cv && (
+              <p class="mt-1">
+                <a href={p.cv} target="_blank" class="text-sm text-green-600 hover:underline">
+                  CV
+                </a>
+              </p>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </article>
+</Layout>

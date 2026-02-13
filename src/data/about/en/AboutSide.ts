@@ -31,7 +31,7 @@ export const aboutSideEN: AboutSideItem[] = [
     order: 5,
   },
   {
-    title: 'Former Deans',
+    title: 'List of Deans',
     slug: 'dean_list',
     order: 6,
   },

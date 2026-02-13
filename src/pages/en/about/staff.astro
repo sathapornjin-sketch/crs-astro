@@ -1,0 +1,140 @@
+---
+import Layout from '@/layouts/Layout_Sidebar.astro';
+import Side from '@/components/about/Side.astro';
+
+const personnelSections = [
+  {
+    title: "General Administration",
+    people: [
+      { name: "Mr.Kongpob Rodyoon", position: "General Administration Officer", email: "monchai.rod@mahidol.ac.th", phone: "02-800-2635",img: "/img/personnel/นายก้องภพ รอดยูร.png" },
+      { name: "Miss Apinya Thienchumphan", position: "Quality Development Officer", email: "apinya.the@mahidol.ac.th", phone: "02-800-2635", img: "/img/personnel/นางสาวอภิญญา เทียนชุมพันธ์.png" },
+      { name: "Miss Parujee Phumklai", position: "General Administration Officer", email: "parujee.pha@mahidol.ac.th", phone: "02-800-2635", img: "/img/personnel/นางสาวภารุจีร์ ภูมิไกล.png" },
+      { name: "Mr.Sathaporn Jingsura", position: "Computer Technical Officer", email: "sathaporn.jin@mahidol.ac.th", phone: "02-800-2635", img: "/img/personnel/นายสถาพร จริงสุระ.png" },
+      { name: "Mr.Ekkapat Pattarach", position: "Plan and Policy Analyst Officer", email: "ekkapat.pat@mahidol.ac.th", phone: "02-800-2631", img: "/img/personnel/นายเอกภัทร พัฒราช.png" },      
+    ]
+  }, 
+  {
+    title: "Public Relations, Corporate Communications and Academic Services",
+    people: [
+      { name: "Miss Karuna Kerdsook", position: "Public Relations Officer", email: "karuna.ker@mahidol.ac.th",phone: "02-800-2638", img: "/img/personnel/นางสาวกรุณา เกิดศุข.png" },
+      { name: "Miss Worrakarn Jongaem", position: "Academic Officer", email: "warakarn.jon@mahidol.ac.th",phone: "02-800-2635", img: "/img/personnel/นางสาววรกานต์ จงแจ่ม.png" },
+      { name: "Miss Nichathorn Siritham", position: "General Administration Officer", email: "nichathorn.sir@mahidol.ac.th", phone: "02-800-2635", img: "/img/personnel/นางสาวณิชธร ศิริธรรม.png" },
+      { name: "Miss Daraphak Yenchai", position: "Academic Officer", email: "daraphak.yen@mahidol.ac.th",phone: "02-800-2635", img: "/img/personnel/นางสาวดารภัค เย็นใจ.png" },
+    ],
+    extraMarginTop: true
+  },  {
+    title: "Undergraduate Studies and Student Affairs",
+    people: [
+      { name: "Miss Prapasri Dumsa-ard", position: "Academic Officer", email: "prapasri.dum@mahidol.ac.th", phone: "02-800-2633", img: "/img/personnel/นางสาวประภาศรี ดำสอาด.png" },      
+      { name: "Miss Radamanee Tanawattanasiri", position: "Academic Officer", email: "radamanee.tan@mahidol.ac.th",phone: "02-800-2633", img: "/img/personnel/นางสาวรดามณี ธนวัฒนสิริ.png" },
+      { name: "Miss Nuttha Ritsamret", position: "Academic Officer", email: "nuttha.rit@mahidol.ac.th",phone: "02-800-2636", img: "/img/personnel/นางสาวณัฐฐา ฤทธิ์สำเร็จ.png" },
+      { name: "Miss Rujira Ploodkum", position: "Academic Officer", email: "rujira.plo@mahidol.ac.th",phone: "02-800-2636", img: "/img/personnel/นางสาวรุจิรา ปลอดขำ.png" },      
+    ],
+    extraMarginTop: true
+  },
+  {
+    title: "Graduate Studies and International Relations",
+    people: [      
+      { name: "Mr.Sermwit Meekham", position: "Academic Officer \n (Graduate Studies)", email: "sermwit.mee@mahidol.ac.th", img: "/img/personnel/นายเสริมวิทย์ มีขำ.png" },      
+    ],
+    extraMarginTop: true
+  },
+   {
+    title: "Library Services",
+    people: [      
+      { name: "Miss Napaporn Songpasit", position: "Librarian", email: "napaporn.sog@mahidol.ac.th",phone: "02-800-2659", img: "/img/personnel/นางสาวนภาพร ทรงประสิทธิ์.png" },      
+    ],
+    extraMarginTop: true
+  },
+  {
+    title: "Treasury and Budget",
+    people: [
+      { name: "Miss Phasita Julsumrong", position: "Finance and Accounting Officer\n(Head of Treasury Unit)", email: "phasita.jus@mahidol.ac.th",phone: "02-800-2637", img: "/img/personnel/นางสาวภาษิตา จุลสำโรง.png" },
+      { name: "Miss Juthamas Somchuea", position: "Finance and Accounting Officer", email: "juthamas.som@mahidol.ac.th",phone: "02-800-2637", img: "/img/personnel/นางสาวจุฑามาศ สมเชื้อ.png" },
+      { name: "Miss Benjawan Preecha", position: "Finance and Accounting Officer", email: "benjawan.pree@mahidol.ac.th",phone: "02-800-2637", img: "/img/personnel/นางสาวเบญจวรรณ ปรีชา.png" },
+      { name: "Miss Wanida Watsanao", position: "Procurement Officer", email: "wanida.was@mahidol.ac.th",phone: "02-800-2637", img: "/img/personnel/นางสาววนิดา วัดเสนาะ.png" },
+      { name: "Mr.Tanisorn Sonsakul", position: "Plan and Policy Analyst Officer", email: "tanisorn.son@mahidol.edu",phone: "02-800-2637", img: "/img/personnel/นายธนิศร สนสกุล.png" },
+    ],
+    extraMarginTop: true
+  },
+  {
+    title: "Human Resources",
+    people: [
+      { name: "Mr.Khampee Jamniyom", position: "Human Resource Officer", email: "khampee.jam@mahidol.ac.th",phone: "02-800-2631", img: "/img/personnel/นายคัมภีร์ แจ่มนิยม.png" },
+      { name: "Miss Supaporn Choochuay", position: "Human Resource Officer", email: "supaporn.chy@mahidol.ac.th",phone: "02-800-2631", img: "/img/personnel/นางสาวสุภาภรณ์ ชูช่วย.png" },
+    ],
+    extraMarginTop: true
+  },
+  {
+    title: "Landscape and Environmental Management",
+    people: [    
+	  { name: "Miss Kamonchat Rokprai", position: "Cook (Level S1)", email: "kamonchat.rok@mahidol.ac.th", img: "/img/personnel/นางสาวกมลฉัตร รกไพร.png" },
+	  { name: "Miss Pratum Yeserm", position: "Cook (Level S1)", email: "pratum.yes@mahidol.ac.th", img: "/img/personnel/นางประทุม เยเสริม.jpg" },
+	  { name: "Miss Monthean Tapsiri", position: "General Service Officer", email: "monthean.tap@mahidol.ac.th", img: "/img/personnel/นางสาวมลเทียน ทับศิริ.png" },
+	  { name: "Mr.Preecha Plernjit", position: "Gardener", email: "preecha.ple@mahidol.ac.th", img: "/img/personnel/นายปรีชา เพลินจิตร.jpg" },
+      { name: "Mr.Sangthong Rokprai", position: "Gardener", email: "sangthong.rok@mahidol.ac.th", img: "/img/personnel/นายแสงทอง รกไพร.png" },
+	  { name: "Mr.Dep Tongein", position: "Gardener", email: "dep.tho@mahidol.ac.th", img: "/img/personnel/นายเด๊ฟ ทองอินทร์.png" },
+    ],
+    extraMarginTop: true
+  },
+  {
+    title: "Facilities and Audiovisual Services",
+    people: [
+      { name: "Mr.Theerasak Saardrit", position: "General Service Officer", email: "theerasak.sar@mahidol.ac.th", img: "/img/personnel/นายธีรศักดิ์ สอาดฤทธิ์.png" },	  
+	  { name: "Mr.Poramat Puekthong", position: "Technician", email: "pormat.pue@mahidol.ac.th", img: "/img/personnel/นายปรเมธ เผือกทอง.png" },
+    ],
+    extraMarginTop: true
+  },
+  {
+    title: "",
+    people: [
+    { name: "Mr.Somkieat Thongjang", position: "Driver", email: "somkieat.thn@mahidol.ac.th", img: "/img/personnel/นายสมเกียรติ ทองแจ้ง.png" },   
+    ],
+    extraMarginTop: true
+  }
+];
+---
+
+<Layout title="Office of the Dean" description="General Administration">
+  <aside slot="aside" class="order-2 md:order-1">
+		<Side />
+	</aside>
+
+  <article class="px-4">
+    <h1 class="text-3xl font-bold mt-0">Office of the Dean</h1>
+
+    {personnelSections.map(section => (
+      <>
+        <h2 class={`text-2xl font-semibold mb-4 text-gray-700 ${section.extraMarginTop ? 'mt-12' : 'mt-6'}`}>
+  {section.title}
+</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {section.people.map(p => (
+            <div class="rounded-2xl border bg-white shadow hover:shadow-lg transition overflow-hidden w-full">
+              {/* กรอบภาพขนาดเท่ากัน */}
+              <div class="w-full aspect-[4/5] overflow-hidden rounded-t-2xl bg-white flex items-center justify-center">
+                <img 
+                   src={p.img} 
+                   alt={p.name} 
+                   class={`max-h-full max-w-full object-contain ${p.name === 'นางสาววรกานต์ จงแจ่ม' ? 'scale-110' : ''}`} 
+                  />
+            </div>
+            <div class="p-4 text-center">
+                    <h3 class="text-lg font-semibold mb-1">{p.name}</h3>
+                    {/* แปลง \n เป็นบรรทัดใหม่ */}
+                    <p class="text-gray-600 mb-1" set:html={p.position.replace(/\n/g, '<br>')}></p>  
+                    {/* แสดงเบอร์โทร */}
+                    {p.phone && (
+                   <p class="text-gray-500 mb-1">{p.phone}</p>
+                    )}  
+                  <a href={`mailto:${p.email}`} class="text-blue-600 hover:underline text-sm">{p.email}</a>
+            </div>
+
+            </div>
+          ))}
+        </div>
+      </>
+    ))}
+  </article>
+</Layout>
