@@ -31,8 +31,12 @@ export const navEN: NavItem[] = [
     link: '/en/internal/students/',
   },
   {
-    name: 'Faculty & Staff',
-    link: '/en/internal/personnel/',
+    name: 'Alumni',
+    link: '/en/alumni/',
+  },
+  {
+    name: 'Lecturer & Staff',
+    link: '/en/personnel/',
   },
   {
     name: 'Contact Us',
