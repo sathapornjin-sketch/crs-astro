@@ -1,0 +1,137 @@
+---
+import Slogan from '@/components/sections/Slogan.astro';
+import Layout from '@/layouts/Layout.astro';
+
+const title = 'Whistleblowing / Corruption Complaints';
+const description = 'Accessible Justice';
+---
+
+<Layout title={title} description={description}>
+	<Slogan title={title} description={description} bgImage="/img/corruption-bg.png" />
+
+	<div class="mx-auto mb-16 text-center">
+		<p class="text-xl font-semibold">
+			Complainants will be protected in accordance with the University's regulations.
+		</p>
+		<p>
+			Only the Dean of the College of Religious Studies will have access to this information.
+			All submitted information will be kept strictly confidential and your identity will
+			not be disclosed without your permission.
+		</p>
+	</div>
+
+	<div class="mx-auto mb-12 max-w-4xl">
+		<h3 class="font-semibold">Guidelines for Submitting a Corruption Complaint</h3>
+		<ol class="list-inside list-decimal space-y-2">
+
+			<li>
+				Complaints submitted through this channel will be processed in accordance with
+				Mahidol University's Complaint Management Regulations B.E. 2560 (2017)
+				and subsequent amendments.
+			</li>
+
+			<li>
+				Please provide clear contact information including your full name,
+				telephone number, and email address so that we may contact you for
+				additional information or clarification and report the results.
+			</li>
+
+			<li>
+				Please provide accurate and truthful information to facilitate fact verification.
+			</li>
+
+			<li>
+				Do not include offensive language, profanity, obscene content,
+				or any content that violates the law or public morality.
+			</li>
+
+			<li>
+				Do not make accusations intended to damage the reputation of individuals,
+				groups, or organizations without factual basis.
+			</li>
+
+			<li>
+				All personal information will be kept strictly confidential.
+			</li>
+
+			<li>
+				If sufficient evidence is not provided to support an investigation,
+				Mahidol University reserves the right not to proceed with the complaint.
+			</li>
+
+		</ol>
+	</div>
+
+	<form id="form" class="mx-auto mb-10 max-w-xl space-y-4">
+
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">Full Name</legend>
+			<input id="name" type="text" class="input w-full" placeholder="Type here" required />
+		</fieldset>
+
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">Subject</legend>
+			<input
+				id="subject"
+				type="text"
+				class="input w-full"
+				placeholder="Type here"
+				required
+			/>
+		</fieldset>
+
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">Details</legend>
+			<textarea id="detail" class="textarea w-full" placeholder="Type here" required></textarea>
+		</fieldset>
+
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">Telephone</legend>
+			<input id="tel" type="tel" class="input w-full" placeholder="Type here" required />
+		</fieldset>
+
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">Email</legend>
+			<input id="email" type="email" class="input w-full" placeholder="Type here" required />
+		</fieldset>
+
+		<div class="!mt-6">
+			<button type="submit" class="btn btn-primary w-full">
+				Submit
+			</button>
+		</div>
+
+	</form>
+
+</Layout>
+
+<script is:inline>
+	document.getElementById('form').addEventListener('submit', (e) => {
+		e.preventDefault();
+
+		const name = document.querySelector('#name').value;
+		const subject = document.querySelector('#subject').value;
+		const detail = document.querySelector('#detail').value;
+		const phone = document.querySelector('#tel').value;
+		const email = document.querySelector('#email').value;
+
+		const emailTo = 'deancr@mahidol.ac.th';
+		const emailSubject = `[Whistleblowing] ${subject}`;
+
+		const emailBody =
+`Full Name : ${name}
+
+Subject : ${subject}
+
+Details :
+${detail}
+
+Telephone : ${phone}
+
+Email : ${email}`;
+
+		const mailto = `mailto:${emailTo}?subject=${emailSubject}&body=${emailBody}`;
+
+		open(encodeURI(mailto));
+	});
+</script>

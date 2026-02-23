@@ -1,6 +1,6 @@
 <section id="congratulation" class="py-8 bg-gray-50">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-2xl font-light text-black mb-10 text-center">ผลงานตีพิมพ์ บทความและรางวัล</h2>
+    <h2 class="text-2xl font-light text-black mb-10 text-center">ผลงานตีพิมพ์ บทความและรางวัล / Publications, Articles, and Awards.</h2>
 
     <!-- รายการ -->
     <div id="congrats-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
@@ -15,6 +15,12 @@
    ข้อมูล (คงครบทุกอัน ไม่ตัด)
 ---------------------------------- */
 const congratulations = [
+  {
+    title: "CRS Knowledge Box : Threads of Devotion : The Sacres Art of Palm-Leaf Manuscript Wrappers <br> ศรัทธาถักทอ ผ้าห่อคัมภีร์ใบลาน",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid031mWe9h8TypeBKddapTbu3AGuWzGqHAMYBRTRaXzmPasi8iVYFbjPcXEbP9GcM5vfl",
+    date: "20 กุมภาพันธ์ 2569",
+    image: "img/congra/2026/feb2026/20feb2026knowledgesuchada.jpg"
+  },
   {
     title: "CRS Knowledge Box : On the three turns in the study of religion",
     link: "https://www.facebook.com/CrsMahidol/posts/pfbid0YQ9BNxkvMvvn6kiZ5ZZYh7FHnLF71T2Em8ePvfZ1bYEiga8JhSp79ypMzZEDbmaSl",
@@ -140,7 +146,7 @@ function renderCongrats(page) {
         <div class="p-4">
           <p class="text-sm text-gray-500 mb-2">${item.date}</p>
           <h4 class="text-sm font-light text-black leading-snug mb-2">${item.title}</h4>
-          <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
+          <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม → <br>Read More</span>
         </div>
 
       </a>

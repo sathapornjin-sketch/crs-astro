@@ -1,0 +1,88 @@
+---
+import Slogan from '@/components/sections/Slogan.astro';
+import Layout from '@/layouts/Layout.astro';
+
+const title = 'Dean Hotline';
+const description = 'Contact / Complaints';
+---
+
+<Layout title={title} description={description}>
+	<Slogan title={title} description={description} bgImage="/img/dean-bg.png" />
+
+	<div class="mx-auto mb-16 text-center">
+		<p class="text-xl font-semibold">
+			Contact the Dean of the College of Religious Studies
+		</p>
+	</div>
+
+	<form id="form" class="mx-auto mb-10 max-w-xl space-y-4">
+
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">Full Name</legend>
+			<input id="name" type="text" class="input w-full" placeholder="Type here" required />
+		</fieldset>
+
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">Subject</legend>
+			<input id="subject" type="text" class="input w-full" placeholder="Type here" required />
+		</fieldset>
+
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">Details</legend>
+			<textarea id="detail" class="textarea w-full" placeholder="Type here" required></textarea>
+		</fieldset>
+
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">Telephone</legend>
+			<input id="tel" type="tel" class="input w-full" placeholder="Type here" required />
+		</fieldset>
+
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">Email</legend>
+			<input id="email" type="email" class="input w-full" placeholder="Type here" required />
+		</fieldset>
+
+		<div class="!mt-6">
+			<button type="submit" class="btn btn-primary w-full">
+				Submit
+			</button>
+		</div>
+
+	</form>
+</Layout>
+
+<script is:inline>
+
+document.getElementById('form').addEventListener('submit', function(e) {
+	e.preventDefault();
+
+	const name = document.getElementById('name').value;
+	const subject = document.getElementById('subject').value;
+	const detail = document.getElementById('detail').value;
+	const phone = document.getElementById('tel').value;
+	const email = document.getElementById('email').value;
+
+	const emailTo = 'deancr@mahidol.ac.th';
+
+	const emailSubject = encodeURIComponent('[Dean Hotline] ' + subject);
+
+	const emailBody = encodeURIComponent(
+`Full Name: ${name}
+
+Subject: ${subject}
+
+Details:
+${detail}
+
+Telephone: ${phone}
+
+Email: ${email}`
+	);
+
+	const mailtoLink = `mailto:${emailTo}?subject=${emailSubject}&body=${emailBody}`;
+
+	window.location.href = mailtoLink;
+
+});
+
+</script>

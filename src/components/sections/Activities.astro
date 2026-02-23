@@ -1,6 +1,6 @@
 <section id="activities" class="py-8 bg-gray-50">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-2xl font-light text-black mb-10 text-center">กิจกรรม</h2>
+    <h2 class="text-2xl font-light text-black mb-10 text-center">กิจกรรม / activities.</h2>
 
     <!-- รายการกิจกรรม -->
     <div id="activities-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
@@ -16,6 +16,13 @@
 -------------------------- */
 const activities = [
   {
+    title: "โครงการ CRS for Students Season 4 กิจกรรมครั้งที่ 2 Finance 101 for Gen Z",   
+    description: "การบรรยายในครั้งนี้ได้รับเกียรติจาก คุณณัฐพงศ์ สิทธิกุล ผู้อำนวยการสำนักการลงทุน บริษัทอินทรประกันภัยจำกัด (มหาชน) โดยมี อาจารย์. ดร. จิราธร ชาติศิริ รองคณบดีฝ่ายการศึกษาและกิจการนักศึกษา วิทยาลัยศาสนศึกษา เป็นผู้กล่าวเปิดงาน",
+    date: "18 กุมภาพันธ์ 2569",
+    link: "students/2026/feb2026students/18feb2026students",
+    image: "/img/students/2026/feb2026/18feb2026students/18feb2026students-1.jpg"
+  },
+  {
     title: "วิทยาลัยศาสนศึกษา มหิดล ส่งมอบปฏิทินเก่าแก่ศูนย์เทคโนโลยีการศึกษาเพื่อคนตาบอด ภายใต้โครงการ “หนึ่งการให้ หลายโอกาส”",
     description: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล นำโดย อาจารย์ ดร.สุชาดา ศรีเศรษฐวรกุล รองคณบดีฝ่ายเทคโนโลยีสารสนเทศและเครือข่ายความร่วมมือ พร้อมด้วยตัวแทนบุคลากร ส่งมอบปฏิทินตั้งโต๊ะเก่าในโครงการ “หนึ่งการให้ หลายโอกาส” ให้แก่ศูนย์เทคโนโลยีการศึกษาเพื่อคนตาบอด มูลนิธิช่วยคนตาบอดแห่งประเทศไทย ในพระบรมราชูปถัมภ์ จ.นนทบุรี โดยมีคุณนันท์มนัส ชมภูนุช เป็นผู้รับมอบ",
     date: "13 กุมภาพันธ์ 2569",
@@ -26,7 +33,7 @@ const activities = [
     title: "โครงการ CRS for Students Season 4 กิจกรรมครั้งที่ 1 Inner Landscapes : ศิลปะบำบัดเพื่อการสำรวจตัวเองและดูแลสุขภาวะใจ",   
     description: "การบรรยายในครั้งนี้ได้รับเกียรติจาก Ms. Alisa Belotserkovskaia เป็นวิทยากรรับเชิญ โดยมี ผศ. ดร. ไพเราะ มากเจริญ คณบดีวิทยาลัยศาสนศึกษา กล่าวเปิดงาน และมี Dr.Maxim Voroshilov ช่วยดำเนินกิจกรรม",
     date: "11 กุมภาพันธ์ 2569",
-    link: "students/2026/feb2026students/11jan2026students",
+    link: "students/2026/feb2026students/11feb2026students",
     image: "/img/students/2026/feb2026/11feb2026students/11feb2026students-1.jpg",
   },
   {
@@ -336,7 +343,7 @@ function renderActivities(page) {
           <div class="p-4">
             <p class="text-sm text-gray-500 mb-2">${act.date}</p>
             <h4 class="text-sm font-light text-black leading-snug mb-2">${act.title}</h4>
-            <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
+            <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →<br> Read More</span>
           </div>
         </a>
       `;

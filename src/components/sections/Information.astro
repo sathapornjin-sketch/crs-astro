@@ -4,7 +4,7 @@
 
 <section id="Information" class="py-8 bg-gray-50">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-2xl font-light text-black mb-10 text-center">ข่าวประชาสัมพันธ์</h2>
+    <h2 class="text-2xl font-light text-black mb-10 text-center">ข่าวประชาสัมพันธ์ / Public Relations News</h2>
 
     <!-- รายการข่าว -->
     <div id="information-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
@@ -19,6 +19,24 @@
    ข้อมูลข่าว
 -------------------------- */
 const information = [
+{
+    title: "Art & Nature Therapy <br>มาฮีลใจด้วยศิลปะและพื้นที่สีเขียว ด้วยธีมจากสันติภายใน สู่ความยั่งยืนภายนอก <br>10-11 มีนาคม 2569นี้ พื้นที่ลานดอกกันภัย (MLC) จะเปลี่ยนเป็นพื้นที่แห่งความสุข กับงาน เทศน์มหาชาติ 4 ภาค 3 ภาษา <br>ใครสาย Craft ห้ามพลาด <br>Workshop ธุงมันดาลา: ศิลปะภาวนาฝึกสมาธิ (สวยมาก!)<br>ขอพรทานาบาตะ: เขียนคำอธิษฐานส่งพลังบวก<br>Free Plants: รับน้องต้นไม้กลับไปดูแลที่หอ/บ้าน ฟรี <br>Bonus: มีโรงทานอาหารอร่อยๆ และหนังสือดีๆ แจกฟรีด้วยนะ",
+    date: "22 กุมภาพันธ์ 2569",
+    link: "https://www.facebook.com/PreCrpmu/posts/pfbid02DCdykTLZq8GEgcXq6RfogeUx5hGdCy4SS64j2Zpy2pzdfZyqzGbdR9KDe5YUtbWKl",
+    image: "/img/information/2026/feb2026/22feb2026artnature.jpg"
+  },
+  {
+    title: "ขอเชิญคณาจารย์ บุคลากร นักศึกษา และผู้ที่สนใจร่วมฟังการบรรยายทางวิชาการระดับนานาชาติ MU-CRS Seminar: Plural Perspectives in Religious Studies โดยความร่วมมือกับมูลนิธิไทย <br>We are pleased to invite faculty members, staff, and students to participate in Mahidol MU-CRS Seminar: Plural Perspectives in Religious Studies Hosts International Seminar in Collaboration with the Thailand Foundation",
+    date: "19 กุมภาพันธ์ 2569",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid02xFBMVGP3AQDV8KLrt179XGmBPJmTvQFTBF3kq2vYh5Ls3wgR3VDNdcVzsVpb7vwWl",
+    image: "/img/information/2026/feb2026/19feb2026infor2_mucrsseminarplural.jpg"
+  },
+  {
+    title: "ขอเชิญ บุคลากร นักศึกษา และผู้ที่สนใจ ร่วมฟังการบรรยายทางวิชาการระดับนานาชาติ International workshop on interdisciplinary research <br>We are pleased to invite faculty members, staff, and students to participatethe International Workshop on Interdisciplinary Research (IWIR)",
+    date: "19 กุมภาพันธ์ 2569",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid02Rb2A6fRfHcPtikgt2xYQ7FQkoaTcjB4gE2egsk3kCfNLU1KXQFHXn3TTSzGsiLHVl",
+    image: "/img/information/2026/feb2026/19feb2026infor_iwir.jpg"
+  },
   {
     title: "ประชาสัมพันธ์โครงการ Woodenfish Buddhist Monastic Life Program 2026 โปรแกรมภาคฤดูร้อนระยะเวลา 1 เดือน ที่เปิดโอกาสให้นิสิตนักศึกษาระดับปริญญาตรีและบัณฑิตศึกษา จากทุกสาขาวิชา ได้เรียนรู้พระพุทธศาสนาในบริบท “ชีวิตจริง” ภายในวัดพุทธร่วมสมัย ณ ประเทศเวียดนาม",
     date: "17 กุมภาพันธ์ 2569",
@@ -196,7 +214,7 @@ function renderInformation(page) {
           </div>
           <div class="p-4">
             <h3 class="text-sm font-normal text-black leading-snug mb-2">${item.title}</h3>
-            ${item.link ? `<a href="${item.link}" target="_blank" class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</a>` : ""}
+            ${item.link ? `<a href="${item.link}" target="_blank" class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม → <br>Read More</a>` : ""}
           </div>
         </div>
       `;
@@ -210,7 +228,7 @@ function renderInformation(page) {
         </div>
         <div class="p-4">
           <h4 class="text-sm font-normal text-black leading-snug mb-2">${item.title}</h4>
-          <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม →</span>
+          <span class="text-blue-700 font-medium hover:underline">อ่านเพิ่มเติม → <br>Read More</span>
         </div>
       </a>
     `;

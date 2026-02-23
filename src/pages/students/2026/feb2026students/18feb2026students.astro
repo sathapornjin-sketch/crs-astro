@@ -1,0 +1,97 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "โครงการ CRS for Students Season 4 กิจกรรมครั้งที่ 2 Finance 101 for Gen Z";
+const date = "18 กุมภาพันธ์ 2569";
+const description = "";
+const gallery = [
+  "/img/students/2026/feb2026/18feb2026students/18feb2026students-1.jpg",
+  "/img/students/2026/feb2026/18feb2026students/18feb2026students-2.jpg",
+  "/img/students/2026/feb2026/18feb2026students/18feb2026students-3.jpg",
+  "/img/students/2026/feb2026/18feb2026students/18feb2026students-4.jpg",
+  "/img/students/2026/feb2026/18feb2026students/18feb2026students-5.jpg",
+  "/img/students/2026/feb2026/18feb2026students/18feb2026students-6.jpg",
+  "/img/students/2026/feb2026/18feb2026students/18feb2026students-7.jpg",
+  "/img/students/2026/feb2026/18feb2026students/18feb2026students-8.jpg",
+  "/img/students/2026/feb2026/18feb2026students/18feb2026students-9.jpg",
+  "/img/students/2026/feb2026/18feb2026students/18feb2026students-10.jpg",
+ ];
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1>{title}</h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>    
+วันพุธที่ 18 กุมภาพันธ์ 2569 เวลา 13.30 - 16.30 น. วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล จัดกิจกรรม โครงการ CRS for Students Season 4 กิจกรรมครั้งที่ 2 "Finance 101 for Gen Z" ณ ห้องประชุมน้ำทอง คุณวิศาล อาคารวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล
+การบรรยายในครั้งนี้ได้รับเกียรติจาก คุณณัฐพงศ์ สิทธิกุล ผู้อำนวยการสำนักการลงทุน บริษัทอินทรประกันภัยจำกัด (มหาชน)<br>
+โดยมี อาจารย์. ดร. จิราธร ชาติศิริ รองคณบดีฝ่ายการศึกษาและกิจการนักศึกษา วิทยาลัยศาสนศึกษา เป็นผู้กล่าวเปิดงาน
+กิจกรรมนี้จัดขึ้นเพื่อเสริมสร้างความรู้พื้นฐานด้านการเงินและการลงทุนที่เหมาะสมกับนักศึกษาในยุคปัจจุบัน ตลอดจนส่งเสริมให้นักศึกษามีความรู้และทักษะในการวางแผนการเงิน การตัดสินใจลงทุน และการบริหารความเสี่ยงอย่างมีเหตุผล<br>
+การจัดกิจกรรมในครั้งนี้สอดคล้องกับ เป้าหมายการพัฒนาที่ยั่งยืน (SDGs) โดยเฉพาะ<br>
+SDG 3 การศึกษาที่มีคุณภาพ (Quality Education) - ส่งเสริมความรู้ด้านการวางแผนการเงินและทักษะชีวิตที่จำเป็นสำหรับนักศึกษาในศตวรรษที่ 21<br>
+SDG 8 งานที่มีคุณค่าและการเติบโตทางเศรษฐกิจ (Decent Work and Economic Growth) - เตรียมความพร้อมด้านการเงินก่อนเข้าสู่การทำงานอย่างมั่นคงในอนาคต
+<br><br>
+
+CRS for Students Season 4: "Finance 101 for Gen Z"<br>
+On Wednesday, February 18, 2026, from 1:30 PM to 4:30 PM, the College of Religious Studies (CRS), Mahidol University, hosted the second session of the CRS for Students Season 4 project. The workshop, titled "Finance 101 for Gen Z," was held at the Namthong Kunwisal Meeting Room, CRS Building, Mahidol University.<br>
+Key Highlights
+Opening Remarks: Delivered by Ajarn Dr. Jirathorn Chadsiri, Associate Dean for Education and Student Affairs.
+Guest Speaker: Mr. Nattapong Sittikul, Director of the Investment Department at Indra Insurance Public Company Limited.
+Objectives<br>
+This session was designed to equip modern students with fundamental knowledge in finance and investment. The program focused on:
+Developing practical financial planning skills.<br>
+Enhancing investment decision-making capabilities.<br>
+Teaching rational risk management strategies.<br>
+Alignment with Sustainable Development Goals (SDGs)
+The activity directly supports the following global goals:<br>
+SDG 4: Quality Education – Enhancing financial literacy and essential 21st-century life skills for students.<br>
+SDG 8: Decent Work and Economic Growth – Preparing students for future financial stability and career readiness.
+    </p>
+
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+          key={index}
+          src={src} 
+          style="width:100%; height:220px; object-fit:cover; border-radius:6px; cursor:pointer;" 
+          onClick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+        />
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>

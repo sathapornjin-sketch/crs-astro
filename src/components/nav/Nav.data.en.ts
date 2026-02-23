@@ -22,7 +22,7 @@ export const navEN: NavItem[] = [
     name: 'Academic Programs',
     link: '/en/education/syllabus/',
     sub: [
-      { name: 'Programs', link: '/en/education/syllabus/' },
+      { name: 'Programs', link: '/en/education' },
       { name: 'TCAS', link: '/en/education/tcas/' },
     ],
   },
@@ -43,7 +43,7 @@ export const navEN: NavItem[] = [
     link: '/en/contact/',
     sub: [
       { name: 'Contact Information', link: '/en/contact/' },
-      { name: 'Direct Line to the Dean', link: '/en/contact/dean/' },
+      { name: 'Contact the Dean', link: '/en/contact/dean/' },
       { name: 'Whistleblower', link: '/en/contact/whistleblower/' },
     ],
   },
