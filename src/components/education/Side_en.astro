@@ -1,0 +1,39 @@
+---
+const pages = await Astro.glob('../../data/education/en/education/*.md');
+
+const path = new URL(Astro.request.url).pathname.replace(/\/$/, '').split('/');
+const current = path[3];   // /en/education/xxx
+---
+
+<ul
+	class="divide-y overflow-hidden rounded-th-rounded-2 bg-th-bg-1 p-0 shadow-th-shadow-1 dark:bg-th-bg-1-dark"
+>
+
+<li class="list-none border-dashed border-th-border-2 px-4 py-2.5 dark:border-th-border-2-dark">
+	<h2 class="m-0 text-xl leading-[1.625rem]">Education</h2>
+</li>
+
+{
+pages.map((page) => (
+
+<li
+	class={
+	current === page.frontmatter.slug
+	? 'active list-none border-l-[3px] border-dashed border-th-border-2 border-l-th-color-1 px-4 py-2.5 pl-[13px] font-bold dark:border-th-border-2-dark dark:border-l-th-color-1-dark'
+	: 'list-none border-dashed border-th-border-2 px-4 py-2.5 dark:border-th-border-2-dark'
+}
+>
+
+<a
+	href={`/en/education/${page.frontmatter.slug}/`}
+	class="text-th-link-1 dark:text-th-link-1-dark"
+>
+	{page.frontmatter.title}
+</a>
+
+</li>
+
+))
+}
+
+</ul>

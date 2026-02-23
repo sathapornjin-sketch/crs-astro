@@ -1,0 +1,29 @@
+---
+import Layout from '@/layouts/Layout_Sidebar.astro';
+import Side_en from '@/components/education/Side_en.astro';
+
+// โหลด markdown TCAS
+const pages = await Astro.glob('../../../data/education/en/education/2-tcas.md');
+const page = pages[0];
+
+const title = page.frontmatter.title;
+const description = page.frontmatter.description;
+---
+
+<Layout title={title} description={description}>
+
+  <aside slot="aside">
+    <Side_en />
+  </aside>
+
+  <article class="px-4">
+
+    <h1 class="text-3xl font-bold mt-0">
+      {title}
+    </h1>
+
+    <page.Content />
+
+  </article>
+
+</Layout>

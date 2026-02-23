@@ -1,0 +1,33 @@
+---
+import Layout from '@/layouts/Layout_Sidebar.astro';
+import Side_en from '@/components/education/Side_en.astro';
+
+// โหลด markdown
+const syllabus = await import('../../../data/education/en/education/1-syllabus.md');
+
+const title = 'Programs';
+const description = 'Education of the College of Religious Studies, Mahidol University';
+---
+
+<Layout title={title} description={description}>
+
+  <aside slot="aside">
+    <Side_en />
+  </aside>
+
+  <article class="px-4">
+
+    <h1 class="text-3xl font-bold mt-0">
+      {title}
+    </h1>
+
+    <p>{description}</p>
+
+    <hr class="my-6" />
+
+    <!-- แสดง markdown -->
+    <syllabus.Content />
+
+  </article>
+
+</Layout>

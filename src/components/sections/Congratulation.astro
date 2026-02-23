@@ -16,10 +16,16 @@
 ---------------------------------- */
 const congratulations = [
   {
+    title: "ทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ขอแสดงความยินดีอย่างยิ่งแก่ ดร. พิบูลย์ ชุมพลไพศาล ในโอกาสที่ได้รับอนุมัติวิทยฐานะ Senior Fellow (SFHEA) จากสถาบัน Advance HE ประเทศสหราชอาณาจักร วิทยฐานะ Senior Fellow (SFHEA) <br>The College of Religious Studies, Mahidol University, extends its formal congratulations to Dr. Phibul Choompolpaisal on being awarded the status of Senior Fellow (SFHEA) by Advance HE, United Kingdom.",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0TdBuW7WNaGWuL6n6bZF7QFvfWZpqXKLRq38KDotWZAjtjix1JboFhqrHRtVEPauil",
+    date: "23 กุมภาพันธ์ 2569",
+    image: "img/congra/2026/feb2026/congra_phibul_23feb2026.jpg"
+  },
+  {
     title: "CRS Knowledge Box : Threads of Devotion : The Sacres Art of Palm-Leaf Manuscript Wrappers <br> ศรัทธาถักทอ ผ้าห่อคัมภีร์ใบลาน",
     link: "https://www.facebook.com/CrsMahidol/posts/pfbid031mWe9h8TypeBKddapTbu3AGuWzGqHAMYBRTRaXzmPasi8iVYFbjPcXEbP9GcM5vfl",
     date: "20 กุมภาพันธ์ 2569",
-    image: "img/congra/2026/feb2026/20feb2026knowledgesuchada.jpg"
+    image: "img/congra/2026/feb2026/20feb2026knowledgesuchada.png"
   },
   {
     title: "CRS Knowledge Box : On the three turns in the study of religion",
@@ -139,9 +145,12 @@ function renderCongrats(page) {
       <a href="${item.link}" target="_blank"
          class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
 
-        <div class="relative w-full h-56 flex items-center justify-center bg-white overflow-hidden">
-          <img src="${item.image}" class="w-full h-full object-cover" />
-        </div>
+        <div class="relative w-full h-56 overflow-hidden rounded-t-2xl">
+  <img 
+    src="${item.image}" 
+    class="absolute inset-0 w-full h-full object-cover object-center"
+  />
+</div>
 
         <div class="p-4">
           <p class="text-sm text-gray-500 mb-2">${item.date}</p>
