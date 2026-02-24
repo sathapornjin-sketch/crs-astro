@@ -4,7 +4,6 @@ slug: tcas
 ---
 ---
 Student Admission Criteria through TCAS System Academic Year 2026
-slug: tcas
 ---
 
 <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">  

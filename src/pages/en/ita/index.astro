@@ -1,0 +1,141 @@
+---
+import Slogan from '@/components/sections/Slogan.astro';
+import Collapse from '@/components/ui/Collapse.astro';
+import Layout from '@/layouts/Layout.astro';
+import fs from 'fs/promises';
+import Papa from 'papaparse';
+
+interface ItaCsvSchema {
+	id: string;
+	category: string;
+	subject: string;
+	link_url: string;
+}
+
+const csvPath = 'src/data/ita/ITA-2025_data_en.csv';
+const csvData = await fs.readFile(csvPath, 'utf-8');
+const items = Papa.parse<ItaCsvSchema>(csvData, { header: true }).data;
+
+const groupedItems: Record<string, ItaCsvSchema[]> = items.reduce((acc, item) => {
+	if (!acc[item.category]) acc[item.category] = [];
+	acc[item.category].push(item);
+	return acc;
+}, {});
+
+const catDescriptions: Record<string, string> = {
+
+	['Basic Information']:
+		'Basic information including organizational information, public relations, and communication channels.',
+
+	['Administration and Budget Utilization']:
+		'Administration and budget utilization including operational plans, budget implementation, work procedures, and service coordination.',
+
+	['Procurement']:
+		'Procurement including procurement processes and supply acquisition.',
+
+	['Human Resource Management and Development']:
+		'Human resource management and development including HR plans, HR implementation, and ethical development.',
+
+	['Transparency Promotion']:
+		'Transparency promotion including corruption complaint management and public participation.',
+
+	['Anti-Corruption']:
+		'Anti-corruption measures including bribery prevention and integrity promotion.'
+};
+
+const title = 'Public Disclosure';
+const description = 'Open Data Integrity and Transparency Assessment (OIT)';
+---
+
+<Layout title={title} description={description}>
+	<Slogan title={title} description={description} />
+
+	<div class="mb-16 text-center text-lg" >
+		<h2>Public disclosure information of the College of Religious Studies,
+		Mahidol University for the Integrity and Transparency Assessment
+		(MU-ITA) Fiscal Year 2025.</h2>
+	</div>
+
+	<div class="mb-10">
+		{
+			Object.entries(groupedItems).map(([category, items]) => (
+				<>
+					<h2 class="mb-1 mt-12">{category}</h2>
+
+					<div class="mb-5">
+						{catDescriptions[category]}
+					</div>
+
+					<div class="space-y-1">
+						{items.map((item) => {
+
+							const links = item.link_url.split('\n');
+
+							return (
+								<Collapse title={`${item.id} | ${item.subject}`}>
+
+									{links.map((link, index) => {
+
+										const isExternalLink = link.startsWith('http');
+
+										return (
+											<>
+												{link ? (
+
+													<>
+														{links.length > 1 ? (
+
+															<a
+																href={link}
+																target={isExternalLink ? '_blank' : '_self'}
+																class="link-hover link list-item list-none"
+															>
+																Item {index + 1}
+															</a>
+
+														) : (
+
+															<a
+																href={link}
+																target={isExternalLink ? '_blank' : '_self'}
+																class="link-hover link"
+															>
+																View Details
+															</a>
+
+														)}
+													</>
+
+												) : (
+
+													'Coming Soon'
+
+												)}
+											</>
+										);
+									})}
+
+								</Collapse>
+							);
+						})}
+					</div>
+				</>
+			))
+		}
+	</div>
+</Layout>
+
+
+
+<!-- HERO -->
+<!--<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">    
+    <h2>This page is currently under maintenance.</h2>   
+  </div>
+</section>-->
+
+
+
+
+
