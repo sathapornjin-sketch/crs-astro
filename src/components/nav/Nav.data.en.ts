@@ -28,7 +28,7 @@ export const navEN: NavItem[] = [
   },
   {
     name: 'Current Students',
-    link: '/en/students/',
+    link: '/en/internal/students/',
   },
   {
     name: 'Alumni',

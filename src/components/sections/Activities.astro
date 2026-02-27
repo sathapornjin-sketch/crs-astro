@@ -15,6 +15,26 @@
    ข้อมูลกิจกรรม 
 -------------------------- */
 const activities = [
+{
+    title: "วิทยาลัยศาสนศึกษา ม.มหิดล จับมือวิทยาลัยในวัง เดินหน้าพัฒนาวิชาโทและงานบริการวิชาการ บูรณาการศาสนากับศิลปวัฒนธรรมไทย <br><br> College of Religious Studies, Mahidol University and Witthayalai Nai Wang Initiate Collaboration on Minor Program and Academic Services Integrating Religion and Thai Cultural Heritage",
+    date: "26 กุมภาพันธ์ 2569",
+    link: "collab/2026collab/feb2026collab/26feb2026collab",
+    image: "/img/collab/2026collab/feb2026collab/26feb2026collab/26feb2026collab-1.jpg"
+  },
+  {
+    title: "วิทยาลัยศาสนศึกษา ม.มหิดล ร่วมเวทีนานาชาติว่าด้วยสิทธิมนุษยชนในบริบทเอเชียตะวันออกเฉียงใต้ <br><br>The College of Religious Studies, Mahidol University, continues to strengthen its international academic engagement. During 15–26 March 2026",
+    description: "Assistant Professor John Johnston, College of Religious Studies, Mahidol University, was invited to join the panel as a representative of the College.",
+    date: "26 กุมภาพันธ์ 2569",
+    slug: "2026/feb2026/26feb2026activities2",
+    image: "/img/activities/2026/feb2026/26feb2026activities2/26feb2026activities2-1.jpg"
+  },
+  {
+    title: "วิทยาลัยศาสนศึกษา ม.มหิดล ขยายเครือข่ายวิชาการระดับสากล ร่วมหารือความร่วมมือกับ Otani University ประเทศญี่ปุ่น <br><br>College of Religious Studies, Mahidol University Expands Global Academic Collaboration with Otani University, Japan.",
+    description: "The College of Religious Studies, Mahidol University, continues to strengthen its international academic engagement. During 15–26 March 2026",
+    date: "26 กุมภาพันธ์ 2569",
+    slug: "2026/feb2026/26feb2026activities",
+    image: "/img/activities/2026/feb2026/26feb2026activities/26feb2026activities-cover.jpg"
+  },
   {
     title: "โครงการ CRS for Students Season 4 กิจกรรมครั้งที่ 2 Finance 101 for Gen Z",   
     description: "การบรรยายในครั้งนี้ได้รับเกียรติจาก คุณณัฐพงศ์ สิทธิกุล ผู้อำนวยการสำนักการลงทุน บริษัทอินทรประกันภัยจำกัด (มหาชน) โดยมี อาจารย์. ดร. จิราธร ชาติศิริ รองคณบดีฝ่ายการศึกษาและกิจการนักศึกษา วิทยาลัยศาสนศึกษา เป็นผู้กล่าวเปิดงาน",
@@ -27,7 +47,7 @@ const activities = [
     description: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล นำโดย อาจารย์ ดร.สุชาดา ศรีเศรษฐวรกุล รองคณบดีฝ่ายเทคโนโลยีสารสนเทศและเครือข่ายความร่วมมือ พร้อมด้วยตัวแทนบุคลากร ส่งมอบปฏิทินตั้งโต๊ะเก่าในโครงการ “หนึ่งการให้ หลายโอกาส” ให้แก่ศูนย์เทคโนโลยีการศึกษาเพื่อคนตาบอด มูลนิธิช่วยคนตาบอดแห่งประเทศไทย ในพระบรมราชูปถัมภ์ จ.นนทบุรี โดยมีคุณนันท์มนัส ชมภูนุช เป็นผู้รับมอบ",
     date: "13 กุมภาพันธ์ 2569",
     slug: "2026/feb2026/13feb2026activities",
-    image: "img/activities/2026/feb2026/13feb2026activities/13feb2026activities-1.jpg"
+    image: "/img/activities/2026/feb2026/13feb2026activities/13feb2026activities-1.jpg"
   },
   {
     title: "โครงการ CRS for Students Season 4 กิจกรรมครั้งที่ 1 Inner Landscapes : ศิลปะบำบัดเพื่อการสำรวจตัวเองและดูแลสุขภาวะใจ",   
@@ -48,49 +68,49 @@ const activities = [
     description: "มหาวิทยาลัยมหิดล จัดพิธีบำเพ็ญกุศลสตมวาร (100 วัน) ถวายเป็นพระราชกุศล แด่ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง",
     date: "30 มกราคม 2569",
     slug: "2026/jan2026/30jan2026activities",
-    image: "img/activities/2026/jan2026/30jan2026activities/30jan2026activities-1.jpg"
+    image: "/img/activities/2026/jan2026/30jan2026activities/30jan2026activities-1.jpg"
   },
   {
     title: "อาจารย์ประจำ CRS บรรยายพิเศษ ณ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (สจล.) เรื่องพุทธศาสนาเถรวาทในเอเชียตะวันออกเฉียงใต้",
     description: "Dr. Sanjoy Barua Chowdhury อาจารย์ประจำวิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ได้รับเชิญให้บรรยายพิเศษ ณ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (สจล.) ในหัวข้อ “ภูมิทัศน์ของพุทธศาสนาเถรวาทในเอเชียตะวันออกเฉียงใต้: ประวัติศาสตร์ วัฒนธรรม และแนวปฏิบัติ”",
     date: "29 มกราคม 2569",
     slug: "2026/jan2026/29jan2026activities",
-    image: "img/activities/2026/jan2026/29jan2026activities/29jan2026activities-1.jpg"
+    image: "/img/activities/2026/jan2026/29jan2026activities/29jan2026activities-1.jpg"
   },
   {
     title: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ให้การต้อนรับพระเถระนิกายเถรวาทจากประเทศบังกลาเทศ",
     description: "",
     date: "28 มกราคม 2569",
     slug: "2026/jan2026/28jan2026activities",
-    image: "img/activities/2026/jan2026/28jan2026activities/28jan2026activities-1.jpg"
+    image: "/img/activities/2026/jan2026/28jan2026activities/28jan2026activities-1.jpg"
   },  
   {
     title: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล นำนักศึกษาร่วมทำโครงการเพื่อสังคม ร่วมกับ BANGKOK RAINBOW ORGANIZATION (องค์กรบางกอกเรนโบว์)",
     description: "",
     date: "26 มกราคม 2569",
     link: "students/26jan2026students",
-    image: "img/students/2026/jan2026/26jan2026students/26jan2026students-1.jpg"
+    image: "/img/students/2026/jan2026/26jan2026students/26jan2026students-1.jpg"
   },
   {
     title: "วิทยาลัยศาสนศึกษาร่วมแสดงความยินดี เนื่องในงานครบรอบวันคล้ายวันสถาปนา สถาบันโภชนาการ มหาวิทยาลัยมหิดล ครบรอบ 49 ปี",
     description: "อาจารย์ ดร.จิราธร ชาติศิริ รองคณบดีฝ่ายการศึกษาและกิจการนักศึกษา วิทยาลัยศาสนศึกษา ร่วมแสดงความยินดี เนื่องในงานครบรอบวันคล้ายวันสถาปนา สถาบันโภชนาการ มหาวิทยาลัยมหิดล ครบรอบ 49 ปี โดยมี รองศาสตราจารย์ ดร.ชลัท  ศานติวรางคณา ผู้อำนวยการสถาบันโภชนาการ ให้การต้อนรับ ณ สถาบันโภชนาการ มหาวิทยาลัยมหิดล",
     date: "23 มกราคม 2569",
     slug: "2026/jan2026/23jan2026activities",
-    image: "img/activities/2026/jan2026/23jan2026activities/23jan2026activities-1.jpg"
+    image: "/img/activities/2026/jan2026/23jan2026activities/23jan2026activities-1.jpg"
   },
   {
     title: "วิทยาลัยศาสนศึกษา จัดโครงการ CRS สร้างสายใยสายรหัส",
     description: "",
     date: "21 มกราคม 2569",
     link: "students/21jan2026students",
-    image: "img/students/2026/jan2026/21jan2026/21jan2026students-1.jpg"
+    image: "/img/students/2026/jan2026/21jan2026/21jan2026students-1.jpg"
   },
   {
     title: "ภาพบรรยากาศการงานมหิดลเกษตรแฟร์ บูธวิทยาลัยศาสนศึกษา",
     description: "",
     date: "16 มกราคม 2569",
     slug: "2026/jan2026/16jan2026activities_mukubooth",
-    image: "img/activities/2026/jan2026/16่jan2026activities_mukubooth/16jan2026activities_mukubooth-9.jpg"
+    image: "/img/activities/2026/jan2026/16่jan2026activities_mukubooth/16jan2026activities_mukubooth-9.jpg"
   },   
   {
     title: "วิทยาลัยศาสนศึกษา รับมอบผลิตภัณฑ์ทำความสะอาดจาก บริษัท แพน โฟ จำกัด",

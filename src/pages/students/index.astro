@@ -2,8 +2,8 @@
 import Layout from '@/layouts/Layout.astro';
 import Slogan from '@/components/sections/Slogan.astro';
 
-const title = 'นักศึกษา';
-const description = 'วิทยาลัยศาสนศึกษา';
+const title = 'นักศึกษาวิทยาลัยศาสนศึกษา / Students College of Religious Studies ';
+const description = '';
 
 // ข่าวกิจกรรม
 const articles = [
@@ -98,7 +98,7 @@ const videos = [
   <Slogan title={title} description={description} />
 
   <!-- ข่าวและกิจกรรม -->
-  <h2>ข่าวและกิจกรรม</h2>
+  <h2>ข่าวและกิจกรรม / News & Activities</h2>
   <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-top:20px;">
     {articles.map(article => (
       <a href={`/students/${article.slug}`} target="_blank" rel="noopener noreferrer"
@@ -131,7 +131,7 @@ const videos = [
 
   <!-- วิดีโอจาก Google Drive แยกเป็น section ด้านล่าง -->
   <section style="margin-top:40px;">
-    <h2>คลิปวีดีโอประชาสัมพันธ์และกิจกรรมของนักศึกษา</h2>
+    <h2>คลิปวีดีโอประชาสัมพันธ์และกิจกรรมของนักศึกษา / Promotional Videos & Student Activities</h2>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-top:20px;">
       {videos.map(video => (
