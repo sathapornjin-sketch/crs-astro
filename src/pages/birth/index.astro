@@ -2,10 +2,17 @@
 import Layout from '@/layouts/Layout.astro';
 import Slogan from '@/components/sections/Slogan.astro';
 
-const title = 'พิธีทำบุญเดือนเกิด';
-const description = 'วิทยาลัยศาสนศึกษา';
+const title = 'พิธีทำบุญเดือนเกิด / Monthly Birthday Merit-Making Ceremony';
+const description = 'วิทยาลัยศาสนศึกษา / College of Religious Studies';
 
 const articles = [
+  {
+  title: "วิทยาลัยศาสนศึกษา จัดพิธีทำบุญเดือนเกิดกุมภาพันธ์ 2569 <br> College of Religious Studies Holds February 2026 Birthday Merit-Making Ceremony",   
+    description: "",
+    date: "27 กุมภาพันธ์ 2569",
+    slug: "2026/27feb2026birth",
+    image: "/img/birth/2026/feb2026/27feb2026birth-1.jpg"
+  },
   {
   title: "มกราคม 2569 เจ้าภาพโดยสถาบันวิจัยภาษาและวัฒนธรรมเอเชีย",   
     description: "",
@@ -62,7 +69,7 @@ const articles = [
 <Layout title={title} description={description}>
   <Slogan title={title} description={description} />
 
-  <h2>พิธีทำบุญเดือนเกิด</h2>
+  <h2>พิธีทำบุญเดือนเกิด / Monthly Birthday Merit-Making Ceremony</h2>
 
   <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-top:20px;">
     {articles.map(article => (
@@ -86,7 +93,10 @@ const articles = [
              onmouseout="this.style.transform='scale(1)'"
         />
         <div style="padding:10px;">
-          <h3 style="margin:0; font-weight:300; font-size:1.2rem;">{article.title}</h3>
+          <h3 
+  style="margin:0; font-weight:300; font-size:1.2rem;"
+  set:html={article.title}
+></h3>
           <p style="margin:5px 0 0; font-size:0.9rem; color:#555;">{article.date}</p>
           <p style="margin:5px 0 0; font-size:0.9rem;">{article.description}</p>
         </div>

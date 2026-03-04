@@ -20,6 +20,12 @@
 -------------------------- */
 const information = [
   {
+    title: "International Women’s Day 2026 วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ขอเชิญร่วมกิจกรรมเนื่องในวันสตรีสากล เพื่อเปิดพื้นที่แลกเปลี่ยนมุมมองเกี่ยวกับบทบาท อำนาจ และสถานะของผู้หญิงในสังคมร่วมสมัย ผ่านมิติของศาสนา สังคม การเมือง และวัฒนธรรม วันอาทิตย์ที่ 8 มีนาคม 2569 ห้อง 411 อาคารศูนย์การเรียนรู้ มหาวิทยาลัยมหิดล",
+    date: "4 มีนาคม 2569",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0241UkgckwmPEPNX7eRWcp5AQ48Vq8GKD4m822BSrWkTvquKnWu2X2BykvRbd2VsMrl",
+    image: "/img/information/2026/mar2026/4mar2026womenday.jpg"
+  },
+  {
     title: "ขอเชิญทุกท่านร่วมทำบุญเดือนเกิดในวันที่ 27 กุมภาพันธ์ 2569 เจ้าภาพ : บัณฑิตวิทยาลัย ณ ลานประติมากรรมดอกกันภัย อาคารศูนย์การเรียนรู้ ม.มหิดล",
     date: "24 กุมภาพันธ์ 2569",
     link: "https://www.facebook.com/CrsMahidol/posts/pfbid0PHnfA3PP9NTRFHM1hPQjZ1S6jM879sf5axrKKSnByuAUPEqyfwK7rhSKcQ2tHWSCl",
@@ -235,23 +241,75 @@ function renderInformation(page) {
   }).join('');
 }
 
-/* -------------------------
-   Render pagination buttons
--------------------------- */
 function renderPagination() {
+
   const totalPages = Math.ceil(information.length / itemsPerPage);
   const pagination = document.getElementById("information-pagination");
   if (!pagination) return;
 
   pagination.innerHTML = '';
 
-  for (let i = 1; i <= totalPages; i++) {
+  /* ปุ่มหน้าแรก */
+  const firstBtn = document.createElement("button");
+  firstBtn.textContent = "<<";
+  firstBtn.className =
+    "px-4 py-2 rounded-lg bg-white text-blue-700 border hover:bg-blue-100 transition";
+  firstBtn.onclick = () => {
+    currentPage = 1;
+    renderInformation(currentPage);
+    renderPagination();
+  };
+  pagination.appendChild(firstBtn);
+
+
+  /* คำนวณช่วงหน้า (แสดงสูงสุด 5) */
+  let startPage = Math.max(1, currentPage - 2);
+  let endPage = Math.min(totalPages, startPage + 4);
+
+  if (endPage - startPage < 4) {
+    startPage = Math.max(1, endPage - 4);
+  }
+
+
+  /* ปุ่มเลขหน้า */
+  for (let i = startPage; i <= endPage; i++) {
+
     const btn = document.createElement("button");
+
     btn.textContent = i;
-    btn.className = `px-4 py-2 rounded-lg ${i === currentPage ? 'bg-blue-700 text-white' : 'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
-    btn.onclick = () => { currentPage = i; renderInformation(currentPage); renderPagination(); };
+
+    btn.className =
+      `px-4 py-2 rounded-lg ${
+        i === currentPage
+          ? 'bg-blue-700 text-white'
+          : 'bg-white text-blue-700 border hover:bg-blue-100'
+      } transition`;
+
+    btn.onclick = () => {
+      currentPage = i;
+      renderInformation(currentPage);
+      renderPagination();
+    };
+
     pagination.appendChild(btn);
   }
+
+
+  /* ปุ่มหน้าสุดท้าย */
+  const lastBtn = document.createElement("button");
+
+  lastBtn.textContent = ">>";
+
+  lastBtn.className =
+    "px-4 py-2 rounded-lg bg-white text-blue-700 border hover:bg-blue-100 transition";
+
+  lastBtn.onclick = () => {
+    currentPage = totalPages;
+    renderInformation(currentPage);
+    renderPagination();
+  };
+
+  pagination.appendChild(lastBtn);
 }
 
 /* ------------------------------------------

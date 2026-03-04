@@ -1,0 +1,85 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "วิทยาลัยศาสนศึกษา ม.มหิดล ร่วมเวทีนานาชาติว่าด้วย Freedom of Religion or Belief ในเอเชีย<br>CRS Contributes to International Discussion on Freedom of Religion or Belief in Asia.";
+const date = "27 กุมภาพันธ์ 2569";
+const description = "";
+const gallery = [
+  "/img/activities/2026/feb2026/27feb2026activities/27feb2026activities-1.jpg",
+  "/img/activities/2026/feb2026/27feb2026activities/27feb2026activities-2.jpg",
+  "/img/activities/2026/feb2026/27feb2026activities/27feb2026activities-3.jpg",
+  "/img/activities/2026/feb2026/27feb2026activities/27feb2026activities-4.jpg",
+  "/img/activities/2026/feb2026/27feb2026activities/27feb2026activities-5.jpg",
+  "/img/activities/2026/feb2026/27feb2026activities/27feb2026activities-6.jpg",
+  "/img/activities/2026/feb2026/27feb2026activities/27feb2026activities-7.jpg",
+  "/img/activities/2026/feb2026/27feb2026activities/27feb2026activities-8.jpg",
+  "/img/activities/2026/feb2026/27feb2026activities/27feb2026activities-9.jpg",
+  "/img/activities/2026/feb2026/27feb2026activities/27feb2026activities-10.jpg",  
+  ]
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1 set:html={title}></h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>   
+
+    <p>   
+
+เมื่อวันศุกร์ที่ 27 กุมภาพันธ์ 2569 เวลา 14:00–15:00 น. Assoc. Prof. Dr. Milos Hubina รองคณบดีฝ่ายวิจัยและวิเทศสัมพันธ์ วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ได้รับเชิญเป็นวิทยากรบรรยายในหัวข้อ
+“Case Studies on FoRB in Asia – Part 3” ภายใต้โครงการ Pilot Co-Certificate Course on Buddhism and Human Rights<br>
+การบรรยายครั้งนี้เป็น session เชิงกรณีศึกษา ที่วิเคราะห์ประเด็น Freedom of Religion or Belief (FoRB) ในบริบทประเทศพุทธศาสนาในเอเชีย อาทิ เมียนมา ศรีลังกา และไทย โดยครอบคลุมประเด็นบทบาทของพระสงฆ์ ชาตินิยม ศาสนา และความอยู่ร่วมกันในสังคมพหุวัฒนธรรม
+การเข้าร่วมในครั้งนี้สะท้อนบทบาทของวิทยาลัยศาสนศึกษาในการขับเคลื่อนงานวิจัยและความร่วมมือระดับนานาชาติ พร้อมยืนยันความมุ่งมั่นในการบูรณาการพุทธศาสนศึกษากับกรอบสิทธิมนุษยชนร่วมสมัย
+<br><br>
+CRS Contributes to International Discussion on Freedom of Religion or Belief in Asia.<br>
+On Friday, 27 February 2026 (14:00–15:00), Assoc. Prof. Dr. Milos Hubina, Associate Dean for Research and International Affairs, College of Religious Studies, Mahidol University, delivered a lecture titled:  “Case Studies on FoRB in Asia – Part 3” as part of the Pilot Co-Certificate Course on Buddhism and Human Rights.<br>
+The session examined case studies on Freedom of Religion or Belief (FoRB) in Buddhist contexts across Myanmar, Sri Lanka, and Thailand, addressing themes such as monastic roles, nationalism, religious identity, and coexistence in pluralistic societies.<br>
+This participation highlights the College’s active engagement in international academic dialogue and its commitment to advancing research at the intersection of Buddhism and contemporary human rights discourse.
+
+</p>
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+  src={src} 
+  style="width:100%; height:auto; object-fit:contain; border-radius:6px; cursor:pointer;" 
+  onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+/>
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>

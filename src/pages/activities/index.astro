@@ -2,10 +2,31 @@
 import Layout from '@/layouts/Layout.astro';
 import Slogan from '@/components/sections/Slogan.astro';
 
-const title = 'ข่าวและกิจกรรม';
-const description = 'วิทยาลัยศาสนศึกษา';
+const title = 'ข่าวและกิจกรรม / News and Activities';
+const description = 'วิทยาลัยศาสนศึกษา / College of Religious Studies';
 
 const articles = [
+  {
+    title: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ร่วมแสดงมุทิตาสักการะและความยินดีแด่ศิษย์เก่าผู้ทรงคุณค่า",
+    description: "",
+    date: "2 มีนาคม 2569",
+    slug: "2026/mar2026/2mar2026activities2",
+    image: "/img/activities/2026/mar2026/2mar2026activities2/2mar2026activities2-3.jpg"
+  },
+  {
+    title: "วิทยาลัยศาสนศึกษาเข้าร่วมพิธีวันครบรอบ 57 ปี วันพระราชทานนาม 138 ปี มหาวิทยาลัยมหิดล<br><br>College of Religious Studies Joins the Ceremony for the 57th Anniversary of the Bestowal of the Name and the 138th Anniversary of Mahidol University",
+    description: "",
+    date: "2 มีนาคม 2569",
+    slug: "2026/mar2026/2mar2026activities",
+    image: "/img/activities/2026/mar2026/2mar2026activities/2mar2026activities-1.jpg"
+  },
+  {
+    title: "วิทยาลัยศาสนศึกษา ม.มหิดล ร่วมเวทีนานาชาติว่าด้วย Freedom of Religion or Belief ในเอเชีย<br><br>CRS Contributes to International Discussion on Freedom of Religion or Belief in Asia.",
+    description: "Assoc. Prof. Dr. Milos Hubina, Associate Dean for Research and International Affairs, College of Religious Studies, Mahidol University, delivered a lecture titled:  “Case Studies on FoRB in Asia – Part 3” as part of the Pilot Co-Certificate Course on Buddhism and Human Rights.",
+    date: "27 กุมภาพันธ์ 2569",
+    slug: "2026/feb2026/27feb2026activities",
+    image: "/img/activities/2026/feb2026/27feb2026activities/27feb2026activities-1.jpg"
+  },
   {
     title: "วิทยาลัยศาสนศึกษา ม.มหิดล ร่วมเวทีนานาชาติว่าด้วยสิทธิมนุษยชนในบริบทเอเชียตะวันออกเฉียงใต้ <br><br>The College of Religious Studies, Mahidol University, continues to strengthen its international academic engagement. During 15–26 March 2026",
     description: "Assistant Professor John Johnston, College of Religious Studies, Mahidol University, was invited to join the panel as a representative of the College.",
@@ -209,7 +230,7 @@ const articles = [
 <Layout title={title} description={description}>
   <Slogan title={title} description={description} />
 
-  <h2>ข่าวและกิจกรรม</h2>
+  <h2>ข่าวและกิจกรรม / News and Activities</h2>
 
   <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-top:20px;">
     {articles.map(article => (

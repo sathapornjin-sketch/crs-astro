@@ -15,6 +15,34 @@
    ข้อมูลกิจกรรม 
 -------------------------- */
 const activities = [
+  {
+    title: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ร่วมแสดงมุทิตาสักการะและความยินดีแด่ศิษย์เก่าผู้ทรงคุณค่า",
+    description: "",
+    date: "2 มีนาคม 2569",
+    slug: "2026/mar2026/2mar2026activities2",
+    image: "/img/activities/2026/mar2026/2mar2026activities2/2mar2026activities2-3.jpg"
+  },
+  {
+    title: "วิทยาลัยศาสนศึกษาเข้าร่วมพิธีวันครบรอบ 57 ปี และวันพระราชทานนาม 138 ปี มหาวิทยาลัยมหิดล<br><br>College of Religious Studies Joins the Ceremony for the 57th Anniversary of the Bestowal of the Name and the 138th Anniversary of Mahidol University",
+    description: "",
+    date: "2 มีนาคม 2569",
+    slug: "2026/mar2026/2mar2026activities",
+    image: "/img/activities/2026/mar2026/2mar2026activities/2mar2026activities-1.jpg"
+  },
+  {
+    title: "วิทยาลัยศาสนศึกษา ม.มหิดล ร่วมเวทีนานาชาติว่าด้วย Freedom of Religion or Belief ในเอเชีย<br>CRS Contributes to International Discussion on Freedom of Religion or Belief in Asia.",
+    description: "Assoc. Prof. Dr. Milos Hubina, Associate Dean for Research and International Affairs, College of Religious Studies, Mahidol University, delivered a lecture titled:  “Case Studies on FoRB in Asia – Part 3” as part of the Pilot Co-Certificate Course on Buddhism and Human Rights.",
+    date: "27 กุมภาพันธ์ 2569",
+    slug: "2026/feb2026/27feb2026activities",
+    image: "/img/activities/2026/feb2026/27feb2026activities/27feb2026activities-1.jpg"
+  },
+  {
+  title: "วิทยาลัยศาสนศึกษา จัดพิธีทำบุญเดือนเกิดกุมภาพันธ์ 2569 <br> College of Religious Studies Holds February 2026 Birthday Merit-Making Ceremony",   
+    description: "",
+    date: "27 กุมภาพันธ์ 2569",
+    link: "birth/2026/27feb2026birth",
+    image: "/img/birth/2026/feb2026/27feb2026birth-1.jpg"
+  },
 {
     title: "วิทยาลัยศาสนศึกษา ม.มหิดล จับมือวิทยาลัยในวัง เดินหน้าพัฒนาวิชาโทและงานบริการวิชาการ บูรณาการศาสนากับศิลปวัฒนธรรมไทย <br><br> College of Religious Studies, Mahidol University and Witthayalai Nai Wang Initiate Collaboration on Minor Program and Academic Services Integrating Religion and Thai Cultural Heritage",
     date: "26 กุมภาพันธ์ 2569",
@@ -381,17 +409,58 @@ function renderPagination() {
 
   pagination.innerHTML = '';
 
-  for (let i = 1; i <= totalPages; i++) {
+  /* ปุ่มหน้าแรก */
+  const firstBtn = document.createElement("button");
+  firstBtn.textContent = "<<";
+  firstBtn.className = "px-4 py-2 rounded-lg bg-white text-blue-700 border hover:bg-blue-100 transition";
+  firstBtn.onclick = () => {
+    currentPage = 1;
+    renderActivities(currentPage);
+    renderPagination();
+  };
+  pagination.appendChild(firstBtn);
+
+
+  /* คำนวณช่วงหน้า (แสดง 5 หน้า) */
+  let startPage = Math.max(1, currentPage - 2);
+  let endPage = Math.min(totalPages, startPage + 4);
+
+  if (endPage - startPage < 4) {
+    startPage = Math.max(1, endPage - 4);
+  }
+
+
+  /* ปุ่มเลขหน้า */
+  for (let i = startPage; i <= endPage; i++) {
     const btn = document.createElement("button");
     btn.textContent = i;
-    btn.className = `px-4 py-2 rounded-lg ${i === currentPage ? 'bg-blue-700 text-white' : 'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
-    btn.onclick = () => { 
-      currentPage = i; 
-      renderActivities(currentPage); 
+
+    btn.className = `px-4 py-2 rounded-lg ${
+      i === currentPage
+        ? 'bg-blue-700 text-white'
+        : 'bg-white text-blue-700 border hover:bg-blue-100'
+    } transition`;
+
+    btn.onclick = () => {
+      currentPage = i;
+      renderActivities(currentPage);
       renderPagination();
     };
+
     pagination.appendChild(btn);
   }
+
+
+  /* ปุ่มหน้าสุดท้าย */
+  const lastBtn = document.createElement("button");
+  lastBtn.textContent = ">>";
+  lastBtn.className = "px-4 py-2 rounded-lg bg-white text-blue-700 border hover:bg-blue-100 transition";
+  lastBtn.onclick = () => {
+    currentPage = totalPages;
+    renderActivities(currentPage);
+    renderPagination();
+  };
+  pagination.appendChild(lastBtn);
 }
 
 /* -------------------------

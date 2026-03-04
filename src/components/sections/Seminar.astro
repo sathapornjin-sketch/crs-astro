@@ -14,6 +14,13 @@
 ---------------------------- */
 const seminar = [
   {
+    title: "วิทยาลัยศาสนศึกษา ม.มหิดล แบ่งปันองค์ความรู้สู่เครือข่ายวิชาการ ร่วมบรรยายพิเศษ “พระพุทธศาสนามหายานในญี่ปุ่น” ณ ม.เกษตรศาสตร์ <br> CRS Mahidol Expands Academic Networks through Special Lecture on 'Japanese Mahayana Buddhism' at Kasetsart University",
+    description: "",
+    date: "4 มีนาคม 2569",
+    slug: "2026/mar2026/4mar2026seminarjapan",    
+    image: "/img/seminar/2026/mar2026/4mar2026seminarjapan/4mar2026seminarjapan-2.jpg"
+  },
+  {
     title: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล โดยความร่วมมือกับมูลนิธิไทย (Thailand Foundation) ได้จัดการบรรยายวิชาการระดับนานาชาติในหัวข้อ Third Millennium Invented Religions and Politics: Anarchism,Grassroots Organisations, and Pro-Science Activism ภายใต้กิจกรรม MU-CRS Seminar: Plural Perspectives in Religious Studies",
     description: "",
     date: "25 กุมภาพันธ์ 2569",
@@ -200,24 +207,45 @@ function renderSeminar(page) {
     .join('');
 }
 
-/* -------------------------
-   RENDER PAGINATION BUTTONS
--------------------------- */
 function renderSeminarPagination() {
   const pagination = document.getElementById("seminar-pagination");
   if (!pagination) return;
 
   pagination.innerHTML = '';
-  const totalPages = Math.ceil(seminar.length / seminarPerPage);
 
-  for (let i = 1; i <= totalPages; i++) {
+  const totalPages = Math.ceil(seminar.length / seminarPerPage);
+  const maxButtons = 5;
+
+  let startPage = Math.max(1, seminarPage - 2);
+  let endPage = startPage + maxButtons - 1;
+
+  if (endPage > totalPages) {
+    endPage = totalPages;
+    startPage = Math.max(1, endPage - maxButtons + 1);
+  }
+
+  /* หน้าแรก */
+  const firstBtn = document.createElement("button");
+  firstBtn.textContent = "<<";
+  firstBtn.className = "px-4 py-2 rounded-lg bg-white text-blue-700 border hover:bg-blue-100 transition";
+  firstBtn.onclick = () => {
+    seminarPage = 1;
+    renderSeminar(seminarPage);
+    renderSeminarPagination();
+  };
+  pagination.appendChild(firstBtn);
+
+  /* เลขหน้า (สูงสุด 5) */
+  for (let i = startPage; i <= endPage; i++) {
     const btn = document.createElement("button");
     btn.textContent = i;
 
     btn.className =
-      `px-4 py-2 rounded-lg ${i === seminarPage
-        ? "bg-blue-700 text-white"
-        : "bg-white text-blue-700 border hover:bg-blue-100"} transition`;
+      `px-4 py-2 rounded-lg ${
+        i === seminarPage
+          ? "bg-blue-700 text-white"
+          : "bg-white text-blue-700 border hover:bg-blue-100"
+      } transition`;
 
     btn.onclick = () => {
       seminarPage = i;
@@ -227,8 +255,18 @@ function renderSeminarPagination() {
 
     pagination.appendChild(btn);
   }
-}
 
+  /* หน้าสุดท้าย */
+  const lastBtn = document.createElement("button");
+  lastBtn.textContent = ">>";
+  lastBtn.className = "px-4 py-2 rounded-lg bg-white text-blue-700 border hover:bg-blue-100 transition";
+  lastBtn.onclick = () => {
+    seminarPage = totalPages;
+    renderSeminar(seminarPage);
+    renderSeminarPagination();
+  };
+  pagination.appendChild(lastBtn);
+}
 /* -------------------------
    INIT (เหมือน congratulation 100%)
 -------------------------- */

@@ -16,6 +16,12 @@
 ---------------------------------- */
 const congratulations = [
   {
+    title: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล ขอแสดงความยินดีกับ ผศ.ดร.ไพเราะ มากเจริญ <br>ในโอกาสได้รับการคัดเลือกเป็น Outstanding Reviewer 2025จาก Journal of International Buddhist Studies (JIBS) วารสารที่อยู่ในฐานข้อมูล Scopus (Q2), TCI และ DOAJ<br>The College of Religious Studies, Mahidol University, congratulates Asst. Prof. Dr. Pairor Makcharoen <br>on being recognised as an Outstanding Reviewer 2025 by the Journal of International Buddhist Studies (JIBS)",
+    link: "https://www.facebook.com/CrsMahidol/posts/pfbid0Z8dd82s4cKQPnoquEzz4ECspyPqXdgQHK5JpdxyQBHEAe46e3fZXztPtsMUN9oLpl",
+    date: "27 กุมภาพันธ์ 2569",
+    image: "/img/congra/2026/feb2026/27feb2026congra_dean.jpg"
+  },
+  {
     title: "CRS Knowledge Box : Buddhism and the Visual Arts",
     link: "https://www.facebook.com/crsknowledgebox/posts/pfbid02XwiZvkXcBJmkbLUR84btatrTWCUH2T2TYKBQNLpHFJ6fRAd9GRysBrcRbFERrY9bl",
     date: "26 กุมภาพันธ์ 2569",
@@ -151,10 +157,10 @@ function renderCongrats(page) {
       <a href="${item.link}" target="_blank"
          class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
 
-        <div class="relative w-full h-56 overflow-hidden rounded-t-2xl">
+        <div class="w-full text-center bg-white p-2">
   <img 
     src="${item.image}" 
-    class="absolute inset-0 w-full h-full object-cover object-center"
+    style="max-width:100%; height:auto;"
   />
 </div>
 
@@ -169,23 +175,49 @@ function renderCongrats(page) {
 }
 
 /* -------------------------
-   Render pagination buttons
+   Render pagination buttons (แบบจำกัด 5 ปุ่ม + หน้าแรก + หน้าสุดท้าย)
 -------------------------- */
 function renderCongratsPagination() {
+
   const totalPages = Math.ceil(congratulations.length / congratsPerPage);
   const pagination = document.getElementById("congrats-pagination");
   if (!pagination) return;
 
   pagination.innerHTML = '';
 
-  for (let i = 1; i <= totalPages; i++) {
+  const maxButtons = 5;
+
+  let startPage = Math.max(1, congratsPage - 2);
+  let endPage = Math.min(totalPages, startPage + maxButtons - 1);
+
+  if (endPage - startPage < maxButtons - 1) {
+    startPage = Math.max(1, endPage - maxButtons + 1);
+  }
+
+  /* ปุ่มหน้าแรก */
+  const firstBtn = document.createElement("button");
+  firstBtn.textContent = "<<";
+  firstBtn.className = "px-4 py-2 rounded-lg bg-white text-blue-700 border hover:bg-blue-100";
+  firstBtn.onclick = () => {
+    congratsPage = 1;
+    renderCongrats(congratsPage);
+    renderCongratsPagination();
+  };
+  pagination.appendChild(firstBtn);
+
+
+  /* ปุ่มเลขหน้า (สูงสุด 5) */
+  for (let i = startPage; i <= endPage; i++) {
+
     const btn = document.createElement("button");
     btn.textContent = i;
 
     btn.className =
-      `px-4 py-2 rounded-lg ${i === congratsPage
-        ? 'bg-blue-700 text-white'
-        : 'bg-white text-blue-700 border hover:bg-blue-100'} transition`;
+      `px-4 py-2 rounded-lg ${
+        i === congratsPage
+          ? 'bg-blue-700 text-white'
+          : 'bg-white text-blue-700 border hover:bg-blue-100'
+      } transition`;
 
     btn.onclick = () => {
       congratsPage = i;
@@ -195,6 +227,19 @@ function renderCongratsPagination() {
 
     pagination.appendChild(btn);
   }
+
+
+  /* ปุ่มหน้าสุดท้าย */
+  const lastBtn = document.createElement("button");
+  lastBtn.textContent = ">>";
+  lastBtn.className = "px-4 py-2 rounded-lg bg-white text-blue-700 border hover:bg-blue-100";
+  lastBtn.onclick = () => {
+    congratsPage = totalPages;
+    renderCongrats(congratsPage);
+    renderCongratsPagination();
+  };
+  pagination.appendChild(lastBtn);
+
 }
 
 /* -------------------------

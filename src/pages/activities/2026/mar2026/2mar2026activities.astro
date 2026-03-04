@@ -1,0 +1,78 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = "วิทยาลัยศาสนศึกษาเข้าร่วมพิธีวันครบรอบ 57 ปี วันพระราชทานนาม 138 ปี มหาวิทยาลัยมหิดล<br>College of Religious Studies Joins the Ceremony for the 57th Anniversary of the Bestowal of the Name and the 138th Anniversary of Mahidol University";
+const date = "2 มีนาคม 2569";
+const description = "";
+const gallery = [
+  "/img/activities/2026/mar2026/2mar2026activities/2mar2026activities-1.jpg",
+  "/img/activities/2026/mar2026/2mar2026activities/2mar2026activities-2.jpg",
+  "/img/activities/2026/mar2026/2mar2026activities/2mar2026activities-3.jpg",
+  "/img/activities/2026/mar2026/2mar2026activities/2mar2026activities-4.jpg",   
+  ]
+---
+
+<Layout title={title} description={description}>
+  <article style="max-width:800px; margin:40px auto; padding:0 20px;">
+    <h1 set:html={title}></h1>
+    <p style="color:#555; font-size:0.9rem;">{date}</p>
+
+    <p>{description}</p>   
+
+    <p>   
+วันที่ 2 มีนาคม 2569 มหาวิทยาลัยมหิดลได้จัดงานครบรอบ "57 ปี และวันพระราชทานนาม 138 ปี มหาวิทยาลัยมหิดล" โดยมี ศาสตราจารย์ นพ.ปิยะมิตร ศรีธรา อธิการบดีมหาวิทยาลัยมหิดล เป็นประธานในพิธี<br>
+ในโอกาสนี้ ผู้ช่วยศาสตราจารย์ ดร.ไพเราะ มากเจริญ คณบดีวิทยาลัยศาสนศึกษา และ Assoc. Prof. Dr. Milos Hubina รองคณบดีฝ่ายวิจัยและวิเทศสัมพันธ์ พร้อมด้วยคณาจารย์และบุคลากรของวิทยาลัยศาสนศึกษา ได้เข้าร่วมพิธีวางพานพุ่มถวายราชสักการะ พระรูปสมเด็จพระมหิตลาธิเบศร อดุลยเดชวิกรม พระบรมราชชนก เพื่อแสดงความสำนึกในพระมหากรุณาธิคุณ ณ สำนักงานอธิการบดี มหาวิทยาลัยมหิดล ศาลายา<br>
+วิทยาลัยศาสนศึกษาขอร่วมเฉลิมฉลองวาระสำคัญนี้ และมุ่งมั่นที่จะสืบสานปณิธานของมหาวิทยาลัยมหิดลในการสร้างองค์ความรู้ และคุณประโยชน์แก่สังคมอย่างต่อเนื่อง 
+<br><br>
+College of Religious Studies Joins the Ceremony for the 57th Anniversary of the Bestowal of the Name and the 138th Anniversary of Mahidol University<br>
+On March 2, 2026, Mahidol University held a ceremony to commemorate the "57th Anniversary of the Royal Bestowal of the Name and the 138th Anniversary of Mahidol University." The event was presided over by Professor Piyamit Srithara, M.D., President of Mahidol University.<br>
+On this auspicious occasion, Assistant Professor Dr. Pairor Makcharoen, Dean of the College of Religious Studies, along with Associate Professor Dr. Milos Hubina, Deputy Dean for Research and International Relations, and the faculty and staff, participated in the wreath-laying ceremony. They paid tribute to the statue of His Royal Highness Prince Mahidol of Songkla to express their profound gratitude for his royal benevolence at the Office of the President, Mahidol University, Salaya.<br>
+The College of Religious Studies proudly celebrates this significant milestone and remains steadfast in its commitment to upholding Mahidol University’s mission—to generate knowledge and create lasting benefits for society.
+
+
+</p>
+    <!-- Grid รูปเล็ก -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin-top:20px;">
+      {gallery.map((src, index) => (
+        <img 
+  src={src} 
+  style="width:100%; height:auto; object-fit:contain; border-radius:6px; cursor:pointer;" 
+  onclick={`document.getElementById('lb').style.display='flex'; document.getElementById('lb-img').src='${src}'`} 
+/>
+      ))}
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lb" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+    ">
+      <button id="lb-close" style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        font-size:2rem;
+        color:white;
+        background:none;
+        border:none;
+        cursor:pointer;
+      ">×</button>
+      <img id="lb-img" src="" style="max-width:90%; max-height:90%; border-radius:6px;" />
+    </div>
+
+    <script type="text/javascript">
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const lbClose = document.getElementById('lb-close');
+
+      lbClose.addEventListener('click', () => { lb.style.display = 'none'; });
+      lb.addEventListener('click', e => { if(e.target === lb) lb.style.display = 'none'; });
+    </script>
+  </article>
+</Layout>
