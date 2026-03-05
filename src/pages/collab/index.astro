@@ -7,6 +7,12 @@ const description = 'วิทยาลัยศาสนศึกษา';
 
 const articles = [
   {
+    title: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล หารือความร่วมมือเชิงยุทธศาสตร์กับคณะอักษรศาสตร์ มหาวิทยาลัยศิลปากร เพื่อพัฒนาหลักสูตรร่วมและเสริมสร้างเครือข่ายมนุษยศาสตร์<br>College of Religious Studies, Mahidol University Holds Strategic Discussion with the Faculty of Arts, Silpakorn University on Joint Academic Programs.",
+    date: "4 มีนาคม 2569",
+    slug: "2026collab/mar2026collab/4mar2026collab",
+    image: "/img/collab/2026collab/mar2026collab/4mar2026collab/4mar2026collab-1.jpg"
+  },
+  {
     title: "วิทยาลัยศาสนศึกษา ม.มหิดล จับมือวิทยาลัยในวัง เดินหน้าพัฒนาวิชาโทและงานบริการวิชาการ บูรณาการศาสนากับศิลปวัฒนธรรมไทย <br> College of Religious Studies, Mahidol University and Witthayalai Nai Wang Initiate Collaboration on Minor Program and Academic Services Integrating Religion and Thai Cultural Heritage",
     date: "26 กุมภาพันธ์ 2569",
     slug: "2026collab/feb2026collab/26feb2026collab",
@@ -17,7 +23,7 @@ const articles = [
     date: "18 ธันวาคม 2568",
     slug: "dec2025collab/18dec2025collab",
     image: "/img/collab/dec2025/18dec2025collab/18dec2025collab-3.jpg"
-  }
+  }  
 ];
 ---
 <Layout title={title} description={description}>
@@ -27,13 +33,12 @@ const articles = [
     <h2 style="margin-bottom:20px;">การประชุมเครือข่ายความร่วมมือทางวิชาการ - Academic Cooperation Network Meeting</h2>
 
     <div
-      style="
-        display:grid;
-        grid-template-columns:repeat(auto-fit, minmax(320px, 420px));
-        gap:24px;
-        justify-content:flex-start;
-      "
-    >
+  style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:24px;
+  "
+>
       {articles.map(article => (
         <a
           href={`/collab/${article.slug}`}

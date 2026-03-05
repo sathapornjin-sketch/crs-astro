@@ -13,6 +13,13 @@
    Information of Seminar
 ---------------------------- */
 const seminar = [
+{
+    title: "วิทยาลัยศาสนศึกษา มหาวิทยาลัยมหิดล หารือความร่วมมือเชิงยุทธศาสตร์กับคณะอักษรศาสตร์ มหาวิทยาลัยศิลปากร เพื่อพัฒนาหลักสูตรร่วมและเสริมสร้างเครือข่ายมนุษยศาสตร์<br>College of Religious Studies, Mahidol University Holds Strategic Discussion with the Faculty of Arts, Silpakorn University on Joint Academic Programs.",
+    date: "4 มีนาคม 2569",
+    slug: "collab/2026collab/mar2026collab/4mar2026collab",
+    isBirth: true,
+    image: "/img/collab/2026collab/mar2026collab/4mar2026collab/4mar2026collab-1.jpg"
+  },
   {
     title: "วิทยาลัยศาสนศึกษา ม.มหิดล แบ่งปันองค์ความรู้สู่เครือข่ายวิชาการ ร่วมบรรยายพิเศษ “พระพุทธศาสนามหายานในญี่ปุ่น” ณ ม.เกษตรศาสตร์ <br> CRS Mahidol Expands Academic Networks through Special Lecture on 'Japanese Mahayana Buddhism' at Kasetsart University",
     description: "",
@@ -189,7 +196,13 @@ function renderSeminar(page) {
 
   container.innerHTML = seminar.slice(start, start + seminarPerPage)
     .map(item => `
-      <a href="${item.link ? item.link : `/seminar/${item.slug}/`}" target="_blank"
+      <a href="${
+  item.link 
+    ? item.link 
+    : item.slug.startsWith('collab')
+      ? `/${item.slug}/`
+      : `/seminar/${item.slug}/`
+}" target="_blank"
          class="block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1">
 
         <div class="relative w-full h-56 bg-white overflow-hidden flex items-center justify-center">
